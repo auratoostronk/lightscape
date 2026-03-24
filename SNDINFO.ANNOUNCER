@@ -1,0 +1,64 @@
+// Welcome sounds
+announcer/an/welcometotdm					anweltdm
+announcer/an/welcometodm 					anweldm
+announcer/an/welcometodl 					anweldl
+announcer/an/welcometolms 					anwellms
+announcer/an/welcometodom 					anweldom
+announcer/an/welcometoctf					anwelctf
+
+//	Blue Team Sounds
+announcer/an/blueflagdropped				anbfldrp
+announcer/an/blueflagreturned				anbflrtn
+announcer/an/blueflagtaken					anbfltkn
+announcer/an/blueleads						anblueld
+announcer/an/bluescores						anbscore
+
+//	Red Team Sounds
+announcer/an/redflagdropped					anrfldrp
+announcer/an/redflagreturned				anrflrtn
+announcer/an/redflagtaken					anrfltkn
+announcer/an/redleads						anredld
+announcer/an/redscores						anrscore
+
+// Time Warnings
+announcer/an/oneminutewarning				anonmwrn
+announcer/an/fiveminutewarning				anfmnwrn
+
+//	Player Notifications
+announcer/an/teamsaretied					anteamtd
+announcer/an/youaretiedforthelead			antiedld
+announcer/an/youvelostthelead				anlostld
+announcer/an/youvetakenthelead				antaknld
+
+announcer/an/one							anone
+announcer/an/onefragleft					anonefrg
+announcer/an/two							antwo
+announcer/an/twofragsleft					antwofrg
+announcer/an/three							anthree
+announcer/an/threefragsleft					anthrfrg
+
+announcer/an/preparetofight					anprepar
+announcer/an/youwin							anwin
+announcer/an/victory						anwin
+announcer/an/defeat							anlose
+announcer/an/fight							anfight
+
+//	Vote Sounds
+announcer/an/votefailed					anvfail
+announcer/an/votenow					anvnow
+announcer/an/votepassed					anvpass
+
+
+// Sprees / Streaks
+announcer/an/spree5 			anspre5
+announcer/an/spree10			anspre10
+announcer/an/spree15 			anspre15
+announcer/an/spree20 			anspre20
+announcer/an/spree25 			anspre25
+
+announcer/an/multi2 			anmulti2
+announcer/an/multi3 			anmulti3
+announcer/an/multi4 			anmulti4
+announcer/an/multi5 			anmulti5
+announcer/an/multim 			anmultim
+

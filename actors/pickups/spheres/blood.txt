@@ -1,0 +1,195 @@
+//------------------------------------------------------------
+//Pickup class for Blood Sphere
+//------------------------------------------------------------
+Actor BloodSpherePickup : CustomInventory 12102
+{
+	//Doom Builder things category
+	//$Category Lightscape Pickups
+	
+	//Propreties
+	Radius 24
+	Height 48
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Blood Sphere - Fires a projectile that siphons health."
+	Inventory.PickupSound "Pickups/Sphere"
+	Inventory.RespawnTics 700 // 20 seconds
+	//Scale 0.5
+	Tag "Blood Sphere"
+	
+	//Flags
+	+FLOATBOB
+	+BRIGHT
+	+SERVERNETID
+	+INVBAR
+	
+	//States
+	States
+	{
+	Spawn:
+		SPHP C 1
+		loop
+	Pickup:
+		TNT1 A 0 A_JumpIf(CallACS("CheckForSphere") == 0, "Success") //Only allow pickup if no other active items are held.
+		fail
+	Success:
+		TNT1 A 0 ACS_NamedExecuteAlways("HoldingSphere", 0, 0)
+		TNT1 A 0 A_GiveInventory("BloodSphereReady", 1)
+		stop
+	}
+}
+
+//------------------------------------------------------------
+//Inventory class for Blood Sphere
+//------------------------------------------------------------
+Actor BloodSphereReady : Inventory
+{
+	//Propreties
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Tag "Disc Sphere"
+	
+	//Flags
+	+SERVERNETID
+}
+
+//------------------------------------------------------------
+//Dummy actor for now
+//------------------------------------------------------------
+Actor BloodSphereInUse : Inventory
+{
+	//Propreties
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	
+	//Flags
+	+SERVERNETID
+}
+
+//------------------------------------------------------------
+//Held sphere in front of player
+//------------------------------------------------------------
+Actor BloodSphereReadyFX : SphereReadyBase
+{
+	//States
+	States
+	{
+	Spawn:
+		SPHR C 1 A_Warp(AAPTR_TARGET, 32.0, -24.0, 20.0, 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+		loop
+	Death:
+		TNT1 A 0 A_SetScale(scalex * 0.8 , scaley * 0.8)
+		SPHR C 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+//------------------------------------------------------------
+//Fires one projectile upon entering inventory
+//------------------------------------------------------------
+Actor BloodSphereFire : CustomInventory
+{
+	//Flags
+	+SERVERNETID
+	+INVENTORY.AUTOACTIVATE
+	
+	//States
+	States
+	{
+	Use:
+		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
+		TNT1 A 0 A_FireCustomMissile("BloodSphereProjectile", 0, false, -8.0, -2.0)
+		stop
+	}
+}
+
+//------------------------------------------------------------
+//Blood Sphere projectile
+//------------------------------------------------------------
+ACTOR BloodSphereProjectile
+{
+	//Properties
+	Radius 6
+	Height 12
+	Speed 48
+	Damage (0)
+	Projectile
+	RenderStyle Add
+	Gravity 0.5
+	SeeSound "Items/BloodSphere/Fire"
+	Obituary "%k > \chBlood Sphere\c- > %o"
+	
+	//Flags
+	-NOGRAVITY
+	+BRIGHT
+	+SEEKERMISSILE //For hit sounds
+	
+	//Constants
+	const int RADIUS_OUTER = 160;
+	
+	//States
+	States
+	{
+	Spawn:
+		SPHR C 1 A_SpawnItemEx("BloodSphereProjectileTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		loop
+	XDeath:
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BloodSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_Quake(2, 8, 0, 384)
+		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE)
+		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)
+		TNT1 AAAAAAAAAA 2 A_CustomMissile("HealingFXSeeker", frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0, CMF_TRACKOWNER, frandom(-8.0, 8.0))
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_GiveToTarget("Health", 1) //30 Health
+		Goto FinishDeath
+	Death:
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BloodSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_Quake(2, 8, 0, 384)
+		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE)
+		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
+		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER)
+		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
+		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")
+		Goto FinishDeath
+	HitSoft:
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		TNT1 AAAAAAAAAA 2 A_CustomMissile("HealingFXSeeker", frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0, CMF_TRACKOWNER, frandom(-8.0, 8.0))
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_GiveToTarget("Health", 1) //30 Health
+		Goto FinishDeath
+	FinishDeath:
+		TNT1 A 105 //Required for unlagged
+		stop
+	}
+}
+
+ACTOR BloodSphereProjectileTrail : LSParticleBase
+{
+	// Properties
+	Scale 0.25
+	States
+	{
+	Spawn:
+		RPEW A 4
+	Spawn1:
+		RPEW A 1 A_FadeOut(0.05)
+		Loop
+	}
+}
+Actor BloodSphereImpactFX : LSBouncingParticleBase
+{
+	// Properties
+	Scale 0.5
+	Gravity 1.0
+	BounceFactor 0.5
+	BounceCount 3
+	
+	States
+	{
+		Spawn:
+		TNT1 A 0 A_SetScale(scalex - 0.05, scaley - 0.05)
+		RSPK A 1 A_FadeOut(0.05)
+		loop
+	}
+}

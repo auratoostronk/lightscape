@@ -1,0 +1,141 @@
+// Gameinfo
+Gameinfo
+{
+	PlayerClasses = "LightscapePlayer"
+	//IntermissionMusic = "INTERMUS"
+	MenuFontColor_Title = "White"
+	MenuFontColor_Action = "Red"
+	MenuFontColor_Label =  "Red"
+	MenuFontColor_Selection = "White"
+	MenuFontColor_Value= "White"
+	MenuFontColor_Header = "White"
+	MenuFontColor_Highlight = "White"
+}
+
+ // Skills
+clearskills
+skill LSDefault
+{
+	Name = "Default"
+	DoubleAmmoFactor = 1.0
+	SpawnFilter = 4
+}
+/*skill LSCasual
+{
+	Name = "Casual"
+	DamageFactor = 1.25
+	DoubleAmmoFactor = 1.0
+	SpawnFilter = 3
+}*/
+
+// Titlemap
+map TITLEMAP lookup "Titlemap"
+{
+	levelnum = 999
+	sky1 = "DECAYSKY", 0
+	music = "PRELUDE"
+	NotCategory0
+}
+
+// Deathmatch maps
+map LSDM01 lookup "Quarry"
+{
+	levelnum = 1
+	sky1 = "DUSTSKY", 0
+	music = "ONSLAUGH"
+	next = "LSDM02"
+	PreviewPic = "PPICDM01"
+	AllowRespawn
+}
+map LSDM02 lookup "Sediment"
+{
+	levelnum = 2
+	sky1 = "DFIRESKY", 0
+	music = "ARMSRACE"
+	next = "LSDM03"
+	PreviewPic = "PPICDM02"
+	AllowRespawn
+}
+map LSDM03 lookup "Igneous"
+{
+	levelnum = 3
+	sky1 = "REDSKY", 0
+	music = "FWOFEAR"
+	next = "LSDM04"
+	PreviewPic = "PPICDM03"
+	AllowRespawn
+}
+map LSDM04 lookup "Stronghold"
+{
+	levelnum = 4
+	sky1 = "REDSKY", 0
+	music = "THRYASIS"
+	next = "LSDM05"
+	PreviewPic = "PPICDM04"
+	AllowRespawn
+}
+map LSDM05 lookup "Frostbite"
+{
+	levelnum = 5
+	sky1 = "SNOWSKY", 0
+	music = "SABOTAGE"
+	next = "LSDM06"
+	PreviewPic = "PPICDM05"
+	AllowRespawn
+}
+map LSDM06 lookup "Torrent"
+{
+	levelnum = 6
+	sky1 = "OLOSSKY", 0
+	music = "THRYASIS"
+	next = "LSDM07"
+	PreviewPic = "PPICDM06"
+	AllowRespawn
+}
+map LSDM07 lookup "Contaminant"
+{
+	levelnum = 7
+	sky1 = "REDSKY", 0
+	music = "LASTSTAN"
+	next = "LSDM08"
+	PreviewPic = "PPICDM07"
+	AllowRespawn
+}
+map LSDM08 lookup "Sinkhole"
+{
+	levelnum = 8
+	sky1 = "OLOSSKY", 0
+	music = "SEEKNDES"
+	next = "LSDM09"
+	PreviewPic = "PPICDM08"
+	AllowRespawn
+}
+map LSDM09 lookup "Andesite"
+{
+	levelnum = 9
+	sky1 = "REDSKY", 0
+	music = "ARMSRACE"
+	next = "LSDM10"
+	PreviewPic = "PPICDM09"
+	AllowRespawn
+}
+map LSDM10 lookup "Excavation"
+{
+	levelnum = 10
+	sky1 = "DFIRESKY", 0
+	music = "SABOTAGE"
+	next = "LSDM01"
+	PreviewPic = "PPICDM10"
+	AllowRespawn
+}
+
+// Duel maps
+map LSDL01 lookup "Desolation"
+{
+	levelnum = 101
+	sky1 = "SNOWSKY", 0
+	music = "ONSLAUGH"
+	next = "LSDL01"
+	PreviewPic = "PPICDL01"
+	AllowRespawn
+}

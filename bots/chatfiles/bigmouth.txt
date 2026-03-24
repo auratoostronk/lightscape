@@ -1,0 +1,21 @@
+[IntroStrings]
+"Ain't gonna talk yo head off."
+"Type more! play less!"
+
+[KilledStrings]
+"Bro how?!?"
+"WTF!?!?!?"
+
+[FragStrings]
+"EAT THAT!"
+"GET OWNED!"
+
+[RoamingStrings]
+"I can't find any health packs!"
+
+[RareRoamingstrings]
+""
+
+[EnragedStrings]
+"This game sucks! I'm bout to refund it!"
+

@@ -1,0 +1,10 @@
+IWad
+{
+	Name = "LIGHTSCAPE: ARENA"
+	Autoname = "Lightscape Arena"
+	Game = "Doom"
+	Config = "LightscapeArena"
+	Mapinfo = "mapinfo"
+	MustContain = "LSDM01"
+	BannerColors = "FF 00 00", "00 00 00"
+}

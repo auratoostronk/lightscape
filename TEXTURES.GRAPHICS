@@ -1,0 +1,12 @@
+Graphic "LSTITLE", 791, 136
+{
+	XScale 4.000
+	YScale 4.000
+	Patch "LSTITLE", 0, 0
+}
+Graphic "M_PICK", 64, 64
+{
+	XScale 4.000
+	YScale 4.000
+	Patch "M_PICK", 0, 0
+}

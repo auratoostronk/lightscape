@@ -1,0 +1,133 @@
+#library "player"
+#include "zcommon.acs"
+#import "weapon.acs"
+#import "lib.acs"
+#import "active.acs"
+
+//Stores the player's ability ID throughout the match.
+int PLAYER_ACTIVES[MAX_PLAYERS];
+//Stores the player's starting weapon ID throughout the match.
+int PLAYER_WEAPONS[MAX_PLAYERS];
+//Stores the player's dash type ID throughout the match.
+int PLAYER_DASHES[MAX_PLAYERS];
+
+function void setupActive()
+{
+	int abil = GetCVAR("ls_active");
+	if(ClassifyActor(0) & ACTOR_BOT)
+		abil = random(0, NUM_ACTIVES - 1);
+	if(abil < 0 || abil >= NUM_ACTIVES)
+		abil = 0;
+	PLAYER_ACTIVES[PlayerNumber()] = abil;
+	GiveInventory(ACTIVE_INVENTORY[PLAYER_ACTIVES[PlayerNumber()]], 1);	
+}
+function void setupWeapon()
+{
+	int weap = GetCVAR("ls_startweap");
+	if(ClassifyActor(0) & ACTOR_BOT)
+		weap = random(0, NUM_WEAPS - 1);
+	if(weap < 0 || weap >= NUM_WEAPS)
+		weap = 0;
+	PLAYER_WEAPONS[PlayerNumber()] = weap;
+	GiveInventory(WEAP_ACTORS[weap], 1);
+}
+function void setupDash()
+{
+	int dash = GetCVAR("ls_dash");
+	if(ClassifyActor(0) & ACTOR_BOT)
+		dash = random(0, NUM_DASHES - 1);
+	if(dash < 0 || dash >= NUM_DASHES)
+		dash = 0;
+	PLAYER_DASHES[PlayerNumber()] = dash;
+	GiveInventory(DASH_INVENTORY[PLAYER_DASHES[PlayerNumber()]], 1);
+	ACS_NamedExecuteAlways("DashSetupServer", 0, PLAYER_DASHES[PlayerNumber()]);
+	ACS_NamedExecuteAlways("DashSetupClient", 0, PLAYER_DASHES[PlayerNumber()]);
+}
+function void resetLoadout()
+{
+	ClearInventory();
+	refillAmmo();
+	setupWeapon();
+	setupActive();
+	setupDash();
+}
+Script "DashSetupServer" (int type)
+{
+	SetActionScript(0, BT_USER1, DASH_SCRIPTS[type]);
+	if(type == 1)
+		SetActionScript(0, 0, "BlinkActive");
+}
+Script "DashSetupClient" (int type)
+{
+	SetActionScript(0, BT_USER1, DASH_SCRIPTS[type]);
+	if(type == 1)
+		SetActionScript(0, 0, "BlinkActive");
+}
+Script "PlayerEnter" ENTER
+{
+	if(GameType() == GAME_TITLE_MAP)
+		terminate;
+	//SetPlayerScore(-1, SCORE_FRAGS, 0);
+	Thing_ChangeTID(0, PLAYER_TIDOFFSET + PlayerNumber());
+	/*if(GetGamemodeState() == GAMESTATE_WAITFORPLAYERS || GetGamemodeState() == GAMESTATE_COUNTDOWN)
+	{
+		
+	}*/
+	if(GetGamemodeState() != GAMESTATE_INPROGRESS)
+	{
+		if(!(ClassifyActor(0) & ACTOR_BOT))
+		{
+			//Crashes in Multiplayer
+			//ConsoleCommand("openmenu MatchPrepWeapon");
+		}
+	}
+	else
+	{
+		
+	}
+	resetLoadout();
+}
+//Make sure the menu opens on the client for multiplayer to work.
+Script "PlayerEnterClient" ENTER CLIENTSIDE
+{
+	if(GetGamemodeState() != GAMESTATE_INPROGRESS)
+	{
+		if(!(ClassifyActor(0) & ACTOR_BOT))
+		{
+			ConsoleCommand("openmenu MatchPrepWeapon");
+		}
+	}
+}
+Script "PlayerRespawn" RESPAWN
+{
+	refillAmmo();
+	Thing_ChangeTID(0, PLAYER_TIDOFFSET + PlayerNumber());
+	GiveInventory(ACTIVE_INVENTORY[PLAYER_ACTIVES[PlayerNumber()]], 1);
+	GiveInventory(WEAP_ACTORS[PLAYER_WEAPONS[PlayerNumber()]], 1);
+	GiveInventory(DASH_INVENTORY[PLAYER_DASHES[PlayerNumber()]], 1);
+	ACS_NamedExecuteAlways("DashSetupServer", 0, PLAYER_DASHES[PlayerNumber()]);
+	ACS_NamedExecuteAlways("DashSetupClient", 0, PLAYER_DASHES[PlayerNumber()]);
+}
+//Player disconnects or spectates
+Script "PlayerDisconnect" (int pnum) DISCONNECT
+{
+	PLAYER_ACTIVES[pnum] = -1;
+	PLAYER_WEAPONS[pnum] = -1;
+	PLAYER_DASHES[pnum] = -1;
+	//Do not let player disconnect, change loadout, and reconnect with same score!
+	SetPlayerScore(pnum, SCORE_FRAGS, 0);
+	SetPlayerScore(pnum, SCORE_DEATHS, 0);
+}
+//Close loadout menu. Resets loadout if match is not in progress (i.e. warmup)
+Script "LoadoutMenuClose" (void) NET
+{
+	if(GetGamemodeState() != GAMESTATE_INPROGRESS)
+	{
+		resetLoadout();
+		print(s:"You can change your loadout in the pause menu prior to match start.");
+	}
+	else
+	{
+		print(s:"Your loadout will change next match.");
+	}
+}

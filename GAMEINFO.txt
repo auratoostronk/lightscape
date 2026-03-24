@@ -1,0 +1,3 @@
+IWAD = "fakeiwad.wad"
+STARTUPTITLE = "LIGHTSCAPE: Arena"
+STARTUPCOLORS = "FF 00 00", "00 00 00"

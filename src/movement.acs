@@ -1,0 +1,313 @@
+#library "movement"
+#include "zcommon.acs"
+#import "lib.acs"
+#import "hud.acs"
+
+#define OMNI_LATTHRUST 18
+#define OMNI_VTHRUST 8
+
+#define BLINK_STRENGTH 1.0
+#define BLINK_DURATION 6
+
+int travelPredictableValue[MAX_PLAYERS];
+int travelPredictableVelX[MAX_PLAYERS];
+int travelPredictableVelY[MAX_PLAYERS];
+int travelPredictableVelZ[MAX_PLAYERS];
+
+function int getOmnidashAngle(int fm, int sm, int angle)
+{
+	int ret = angle;
+	//Backwards
+	if(fm < 0)
+	{
+		//Straight backwards
+		ret = ret + 128;
+		if(sm != 0)
+		{
+			ret += sign(sm) * 32;
+		}
+	}
+	//Sideways
+	else if(fm == 0)
+	{
+		if(sm == 0)
+		{
+			//Forward dash
+		}
+		else
+		{
+			ret += sign(sm) * 64;
+		}
+	}
+	//Forwards angled
+	else
+	{
+		if(sm != 0)
+		{
+			ret += sign(sm) * 32;
+		}
+	}
+	return ret;
+}
+
+function bool tryUseDash()
+{
+	bool hasTravelPickup = (CheckInventory("Afterburner") > 0);
+	bool isReady = (CheckInventory("DashCD") == 0);
+	//If the player has a charge of the ability...
+	if(hasTravelPickup || isReady)
+	{
+		if(isReady) //No cooldown
+		{
+			GiveMax("DashCD");
+		}
+		else //Has an afterburner
+		{
+			TakeInventory("Afterburner", 1);
+		}
+		DropInventory(0, "RedFlag");
+		DropInventory(0, "BlueFlag");
+		return true;
+	}
+	else
+	{
+		LocalAmbientSound("Feedback/Error", 64);
+		return false;
+	}
+}
+
+//Clean up later
+Script "BotDash" ENTER
+{
+	while(true)
+	{
+		If(ClassifyActor(0) & ACTOR_BOT)
+		{
+			//Randomly attempts to use dash
+			if(random(0, 35) * 2 == 0)
+			{
+				if(tryUseDash() == true)
+				{
+					SpawnSpotFacingForced("DashSmokeSpawner", 0, 0);
+					PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+					
+					DropInventory(0, "RedFlag");
+					DropInventory(0, "BlueFlag");
+					
+					int fm = random(-1, 1), sm = random(-1, 1);
+					int currAngle = GetActorAngle(0) >> 8;
+					int thrustAngle = getOmnidashAngle(fm, sm, currAngle);
+					ThrustThingZ(0, OMNI_VTHRUST, 0, 0);
+					ThrustThing(thrustAngle, OMNI_LATTHRUST, 1, 0);
+					for(int i = 0; i < 18; i++)
+					{
+						SpawnSpotFacingForced("DashTrail", 0, 0);
+						delay(1);
+					}
+				}
+			}
+		}
+		delay(1);
+	}
+}
+
+//Omni Dash
+Script "OmniDash" (int predicting, int pressed, int released, int buttons)
+{
+	//Sloppy code that works. Whatever.
+    if(pressed)
+    {
+        if(predicting == 0)
+        {
+            bool hasAfterburner = (CheckInventory("Afterburner") > 0);
+            bool isReady = (CheckInventory("OmniDashCD") == 0);
+			//If the player has a charge of the ability...
+            if (hasAfterburner || isReady)
+            {
+                SetPredictableValue(0, 0, 1);
+				//Play the sound and drops any held flags while spawning a smoke trail
+				DropInventory(0, "RedFlag");
+				DropInventory(0, "BlueFlag");
+				TakeInventory("OmniTrailTics", 350);
+				GiveInventory("OmniTrailTics", 18);
+				PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+                if(hasAfterburner)
+					TakeInventory("Afterburner", 1);
+				else
+					GiveMax("OmniDashCD");
+            }
+			else
+			{	
+				LocalAmbientSound("Feedback/Error", 64);
+			}
+        }
+        if (GetPredictableValue(0, 0) == 1)
+        {
+			//Slop code needs rewrite...
+			int thrust = OMNI_LATTHRUST;
+			if(!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK)
+			&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD)
+			&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+			&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT))
+			{
+				//No directional input
+				if(GetPlayerInput(-1, INPUT_FORWARDMOVE) == 0 
+				&& GetPlayerInput(-1, INPUT_SIDEMOVE) == 0)
+				{
+					ThrustThing(GetActorAngle(0) >> 8, thrust, 1, 0);
+				}
+				//Controller Input
+				else
+				{
+					int fmove = GetPlayerInput(-1, INPUT_FORWARDMOVE);
+					int smove = GetPlayerInput(-1, INPUT_SIDEMOVE);
+					//Reduce Thrust at diagonals
+					if(fmove != 0 && smove != 0)
+						thrust = OMNI_LATTHRUST * 3 / 4;
+					
+					if(smove < 0)
+					{
+						ThrustThing((GetActorAngle(0)>>8) + 64, thrust, 1, 0);
+					}
+					if(smove > 0)
+					{
+						ThrustThing((GetActorAngle(0)>>8) + 192, thrust, 1, 0);
+					}
+					if(fmove < 0)
+					{
+						ThrustThing((GetActorAngle(0)>>8) + 128, thrust, 1, 0);
+					}
+					if(fmove > 0)
+					{
+						ThrustThing((GetActorAngle(0)>>8), thrust, 1, 0);
+					}
+				}
+			}
+			//Keyboard input
+			else
+			{
+				//Reduce thrust at diagonals.
+				if((GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+					|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
+					|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+					|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT))
+				{
+					thrust = OMNI_LATTHRUST * 3 / 4;
+				}
+					
+				if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK)
+					ThrustThing((GetActorAngle(0) >> 8) + 128, thrust, 1, 0);
+				if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD)
+					ThrustThing(GetActorAngle(0) >> 8, thrust, 1, 0);
+				if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+					ThrustThing((GetActorAngle(0) >> 8) + 64, thrust, 1, 0);
+				if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
+					ThrustThing((GetActorAngle(0) >> 8) + 192, thrust, 1, 0);
+			}
+			ThrustThingZ(0, OMNI_VTHRUST, 0, 1);
+        }
+    }
+}
+
+//Phase Dash
+Script "BlinkDash" (int predicting, int pressed, int released, int buttons)
+{
+	if (pressed)
+    {
+        if (predicting == 0)
+        {
+            bool hasAfterburner = (CheckInventory("Afterburner") > 0);
+            bool isReady = (CheckInventory("WarpDashCD") == 0);
+			//If the player has a charge of the ability...
+            if (hasAfterburner || isReady)
+			{
+				//Stores the users velocity.
+				travelPredictableVelX[PlayerNumber()] = GetActorVelX(0);
+				travelPredictableVelY[PlayerNumber()] = GetActorVelY(0);
+				travelPredictableVelZ[PlayerNumber()] = GetActorVelZ(0);
+				//Stores the amount of tics in magic Q-Zandronum netcode fashion
+                travelPredictableValue[PlayerNumber()] = BLINK_DURATION;
+                SetPredictableValue(0, 0, travelPredictableValue[PlayerNumber()]);
+				
+				//Create a tele fog, play a sound, grant the user invis + invuln.
+                SpawnSpotFacingForced("TeleportFog", 0, 0);
+                PlaySound(0, "Dash/Blink/Start", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+				SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NONE);
+                SetActorFlag(0, "SHOOTABLE", false);
+                SetActorFlag(0, "INVISIBLE", true);
+				DropInventory(0, "RedFlag");
+				DropInventory(0, "BlueFlag");
+                if(hasAfterburner)
+					TakeInventory("Afterburner", 1);
+				else
+					GiveMax("WarpDashCD");
+            }
+			else
+			{	
+				LocalAmbientSound("Feedback/Error", 64);
+            }
+        }
+    }
+}
+Script "BlinkActive" (int predicting, int pressed, int released, int buttons)
+{
+    int ticks;
+    if (predicting)
+        ticks = GetPredictableValue(0, 0);
+    else
+        ticks = travelPredictableValue[PlayerNumber()];
+
+	//Start of the warp
+    if (ticks == BLINK_DURATION)
+    {
+		//Grab some information from the activator
+        int angle = GetActorAngle(0);
+        int pitch = -GetActorPitch(0); //Up is positive now
+        int upordown;
+        if(pitch > 0)
+            upordown = 0;
+        else
+            upordown = 1;
+        
+		//Move the activator
+        ThrustThing(angle >> 8, (((cos(abs(pitch))) >> 8) * FixedMul(0.25, BLINK_STRENGTH)) >> 16, 1, 0);
+        ThrustThingZ(0, (((sin(abs(pitch))) >> 8) * FixedMul(1.0, BLINK_STRENGTH)) >> 16, upordown, 1);
+		
+		//Adjust magic Q-Zandronum netcode values
+        if (predicting == 0)
+        {
+            SetPredictableValue(0, 0, travelPredictableValue[PlayerNumber()]); // need to remember warp drive ticks for this tick
+            travelPredictableValue[PlayerNumber()] = travelPredictableValue[PlayerNumber()] - 1;
+        }
+    }
+	//Mid teleport.
+    else if (ticks > 1 && predicting == 0)
+    {
+		//Tick down
+        SetPredictableValue(0, 0, travelPredictableValue[PlayerNumber()]); // need to remember warp drive ticks for this tick
+        travelPredictableValue[PlayerNumber()] = travelPredictableValue[PlayerNumber()] - 1;
+    }
+	//End of teleport
+    else if (ticks == 1)
+    {
+		//Stop player and restore player velocity from before teleport.
+        Thing_Stop(0);
+        SetActorVelocity(0, travelPredictableVelX[PlayerNumber()], travelPredictableVelY[PlayerNumber()], travelPredictableVelZ[PlayerNumber()], false, false);
+		//Play sound, remove invis + invuln, spawn telefog.
+		PlaySound(0, "Dash/Blink/Done", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+		SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NORMAL);
+		SetActorFlag(0, "SHOOTABLE", true);
+		SetActorFlag(0, "INVISIBLE", false);
+		SpawnSpotFacingForced("TeleportFog", 0, 0);
+        
+        if (predicting == 0)
+        {
+            SetPredictableValue(0, 0, travelPredictableValue[PlayerNumber()]); // need to remember warp drive ticks for this tick
+            travelPredictableValue[PlayerNumber()] = 0;
+			//travelPredictableVelX[PlayerNumber()] = 0;
+			//travelPredictableVelY[PlayerNumber()] = 0;
+			//travelPredictableVelZ[PlayerNumber()] = 0;
+            //SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+        }
+    }
+}

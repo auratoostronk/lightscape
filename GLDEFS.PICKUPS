@@ -1,0 +1,85 @@
+//ARMOR PICKUPS
+Object NanoArmorSmall
+{
+	Frame ARMP { light ArmorLightSmall }
+}
+Object NanoArmorLarge
+{
+	Frame ARM3 { light ArmorLightLarge }
+}
+PointLight ArmorLightSmall
+{
+    color 0.0 0.5 1.0
+    size 16
+	offset 0 16 0
+}
+PointLight ArmorLightLarge
+{
+    color 0.0 0.5 1.0
+    size 32
+	offset 0 16 0
+}
+
+//HEALTH PICKUPS
+Object HealthSmall
+{
+	Frame STIM { light HealthLightSmall }
+}
+Object HealthLarge
+{
+	Frame MEDI { light HealthLightLarge }
+}
+PointLight HealthLightSmall
+{
+    color 0.0 1.0 0.0
+    size 16
+}
+PointLight HealthLightLarge
+{
+    color 0.0 1.0 0.0
+    size 32
+}
+
+//SPHERES
+Object HRailPickup
+{
+	Frame SPHP { light HRailLight }
+}
+PointLight HRailLight
+{
+    color 1.0 0.0 0.0
+    size 32
+	offset 0 16 0
+}
+Object RBurstPickup
+{
+	Frame SPHP { light RBurstLight }
+}
+PointLight RBurstLight
+{
+    color 0.0 0.0 1.0
+    size 32
+	offset 0 16 0
+}
+
+//OTHER PICKUPS
+Object Bandolier
+{
+	Frame ENRG { light BandolierLight }
+}
+PointLight BandolierLight
+{
+    color 1.0 1.0 0.0
+    size 16
+	offset 0 16 0
+}
+Object Afterburner
+{
+	Frame TCHG { light AfterburnerLight }
+}
+PointLight AfterburnerLight
+{
+    color 1.0 1.0 1.0
+    size 16
+	offset 0 16 0
+}

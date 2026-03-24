@@ -1,0 +1,238 @@
+//------------------------------------------------------------
+//SMG ammo class
+//------------------------------------------------------------
+Actor SMGAmmo : Ammo
+{
+    +SERVERNETID
+    Inventory.MaxAmount 50
+}
+
+//------------------------------------------------------------
+//Tesla SMG weapon class
+//------------------------------------------------------------
+Actor TeslaSMG : LSWeaponBase replaces Chainsaw
+{
+	//Properties
+    Tag "Tesla SMG (Slot 1)"
+    Weapon.AmmoType1 "SMGAmmo"
+    Weapon.AmmoType2 "SMGAmmo"
+    Weapon.AmmoUse1 1
+    Weapon.AmmoUse2 5
+    Weapon.SlotNumber 1
+    Inventory.Icon "SMGPA0"
+	
+	//States
+    States
+    {
+	
+	Spawn:
+		SMGP A 1 bright A_SetAngle(angle + 1.0)
+		loop
+		
+	Ready:
+		SMGR A 1 A_WeaponReady
+		loop
+		
+	Select:
+		SMGR AA 0 A_Raise
+		SMGR A 1 A_Raise
+		loop
+		
+	Deselect:
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		TNT1 A 0 A_StopSound(CHAN_7)
+		TNT1 A 0 A_ZoomFactor(1.0)
+		SMGR AA 0 A_Lower
+		SMGR A 1 A_Lower
+		loop
+		
+	Fire:
+		TNT1 A 0 A_JumpIf(CallACS("CheckBotAltFire", 0) == 1, "AltFire")
+		TNT1 A 0 A_JumpIf(CallACS("WeaponFireStart", 0) == 1, "FireSuccess")
+		SMGR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
+		Goto Ready
+		
+	FireSuccess:
+		TNT1 A 0 A_SpawnItemEX("YellowLightShoot")
+		TNT1 A 0 A_PlaySound("TeslaSMG/Fire", CHAN_WEAPON)
+		TNT1 A 0 A_PlaySound("TeslaSMG/FireFar", CHAN_7)
+		//TNT1 A 0 A_Recoil(-1.0)
+		SMGF A 1 A_FireCustomMissile("SMGProjectile", 0, true, 4.0, -1.0, 0, 0)
+		SMGF B 1
+		SMGF C 1
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFireDone", 0)
+		goto Ready
+		
+	AltFire:
+		TNT1 A 0 A_JumpIf(CallACS("WeaponAltFireStart", 0) == true, "AltFireSuccess")
+		SMGR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
+		Goto Ready
+		
+	AltFireSuccess:
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponAltFireCD", 0, 4)
+		TNT1 A 0 A_PlaySound("TeslaSMG/AltCharge", CHAN_WEAPON)
+		TNT1 A 0 A_PlaySound("TeslaSMG/AltChargeFar", CHAN_7)
+		SMGM ABCDE 2
+		TNT1 A 0 A_SpawnItemEX("YellowLightShoot")
+		TNT1 A 0 A_TakeInventory("SMGAmmo", 5) //CPF_USEAMMO is bugged
+		TNT1 A 0 A_Recoil(-24.0)
+		//TNT1 A 0 A_PlaySound("TeslaSMG/AltLoop", CHAN_WEAPON, 1.0, true)
+		//TNT1 A 0 A_PlaySound("TeslaSMG/AltLoopFar", CHAN_7, 1.0, true)
+		TNT1 A 0 A_PlaySound("TeslaSMG/AltFinish", CHAN_WEAPON)
+		TNT1 A 0 A_PlaySound("TeslaSMG/AltFinishFar", CHAN_7)
+		SMGM F 1 bright A_CustomPunch(5, true, CPF_USEAMMO, "TeslaPuff", 160)
+		SMGM GHFGHFGHFGHFGHFGHFGHFGH 1 bright A_CustomPunch(5, true, !CPF_USEAMMO, "TeslaPuff2", 160) //120 total damage
+		//TNT1 A 0 A_PlaySound("TeslaSMG/AltFinish", CHAN_WEAPON)
+		//TNT1 A 0 A_PlaySound("TeslaSMG/AltFinishFar", CHAN_7)
+		SMGM EDCBA 2
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFireDone", 0)
+		goto Ready
+		
+	AltFail:
+		TNT1 A 0 ACS_NamedExecuteAlways("AltFireFail")
+		SMGR A 1 A_WeaponReady(WRF_NOSECONDARY)
+		goto Ready
+    }
+}
+
+//------------------------------------------------------------
+//Taser protection (so only one tic of taser affects enemies)
+//------------------------------------------------------------
+/*Actor TaserProtection : PowerProtection
+{
+    +SERVERNETID
+    //DamageFactor "SMGMelee", 0.0
+    //Powerup.Duration 36
+}*/
+
+//------------------------------------------------------------
+//SMG projectile
+//------------------------------------------------------------
+Actor SMGProjectile
+{
+	//Properties
+    Projectile
+    Speed 40
+    Damage (10)
+    Radius 4
+    Height 8
+    Decal "SMGMainDecal"
+    Scale 0.2
+    MaxTargetRange 2
+    Obituary "%k > \ckTesla SMG\c- > %o"
+
+	//Flags
+    +DONTSPLASH
+    +BRIGHT
+    +RANDOMIZE
+    +SEEKERMISSILE
+
+	//States
+    States
+    {
+	Spawn:
+		ZAP7 ABCDE 2
+		loop
+	Death:
+		TNT1 AAAAAAAAAAAA 0 A_SpawnItemEx("SMGMissileDeathFX", 0.0, 0.0, 0.0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom (-4.0, 4.0))
+		ZAP7 FGHIJKL 1 A_SetScale(scalex + 0.1, scaley + 0.1)
+		TNT1 A 1
+		stop
+	XDeath:
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		goto Death
+    }
+}
+
+//------------------------------------------------------------
+//SMG death visual effect
+//------------------------------------------------------------
+Actor SMGMissileDeathFX : LSParticleBase
+{
+	//Properties
+    Scale 0.15
+    Gravity 0.5
+
+	//Flags
+    -NOGRAVITY
+	
+	//States
+    States
+    {
+	Spawn:
+		ZAP7 AABBCCDDEE 1 A_SetScale(scalex * 0.8, scaley * 0.8)
+		goto Death
+    }
+}
+
+//------------------------------------------------------------
+//Tesla SMG Alt-Fire puff
+//------------------------------------------------------------
+Actor TeslaPuff : BulletPuff
+{
+	//Properties
+    Scale 0.3
+    DamageType "SMGMelee"
+    //ActiveSound "TeslaSMG/AltFire"
+    //AttackSound "TeslaSMG/AltFire"
+    SeeSound "TeslaSMG/AltFireHit"
+    Obituary "%k > \ckTesla SMG (Alt)\c- > %o"
+    Decal "SMGAltDecal"
+	
+	//Flags
+    +PUFFONACTORS
+    +BRIGHT
+    +NOBLOCKMAP
+	-ALLOWPARTICLES
+
+	//States
+    States
+    {
+	Spawn:
+		TNT1 A 4
+		stop
+	Melee:
+		TNT1 A 4
+		stop
+	XDeath:
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("SMGMissileDeathFX", 0, 0, 0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0))
+		TNT1 A 4
+		stop
+	Crash:
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("SMGMissileDeathFX", 0, 0, 0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0))
+		TNT1 A 4
+		stop
+    }
+}
+
+//------------------------------------------------------------
+//Tesla SMG Alt-Fire silent follow-up puff for sustained melee ticks
+//------------------------------------------------------------
+Actor TeslaPuff2 : TeslaPuff
+{
+	//Properties
+    ActiveSound ""
+    AttackSound ""
+}
+
+//------------------------------------------------------------
+//Tesla SMG Alt-Fire hit effects
+//------------------------------------------------------------
+Actor SMGAltHitFX : LSParticleBase
+{
+	//Properties
+    Scale 0.2
+    Gravity 0.5
+	
+	//Flags
+	-NOGRAVITY
+	
+	//States
+    States
+    {
+	Spawn:
+		ZAP7 AABBCCDDEE 1 A_SetScale(scalex * 0.8, scaley * 0.8)
+		goto Death
+    }
+}

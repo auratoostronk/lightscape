@@ -1,0 +1,109 @@
+Updated Mar 9th, 2026
+
+Anything with an exclamation mark is placeholder/unclear credits.
+
+ACS
+All ACS code was written by auratoostronk. Some unlagged code from movement.acs was written with the help of geNia.
+
+DECORATE
+All Decorate code was written by auratoostronk.
+
+GRAPHICS
+	Title graphic - auratoostronk
+	Hud bars - auratoostronk
+	Hud cooldown ring - auratoostronk
+	Menu picker icon - auratoostronk
+! 	Fonts - Stormslayer compiled these together. Source currently unknown.
+	HUD - Ammo icon from game-icons.net
+! 	"Replace" folder came from Freedoom and created by auratoostronk using a font found on Realm667.
+
+MAPS 
+	All maps by auratoostronk.
+
+MODELS
+	Weapon models - auratoostronk
+	Armor models - auratoostronk
+	Power cell - auratoostronk
+	Afterburner - auratosotronk	
+	Weapon Upgrade - auratoostronk
+! 	Weapon stands - Simple model by auratoostronk. Texture came from StormSlayer, unknown source.
+! 	Spaceship - Taken from a mod called Stronghold on the edge of Chaos.
+!	Crystals - Taken from Hexen 2.
+
+MUSIC
+	All music created by auratoostronk.
+
+SOUNDS
+	-Weapon sounds-
+	Carbine Fire - BOOM sound library
+	Carbine Alt-Fire - pixabay
+!	Carbine Hit sound - ??? Starbound probably?
+	C14 Fire - BOOM sound library
+	C14 Alt-fire - pixabay
+	C14 Alt-Hit sound - Pixabay
+!	C14 Hit sound - ???  Starbound probably?
+!	C14 Alt-Fire gas sound - Some Youtube video that no longer exists
+	Tesla SMG Fire - BOOM sound library
+	Tesla SMG Alt-Fire - ZapSplat
+	Flux Railgun Fire - ZapSplat
+	Flux Railgun Alt-Fire - BOOM sound library
+!	Flux Railgun hiss - Some Youtube video that no longer exists
+!	Particle Splitter Fire - Call of Duty Black Ops Zombies
+!	Particle Splitter Pump - Some Youtube video that no longer exists???
+	Explosion sounds - ZapSplat.
+
+	-UI Sounds-
+! 	Energy Ready sound - Halo Infinite
+ 	Alt-Fire ready sound - auratoostronk
+	Announcer sounds - auratoostronk.
+	Menu sounds - ZapSplat.
+	Chat sound - ZapSplat
+	Error - Zapsplat
+	Weapon Hit - Zapsplat
+	Kill enemy - auratoostronk
+	
+	-In Game sounds-
+	Armor pickup sounds - auratoostronk.
+ 	Item pickup sounds - auratoostronk
+	Item respawn sounds - BOOM sound library, modified by auratoostronk.
+	Snow ambience - auratoostronk.
+	Teleport - BOOM sound library.
+! 	Jump Pad - from Diabotical
+!	Spaceship Flyby - Zapsplat
+!	Spaceship Fire - From a doom mod called DULA.
+	
+	-Sphere sounds-
+	Ricochet sphere bounce - ZapSplat.
+	Ricochet charge - BOOM sound library.	
+	Ricochet fire - BOOM sound library.
+	Force pulse - Zapsplat.
+	Rail Sphere Charge - Boom sound library
+!	Rail Sphere Fire - Risk of Rain 2
+
+	-Dash sounds
+	Omni Dash - ZapSplat
+!	Blink Dash - Ripped from League of Legends's Ezreal.
+ 	Player sounds - auratoostronk
+	
+	-Active Sounds-
+!	Regen Zone - Ripped from City of Heroes
+!	Flicker Shield - Ripped from City of Heroes
+
+SPRITES
+	3D object placeholder - auratoostronk.
+	Heal effect - auratoostronk.
+! 	Smoke - StormSlayer. Unknown source.
+	Armor - auratoostronk
+! 	Spheres - auratoostronk, modified from Doom 2 megasphere.
+! 	Teleport Fog - from Brutal Doom (?)
+	Medkits - auratoostronk
+	Power Cell - auratoostronk
+	Afterburner - auratoostronk
+	Weapon Upgrade - auratoostronk
+! 	Player Sprites - Strife
+	Holding Sprites - auratoostronk
+! 	Forcefield Sprite - Unknown
+
+TEXTURES
+! 	Textures were taken from various licensed game texture libraries (Creative Commons) and modified by StormSlayer using Photoshop and Substance.
+! 	Skyboxes in the "kothic" folder were taken from Kothic Skies. https://www.quaddicted.com/webarchive/kell.quaddicted.com/skyboxes.html

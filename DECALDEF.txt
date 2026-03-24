@@ -1,0 +1,94 @@
+Decal CarbineMainDecal
+{
+	pic BSPKB0
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal RailScorchLower
+	animator GoAway
+}
+Decal CarbineAltDecal
+{
+	pic BSPKB0
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal BigScorch
+	animator GoAway
+}
+Decal C14MainDecal
+{
+	pic GSPKB0
+	shade "00 FF 00"
+	x-scale 0.4
+	y-scale 0.4
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	animator GoAway
+}
+Decal RailgunMainDecal
+{
+	pic RSPKB0
+	x-scale 0.2
+	y-scale 0.2
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal PlasmaScorchLower
+	animator GoAway
+}
+Decal SMGMainDecal
+{
+	pic YSPKB0
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal PlasmaScorchLower
+	animator GoAway
+}
+Decal SMGAltDecal
+{
+	pic YSPKB0
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal PlasmaScorchLower
+	animator GoAway
+}
+Decal ShotgunMainDecal
+{
+	pic PSPKA0
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal RailScorchLower
+	animator GoAway
+}
+Decal CrackDecal 1
+{
+	pic BSPKB0
+	x-scale 0.8
+	y-scale 0.8
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+}

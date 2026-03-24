@@ -1,0 +1,48 @@
+//------------------------------------------------------------
+//Big health pickup
+//------------------------------------------------------------
+Actor HealthLarge : Health replaces Medikit
+{
+	//$Category Lightscape Pickups
+	Radius 24
+	Height 24
+	Inventory.Amount 25
+	Inventory.RespawnTics 525 //15 seconds
+	Inventory.PickupMessage "Picked up a large health pack."
+	Tag "Health Large"
+	+SERVERNETID
+	+BRIGHT
+	States
+	{
+		Spawn:
+		MEDI A 1
+		loop
+	}
+}
+//------------------------------------------------------------
+//Small health pickup
+//------------------------------------------------------------
+Actor HealthSmall : Health replaces Stimpack
+{
+	//$Category Lightscape Pickups
+	Radius 16
+	Height 16
+	Inventory.Amount 10
+	Inventory.RespawnTics 525 //15 seconds
+	Inventory.PickupMessage "Picked up a small health pack."
+	Tag "Health Small"
+	+SERVERNETID
+	+BRIGHT
+	States
+	{
+		Spawn:
+		STIM A 1
+		loop
+	}
+}
+
+
+Actor HealthUnlagged : Health
+{
+	+SERVERNETID 
+}

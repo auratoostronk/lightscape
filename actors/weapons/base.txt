@@ -1,0 +1,23 @@
+//------------------------------------------------------------
+//Base weapon class
+//------------------------------------------------------------
+ACTOR LSWeaponBase : Weapon
+{
+	//Doom Builder things category
+	//$Category Lightscape Weapons
+	
+	//Properties
+	Radius 32
+	Height 32
+	Weapon.BobRangeX 0.7
+	Weapon.BobRangeY 1.0
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle "Alpha"
+	Weapon.SelectionOrder 500
+	Inventory.RespawnTics 280 //8 seconds
+	
+	//Flags
+	+WEAPON.NOAUTOAIM
+	+SERVERNETID
+	
+}

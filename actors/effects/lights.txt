@@ -1,0 +1,49 @@
+// Actors that utilize GLDefs to make colored lights. See GLDEFS for more.
+
+ACTOR LSLightBase
+{
+	// Properties
+	RenderStyle None
+	
+	// Flags
+	+NOGRAVITY
+	+DONTSPLASH
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NONETID
+	+BRIGHT
+	
+	// States
+	States
+	{
+	Spawn:
+		TNT1 A 0 
+		TNT1 A 2
+		Stop
+	}
+}
+
+ACTOR RedLight : LSLightBase {}
+ACTOR BlueLight : LSLightBase {}
+ACTOR GreenLight : LSLightBase {}
+ACTOR PurpleLight : LSLightBase {}
+ACTOR YellowLight : LSLightBase {}
+ACTOR OrangeLight : LSLightBase {}
+ACTOR LightBlueLight : LSLightBase {}
+ACTOR GrayLight : LSLightBase {}
+
+ACTOR RedLightShoot : LSLightBase {}
+ACTOR BlueLightShoot : LSLightBase {}
+ACTOR GreenLightShoot : LSLightBase {}
+ACTOR PurpleLightShoot : LSLightBase {}
+ACTOR YellowLightShoot : LSLightBase {}
+ACTOR OrangeLightShoot : LSLightBase {}
+ACTOR GrayLightShoot : LSLightBase{}
+
+ACTOR RedGlowSpawner : LSLightBase {}
+ACTOR BlueGlowSpawner : LSLightBase {}
+ACTOR GreenGlowSpawner : LSLightBase {}
+ACTOR PurpleGlowSpawner : LSLightBase {}
+ACTOR YellowGlowSpawner : LSLightBase {}
+ACTOR OrangeGlowSpawner : LSLightBase {}
+ACTOR GrayGlowSpawner : LSLightBase {}

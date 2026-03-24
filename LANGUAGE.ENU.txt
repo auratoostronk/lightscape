@@ -1,0 +1,58 @@
+/* U.S. English.*/
+
+[enu default]
+
+OB_SUICIDE = "Suicide > %o";
+OB_FALLING = "Falling > %o";
+OB_CRUSH = "Crushing > %o";
+OB_EXIT = "Exit > %o";
+OB_WATER = "Drowning > %o";
+OB_SLIME = "Nukage > %o";
+OB_LAVA = "Lava > %o";
+OB_BARREL = "Explosive Barrel > %o";
+OB_KILLEDSELF = "Suicide > %o";
+OB_MPTELEFRAG = "%k > Telefrag > %o";
+
+OB_DEFAULT = "Unknown > %o";
+OB_MPDEFAULT = "%k > Unknown > %o";
+OB_FRIENDLY1 = "%k > Team Killed > %o";
+OB_FRIENDLY2 = "%k > Team Killed > %o";
+OB_FRIENDLY3 = "%k > Team Killed > %o";
+OB_FRIENDLY4 = "%k > Team Killed > %o";
+
+SPREEKILLSELF = "";
+SPREEOVER = "%k > Shut down > %o";
+SPREE5 = "%k > 5 Kill Streak";
+SPREE10 = "%k > 10 Kill Streak";
+SPREE15 = "%k > 15 Kill Streak";
+SPREE20 = "%k > 20 Kill Streak";
+SPREE25 = "%k > 25 Kill Streak";
+
+//Difficulties
+SKILL_BABY = "Cakewalk";
+SKILL_EASY = "Easy";
+SKILL_NORMAL = "Normal";
+SKILL_HARD = "Hard";
+SKILL_NIGHTMARE = "Impossible!";
+
+QUITMSG = "Are you sure you want to quit?";
+TXT_YES = "Yes";
+TXT_NO = "No";
+
+// Quit Doom 1 messages
+QUITMSG1 = "Are you sure you want to quit?";//"But wait! There's more killing to do!";
+QUITMSG2 = "Are you sure you want to quit?";//"If you leave now, you WILL be tried for treason!";
+QUITMSG3 = "Are you sure you want to quit?";//"Stop before you go any further! That is an order!";
+QUITMSG4 = "Are you sure you want to quit?";//"You really want to put the fate of your empire at stake?";
+QUITMSG5 = "Are you sure you want to quit?";//"Not enjoying the bloodbath? Weak...";
+QUITMSG6 = "Are you sure you want to quit?";
+QUITMSG7 = "Are you sure you want to quit?";
+
+// Quit Doom II messages
+QUITMSG8 = "Are you sure you want to quit?";
+QUITMSG9 = "Are you sure you want to quit?";
+QUITMSG10 = "Are you sure you want to quit?";
+QUITMSG11 = "Are you sure you want to quit?";
+QUITMSG12 = "Are you sure you want to quit?";
+QUITMSG13 = "Are you sure you want to quit?";
+QUITMSG14 = "Are you sure you want to quit?";

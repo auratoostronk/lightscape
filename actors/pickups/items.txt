@@ -1,0 +1,57 @@
+//------------------------------------------------------------
+//Afterburner - Allows users to use their dash even when its on cooldown.
+//------------------------------------------------------------
+Actor Afterburner : Ammo 12000
+{ 
+	//Doombuilder things category
+	//$Category Lightscape Pickups
+	
+	//Properties
+	Radius 24
+	Height 48
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Afterburner - One-time free dash use."
+	Inventory.RespawnTics 350 //10 seconds
+	
+	//Flags
+	+FLOATBOB
+	+BRIGHT
+	+SERVERNETID
+	
+	//States
+	States
+	{
+		Spawn:
+		TCHG A 1 A_SetAngle(angle + 4)
+		loop
+	}
+}
+//------------------------------------------------------------
+//Bandolier - Consumed to refill the players' ammo on depletion.
+//------------------------------------------------------------
+Actor Bandolier : Ammo 12001
+{
+	//Doombuilder things category
+	//$Category Lightscape Pickups
+	
+	//Properties
+	Radius 24
+	Height 48
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Bandolier - Refills ammo automatically."
+	Inventory.RespawnTics 525 //15 seconds
+	
+	//Flags
+	+FLOATBOB
+	+SERVERNETID
+	
+	//States
+	States
+	{
+		Spawn:
+		ENRG A 1 A_SetAngle(angle + 4)
+		loop
+	}
+}

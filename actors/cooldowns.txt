@@ -1,0 +1,60 @@
+//Whether or not the Dash is on cooldown
+Actor OmniDashCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 105
+}
+Actor WarpDashCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 140
+}
+
+//Time before ammo refills
+Actor AmmoRegenCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 70
+}
+
+//Number of tics before the Alt-Fire is ready.
+Actor AltFireCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 350
+}
+
+//Need to fix this system.
+Actor AltFireCDMax : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 350
+}
+
+//Health Regen delay (in tics)
+Actor HealthRegenDelay : Inventory
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 35
+}
+
+//Wether or not a hit sound was played this tick
+Actor HitSoundPlayed : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 1
+}
+
+//Active cooldown in seconds
+Actor ActiveCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 30
+}
+
+//Tics counter for active cooldown decrements
+Actor ActiveCDTics : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 35
+}

@@ -1,0 +1,215 @@
+#library "HUD"
+#include "zcommon.acs"
+#import "lib.acs"
+
+#define ONETIC_HUDMSG 1873 //Integer value for keeping a HUDMessage up for 1 tic
+
+#define CHARGERING_FRAMES 32.0 //Set to the number of frames the charge ring has
+#define CDRING_FRAMES 32.0 //Set to the number of frames the cooldown ring has
+
+#define MSG_ERROR 1000
+#define MSG_AMMOWARNINGS 1001
+#define MSG_CLOCK 1002
+
+//Displays a warning / error message on the hud.
+function void hudMsgError(str text)
+{
+	SetHUDSize(640, 400, false);
+	SetFont("SMALLFONT");
+	HUDMessage(s:text;HUDMSG_PLAIN|HUDMSG_NOTWITHFULLMAP, MSG_ERROR, CR_UNTRANSLATED, 320.0, 280.0, 2.0);
+}
+Script "CDRingEnter" ENTER CLIENTSIDE
+{
+	while (ClassifyActor(0) & ACTOR_ALIVE)
+	{
+		int fontnum = 0;
+		for(int weap = 0; weap < NUM_WEAPS; weap++)
+		{
+			if(strcmp(GetWeapon(), WEAP_ACTORS[weap]) == 0)
+			{
+				int CDMaxAmt = CheckInventory("AltFireCDMax");
+				int CDCurrentAmt = CheckInventory("AltFireCD");
+				
+				fontnum = (FixedDiv(CDRING_FRAMES * CDCurrentAmt, CDMaxAmt * 1.0) >> 16) - 1;
+			}
+		}
+		showCDRing(fontnum);
+		delay(1);
+	}
+}
+Script "ChargeRingEnter" ENTER CLIENTSIDE
+{
+	while (ClassifyActor(0) & ACTOR_ALIVE)
+	{
+		int fontnum = 0;
+		int ChargeMaxAmt = GetAmmoCapacity("HRailCharge");
+		int ChargeCurrentAmt = CheckInventory("HRailCharge");
+		fontnum = (FixedDiv(CHARGERING_FRAMES * ChargeCurrentAmt, ChargeMaxAmt * 1.0) >> 16) - 1;
+		
+		showChargeRing(fontnum);
+		delay(1);
+	}
+}
+function void showCDRing(int fontnum)
+{
+	if(fontnum > 0)
+	{
+		//log(i:fontnum);
+		SetHUDSize(1600, 1200, false);
+		if(fontnum < 10)
+		{
+			SetFont(StrParam(s:"CDFONT0", i:fontnum));
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_ADDBLEND, 0, CR_WHITE, 800.0, 600.0, ONETIC_HUDMSG, 0.25);
+		}
+		else if(fontnum < 100)
+		{
+			SetFont(StrParam(s:"CDFONT", i:fontnum));
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_ADDBLEND, 0, CR_WHITE, 800.0, 600.0, ONETIC_HUDMSG, 0.25);
+		}
+	}
+	else
+	{
+		HudMessage(s:""; HUDMSG_PLAIN, 1, CR_WHITE, 0.0, 0.0, 1.0);
+	}
+}
+function void showChargeRing(int fontnum)
+{
+	if(fontnum > 0)
+	{
+		//log(i:fontnum);
+		SetHUDSize(1200, 900, false);
+		if(fontnum < 10)
+		{
+			SetFont(StrParam(s:"CDFONT0", i:fontnum));
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_ADDBLEND, 0, CR_RED, 600.0, 450.0, ONETIC_HUDMSG, 0.25);
+		}
+		else if(fontnum < 100)
+		{
+			SetFont(StrParam(s:"CDFONT", i:fontnum));
+			HudMessage(s:"A"; HUDMSG_PLAIN|HUDMSG_ALPHA|HUDMSG_ADDBLEND, 0, CR_RED, 600.0, 450.0, ONETIC_HUDMSG, 0.25);
+		}
+		else
+		{
+			
+		}
+	}
+	else
+	{
+		HudMessage(s:""; HUDMSG_PLAIN, 1, CR_WHITE, 0.0, 0.0, 1.0);
+	}
+}
+
+Script "PrintLowAmmoWarning" ENTER CLIENTSIDE
+{
+	int fadeamt = 0.75;
+	bool increaseFade = false;
+	while(true)
+	{
+		for(int i = 0; i < NUM_WEAPS; i++)
+		{
+			if(StrIcmp(GetWeapon(), WEAP_ACTORS[i]) == 0)
+			{
+				if(CheckInventory(WEAP_AMMOS[i]) == 0)
+				{
+					if(CheckInventory("Bandolier") == 0)//&& CheckInventory("PowerChronalDrive") == 0)
+					{	
+						SetHUDSize(640, 400, false);
+						SetFont("BIGFONT");
+						HudMessage(s:"NO AMMO"; HUDMSG_PLAIN|HUDMSG_ALPHA, MSG_AMMOWARNINGS, CR_RED, 320.0, 320.0, ONETIC_HUDMSG, 1.0 - fadeamt);
+						if(increaseFade == false)
+						{
+							fadeamt = fadeamt - 0.05;
+							if(fadeamt <= 0.0)
+							{
+								increaseFade = true;
+							}
+						}
+						else
+						{
+							fadeamt = fadeamt + 0.05;	
+							if(fadeamt >= 0.75)
+							{
+								increaseFade = false;
+							}
+						}
+					}
+				}
+				else if(CheckInventory(WEAP_AMMOS[i]) * 1.0 / GetAmmoCapacity(WEAP_AMMOS[i]) <= 0.25)
+				{
+					SetHUDSize(640, 400, false);
+					SetFont("BIGFONT");
+					HudMessage(s:"LOW AMMO"; HUDMSG_PLAIN|HUDMSG_ALPHA, MSG_AMMOWARNINGS, CR_RED, 320.0, 320.0, ONETIC_HUDMSG, 1.0 - fadeamt);
+					if(increaseFade == false)
+					{
+						fadeamt = fadeamt - 0.05;
+						if(fadeamt <= 0.0)
+						{
+							increaseFade = true;
+						}
+					}
+					else
+					{
+						fadeamt = fadeamt + 0.05;	
+						if(fadeamt >= 0.75)
+						{
+							increaseFade = false;
+						}
+					}
+				}
+				else
+				{
+					fadeamt = 0.0;
+					increaseFade = false;
+				}
+			}
+		}
+		delay(1);
+	}
+}
+Script "DisplayAmmoRefilledMessage" (void) CLIENTSIDE
+{
+	SetHUDSize(640, 400, false);
+	SetFont("BIGFONT");
+	HudMessage(s:"BANDOLIER CONSUMED"; HUDMSG_FADEOUT, MSG_AMMOWARNINGS, CR_WHITE, 320.0, 320.0, 2.0);
+}
+
+//Clock on the HUD
+Script "HUDClockOpen" OPEN
+{
+	if(GameType() == GAME_TITLE_MAP)
+		terminate;
+		
+	int clock;
+	int mins;
+	int sec10;
+	int sec1;
+	str clockstr;
+	while(true)
+	{
+		if(PlayerCount() == 0)
+		{
+			clock = 0;
+			delay(35);
+			restart;
+		}
+		clock = Timer() / 35;
+		mins = clock / 60;
+		sec10 = (clock % 60) / 10;
+		sec1 = clock % 10;
+		
+		clockstr = StrParam(d:mins, s:":", d:sec10, d:sec1);
+		
+		for(int i = 0; i < MAX_PLAYERS; i++)
+		{
+			if(PlayerInGame(i))
+			{
+				SetActivatorToPlayer(i);
+				SetFont("BIGFONT");
+				HUDMessage(s:clockstr; HUDMSG_PLAIN, MSG_CLOCK, CR_UNTRANSLATED, 0.5, 0.05, 2.0);
+			}
+			//Set Activator to world.
+			SetActivator(0, AAPTR_NULL);
+		}
+		delay(35);
+	}
+}

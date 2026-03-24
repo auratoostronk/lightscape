@@ -1,0 +1,95 @@
+//Dash types
+Graphic "OMNIEMPT", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "OMNIEMPT", 0, 0
+}
+Graphic "OMNIFULL", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "OMNIFULL", 0, 0
+}
+Graphic "OMNIENHA", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "OMNIENHA", 0, 0
+}
+Graphic "RUNEMPT", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "RUNEMPT", 0, 0
+}
+Graphic "RUNFULL", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "RUNFULL", 0, 0
+}
+Graphic "RUNENHA", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "RUNENHA", 0, 0
+}
+Graphic "TELEEMPT", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "TELEEMPT", 0, 0
+}
+Graphic "TELEFULL", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "TELEFULL", 0, 0
+}
+Graphic "TELEENHA", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "TELEENHA", 0, 0
+}
+
+//Ammo
+Graphic "HUDAMMO", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "HUDAMMO", 0, 0
+}
+Graphic "HUDBANDO", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "HUDBANDO", 0, 0
+}
+
+//Actives
+Graphic "I_REGEN", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "I_REGEN", 0, 0
+}
+Graphic "I_SHIELD", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "I_SHIELD", 0, 0
+}
+Graphic "I_DECOY", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "I_DECOY", 0, 0
+}
+Graphic "I_OVERDR", 128, 128
+{
+	XScale 2.000
+	YScale 2.000
+	Patch "I_OVERDR", 0, 0
+}

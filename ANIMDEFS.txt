@@ -1,0 +1,18 @@
+texture PCPU01 range PCPU07 tics 4
+
+warp2 flat fire1
+warp2 flat lava
+warp2 flat nukage
+warp2 texture nukage
+warp2 flat oil1
+warp2 flat sludge1
+warp2 flat water1
+warp2 flat water2
+warp2 texture waterf
+warp texture holo1
+warp2 texture holo2
+warp texture holo3
+warp2 texture holo4
+
+cameratexture TCAMTEX1 512 256 fit 256 128
+cameratexture TCAMTEX2 512 256 fit 256 128

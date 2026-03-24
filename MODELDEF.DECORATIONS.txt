@@ -1,0 +1,71 @@
+Model CrystalRed
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalrd.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model CrystalOrange
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalor.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model CrystalYellow
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalyl.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model CrystalGreen
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalgr.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model CrystalBlue
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalbl.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model CrystalPurple
+{
+	Path "models/decorations" 
+	Model 0 "crystal.md2"
+	Skin 0 "crystalpr.png"
+	Scale 1.0 1.0 1.0
+	ZOffset 16
+	FrameIndex 3DOB A 0 0
+}
+
+Model SpaceShipFlying
+{ 
+   Path "Models/Decorations" 
+   Model 0 "bviper.md2" 
+   Skin 0 "bviper.png"
+   Scale 0.2 0.2 0.2
+   INHERITACTORPITCH
+   INHERITACTORROLL
+   
+   Frame 3DOB A 0 "viper"
+}

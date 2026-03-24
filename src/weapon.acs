@@ -1,0 +1,123 @@
+#library "weapon"
+#include "zcommon.acs"
+#import "lib.acs"
+#import "hud.acs"
+#import "pickups.acs"
+
+#define CDRING_FRAMES 32.0 //Set to the number of frames the cooldown ring has
+
+int PLAYER_ALTCDS[MAX_PLAYERS];
+
+function void refillAmmo(void)
+{
+	for(int i = 0 ; i < NUM_WEAPS; i++)
+	{
+		GiveMax(WEAP_AMMOS[i]);
+	}
+}
+
+Script "WeaponFireStart" (void)
+{
+	if(checkSphere() == true)
+	{
+		SetResultValue(false);
+		terminate;
+	}
+	GiveMax("AmmoRegenCD");
+	SetResultValue(true);
+}
+
+Script "WeaponFireDone" (void)
+{
+	GiveMax("AmmoRegenCD");
+}
+
+Script "WeaponHit" (int intensity)
+{
+	SetActivatorToTarget(0);
+	//Prevent hit sound from stacking multiple times at once (looking at you, Particle splitter!)
+	If(CheckInventory("HitSoundPlayed") == 0)
+	{
+		if(intensity < 1)
+			LocalAmbientSound("Feedback/HitSmall", 127);
+		if(intensity == 1)
+			LocalAmbientSound("Feedback/HitMedium", 127);
+		if(intensity > 1)
+			LocalAmbientSound("Feedback/HitBig", 127);
+		GiveMax("HitSoundPlayed");
+		delay(1);
+		TakeMax("HitSoundPlayed");
+	}
+}
+
+Script "WeaponAltFireStart" (int cooldown)
+{
+	if(checkSphere())
+	{
+		SetResultValue(0);
+		terminate;
+	}
+	else if(CheckInventory("AltFireCD") > 0)
+	{
+		acs("AltFireFail");
+		SetResultValue(0);
+		terminate;
+	}
+	else
+	{
+		SetResultValue(1);
+	}
+}
+Script "WeaponAltFireCD" (int cooldown)
+{
+	GiveMax("AmmoRegenCD");
+	GiveInventory("AltFireCD", cooldown * 35);
+	GiveInventory("AltFireCDMax", cooldown * 35);
+}
+//A hud script that is called when the user tries to Alt-Fire while it's on cooldown.
+Script "AltFireFail" (void) 
+{
+	if(!(ClassifyActor(0) & ACTOR_BOT))
+	{
+		if(!(GetPlayerInput(-1, INPUT_OLDBUTTONS) & BT_ALTATTACK))
+		{
+			//hudMsgError("Alt-Fire on cooldown.");
+			LocalAmbientSound("Feedback/Error", 127);
+		}
+	}
+}
+
+Script "PlayerZoom" (int predicting, int justPressed, int justReleased, int buttons)
+{
+	if (!predicting)
+	{
+		if (justPressed)
+		{
+			SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
+			SetPlayerWeaponZoomFactor(PlayerNumber(), 2.0);
+			SetNetworkReplicationFlags( 0 );
+		}
+		else if (justReleased)
+		{
+			SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
+			SetPlayerWeaponZoomFactor(PlayerNumber(), 1.0);
+			SetNetworkReplicationFlags( 0 );
+		}
+	}
+}
+
+Script "CheckBotAltFire" (void)
+{
+	if(ClassifyActor(0) & ACTOR_BOT)
+	{
+		if(CheckInventory("AltFireCD") == 0)
+		{
+			if(random(0, 15) == 0)
+			{
+				SetResultValue(1);
+				terminate;
+			}
+		}
+	}
+	SetResultValue(0);
+}

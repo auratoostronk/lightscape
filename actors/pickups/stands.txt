@@ -1,0 +1,35 @@
+//------------------------------------------------------------
+//Pickup stands
+//------------------------------------------------------------
+ACTOR PickupStandBase
+{
+	//Doom Builder things category
+	//$Category Lightscape Decorations
+	
+	//Properties
+	Radius 8
+	Height 16
+	
+	//Flags
+	-SOLID
+	+NOBLOCKMAP
+	+SERVERNETID
+	+BRIGHT
+	
+	//States
+	States
+	{
+	Spawn:
+		3DOB A 1
+		loop
+	}
+}
+ACTOR PickupStandRed : PickupStandBase 13000 {}
+ACTOR PickupStandOrange : PickupStandBase 13001 {}
+ACTOR PickupStandYellow : PickupStandBase 13002 {}
+ACTOR PickupStandGreen : PickupStandBase 13003 {}
+ACTOR PickupStandBlue : PickupStandBase 13004 {}
+ACTOR PickupStandPurple : PickupStandBase 13005 {}
+ACTOR PickupStandLightBlue : PickupStandBase 13006 {}
+
+//ACTOR PickupStandArmorBig : PickupStandBase 13007 {}

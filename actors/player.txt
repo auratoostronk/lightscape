@@ -1,0 +1,75 @@
+Actor LightscapePlayer : PlayerPawn
+{
+	Speed 1
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	GibHealth 50
+	Player.MaxHealth 100
+	Player.MugshotMaxHealth -1
+	
+	//Doom-Like Movement
+	//Player.ForwardMove 1.6, 0.8
+	//Player.SideMove 2.0, 1.0
+	Player.ForwardMove 1.5, 0.75
+	Player.SideMove 1.6, 0.8
+	Player.JumpZ 8.0
+	
+	//Modern Movement
+	/*Player.MvType 1
+	Player.AirAcceleration 0.2
+	Player.GroundAcceleration 12.0
+	Player.GroundFriction 6.0
+	Player.ForwardMove 1.8, 0.9
+	Player.SideMove 1.8, 0.9
+	Player.JumpZ 8.0*/
+	
+	
+	Player.DisplayName "Player"
+	Player.ColorRange 112, 127
+	Player.DamageScreenColor "Red", 1.0
+	Player.StartItem "C14RespawnProtection"
+	//Player.ActionScript "user1" "PlayerDash"
+	Player.ActionScript "zoom" "PlayerZoom"
+	BloodType "LSBlood"
+	Species "PlayerRelated"
+	+TELESTOMP
+	+BRIGHT
+	
+	States
+	{
+	Spawn:
+		PLAY A -1
+		Loop
+	See:
+		PLAY ABCD 4 
+		Loop
+	Missile:
+		PLAY E 12
+		Goto Spawn
+	Melee:
+		PLAY F 6
+		Goto Missile
+	Pain:
+		PLAY G 4 
+		PLAY G 4 A_Pain
+		Goto Spawn
+	Death:
+		PLAY H 12
+		PLAY I 12 A_PlayerScream
+		PLAY J 12 A_NoBlocking
+		PLAY KL 12
+		PLAY M -1
+		Stop
+	XDeath:
+		PLAY N 5
+		PLAY O 5 A_PlayerScream
+		PLAY P 5 A_NoBlocking
+		PLAY QRST 5
+		PLAY U -1
+		stop
+
+	}
+}

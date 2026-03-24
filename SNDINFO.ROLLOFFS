@@ -1,0 +1,54 @@
+//WEAPONS
+$rolloff FluxRailgun/Fire 800 1600
+$rolloff FluxRailgun/FireFar 1600 6400
+$rolloff FluxRailgun/AltFire 800 1600 
+$rolloff FluxRailgun/AltFireFar 1600 6400 
+$rolloff FluxRailgun/Hiss 200 800
+
+$rolloff C14/Fire 400 1600
+$rolloff C14/FireFar 1600 3200
+$rolloff C14/GasHiss 400 1600
+$rolloff C14/Hit 400 1600
+$rolloff GrenadeHit 400 1600
+
+$rolloff PlasmaCarbine/Fire 400 1600
+$rolloff PlasmaCarbine/FireFar 1600 3200
+$rolloff PlasmaCarbine/Hit 200 400
+$rolloff PlasmaCarbine/AltFire 400 1600
+$rolloff PlasmaCarbine/AltFireFar 1600 3200
+
+$rolloff TeslaSMG/Fire 400 1600
+$rolloff TeslaSMG/FireFar 1600 3200
+$rolloff TeslaSMG/AltFire 400 800
+$rolloff TeslaSMG/AltFireFar 800 3200
+$rolloff TeslaSMG/AltFireHit 400 1600
+
+$rolloff ParticleSplitter/Fire 400 1600
+$rolloff ParticleSplitter/FireFar 1600 3200
+$rolloff ParticleSplitter/Pump1 200 400
+$rolloff ParticleSplitter/Pump2 200 400
+
+//ACTIVE ITEMS
+$rolloff Items/HadronRail/Charge 400 800 
+$rolloff Items/HadronRail/ChargeFar 800 3200 
+$rolloff Items/HadronRail/Fire 800 3200
+$rolloff Items/HadronRail/FireFar 3200 6400
+
+$rolloff Items/RicochetBurst/Fire 	400 1600
+$rolloff Items/RicochetBurst/Charge 400 800
+$rolloff Items/RicochetBurst/Bounce 400 800
+$rolloff Items/RicochetBurst/Bounce 400 800
+
+$rolloff Items/ForcePulse/Fire 400 1600
+$rolloff Items/ForcePulse/FireFar 1600 3200
+
+//EXPLOSIONS
+$rolloff Explosion/Far 1600 6400
+$rolloff Explosion/Close 400 1600
+
+//AMBIENT
+$rolloff Ambient/TeleportHum 100 800
+$rolloff Ambient/JumppadHit  400 800
+
+//PLAYER
+$rolloff Dash/Use 400 1600

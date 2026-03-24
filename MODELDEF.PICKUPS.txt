@@ -1,0 +1,223 @@
+Model Bandolier
+{
+	Path "models/pickups/passive"
+	Skin 0 "ENRGA0.png"
+    Model 0 "ENRGA0.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 16.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex ENRG A 0 0
+}
+
+Model Afterburner
+{
+	Path "models/pickups/passive"
+	Skin 0 "TRAVA0.png"
+    Model 0 "TRAVA0.md3"
+    Scale 12.0 12.0 12.0
+	Offset 0.0 0.0 32.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex TCHG A 0 0
+}
+
+Model NanoArmorLarge
+{
+	Path "models/pickups/armor"
+	Skin 0 "ARM3A0.png"
+    Model 0 "ARM3A0.md3"
+    Scale 12.0 12.0 12.0
+	Offset 0.0 0.0 12.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex ARM3 A 0 0
+}
+
+Model NanoArmorSmall
+{
+	Path "models/pickups/armor"
+	Skin 0 "ARMPA0.png"
+    Model 0 "ARMPA0.md3"
+    Scale 12.0 12.0 12.0
+	Offset 0.0 0.0 12.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex ARMP A 0 0
+}
+
+/*Model RBurstPickup
+{
+	Path "models/pickups/active"
+	Skin 0 "RBURST.png"
+    Model 0 "RBURST.md3"
+    Scale 8.0 8.0 8.0
+	Offset 0.0 0.0 32.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model HRailPickup
+{
+	Path "models/pickups/active"
+	Skin 0 "HRAIL.png"
+    Model 0 "HRAIL.md3"
+    Scale 8.0 8.0 8.0
+	Offset 0.0 0.0 32.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model FPulsePickup
+{
+	Path "models/pickups/active"
+	Skin 0 "FPULSE.png"
+    Model 0 "FPULSE.md3"
+    Scale 8.0 8.0 8.0
+	Offset 0.0 0.0 32.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model RZonePickup
+{
+	Path "models/pickups/active"
+	Skin 0 "RZONE.png"
+    Model 0 "RZONE.md3"
+    Scale 8.0 8.0 8.0
+	Offset 0.0 0.0 32.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}*/
+
+Model PickupStandRed
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstrd.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandOrange
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstor.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandYellow
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstyl.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandGreen
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstgr.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandBlue
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstbl.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandPurple
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstpr.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+Model PickupStandLightBlue
+{
+	Path "models/pickups/stands"
+	Skin 0 "pickstlb.png"
+    Model 0 "pickbase.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}
+
+/*Model PickupStandArmorBig
+{
+	Path "models/pickups/stands"
+	Skin 0 "COMP_RD.png"
+	Skin 1 "DPLATDG1.png"
+    Model 0 "pickbas2.md3"
+    Scale 16.0 16.0 16.0
+	Offset 0.0 0.0 0.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex 3DOB A 0 0
+}*/
+
+/*Model WeaponUpgrade
+{
+	Path "Models/Pickups"
+	Skin 0 "WUPGA0.png"
+    Model 0 "WUPGA0.md3"
+    Scale 12.0 12.0 12.0
+	Offset 0.0 0.0 12.0
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+    FrameIndex WUPG A 0 0
+}*/
+
+

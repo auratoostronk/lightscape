@@ -1,0 +1,41 @@
+Actor TargetDummy
+{
+	Speed 0
+	Health 100
+	Radius 16
+	Height 56
+	Mass 100
+	PainChance 255
+	GibHealth 50
+	+SHOOTABLE
+	+SOLID
+	+BRIGHT
+	Monster
+	BloodType "LSBlood"
+	States
+	{
+	Spawn:
+		PLAY AABBCCDD 2
+		Loop
+	Pain:
+		PLAY G 4 
+		PLAY G 4 A_Pain
+		Goto Spawn
+	Death:
+		PLAY H 12
+		PLAY I 12 A_PlayerScream
+		PLAY J 12 A_NoBlocking
+		PLAY KL 12
+		PLAY M 35
+		TNT1 A 1
+		Stop
+	XDeath:
+		PLAY N 5
+		PLAY O 5 A_PlayerScream
+		PLAY P 5 A_NoBlocking
+		PLAY QRST 5
+		PLAY U 35
+		TNT1 A 1
+		stop
+	}
+}

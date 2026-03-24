@@ -1,0 +1,35 @@
+#include "actors/base.txt"
+#include "actors/weapons/base.txt"
+#include "actors/weapons/carbine.txt"
+#include "actors/weapons/shotgun.txt"
+#include "actors/weapons/railgun.txt"
+#include "actors/weapons/smg.txt"
+#include "actors/weapons/gamma.txt"
+
+#include "actors/abilities/regen.txt"
+#include "actors/abilities/shield.txt"
+#include "actors/abilities/decoy.txt"
+
+#include "actors/pickups/armor.txt"
+#include "actors/pickups/health.txt"
+#include "actors/pickups/items.txt"
+#include "actors/pickups/stands.txt"
+
+#include "actors/pickups/spheres/ricochet.txt"
+#include "actors/pickups/spheres/rail.txt"
+#include "actors/pickups/spheres/blood.txt"
+
+#include "actors/effects/healing.txt"
+#include "actors/effects/explosions.txt"
+#include "actors/effects/blood.txt"
+#include "actors/effects/lights.txt"
+
+#include "actors/decorations/crystals.txt"
+#include "actors/decorations/ship.txt"
+
+#include "actors/player.txt"
+#include "actors/cooldowns.txt"
+#include "actors/dash.txt"
+#include "actors/targets.txt"
+#include "actors/loadout.txt"
+//#include "actors/damagenums.txt"

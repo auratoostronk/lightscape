@@ -1,0 +1,16 @@
+BIGFONT
+{
+	Template FONTB%03d
+}
+MENUFONT
+{
+	Template FONTM%03d
+}
+SMALLFONT
+{
+	Template FONTS%03d
+}
+SMALLFNT
+{
+	Template FONTS%03d
+}

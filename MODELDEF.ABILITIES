@@ -1,0 +1,13 @@
+Model FShieldFX
+{
+	Path "models/abilities" 
+	Model 0 "shield.md2"
+	Skin 0 "forcefield.png"
+	Scale 24.0 24.0 24.0
+	Offset 0 0 12
+	INHERITACTORPITCH
+	INHERITACTORROLL
+	ROTATING
+	
+	Frame TRNG A 0 "frame01"
+}

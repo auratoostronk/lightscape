@@ -1,0 +1,80 @@
+//------------------------------------------------------------
+//Flying spaceship decoration
+//------------------------------------------------------------
+actor SpaceShipFlying
+{
+	//Doom Builder things category
+	//$Category Lightscape Decorations
+	
+	//Properties
+	Radius 16
+	Height 8
+	Health 40
+	Renderstyle Normal
+	
+	//Flags
+	+SOLID
+	+SHOOTABLE
+	+NOGRAVITY
+	+SERVERNETID
+	
+	//States
+    States
+    {
+    Spawn:
+		TNT1 A 0 nodelay A_SpawnItemEX("SpaceshipTrail", 0, -6, 0)
+        3DOB A 1 A_SpawnItemEX("SpaceshipTrail", 0, 6, 0)
+        Loop
+		
+	Death:
+		TNT1 A 0 ThrustThingZ(0, 8, 1, 0)
+        3DOB A 2 A_SetAngle(angle + 8)
+		TNT1 A 0 A_SpawnItemEX("SpaceshipDeathFlames", 0, 0, 0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), 4.0)
+		loop
+    }
+}
+
+//------------------------------------------------------------
+//Spaceship Trail
+//------------------------------------------------------------
+Actor SpaceshipTrail : LSParticleBase
+{
+	//Properties
+	Scale 0.1
+	
+	//States
+	States
+	{
+	Spawn:
+		BRNG A 6
+		Goto Spawn1
+		
+	Spawn1:
+		BRNG A 1 A_FadeOut(0.05)
+		loop
+	}
+}
+//------------------------------------------------------------
+//Spaceship death animation flames
+//------------------------------------------------------------
+Actor SpaceshipDeathFlames : LSParticleBase
+{
+	//Properties
+	Projectile
+	Speed 4
+	Scale 0.25
+	Alpha 0.3
+	
+	//States
+	States
+	{
+	Spawn:
+		SMOK A 1 A_FadeOut(0.05)
+		loop
+		
+	Death:
+		TNT1 A 1
+		stop
+	}
+	
+}

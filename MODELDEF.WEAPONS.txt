@@ -1,0 +1,413 @@
+//If you are interested in veiwing the models, use Noesis:
+//https://richwhitehouse.com/index.php?content=inc_projects.php&showproject=91
+
+//Creation process:
+//I used GIMP to make the sprites from scratch, MagikaVoxel to turn them into voxels, exported to .obj, brought it into blender,
+//and used an md3 export plugin (which was a pain to find for my version of blender) to export it to md3.
+//Used the skin from the .obj file as the skin for the md3.
+//While this whole process may have been a pain in the ass, it was worth it :). NO MORE REALM667 SPRITES!!!
+//PROTIP! md3's can hold animations :) I did not know this at first :P
+
+//1 Plasma CARBINE
+//Pickup
+Model PlasmaCarbine
+{
+	Path "models/weapons/carbine"
+	Skin 0 "Carbine.png"
+	Model 0 "CARBPICK.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex CARP A 0 0
+}
+//Ready
+Model PlasmaCarbine
+{
+	Path "models/weapons/carbine"
+	Skin 0 "Carbine.png"
+	Model 0 "CARBINE.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex CARR A 0 0
+}
+//Fire
+Model PlasmaCarbine
+{
+	Path "models/weapons/carbine"
+	Skin 0 "Carbine.png"
+	Model 0 "CARBINE.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex CARF A 0 1
+	FrameIndex CARF B 0 2
+	FrameIndex CARF C 0 3
+	FrameIndex CARF D 0 4
+}
+//2 PARTICLE SPLITTER
+//Pickup
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPA.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex PSGP A 0 0
+}
+//Ready
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGRA.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGR A 0 0
+}
+//Need to redo this at some point. The firing animation should be in one md3, not spread across 3 of them.
+//Fire
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGFA.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF A 0 0
+}
+//Fire
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGFB.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF B 0 0
+}
+//Fire
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGFC.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF C 0 0
+}
+//Pump
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPUMP.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF D 0 0
+	FrameIndex PSGF E 0 1
+	FrameIndex PSGF F 0 2
+	FrameIndex PSGF G 0 3
+}
+//Pump
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPUMP.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF H 0 4
+	FrameIndex PSGF I 0 5
+	FrameIndex PSGF J 0 6
+	FrameIndex PSGF K 0 7
+}
+//Pump
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPUMP.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF L 0 8
+	FrameIndex PSGF M 0 9
+	FrameIndex PSGF N 0 10
+	FrameIndex PSGF O 0 11
+}
+//Pump
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPUMP.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF P 0 12
+	FrameIndex PSGF Q 0 13
+	FrameIndex PSGF R 0 14
+	FrameIndex PSGF S 0 15
+}
+//Pump
+Model ParticleSplitter
+{
+	Path "models/weapons/shotgun"
+	Skin 0 "Shotgun.png"
+	Model 0 "PSGPUMP.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex PSGF T 0 16
+	FrameIndex PSGF U 0 17
+	FrameIndex PSGF V 0 18
+	FrameIndex PSGF W 0 19
+}
+//3 TESLA SMG
+//Pickup
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAPIC.md3"
+	Scale 16.0 16.0 16.0
+	AngleOffset 90
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex SMGP A 0 0
+}
+//Ready / Fire
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TeslaSMG.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGR A 0 0
+	FrameIndex SMGF A 0 1
+	FrameIndex SMGF B 0 2
+	FrameIndex SMGF C 0 3
+}
+//Melee
+//This one contains the animation before the melee kicks in
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML1.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM A 0 0
+	FrameIndex SMGM B 0 1
+	FrameIndex SMGM C 0 2
+	FrameIndex SMGM D 0 3
+}
+//This one contains the animation before the melee kicks in (the last frame of it, because zandro only allows 4 frames per modeldef entry.
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML1.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM E 0 4
+}
+//These are the tasing animations. They use seperate models (although if I knew blender well enough, 
+//I could probably put them all together under one md3), which is why they are split apart.
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML2.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM F 0 0
+}
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML3.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM G 0 0
+}
+Model TeslaSMG
+{
+	Path "models/weapons/smg"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML4.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM H 0 0
+}
+
+//4 SPARK CANNON
+//Pickup
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILPICK.md3"
+	Scale 8.0 8.0 8.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	AngleOffset -90
+	FrameIndex SPKP A 0 0
+}
+//Ready
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKR A 0 0
+	FrameIndex SPKR B 0 0
+	FrameIndex SPKR C 0 0
+}
+//Fire
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKF A 0 0
+	FrameIndex SPKF B 0 1
+	FrameIndex SPKF C 0 2
+	FrameIndex SPKF D 0 3
+}
+//Fire (more)
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKF E 0 4
+	FrameIndex SPKF F 0 5
+	FrameIndex SPKF G 0 6
+	FrameIndex SPKF H 0 7
+}
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKF I 0 8
+	FrameIndex SPKF J 0 9
+	FrameIndex SPKF K 0 10
+	FrameIndex SPKF L 0 11
+}
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKF M 0 12
+	FrameIndex SPKF N 0 13
+	FrameIndex SPKF O 0 14
+	FrameIndex SPKF P 0 15
+}
+Model FluxRailgun
+{
+	Path "models/weapons/railgun"
+	Skin 0 "RAILGUN.png"
+	Model 0 "RAILGUN.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SPKF Q 0 16
+	FrameIndex SPKF R 0 17
+}
+//6 C14
+//Pickup
+Model C14
+{
+	Path "models/weapons/gamma"
+	Skin 0 "C14.png"
+	Model 0 "C14PICK.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex C14P A 0 0
+}
+//Ready / Fire
+Model C14
+{
+	Path "models/weapons/gamma"
+	Skin 0 "C14.png"
+	Model 0 "C14FIRE.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex C14R A 0 0
+	FrameIndex C14F A 0 1
+	FrameIndex C14F B 0 2
+	FrameIndex C14F C 0 3
+}
+//Fire
+Model C14
+{
+	Path "models/weapons/gamma"
+	Skin 0 "C14.png"
+	Model 0 "C14FIRE.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex C14F D 0 4
+	FrameIndex C14F E 0 5
+	FrameIndex C14F F 0 6
+}
+/*//3 STATIC SHOCKBLADE
+//Pickup
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAPIC.md3"
+	Scale 16.0 16.0 16.0
+	AngleOffset 90
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex SMGP A 0 0
+}
+//Ready / Fire
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TeslaSMG.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGR A 0 0
+	//FrameIndex SMGF A 0 1
+	//FrameIndex SMGF B 0 2
+	//FrameIndex SMGF C 0 3
+}
+//Melee
+//This one contains the animation before the melee kicks in
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML1.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM A 0 0
+	FrameIndex SMGM B 0 1
+	FrameIndex SMGM C 0 2
+	FrameIndex SMGM D 0 3
+}
+//This one contains the animation before the melee kicks in (the last frame of it, because zandro only allows 4 frames per modeldef entry.
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML1.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM E 0 4
+}
+//These are the tasing animations. They use seperate models (although if I knew blender well enough, 
+//I could probably put them all together under one md3), which is why they are split apart.
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML2.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM F 0 0
+}
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML3.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM G 0 0
+}
+Model TeslaSMG
+{
+	Path "models/weapons/melee"
+	Skin 0 "TeslaSMG.png"
+	Model 0 "TESLAML4.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex SMGM H 0 0
+}*/

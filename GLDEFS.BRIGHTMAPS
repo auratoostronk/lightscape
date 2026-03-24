@@ -1,0 +1,29 @@
+brightmap texture "models/pickups/passive/ENRGA0.png"
+{
+	map "models/pickups/passive/ENRGA0BM.png"
+	disablefullbright
+}
+brightmap texture "models/weapons/carbine/carbine.png"
+{
+	map "models/weapons/carbine/carbbm.png"
+}
+brightmap texture "models/weapons/gamma/c14.png"
+{
+	map "models/weapons/gamma/c14bm.png"
+}
+brightmap texture "models/weapons/incinerator/flamespt.png"
+{
+	map "models/weapons/incinerator/flamebm.png"
+}
+brightmap texture "models/weapons/railgun/railgun.png"
+{
+	map "models/weapons/railgun/railbm.png"
+}
+brightmap texture "models/weapons/shotgun/shotgun.png"
+{
+	map "models/weapons/shotgun/shotbm.png"
+}
+brightmap texture "models/weapons/smg/teslasmg.png"
+{
+	map "models/weapons/smg/teslabm.png"
+}

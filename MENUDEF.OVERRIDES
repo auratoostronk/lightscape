@@ -1,0 +1,453 @@
+DefaultOptionMenu
+{
+	Position 24
+}
+OptionMenuSettings
+{
+	Linespacing 8
+}
+DefaultListMenu
+{
+	Position 24, 64
+	Selector "M_PICK", -20, 0
+	Font "MENUFONT", "Red", "White"
+	LineSpacing 20
+}
+ListMenu "MainMenu"
+{
+	StaticPatch 0, 24, "LSTITLE"
+	TextItem "Singleplayer", "p", "ZA_SkirmishMenuNew"
+	TextItem "Multiplayer", "s", "ZA_Browser"
+	TextItem "Loadout", "m", "MatchPrepWeapon"
+	TextItem "Options", "o", "OptionsMenuNew"
+	TextItem "Quit", "q", "QuitMenu"
+}
+OptionMenu ZA_SkirmishMenuNew
+{
+	Title		"SKIRMISH"
+	StaticText ""
+	Option		"Level",				"menu_skirmishlevel",			"ZA_Levels"
+	Option		"Gamemode",				"menu_skirmishgamemode",		"ZA_Gamemode"
+	StaticText 	" "
+	Option		"Bot Skill",			"menu_skirmishbotskill",	ZA_Skill
+	SubMenu		"Bot Setup",			"ZA_BotSetup"
+	StaticText ""
+	Submenu 	"Game Settings",		"GameplayOptionsNew"
+	StaticText ""
+	Command		"Start Game!",			"menu_startskirmish"
+}
+
+OptionValue ZA_Gamemode
+{
+	//1, "Survival"
+	3, "Deathmatch"
+	4, "Team Deathmatch"
+	5, "Duel"
+	7, "Last Man Standing"
+	8, "Team Last Man Standing"
+	12, "Capture The Flag"
+	//15, "Domination"
+}
+OptionMenu ZA_Browser
+{
+	Indent 64 // 153 Original value
+	Title "SERVER BROWSER"
+	Class "BrowserMenu"
+
+	Option		"Servers",		"menu_browser_servers",		"ZA_ServerType"
+	Option		"Gametype",		"menu_browser_gametype",		"ZA_ServerGamemode"
+	Option		"Sort by",		"menu_browser_sortby",		"ZA_ServerSortType"
+	Option		"Show empty",		"menu_browser_showempty",		"YesNo"
+	Option		"Show full",		"menu_browser_showfull",		"YesNo"
+	StaticText	" "
+	StaticText	" " // Header
+	StaticText	" "
+	ServerBrowserSlot 0
+	ServerBrowserSlot 1
+	ServerBrowserSlot 2
+	ServerBrowserSlot 3
+	ServerBrowserSlot 4
+	ServerBrowserSlot 5
+	ServerBrowserSlot 6
+	ServerBrowserSlot 7
+	StaticText	" "
+	Command		"Refresh",			"querymaster"
+	Submenu		"Get server info",			"ZA_ServerInfo"
+	Command		"Join game!",			"menu_join_selected_server"
+}
+
+OptionMenu "OptionsMenuNew"
+{
+	Title "SETTINGS"
+	StaticText " "
+	Submenu "Mouse", 				"MouseOptionsNew"
+	Submenu "Keybinds", 			"CustomizeControls"
+	Submenu "Controller", 			"JoystickOptions"
+	StaticText " "
+	Submenu "Interface",			"HudOptionsNew"
+	Submenu "Graphics",				"DisplayOptionsNew"
+	StaticText " "
+	Submenu "Audio",				"SoundOptionsNew"
+	StaticText " "
+	Submenu "Profile",				"PlayerMenuNew"
+	Submenu "Multiplayer",			"ZA_MultiplayerOptionsNew"
+	StaticText " "
+	Submenu "Gameplay",				"GameplayOptionsNew"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Open Console",				"menuconsole"
+}
+OptionMenu "CustomizeControls"
+{
+	Title "KEYBINDS"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC to cancel", "ControlMessage"
+	StaticText 	""
+	StaticText 	"Movement", 1
+	StaticText 	""
+	Control 	"Forward",				"+forward"
+	Control 	"Back",					"+back"
+	Control 	"Left",					"+moveleft"
+	Control 	"Right",				"+moveright"
+	Control 	"Turn left",			"+left"
+	Control 	"Turn right",			"+right"
+	Control 	"Use / Respawn",		"+use"
+	Control 	"Jump",					"+jump"
+	Control 	"Dash",					"+user1"
+	//Control 	"Crouch",				"+crouch"
+	//Control 	"Crouch (Toggle)",		"crouch"
+	StaticText 	""
+	StaticText 	"Combat", 1
+	StaticText 	""
+	Control 	"Fire",					"+attack"
+	Control 	"Alt Fire",				"+altattack"
+	//Control 	"Reload",				"+reload"
+	Control 	"Active",				"active"
+	Control 	"Zoom",					"+zoom"
+	StaticText 	""
+	StaticText 	"Weapons", 1
+	Submenu 	"Weapon Setup", 				"ZA_WeaponSetup"
+	StaticText 	""
+	Control 	"Next weapon",			"weapnext"
+	Control 	"Previous weapon",		"weapprev"
+	Control		"Tesla SMG",			"slot 1"
+	Control		"Plasma Carbine",		"slot 2"
+	Control		"Particle Splitter",	"slot 3"
+	Control		"C-14",					"slot 4"
+	Control		"Flux Railgun",			"slot 5"
+	StaticText 	""
+	StaticText 	"Multiplayer",1
+	StaticText 	""
+	Control 	"Show Scoreboard",				"+showscores"
+	Control 	"Chat",							"messagemode"
+	Control 	"Team Chat",					"messagemode2"
+	Control 	"Ready up",						"ready"
+	Control		"Vote yes",						"vote_yes"
+	Control		"Vote no",						"vote_no"
+	Control		"Spectate",						"spectate"
+	Control 	"Spectate next",				"spynext"
+	Control 	"Spectate previous",			"spyprev"
+	Control 	"Spectate Freely",				"spycancel"
+	StaticText 	""
+	StaticText 	"Other", 1
+	Control 	"Screenshot",			"screenshot"
+	Control  	"Open console",			"toggleconsole"
+	StaticText 	""
+}
+OptionMenu "MouseOptionsNew"
+{
+	Title "MOUSE OPTIONS"
+	StaticText 	"Basic", 1
+	Slider "Mouse sensitivity",		"mouse_sensitivity", 0.1, 4.0, 0.1, 1
+	
+	IfOption(Windows)
+	{
+		Option "Mouse input mode",				"in_mouse", "InMouse"
+	}
+	StaticText 	""
+	Option "Menu Cursor",					"vid_cursor", "Cursors"
+	StaticText 	""
+	StaticText 	"Advanced", 1
+	Option "Prescale mouse",	"m_noprescale", "NoYes"
+	Option "Smooth mouse",		"smooth_mouse", "YesNo"
+	Option "Invert Mouse",				"invertmouse", "OnOff"
+	StaticText 	""
+	Slider "Horizontal multiplier",		"mouse_yaw", 0.1, 4.0, 0.1, 1
+	Slider "Vertical multiplier",		"mouse_pitch", 0.1, 4.0, 0.1, 1
+	Slider "Zoomed multiplier",			"mouse_zoomedscale", 0.1, 4.0, 0.1, 1
+}
+OptionMenu ZA_WeaponSetup
+{
+	Indent 153
+	Title		"WEAPON SETUP"
+	Indent 170
+
+	Option		"Switch on pickup",		"switchonpickup",				"ZA_SwitchOnPickup"
+
+	Class WeaponSetupMenu
+}
+
+OptionMenu "DisplayOptionsNew"
+{
+	Title "DISPLAY OPTIONS"
+	
+	StaticText "Display", 1
+	Submenu "Display Resolution",			"VideoModeMenu"
+	Option "Render in Background",	"vid_activeinbackground",		"OnOff"
+	Option "Vertical Sync",				"vid_vsync",					"OnOff"
+	Slider "Max FPS",					"vid_maxfps",					0, 1000, 5, 0
+	Option "Show FPS",					"vid_fps",						"OnOff"
+	//Option "RefreshRate",				"vid_refreshrate",				"Hz"
+	StaticText " "
+	StaticText "Color Control", 1
+	Slider "Gamma correction",			"Gamma",						0.75, 3.0, 0.05, 2
+	Slider "Brightness",				"vid_brightness",				-0.8,0.8, 0.05
+	Slider "Contrast",					"vid_contrast",	   				0.1, 3.0, 0.1
+	Option "OpenGL Lighting mode",		gl_lightmode,					"LightingModes"
+	StaticText " "
+	StaticText "Graphics Quality (OpenGL)", 1
+	Option "Texture Quality",			gl_texture_hqresize,			"HqResizeModes"
+	Option "Texture Filtering",			gl_texture_filter,				"FilterModes"
+	Option "Anisotropic filter",		gl_texture_filter_anisotropic,	"Anisotropy"
+	Option "Rendering Quality",			gl_render_precise,				"Precision"
+	Option "Enable Reflections", 		gl_custom_argument, 			"YesNo" //formerly gl_dynlight_shader
+	StaticText " "
+	StaticText "View", 1
+	Slider "Field of View",				"fov", 60, 120, 1, 0
+	Slider "Zoom Amount",			"ls_zoomscale", 1.0, 4.0, 0.1, 1
+	Slider "Zoom speed",			"cl_fovchangespeed", 1, 100, 1, 0
+	Option "True horizontal fov",	"gl_true_fov", "YesNo"
+	StaticText " "
+	Slider 	"Weapon bob",			"movebob", 						0.0, 2.0, 0.01, 2
+	Slider 	"Weapon sway",			"movesway", 					0.0, 2.0, 0.01, 2
+}
+
+OptionMenu "HUDOptionsNew"
+{
+	Title "Interface Options"
+	StaticText 	"HUD", 1
+	Option "HUD Type",					"screenblocks", "ScreenSize"
+	Option "Stretch Fullscreen HUD",	"hud_scale", "OnOff"
+	Option "Frag messages",					"cl_showlargefragmessages",	"YesNo" // [TP]
+	Slider "Screen blood intensity",		"blood_fade_scalar",   0, 1, 0.05, 2
+	Slider "Pickup flash intensity",		"pickup_blend_scalar", 0, 1, 0.05, 2
+	//Submenu "Text Scaling", "TextScalingOptions"
+	StaticText ""
+	StaticText 	"Crosshair", 1
+	Option "Crosshair",					"crosshair", "Crosshairs"
+	Slider "Crosshair Scale",			"crosshairscalef", 0, 10, 0.1
+	ColorPicker "Crosshair color", 		"crosshaircolor"
+	Option "Grow crosshair on pickup",	"crosshairgrow", "OnOff"
+	Option "Crosshair shows health",	"crosshairhealth", "OnOff"
+	//Option "Enable Alt-fire cooldown ring", "alph_altcdonhud", "OnOff"
+	StaticText ""
+	StaticText "Multiplayer", 1
+	Option		"Show Spawn Locations",			"cl_showspawns",			"YesNo"
+	Option		"Override player colors",	"cl_overrideplayercolors",	"ZA_OverridePlayerColors"
+	ColorPicker	"Ally color",				"cl_allycolor"
+	ColorPicker	"Enemy color",				"cl_enemycolor"
+	StaticText 	""
+	StaticText ""
+}
+ListMenu "PlayerMenuNew"
+{
+	StaticTextCentered 160, 6, "Profile"
+	Font "SmallFont"
+	Linespacing 14
+	Position 0, 36
+
+	IfGame (Doom, Strife, Chex)
+	{
+		PlayerNameBox "Name", 0, "Playerbox"
+		Selector "-", -16, -1
+	}
+	IfGame(Heretic, Hexen)
+	{
+		PlayerNameBox "Name", 5, "Playerbox"
+		Selector "-", -16, 1
+	}
+	IfGame(Doom, Heretic, Strife, Chex)
+	{
+		MouseWindow 0, 220
+		PlayerDisplay 220, 80, "20 00 00", "80 00 40", 1, "PlayerDisplay"
+	}
+	IfGame(Hexen)
+	{
+		MouseWindow 0, 220
+		PlayerDisplay 220, 80, "00 07 00", "40 53 40", 1, "PlayerDisplay"
+	}
+	
+	// [TP] Zandronum does not store team in userinfo
+	// ValueText "Team", "Team"
+	// [TP] For now Zandronum doesn't support colorsets either.
+	// ValueText "Color", "Color"
+	Linespacing 10
+	Slider "Red", "Red", 0, 255, 16
+	Slider "Green", "Green", 0, 255, 16
+	Linespacing 14
+	Slider "Blue", "Blue", 0, 255, 16
+	ValueText "Gender", "Gender", "Gender"
+	Class "PlayerMenu"
+}
+	
+OptionValue "ScreenSize"
+{
+	10, "Type 1"
+	11, "Type 2"
+	12, "Minimal"
+}
+
+
+OptionMenu SoundOptionsNew
+{
+	Title "SOUND OPTIONS"
+	Slider "Sounds volume",		"snd_sfxvolume", 0, 0.5, 0.05, 2
+	Slider "Menu volume",		"snd_menuvolume", 0, 0.5, 0.05, 2
+	Slider "Music volume",		"snd_musicvolume", 0, 0.5, 0.05, 2
+	Slider "Announcer volume",	"snd_announcervolume", 0, 1.0, 0.1, 2 // [TP]
+	Option "Announcer",			"cl_announcer", "ZA_Announcers" // [TP]
+	StaticText " "
+	Slider "Sound channels",	"snd_channels", 8, 256, 8, 0
+	StaticText " "
+	Command "Restart sound",	"snd_reset"
+	StaticText " "
+	IfOption(Windows)
+	{
+		Option "Output system",		"snd_output", "SoundOutputsWindows"
+	}
+	IfOption(Unix)
+	{
+		Option "Output system",		"snd_output", "SoundOutputsUnix"
+	}
+	IfOption(Mac)
+	{
+		Option "Output system",		"snd_output", "SoundOutputsMac"
+	}
+	Option "Output format",		"snd_output_format", "OutputFormats"
+	Option "Speaker mode",		"snd_speakermode", "SpeakerModes"
+	
+}
+OptionString OutputFormats
+{
+	//"PCM-8",		"8-bit"
+	"PCM-16",		"16-bit"
+	"PCM-24",		"24-bit"
+	"PCM-32",		"32-bit"
+	"PCM-Float",	"32-bit float"
+}
+
+OptionMenu ZA_MultiplayerOptionsNew
+{
+	Title "MULTIPLAYER OPTIONS"
+	StaticText	" "
+	//SubMenu		"Network Options",			"ZA_NetworkOptions"
+	Command 	"Spectate", 				"spectate"
+	StaticText	" "
+	SubMenu		"Ignore a player",			"ZA_IgnoreMenu"
+	StaticText	" "
+	SubMenu		"Call a vote",				"ZA_CallVote"
+	StaticText	" "
+	Command 	"Vote Yes", 				"vote_yes"
+	Command 	"Vote No", 					"vote_no"
+	StaticText	" "
+	TextField	"Server password",			"cl_password"
+	TextField	"Server join password",		"cl_joinpassword"
+	StaticText	" "
+}
+
+OptionMenu GameplayOptionsNew
+{
+	Indent 153
+	Title 	"GAMEPLAY OPTIONS"
+	StaticText " "
+	Option		"Gamemode",			"menu_skirmishgamemode",		"ZA_Gamemode"
+	SubMenu		"Bot Setup",			"ZA_BotSetup"
+	StaticText " "
+	StaticText "Limits", 1
+	Slider	"Time Limit",			"menu_skirmishtimelimit", 0, 30, 1, 0
+	Slider	"Frag Limit",			"menu_skirmishfraglimit", 0, 100, 5, 0
+	Slider	"Score Limit",			"menu_skirmishpointlimit", 0, 10, 1, 0
+	Slider	"Duel Win Limit",		"menu_skirmishduellimit", 0, 10, 1, 0
+	Slider	"LMS Win Limit",		"menu_skirmishwinlimit", 0, 10, 1, 0
+	StaticText " "
+	StaticText "Pickup settings", 1
+	Option "Weapons stay after pickup",		"sv_weaponstay", "YesNo"
+	Option "Spawn Weapons",					"sv_noweaponspawn", "NoYes"
+	Option "Spawn Powerups",				"alph_nopowerups", "NoYes"
+	Option "Spawn health pickups",			"sv_nohealth", "NoYes"
+	Option "Spawn armor pickups",			"sv_noarmor", "NoYes"
+	StaticText " "
+	StaticText "Respawn settings", 1
+	Option "Spawn far away",				"sv_spawnfarthest", "YesNo"
+	Option "Force respawn",					"sv_forcerespawn", "YesNo"
+	StaticText " "
+	StaticText "Teamgame Settings", 1
+	Slider	"Team damage scalar",			"teamdamage", 0, 1, 0.05
+	Option "Unblock allies",				"sv_unblockallies", "YesNo"
+	Option "CTF Instant flag return", 		"sv_instantreturn", "YesNo"
+	Option "Server picks teams", 			"sv_noteamselect", "YesNo"
+	Option "No team switching",				"sv_noteamswitch", "YesNo"
+	Option "Keep teams between levels", 	"sv_keepteams", "YesNo"
+	StaticText " "
+	StaticText "Other Settings", 1
+	Option "Player-on-Player collision",	"sv_unblockplayers", "NoYes"
+	Option "Infinite ammo",					"sv_infiniteammo", "YesNo"
+	StaticText " "
+	
+	Class "GameplayMenu"
+}
+
+OptionValue OneThroughTen
+{
+	1, "1"
+	2, "2"
+	3, "3"
+	4, "4"
+	5, "5"
+	6, "6"
+	7, "7"
+	8, "8"
+	9, "9"
+}
+
+OptionValue ZA_Skill
+{
+	0, "0 - Cakewalk"
+	1, "1 - Easy"
+	2, "2 - Normal"
+	3, "3 - Hard"
+	4, "4 - Impossible!"
+}
+OptionMenu ZA_JoinMenu
+{
+	Indent 153
+	Title		"JOIN GAME"
+
+	StaticText	"You are spectating."
+	StaticText	" "
+	StaticText	" "
+	StaticText	" "
+	StaticText	" "
+	Command		"How to play",			"menu_help"
+	SubMenu 	"Change Loadout", 		"LoadoutOptions"
+	StaticText	" "
+	Command		"Join game",			"menu_joingame"
+}
+
+OptionMenu ZA_JoinTeamMenu
+{
+	Indent 153
+	Title		"JOIN TEAM"
+
+	StaticText	"Please select a team."
+	StaticText	" "
+	StaticText	" "
+	Command		"How to play",			"menu_help"
+	SubMenu 	"Change Loadout", 		"LoadoutOptions"
+	StaticText	" "
+	JoinMenuTeamOption
+	Command		"Auto-select",			"menu_autoselect"
+	StaticText	" "
+	Command		"Join game",			"menu_joingame"
+}

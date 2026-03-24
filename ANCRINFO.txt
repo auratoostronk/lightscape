@@ -1,0 +1,71 @@
+{
+
+	name = "Default Announcer"
+	
+	fight = announcer/an/fight
+
+	//Blue Team Sounds
+	blueflagdropped = announcer/an/blueflagdropped
+	blueflagreturned = announcer/an/blueflagreturned
+	blueflagtaken = announcer/an/blueflagtaken
+	blueleads = announcer/an/blueleads
+	bluescores = announcer/an/bluescores
+
+	//Red Team Sounds
+	redflagdropped = announcer/an/redflagdropped
+	redflagreturned = announcer/an/redflagreturned
+	redflagtaken = announcer/an/redflagtaken
+	redleads = announcer/an/redleads
+	redscores = announcer/an/redscores
+
+	//Welcome to (Gamemode) sounds
+	welcometoctf = announcer/an/welcometoctf
+	welcometotdm = announcer/an/welcometotdm
+	welcometodm = announcer/an/welcometodm
+	welcometodl = announcer/an/welcometodl
+	welcometolms = announcer/an/welcometolms
+	welcometodom = announcer/an/welcometodom
+	
+	//Vote sounds
+	votefailed = announcer/an/votefailed
+	votenow = announcer/an/votenow
+	votepassed = announcer/an/votepassed
+	
+	//Time Warnings
+	oneminutewarning = announcer/an/oneminutewarning
+	fiveminutewarning = announcer/an/fiveminutewarning
+
+	//Player Notifications
+	//Might need this one later
+	//nextroundin = announcer/an/nextroundin
+	three = announcer/an/three
+	two = announcer/an/two
+	one = announcer/an/one
+	onefragleft = announcer/an/onefragleft
+	twofragsleft = announcer/an/twofragsleft
+	threefragsleft = announcer/an/threefragsleft
+	
+	preparetofight = announcer/an/preparetofight
+	
+	youvelostthelead = announcer/an/youvelostthelead
+	youvetakenthelead = announcer/an/youvetakenthelead
+	teamsaretied = announcer/an/teamsaretied
+	
+	victory = announcer/an/victory
+	youwin = announcer/an/youwin
+	defeat = announcer/an/youlose
+	youaretiedforthelead = announcer/an/youaretiedforthelead
+	
+	//Sprees and multikills
+	spree5 = announcer/an/spree5
+	spree10 = announcer/an/spree10
+	spree15 = announcer/an/spree15
+	spree20 = announcer/an/spree20
+	spree25 = announcer/an/spree25
+	
+	multi2 = announcer/an/multi2
+	multi3 = announcer/an/multi3
+	multi4 = announcer/an/multi4
+	multi5 = announcer/an/multi5
+	multim = announcer/an/multim
+}

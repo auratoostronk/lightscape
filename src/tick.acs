@@ -1,0 +1,126 @@
+#library "tick"
+#include "zcommon.acs"
+#import "lib.acs"
+#import "weapon.acs"
+#import "active.acs"
+
+#define BANDOLIER_RESTORE 0.5
+
+//int PLAYER_ACTIVECD_TICS[MAX_PLAYERS];
+
+function void bandolierCheck(void)
+{
+	for(int i = 0; i < NUM_WEAPS; i++)
+	{
+		//Check which weapon the player is holding.
+		if(StrCmp(GetWeapon(), WEAP_ACTORS[i]) == 0)
+		{
+			//If the player a. has a bandolier and b. is out of ammo for their equiped weapon
+			if(CheckInventory("Bandolier") > 0 && CheckInventory(WEAP_AMMOS[i]) < 1)
+			{
+				//Refill the ammo and use the bandolier
+				GiveInventory(WEAP_AMMOS[i], GetAmmoCapacity(WEAP_AMMOS[i]) * BANDOLIER_RESTORE);
+				TakeInventory("Bandolier", 1);
+				LocalAmbientSound("Weapon/AmmoFill", 1.0);
+				acs("DisplayAmmoRefilledMessage");
+			}
+		}
+	}
+}
+
+function void tickHealthRegen(void)
+{
+	int regenDelay = 5;
+	int regenRateDelay = 5;
+		
+	if(Timer() % regenDelay == 0)
+	{
+		TakeInventory("HealthRegenDelay", 1);
+	}
+	if(Timer() % regenRateDelay == 0)
+	{
+		if(GetActorProperty(0, APROP_HEALTH) < GetActorProperty(0, APROP_SPAWNHEALTH) && CheckInventory("HealthRegenDelay") < 1)
+		{
+			GiveInventory("HealthUnlagged", 1);
+		}
+	}
+}
+
+function void tickAmmoRegen(void)
+{
+	//Refills energy when the player has not fired a weapon in a while.
+	if(CheckInventory("AmmoRegenCD") == 1)
+	{
+		refillAmmo();
+		//And plays this sound.
+		LocalAmbientSound("Weapon/AmmoFill", 1.0);
+	}
+	//How many tics before your energy begins replenishing.
+	TakeInventory("AmmoRegenCD", 1);
+}
+
+//This whole system needs to be redone probably.
+/*function void tickActionCD(void)
+{
+	PLAYER_ACTIVECD_TICS[PlayerNumber()] += 1;
+	acs("SyncActiveTics", PLAYER_ACTIVECD_TICS[PlayerNumber()]);
+	if(PLAYER_ACTIVECD_TICS[PlayerNumber()] >= 35)
+	{
+		PLAYER_ACTIVECD_TICS[PlayerNumber()] = 0;
+		acs("SyncActiveTics", PLAYER_ACTIVECD_TICS[PlayerNumber()]);
+		if(PLAYER_ACTIVECD[PlayerNumber()] > 0)
+		{
+			PLAYER_ACTIVECD[PlayerNumber()] = PLAYER_ACTIVECD[PlayerNumber()] - 1;
+			ACS("SyncActiveCD", PLAYER_ACTIVECD[PlayerNumber()] - 1);
+		}
+	}
+}
+//This whole system needs to be redone probably.
+Script "SyncActiveTics" (int value) CLIENTSIDE
+{
+	PLAYER_ACTIVECD_TICS[PlayerNumber()] = value;
+}*/
+
+function void tickActionCD(void)
+{
+	GiveInventory("ActiveCDTics", 1);
+	if(CheckInventory("ActiveCDTics") >= 35)
+	{
+		TakeMax("ActiveCDTics");
+		TakeInventory("ActiveCD", 1);
+	}
+}
+
+function void tickAltCD(void)
+{
+	TakeInventory("AltFireCD", 1);
+	if(CheckInventory("AltFireCD") == 0)
+	{
+		TakeMax("AltFireCDMax");
+	}
+}
+
+script "CooldownTimers" ENTER
+{
+	while(true)
+	{
+		if(ClassifyActor(0) & ACTOR_ALIVE)
+		{
+			TakeInventory("OmniDashCD", 1);
+			TakeInventory("WarpDashCD", 1);
+			TakeInventory("HRailCharge", 1);
+			tickAmmoRegen();
+			tickHealthRegen();
+			bandolierCheck();
+			tickActionCD();
+			tickAltCD();
+			
+			/*if(CheckInventory("IsDashing") > 0)
+			{
+				SpawnSpotFacingForced("DashTrail", 0, 0);
+				TakeInventory("IsDashing", 1);
+			}*/
+		}
+		delay(1);
+	}
+}

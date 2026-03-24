@@ -1,0 +1,71 @@
+ACTOR DigitBase
+{
+	//Fade constant
+	const float FADE_AMOUNT = 0.03;
+	//Properties
+	Radius 1
+	Height 1
+	Scale 0.4
+	Vspeed 1
+	
+	//Flags
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+FORCEXYBILLBOARD
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NONETID
+	+BRIGHT
+	
+	//States
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_FadeOut(FADE_AMOUNT)
+		loop
+	}
+}
+
+ACTOR Digit1Num0 : DigitBase { States { Spawn: D1N0 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num1 : DigitBase { States { Spawn: D1N1 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num2 : DigitBase { States { Spawn: D1N2 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num3 : DigitBase { States { Spawn: D1N3 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num4 : DigitBase { States { Spawn: D1N4 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num5 : DigitBase { States { Spawn: D1N5 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num6 : DigitBase { States { Spawn: D1N6 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num7 : DigitBase { States { Spawn: D1N7 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num8 : DigitBase { States { Spawn: D1N8 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit1Num9 : DigitBase { States { Spawn: D1N9 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+
+ACTOR Digit2Num0 : DigitBase { States { Spawn: D2N0 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num1 : DigitBase { States { Spawn: D2N1 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num2 : DigitBase { States { Spawn: D2N2 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num3 : DigitBase { States { Spawn: D2N3 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num4 : DigitBase { States { Spawn: D2N4 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num5 : DigitBase { States { Spawn: D2N5 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num6 : DigitBase { States { Spawn: D2N6 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num7 : DigitBase { States { Spawn: D2N7 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num8 : DigitBase { States { Spawn: D2N8 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit2Num9 : DigitBase { States { Spawn: D2N9 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+
+ACTOR Digit3Num0 : DigitBase { States { Spawn: D3N0 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num1 : DigitBase { States { Spawn: D3N1 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num2 : DigitBase { States { Spawn: D3N2 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num3 : DigitBase { States { Spawn: D3N3 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num4 : DigitBase { States { Spawn: D3N4 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num5 : DigitBase { States { Spawn: D3N5 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num6 : DigitBase { States { Spawn: D3N6 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num7 : DigitBase { States { Spawn: D3N7 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num8 : DigitBase { States { Spawn: D3N8 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit3Num9 : DigitBase { States { Spawn: D3N9 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+
+ACTOR Digit4Num0 : DigitBase { States { Spawn: D4N0 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num1 : DigitBase { States { Spawn: D4N1 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num2 : DigitBase { States { Spawn: D4N2 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num3 : DigitBase { States { Spawn: D4N3 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num4 : DigitBase { States { Spawn: D4N4 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num5 : DigitBase { States { Spawn: D4N5 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num6 : DigitBase { States { Spawn: D4N6 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num7 : DigitBase { States { Spawn: D4N7 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num8 : DigitBase { States { Spawn: D4N8 A 1 A_FadeOut(FADE_AMOUNT) loop } }
+ACTOR Digit4Num9 : DigitBase { States { Spawn: D4N9 A 1 A_FadeOut(FADE_AMOUNT) loop } }

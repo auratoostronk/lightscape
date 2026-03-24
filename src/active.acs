@@ -1,0 +1,118 @@
+#library "active"
+#include "zcommon.acs"
+#import "lib.acs"
+#import "weapon.acs"
+
+str ACTIVE_SCRIPTS[NUM_ACTIVES] = 	{"RegenZone", 	"FlickerShield", 	"DecoyProjection", 	"SystemOverdrive"};
+str ACTIVE_INVENTORY[NUM_ACTIVES] = {"CVAR_RZone", 	"CVAR_FShield", 	"CVAR_PDecoy", 		"CVAR_SOverdrive"};
+//Cooldowns (in seconds) of each active.
+int ACTIVE_CDS[NUM_ACTIVES] = 		{25, 			20, 				15, 				30};
+
+//global int 1:PLAYER_ACTIVECD[MAX_PLAYERS];
+
+//This whole system needs to be redone probably.
+/*Script "ActivesOpen" OPEN
+{
+	//Reset ability cooldown if match just started
+	for(int i = 0; i < MAX_PLAYERS; i++)
+	{
+		PLAYER_ACTIVECD[i] = 0;
+		ACS("SyncActiveCD", 0);
+	}
+}*/
+//This whole system needs to be redone probably.
+/*Script "SyncActiveCD" (int value) CLIENTSIDE
+{
+	PLAYER_ACTIVECD[PlayerNumber()] = value;
+}*/
+Script "UseActive" (void) NET
+{
+	if(ClassifyActor(0) & ACTOR_ALIVE)
+	{
+		//if(PLAYER_ACTIVECD[PlayerNumber()] == 0)
+		if(CheckInventory("ActiveCD") == 0)
+		{
+			for(int i = 0; i < NUM_ACTIVES; i++)
+			{
+				if(CheckInventory(ACTIVE_INVENTORY[i]) > 0)
+				{
+					//PLAYER_ACTIVECD[PlayerNumber()] = ACTIVE_CDS[i];
+					//ACS("SyncActiveCD", ACTIVE_CDS[i]);
+					GiveInventory("ActiveCD", ACTIVE_CDS[i]);
+					ACS(ACTIVE_SCRIPTS[i]);
+					terminate;
+				}
+			}
+		}
+		else
+		{
+			LocalAmbientSound("Feedback/Error", 64);
+		}
+	}
+}
+
+Script "BotActive" ENTER
+{
+	while(true)
+	{
+		If(ClassifyActor(0) & ACTOR_BOT)
+		{
+			if(random(0, 35) * 5 == 0)
+			{
+				Acs("UseActive");
+			}
+		}
+		delay(1);
+	}
+}
+
+Script "RegenZone" (void)
+{
+	SpawnSpotFacingForced("RZoneSpawner", 0, 0);
+}
+
+Script "FlickerShield" (void)
+{
+	GiveInventory("FShield", 1);
+	int atid = ActivatorTID();
+	int utid = UniqueTID(UTID_MIN, UTID_LIMIT);
+	SpawnSpotFacingForced("FShieldFX", atid, utid);
+	SetActivator(utid);
+	SetPointer(AAPTR_TARGET, atid);
+	for(int i = 0; i < 35; i++)
+	{
+		Warp(atid, 0, 0, 0, 0.0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE);
+		delay(1);
+		if(!(ClassifyActor(atid) & ACTOR_ALIVE))
+		{
+			i = 35;
+		}
+	}
+	SetActivator(atid);
+	TakeInventory("FShield", 1);
+	Thing_Remove(utid);
+}
+
+Script "DecoyProjection" (void)
+{
+	int utid = UniqueTID(UTID_MIN, UTID_LIMIT);
+	SpawnSpotFacingForced("PDecoy", ActivatorTID(), utid);
+	Thing_SetTranslation(utid, -1);
+	/*while(ClassifyActor(utid) & ACTOR_ALIVE)
+	{
+		//int movespeed = 14.0;
+		//SetActorVelocity(utid, FixedMul(movespeed, cos(GetActorAngle(0))), FixedMul(movespeed, sin(GetActorAngle(0))), GetActorVelZ(0), false, false);
+		ThrustThing(GetActorAngle(utid) >> 8, 1, 1, utid);
+		delay(1);
+		//SetActorVelocity(utid, 0, 0, 0, false, true);
+	}*/
+}
+
+Script "SystemOverdrive" (void)
+{
+	PlaySound(0, "Actives/SystemOverdrive/On", CHAN_6, 1.0, false);
+	refillAmmo();
+	GiveInventory("Afterburner", 1);
+	PLAYER_ALTCDS[PlayerNumber()] = 0;
+	TakeMax("AltFireCD");
+}

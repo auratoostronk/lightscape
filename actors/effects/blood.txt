@@ -1,0 +1,11 @@
+Actor LSBlood : Blood
+{
+	-ALLOWPARTICLES
+	Scale 0.5
+	States
+	{
+	Spawn:
+		BLOD CBA 8
+		Stop
+	}
+}

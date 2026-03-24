@@ -1,0 +1,623 @@
+FreeformMenu "MatchPrepWeapon"
+{
+	Label
+	{
+		Pos 0, 8
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		Text "CHOOSE A WEAPON"
+	}
+	Option
+	{
+		Pos 0, 24
+		Size 128, 80
+		Font SMALLFNT
+		FontColor Red
+		SelectedFontColor White
+		CVAR ls_startweap
+		Values StartWeapons
+		BackgroundValues BGStartWeapons
+	}
+	//Carbine arrows
+	Command
+	{
+		VisibilityCVar ls_startweap, 0, 0
+		Command "set ls_startweap 1"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_startweap, 0, 0
+		Command "set ls_startweap 4"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Shotgun arrows
+	Command
+	{
+		VisibilityCVar ls_startweap, 1, 1
+		Command "set ls_startweap 2"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_startweap, 1, 1
+		Command "set ls_startweap 0"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//SMG Arrows
+	Command
+	{
+		VisibilityCVar ls_startweap, 2, 2
+		Command "set ls_startweap 3"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_startweap, 2, 2
+		Command "set ls_startweap 1"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//C14 Arrows
+	Command
+	{
+		VisibilityCVar ls_startweap, 3, 3
+		Command "set ls_startweap 4"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_startweap, 3, 3
+		Command "set ls_startweap 2"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Railgun Arrows
+	Command
+	{
+		VisibilityCVar ls_startweap, 4, 4
+		Command "set ls_startweap 0"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_startweap, 4, 4
+		Command "set ls_startweap 3"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	Label
+	{
+		Pos -128, 112
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		MaxTextWidth 256
+		Anchor left, top
+		Text "> DESCRIPTION"
+	}
+	
+	//Plasma Carbine
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 0, 0
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Fires high-speed plasma pellets at a high rate of fire. Alt-Fire lobs an arcing powerful energy bomb."
+	}
+	//Particle Splitter
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 1, 1
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Projectile-based shotgun with limitted range. Alt-fire fires a tighter spread."
+	}
+	//Tesla SMG
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 2, 2
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Fires slow-moving electric projectiles while pulling the user forward. Alt-fire to unleash a powerful electric melee attack."
+	}
+	//C-14
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 3, 3
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Fires arcing radioactive projectiles that deal area damage on impact. Alt-fire lobs an acidic gas canister."
+	}
+	//Railgun
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 4, 4
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Fires a powerful railgun attack with a slow rate of fire. Alt-fire blasts an orb that knocks enemies away."
+	}
+	Command
+	{
+		Command "upmenu"
+		Pos -72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "<<< BACK"
+	}
+	Submenu
+	{
+		Menu "MatchPrepDash"
+		Pos 72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "NEXT >>>"
+	}
+}
+
+OptionString "StartWeapons"
+{
+	0, 			"Plasma Carbine"
+	1, 			"Particle Splitter"
+	2,			"Tesla SMG"
+	3, 			"C-14 Energy Blaster"
+	4, 			"Flux Railgun"
+}
+
+OptionString "BGStartWeapons"
+{
+	0, 			"CARBMENU"
+	1, 			"PSGMENU"
+	2, 			"SMGMENU"
+	3,			"C14MENU"
+	4, 			"RAILMENU"
+}
+
+FreeformMenu "MatchPrepDash"
+{
+	Label
+	{
+		Pos 0, 8
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		Text "CHOOSE A DASH"
+	}
+	Option
+	{
+		Pos 0, 32
+		Size 64, 64
+		MaxTextWidth 64
+		Font SMALLFNT
+		FontColor Red
+		SelectedFontColor White
+		CVAR ls_dash
+		Values Dashes
+		BackgroundValues BGDashes
+	}
+	Label
+	{
+		Pos -128, 112
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		MaxTextWidth 256
+		Anchor left, top
+		Text "> DESCRIPTION"
+	}
+	//Omni arrows
+	Command
+	{
+		VisibilityCVar ls_dash, 0, 0
+		Command "set ls_dash 1"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_dash, 0, 0
+		Command "set ls_dash 1"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Warp arrows
+	Command
+	{
+		VisibilityCVar ls_dash, 1, 1
+		Command "set ls_dash 0"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_dash, 1, 1
+		Command "set ls_dash 0"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Sprint Arrows
+	Command
+	{
+		VisibilityCVar ls_dash, 2, 2
+		Command "set ls_dash 0"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_dash, 2, 2
+		Command "set ls_dash 1"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Omni Dash
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_dash, 0, 0
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Thrusts the user in any horizontal direction based on user input."
+	}
+	//Blink Dash
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_dash, 1, 1
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Blinks the user towards their crosshair."
+	}
+	//Sprint Dash
+	/*Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_dash, 2, 2
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Drastically increases movement speed when activated."
+	}*/
+	Command
+	{
+		Command "upmenu"
+		Pos -72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "<<< BACK"
+	}
+	Submenu
+	{
+		Menu "MatchPrepActive"
+		Pos 72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "NEXT >>>"
+	}
+}
+
+OptionString "Dashes"
+{
+	0, 			"Omni"
+	1, 			"Blink"
+	//2, 			"Sprint"
+}
+
+OptionString "BGDashes"
+{
+	0, 			"I_OMNI"
+	1, 			"I_BLINK"
+	//2, 			"I_SPRINT"
+}
+
+FreeformMenu "MatchPrepActive"
+{
+	Label
+	{
+		Pos 0, 8
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		Text "CHOOSE AN ACTIVE"
+	}
+	Option
+	{
+		Pos 0, 32
+		Size 64, 64
+		MaxTextWidth 64
+		Font SMALLFNT
+		FontColor Red
+		SelectedFontColor White
+		CVAR ls_active
+		Values Actives
+		BackgroundValues BGActives
+	}
+	//Regen arrows
+	Command
+	{
+		VisibilityCVar ls_active, 0, 0
+		Command "set ls_active 1"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_active, 0, 0
+		Command "set ls_active 3"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Brace arrows
+	Command
+	{
+		VisibilityCVar ls_active, 1, 1
+		Command "set ls_active 2"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_active, 1, 1
+		Command "set ls_active 0"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Decoy Arrows
+	Command
+	{
+		VisibilityCVar ls_active, 2, 2
+		Command "set ls_active 3"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_active, 2, 2
+		Command "set ls_active 1"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Overdrive Arrows
+	Command
+	{
+		VisibilityCVar ls_active, 3, 3
+		Command "set ls_active 0"
+		Pos 64, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	Command
+	{
+		VisibilityCVar ls_active, 3, 3
+		Command "set ls_active 2"
+		Pos -64, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	Label
+	{
+		Pos -128, 112
+		Size 256, 16
+		Font BIGFONT
+		FontColor Red
+		MaxTextWidth 256
+		Anchor left, top
+		Text "> DESCRIPTION"
+	}
+	//Regen Zone
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_active, 0, 0
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Creates a healing zone at the user's location, healing enemies and allies alike."
+	}
+	//Flicker Shield
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_active, 1, 1
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Creates a forcefield that temporarily blocks all incoming damage."
+	}
+	//Decoy
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_active, 2, 2
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Summons a distracting decoy that walks forward before disappearing."
+	}
+	//System Overdrive
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_active, 3, 3
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Grants the user extra ammo, an extra use of their dash, and resets their alt-fire cooldown."
+	}
+	Command
+	{
+		Command "upmenu"
+		Pos -72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "<<< BACK"
+	}
+	Command
+	{
+		Command "ls_closeloadout"
+		Pos 72, 208
+		Padding 0, 8
+		Size 128, 32
+		Font BIGFONT
+		FontColor Red
+		SelectedFontColor White
+		Background "BG_NEXT"
+		SelectedBackground "BG_NEXT2"
+		Text "BEGIN"
+	}
+}
+
+OptionString "Actives"
+{
+	0, 			"Regen Zone"
+	1, 			"Flicker Shield"
+	2, 			"Decoy Projection"
+	3, 			"System Overdrive"
+}
+
+OptionString "BGActives"
+{
+	0, 			"I_REGEN"
+	1, 			"I_SHIELD"
+	2, 			"I_DECOY"
+	3, 			"I_OVERDR"
+}

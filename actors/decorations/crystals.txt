@@ -1,0 +1,53 @@
+//------------------------------------------------------------
+//Base class for crystal decorations
+//------------------------------------------------------------
+ACTOR CrystalBase
+{
+	//Doom Builder things category
+	//$Category Lightscape Decorations
+	
+	//Properties
+	Radius 16
+	Height 32
+	RenderStyle Add
+	
+	//Flags
+	-SOLID
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+SERVERNETID
+	+BRIGHT
+	
+	//States
+	States
+	{
+	Spawn:
+		3DOB A 1
+		loop
+	}
+}
+
+ACTOR CrystalRed : CrystalBase 32006
+{
+	Tag "Crystal (Red)"
+}
+ACTOR CrystalOrange : CrystalBase 32001
+{
+	Tag "Crystal (Orange)"
+}
+ACTOR CrystalYellow : CrystalBase 32002
+{
+	Tag "Crystal (Yellow)"
+}
+ACTOR CrystalGreen : CrystalBase 32003
+{
+	Tag "Crystal (Green)"
+}
+ACTOR CrystalBlue : CrystalBase 32004
+{
+	Tag "Crystal (Blue)"
+}
+ACTOR CrystalPurple : CrystalBase 32005
+{
+	Tag "Crystal (Purple)"
+}

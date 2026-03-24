@@ -1,0 +1,36 @@
+decal BloodSplat1
+{
+	pic BSPLAT1
+	shade "BloodDefault"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	shade "BloodDefault"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	shade "BloodDefault"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decalgroup BloodSplat
+{
+	BloodSplat1	5
+	BloodSplat2	5
+	BloodSplat3	5
+}

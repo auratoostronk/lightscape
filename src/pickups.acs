@@ -1,0 +1,124 @@
+#library "pickups"
+#include "zcommon.acs"
+#import "lib.acs"
+#import "hud.acs"
+
+#define SPHERE_COUNT 3
+
+str SPHERE_HELD[SPHERE_COUNT] = { "RBurstReady", "HRailReady", "BloodSphereReady" };
+str SPHERE_HELDFX[SPHERE_COUNT] = { "RBurstReadyFX", "HRailReadyFX", "BloodSphereReadyFX"};
+str SPHERE_USING[SPHERE_COUNT] = { "RBurstInUse", "HRailInUse", "BloodSphereInUse"};
+str SPHERE_SCRIPTS[SPHERE_COUNT] = { "UseRBurst", "UseHRail", "UseBloodSphere" };
+
+
+function bool checkSphere(void)
+{
+	bool ret = false; //Assume the player does not have an active item yet.
+	for(int i = 0; i < SPHERE_COUNT; i++)
+	{
+		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
+		{
+			ret = true;
+		}
+	}
+	return ret;
+}
+	
+Script "CheckForSphere" (void)
+{
+	SetResultValue(checkSphere());
+}
+Script "HoldingSphere" (void)
+{
+	int sphereID = -1;
+	for(int i = 0; i < SPHERE_COUNT; i++)
+	{
+		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
+		{
+			sphereID = i;
+		}
+	}
+	if(sphereID == -1)
+	{
+		log(s:"sphere holding error.");
+		terminate;
+	}
+	int ptid = ActivatorTID();
+	int utid = UniqueTID(UTID_MIN, UTID_LIMIT);
+	SpawnSpotForced(SPHERE_HELDFX[sphereID], 0, utid, 0);
+	SetActivator(utid);
+	SetPointer(AAPTR_TARGET, ptid);
+	while((CheckActorInventory(ptid, SPHERE_HELD[sphereID]) || CheckActorInventory(ptid, SPHERE_USING[sphereID])) && (ClassifyActor(ptid) & ACTOR_ALIVE) && !(ClassifyActor(ptid) & ACTOR_WORLD))
+	{
+		//Warp(ptid, 32.0, -24.0, 20.0, 0.0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE);
+		if(CheckActorInventory(ptid, SPHERE_USING[sphereID]))
+		{
+			SetActorState(utid, "Using", true);
+		}
+		delay(1);
+	}
+	SetActorState(utid, "Death", true);
+}
+Script "CheckSphereFire" ENTER
+{
+	while(true)
+	{	
+		for(int i = 0; i < SPHERE_COUNT; i++)
+		{
+			if(CheckInventory(SPHERE_HELD[i]) > 0)
+			{
+				if(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_ATTACK|BT_ALTATTACK))
+				{
+					GiveInventory(SPHERE_USING[i], 1);
+					TakeInventory(SPHERE_HELD[i], 1);
+					acs(SPHERE_SCRIPTS[i], 0);
+				}
+				else if(ClassifyActor(0) & ACTOR_BOT)
+				{
+					if(playerSpotted() == true)
+					{
+						GiveInventory(SPHERE_USING[i], 1);
+						TakeInventory(SPHERE_HELD[i], 1);
+						acs(SPHERE_SCRIPTS[i], 0);		
+					}
+				}
+			}
+		}
+		delay(1);
+	}
+}
+Script "UseRBurst" (void)
+{
+	PlaySound(0, "Items/RicochetBurst/Charge", CHAN_6, 1.0, false);
+	PlaySound(0, "Items/RicochetBurst/ChargeFar", CHAN_7, 1.0, false);
+	delay(18);
+	StopSound(0, CHAN_6);
+	TakeInventory("RBurstInUse", 1);
+	for(int i = 0; i < 5; i++)
+	{
+		GiveInventory("RBurstFire", 1);
+		delay(4);
+	}
+}
+Script "UseHRail" (void)
+{
+	PlaySound(0, "Items/HadronRail/Charge", CHAN_6, 1.0, false);
+	PlaySound(0, "Items/HadronRail/ChargeFar", CHAN_7, 1.0, false);
+	GiveInventory("HRailCharge", 40);
+	for(int i = 0; i < 40; i++)
+	{
+		delay(1);
+		//Make sure the rail cancels if the user dies.
+		if(!(ClassifyActor(0) & ACTOR_ALIVE))
+			terminate;
+	}
+	StopSound(0, CHAN_6);
+	StopSound(0, CHAN_7);
+	GiveInventory("HRailFire", 1);
+	TakeInventory("HRailInUse", 1);
+}
+Script "UseBloodSphere" (void)
+{
+	GiveInventory("BloodSphereFire", 1);
+	TakeInventory("BloodSphereInUse", 1);
+}

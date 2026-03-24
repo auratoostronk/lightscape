@@ -1,0 +1,28 @@
+#library "damage"
+#include "zcommon.acs"
+
+Script "PlayerKillEffect" DEATH
+{
+	Thing_ChangeTID(0, 0);
+	SetActivator(0, AAPTR_TARGET);
+	if(IsPointerEqual(AAPTR_DEFAULT, AAPTR_TARGET) == false)
+	{
+		LocalAmbientSound("Feedback/Kill", 127);
+	}
+}
+
+Script "CheckPain" ENTER
+{
+	while(true)
+	{
+		int oldHealth = GetActorProperty(0, APROP_HEALTH) + CheckInventory("Armor");
+		delay(1);
+		int newHealth = GetActorProperty(0, APROP_HEALTH) + CheckInventory("Armor");
+		int damage = oldHealth - newHealth;
+	
+		if(damage > 0)
+			GiveInventory("HealthRegenDelay", 35);
+		else if(damage < 0)
+			SpawnForced("HealingFX", GetActorX(0), GetActorY(0), GetActorZ(0) + 56.0, 0);
+	}
+}

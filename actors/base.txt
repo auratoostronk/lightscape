@@ -1,0 +1,81 @@
+//------------------------------------------------------------
+//Base VFX class for fading particles
+//------------------------------------------------------------
+ACTOR LSParticleBase
+{
+	//Properties
+	Radius 2
+	Height 2
+	Renderstyle Add
+	
+	//Flags
+	-SOLID
+	+NOCLIP
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NONETID
+	+BRIGHT
+}
+
+//------------------------------------------------------------
+//Base VFX class for bouncing particles
+//------------------------------------------------------------
+ACTOR LSBouncingParticleBase
+{
+	//Properties
+	Radius 2
+	Height 4
+	RenderStyle Add
+	Projectile
+	BounceType Doom
+
+	//Flags
+	+BOUNCEONFLOORS
+	+BOUNCEONCEILINGS
+	+BOUNCEONWALLS
+	+BOUNCEONACTORS
+	-NOGRAVITY
+	+CLIENTSIDEONLY
+	+NONETID
+	+BRIGHT
+}
+
+//------------------------------------------------------------
+//Base VFX class for spawning clientside actors
+//------------------------------------------------------------
+ACTOR LSSpawnerBase
+{
+	//Properties
+	Radius 2
+	Height 2
+	Renderstyle None
+	
+	//Flags
+	-SOLID
+	+NOCLIP
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	+NONETID
+}
+
+Actor SphereReadyBase
+{
+	//Properties
+	Renderstyle Add
+	Radius 2
+	Height 2
+	Alpha 0.8
+	
+	//Flags
+	+SERVERNETID
+	+NOINTERACTION
+	-SOLID
+	+NOCLIP
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+BRIGHT
+}

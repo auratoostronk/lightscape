@@ -1,0 +1,82 @@
+glow
+{
+	Flats
+	{
+		COMP_RD
+		COMP_OR
+		COMP_YL
+		COMP_GR
+		COMP_LB
+		COMP_BL
+		COMP_PR
+		LAVA
+		NUKAGE
+	}
+	Walls
+	{
+		COMP_RD
+		COMP_OR
+		COMP_YL
+		COMP_GR
+		COMP_LB
+		COMP_BL
+		COMP_PR
+		LAVA
+		NUKAGE
+	}
+}
+Object CrystalRed
+{
+	Frame 3DOB { light RedCrystalLight }
+}
+Object CrystalOrange
+{
+	Frame 3DOB { light OrangeCrystalLight }
+}
+Object CrystalYellow
+{
+	Frame 3DOB { light YellowCrystalLight }
+}
+Object CrystalGreen
+{
+	Frame 3DOB { light GreenCrystalLight }
+}
+Object CrystalBlue
+{
+	Frame 3DOB { light BlueCrystalLight }
+}
+Object CrystalPurple
+{
+	Frame 3DOB { light PurpleCrystalLight }
+}
+//CRYSTAL LIGHTS 
+pointlight RedCrystalLight
+{
+    color 1.0 0.0 0.0
+    size 64
+}
+pointlight OrangeCrystalLight
+{
+    color 1.0 0.5 0.0
+    size 64
+}
+pointlight YellowCrystalLight
+{
+    color 1.0 1.0 0.0
+    size 64
+}
+pointlight GreenCrystalLight
+{
+    color 0.0 1.0 0.0
+    size 64
+}
+pointlight BlueCrystalLight
+{
+    color 0.0 0.5 1.0
+    size 64
+}
+pointlight PurpleCrystalLight
+{
+    color 0.2 0.0 0.8
+    size 64
+}

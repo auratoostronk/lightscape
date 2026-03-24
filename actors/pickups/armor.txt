@@ -1,0 +1,59 @@
+//------------------------------------------------------------
+//Base class for armor
+//------------------------------------------------------------
+Actor NanoArmorBase : BasicArmorBonus
+{
+	//Doom Builder things category
+	//$Category Lightscape Pickups
+	
+	//Properties
+	Armor.SavePercent 66.7
+	Armor.MaxSaveAmount 75
+	Radius 24
+	Height 40
+	
+	//Flags
+	+BRIGHT
+	+SERVERNETID
+	-INVENTORY.ALWAYSPICKUP
+	+FLOATBOB
+}
+
+//------------------------------------------------------------
+//Large armor
+//------------------------------------------------------------
+Actor NanoArmorLarge : NanoArmorBase replaces BlueArmor
+{
+	Tag "Nano-Armor"
+	Inventory.PickupMessage "Equipped Nano-Armor."
+	Inventory.PickupSound "Pickups/NanoArmor"
+	Inventory.Icon "ARM3A0"
+	Armor.SaveAmount 50
+	Inventory.RespawnTics 1050 //30 seconds
+	States
+	{
+		Spawn:
+		ARM3 A 1 A_SetAngle(angle + 4)
+		loop
+	}
+}
+//------------------------------------------------------------
+//Small armor
+//------------------------------------------------------------
+Actor NanoArmorSmall : NanoArmorBase replaces GreenArmor
+{
+	Tag "Nano-Plate"
+	Inventory.PickupMessage "Equipped a Nano-Plate."
+	Inventory.PickupSound "Pickups/NanoPlate"
+	Inventory.Icon "ARMPA0"
+	Armor.SaveAmount 25
+	Inventory.RespawnTics 1050 //30 seconds
+	Scale 1.5
+	States
+	{
+		Spawn:
+		ARMP A 1 A_SetAngle(angle + 4)
+		loop
+		
+	}
+}

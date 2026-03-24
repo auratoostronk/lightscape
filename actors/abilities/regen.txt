@@ -1,0 +1,87 @@
+// ------------------------------------------------------------
+// Regen Zone logic actor
+// ------------------------------------------------------------
+Actor RZoneSpawner
+{
+	// Properties
+	args 0
+
+	// Flags
+	-SOLID
+	+NOGRAVITY
+	+BRIGHT
+
+	// States
+	States
+	{
+	Spawn:
+		TNT1 A 0 nodelay A_PlaySound("Actives/RegenZone/On", CHAN_6, 0.8)
+		TNT1 A 0 A_PlaySound("Actives/RegenZone/Loop", CHAN_7, 0.6, true)
+	Spawn1:
+		TNT1 AA 0 A_SpawnItemEx("RZoneFX", frandom(0.0, 256.0), 0, 1.0, 0.0, 2.0, 4.0, frandom(0.0, 360.0), SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 256.0, 0.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", -256.0, 0.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 0.0, 256.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 0.0, -256.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_RadiusGive("Health", 256.0, RGF_PLAYERS, 1)
+		TNT1 A 0 A_SetAngle(angle + 4)
+		TNT1 A 0 A_SetArg(0, args[0] + 1)
+		TNT1 A 1 A_JumpIf(args[0] > 140, "Death")
+		TNT1 AA 0 A_SpawnItemEx("RZoneFX", frandom(0.0, 256.0), 0, 1.0, 0.0, 2.0, 4.0, frandom(0.0, 360.0), SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 256.0, 0.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", -256.0, 0.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 0.0, 256.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SpawnItemEx("RZoneRadiusFX", 0.0, -256.0, 1.0, 0, 0, 0)
+		TNT1 A 0 A_SetAngle(angle + 4)
+		TNT1 A 0 A_SetArg(0, args[0] + 1)
+		TNT1 A 1 A_JumpIf(args[0] > 140, "Death")
+		loop
+	Death:
+		TNT1 A 1 A_StopSound(CHAN_7)
+		stop
+	}
+}
+
+// ------------------------------------------------------------
+// Regen Zone radius visual
+// ------------------------------------------------------------
+Actor RZoneRadiusFX : LSParticleBase
+{
+	// Properties
+	Scale 0.5
+
+	// States
+	States
+	{
+	Spawn:
+		GSPK A 1 A_FadeOut(0.025)
+		loop
+	Death:
+		TNT1 A 0
+		stop
+	}
+}
+
+// ------------------------------------------------------------
+// Regen Zone particle visual
+// ------------------------------------------------------------
+Actor RZoneFX : LSParticleBase
+{
+	// Properties
+	Alpha 0.0
+	Scale 0.5
+
+	// States
+	States
+	{
+	Spawn:
+		HLFX AAAAA 1 nodelay A_FadeIn(0.2)
+		goto Spawn1
+	Spawn1:
+		HLFX A 1 A_FadeOut(0.05)
+		loop
+	Death:
+		TNT1 A 0
+		stop
+	}
+}

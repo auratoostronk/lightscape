@@ -1,0 +1,18 @@
+//When the player spawns in, they get one of these based on what cvar they have
+//selected, so that even if the cvar changes, the inventory item won't. The ability
+//scripts use these inventory items instead of the cvar, so that your travel
+//abilities don't change mid match.
+
+Actor CVARInventoryBase : Inventory { 
+	+SERVERNETID 
+	Inventory.MaxAmount 1 }
+
+Actor CVAR_RZone : CVARInventoryBase {}
+Actor CVAR_FShield : CVARInventoryBase {}
+Actor CVAR_PDecoy : CVARInventoryBase {}
+Actor CVAR_SOverdrive : CVARInventoryBase {}
+
+
+Actor CVAR_DashOmni : CVARInventoryBase {}
+Actor CVAR_DashBlink : CVARInventoryBase {}
+//Actor CVAR_DashSprint : CVARInventoryBase {}

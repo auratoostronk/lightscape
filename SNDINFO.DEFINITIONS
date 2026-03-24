@@ -1,0 +1,128 @@
+//WEAPONS
+PlasmaCarbine/Fire 			CARBFIRE
+PlasmaCarbine/FireFar		CARBFIRF
+PlasmaCarbine/AltFire 		CARBALTF
+PlasmaCarbine/AltFireFar	CARBALFF
+CARBHIT1 CARBHIT1 
+CARBHIT2 CARBHIT2
+CARBHIT3 CARBHIT3
+$random PlasmaCarbine/Hit { CARBHIT1 CARBHIT2 CARBHIT3 }
+
+ParticleSplitter/Fire		PSGFIRE
+ParticleSplitter/FireFar	PSGFIREF
+ParticleSplitter/AltFire	PSGALTF
+ParticleSplitter/AltFireFar	PSGALTFF
+ParticleSplitter/Pump1		PSGPUMP1
+ParticleSplitter/Pump2		PSGPUMP2
+
+TeslaSMG/Fire				SMGFIRE
+TeslaSMG/FireFar			SMGFIREF
+TeslaSMG/AltCharge			SMGALTC
+TeslaSMG/AltChargeFar		SMGALTCF
+TeslaSMG/AltLoop			SMGALTL
+TeslaSMG/AltLoopFar			SMGALTLF
+TeslaSMG/AltFinish			SMGALTF
+TeslaSMG/AltFinishFar		SMGALTFF
+TeslaSMG/AltFireHit			SMGHIT
+
+FluxRailgun/Fire			RAILFIRE
+FluxRailgun/FireFar			RAILFIRF
+FluxRailgun/AltFire			RAILALT
+FluxRailgun/AltFireFar		RAILALTF
+FluxRailgun/Hiss			RAILHISS
+
+C14/Fire					C14FIRE
+C14/FireFar					C14FIREF
+C14/AltFire					C14ALTF
+//C14/AltFireFar				C14ALTFF
+C14/GasHiss					GASHISS
+C14/AltCharge				C14CHARG
+C14/AltChargeFar			C14CHRGF
+C14HIT1 C14HIT1
+C14HIT2 C14HIT2
+C14HIT3 C14HIT3
+$random C14/Hit { C14HIT1 C14HIT2 C14HIT3 } 
+
+//EXPLOSIONS
+EXPLOSC1 EXPLOSC1
+EXPLOSC2 EXPLOSC2
+EXPLOSC3 EXPLOSC3
+$random Explosion/Close { EXPLOSC1 EXPLOSC2 EXPLOSC3 }
+
+EXPLOSF1 EXPLOSF1
+EXPLOSF2 EXPLOSF2
+EXPLOSF3 EXPLOSF3
+$random Explosion/Far { EXPLOSF1 EXPLOSF2 EXPLOSF3 }
+
+//DASH 
+Dash/Omni 			OMNI
+Dash/Blink/Start	BLINKST
+Dash/Blink/Done		BLINKDN
+Dash/Ready			TRAVREDY	
+
+//WEAPON EFFECTS
+GrenadeLaunch				DSGLAUNC
+GRENHIT1 GRENHIT1
+GRENHIT2 GRENHIT2
+$random GrenadeHit 			{ GRENHIT1 GRENHIT2 }
+
+//Weapon
+Weapon/LowEnergy		LOENRGY
+Weapon/AmmoFill 		ENRGYRDY
+Weapon/AltReady			ALTREADY
+Weapon/Switch			WEAPSWAP
+
+//FEEDBACK
+Feedback/HitBig				WEAPHITB
+Feedback/HitMedium			WEAPHITM
+Feedback/HitSmall			WEAPHITS
+Feedback/Kill				FRAGNEMY
+Feedback/Error				FBERROR
+
+//PICKUPS
+Pickups/NanoArmor 			ARMORBIG
+Pickups/NanoPlate 			ARMORSML
+Pickups/Sphere				DSWPNUP
+
+//ACTIVE ITEMS
+Items/RicochetBurst/Fire 	DISCFIRE
+Items/RicochetBurst/Charge 	DISCCHG
+Items/RicochetBurst/ChargeFar DISCCHGF
+Items/RicochetBurst/Bounce  DBOUNCE
+Items/HadronRail/Fire		HRAILFIR
+Items/HadronRail/FireFar	HRAILFFA
+Items/HadronRail/Charge		HRAILCHG
+Items/HadronRail/ChargeFar	HRAILCHF
+Items/ForcePulse/Fire 		FPULSFIR
+Items/ForcePulse/FireFar 	FPULSFFA
+
+//ABILITIES
+Actives/RegenZone/On	 		REGZONE1
+Actives/RegenZone/Loop	 		REGZONE2
+Actives/FlickerShield/On	 	FSHLDON
+Actives/FlickerShield/Hit		FSHLDHIT
+Actives/FlickerShield/Off		FSHLDOFF
+
+//MENU
+menu/activate			MENUUP	
+menu/backup				MENUBKUP
+menu/prompt				MENUPMPT
+menu/cursor				MENUMOV		
+menu/change				MENUVAL
+menu/invalid			MENUNOPE
+menu/dismiss			MENUDSMS
+menu/choose				MENUSLCT
+menu/clear				MENUCLOS
+menu/quit1				MENUQUIT
+menu/quit2				MENUQUIT
+
+//ENVIRONMENT
+Ambient/SpaceShipFlyby		FLYBY
+Ambient/SpaceShipShoot		SHIPFIRE
+Ambient/TeleportHum 		TELEAMB
+Ambient/JumpPad			JUMPPAD
+Ambient/Snow 			AMB_SNOW
+$ambient 1 Ambient/Snow world continuous 1.0
+
+//LIMIT
+$limit * 0

@@ -1,0 +1,19 @@
+[IntroStrings]
+"hiiiii ;)"
+
+[KilledStrings]
+"whyyyyyy :("
+"boyz r so mean to me :((("
+
+[FragStrings]
+"hah you just got killed by a GIRL"
+
+[RoamingStrings]
+""
+
+[RareRoamingstrings]
+""
+
+[EnragedStrings]
+""
+

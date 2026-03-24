@@ -1,0 +1,58 @@
+Actor PDecoy
+{
+	// Properties
+	Speed 28
+	Radius 16
+	Height 56
+	Monster
+	
+	// Flags
+	-SOLID
+	+NODAMAGE
+	+CANPASS
+	+THRUACTORS
+	+SLIDESONWALLS
+	-SHOOTABLE
+	-NOGRAVITY
+	+BRIGHT
+	
+	// Lifespan
+	args 0
+	
+	// States
+	States
+	{
+	Spawn:
+		PLAY AAAABBBBCCCCDDDD 1 nodelay A_ChangeVelocity(12.0, 0.0, velz, CVF_RELATIVE|CVF_REPLACE)
+		TNT1 A 0 A_SetArg(0, args[0] + 1)
+		TNT1 A 0 A_JumpIf(args[0] > 5, "Death")
+		loop
+	Death:
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("PDecoyDeathFX", frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0) + 32.0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0)) 
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("PDecoyDeathFX2", frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0) + 32.0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0)) 
+		stop
+	}
+}
+
+Actor PDecoyDeathFX : LSParticleBase
+{
+	Scale 2.0
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SetScale(scalex * 0.8, scaley * 0.8)
+		BSPK A 1 A_FadeOut(0.05)
+		loop
+	}
+}
+Actor PDecoyDeathFX2 : LSParticleBase
+{
+	Scale 2.0
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_SetScale(scalex * 0.8, scaley * 0.8)
+		RSPK A 1 A_FadeOut(0.05)
+		loop
+	}
+}

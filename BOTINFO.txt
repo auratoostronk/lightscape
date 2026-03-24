@@ -1,0 +1,98 @@
+clearbots
+
+//stat ranges -2 to 6
+
+{
+	name = "\chhi\cnim\cvnew"
+	script = humanbot
+	chatlump = hiimnew
+	gender = male
+	color = "00 88 ff"
+	railcolor = "blue"
+	revealed = true
+	favoriteweapon = "PlasmaCarbine"
+	chatfrequency = 0
+	
+	accuracy = -2
+	intellect = -2
+	evade = -2
+	anticipation = -2
+	reactiontime = -2
+	perception = -2
+}
+
+{
+	name = "\ckBIGMOUTH"
+	script = humanbot
+	chatlump = bigmouth
+	gender = male
+	color = "80 FF 00"
+	railcolor = "red"
+	revealed = true
+	favoriteweapon = "teslasmg"
+	chatfrequency = 0
+	
+	accuracy = 2
+	intellect = -2
+	evade = 2
+	anticipation = 0
+	reactiontime = 4
+	perception = 0
+}
+
+{
+	name = "\c[y1]woman\c[c7]woman"
+	script = humanbot
+	chatlump = girlbot
+	gender = female
+	color = "FF 80 FF"
+	railcolor = "pink"
+	revealed = true
+	favoriteweapon = "c14"
+	chatfrequency = 0
+	
+	accuracy = 1
+	intellect = -2
+	evade = 1
+	anticipation = 0
+	reactiontime = 1
+	perception = 3
+}
+
+{
+	name = "\cdclown\ctguy"
+	script = humanbot
+	chatlump = clown
+	gender = male
+	color = "80 00 FF"
+	railcolor = "purple"
+	revealed = true
+	favoriteweapon = "teslasmg"
+	chatfrequency = 0
+	
+	accuracy = 2
+	intellect = 6
+	evade = 2
+	anticipation = 6
+	reactiontime = 1
+	perception = -2
+}
+
+{
+	name = "3g0h34d"
+	script = humanbot
+	chatlump = egohead
+	gender = male
+	color = "FF 00 00"
+	railcolor = "red"
+	revealed = true
+	favoriteweapon = "particlesplitter"
+	chatfrequency = 0
+	
+	accuracy = 4
+	intellect = 4
+	evade = 4
+	anticipation = 4
+	reactiontime = 4
+	perception = 4
+}

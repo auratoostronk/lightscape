@@ -1,0 +1,177 @@
+DEATHMATCH
+{
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		Sv_ItemRespawn = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//sv_nohealth = true; //Use health regen instead.
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 30;
+		//Alphatius settings
+		//alph_nohealthregen = false;
+		//alph_heathregendelay = 4;
+		//alph_healthregenratedelay = 1;
+	}
+}
+DUEL
+{
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		Sv_ItemRespawn = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_deathmatchcountdowntime = 30;
+		sv_ringouttics = 105;
+		//Alphatius settings
+		//alph_nohealthregen = true;
+		//alph_nopowerups = true;
+	}
+}
+CTF
+{
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		Sv_ItemRespawn = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 30;
+		//Alphatius settings
+		//alph_nohealthregen = true;
+		//alph_nopowerups = true;
+	}
+}
+TEAMPLAY
+{
+	//Allow players to spawn at either team's spawnpoints
+	removeflag TEAMGAME
+	addflag DEATHMATCH
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		Sv_ItemRespawn = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//sv_nohealth = true; //Use health regen instead.
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 30;
+		//Alphatius settings
+		//alph_nohealthregen = false;
+		//alph_heathregendelay = 4;
+		//alph_healthregenratedelay = 1;
+	}
+}
+DOMINATION
+{
+	//Allow players to spawn at either team's spawnpoints
+	removeflag TEAMGAME
+	addflag DEATHMATCH
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		Sv_ItemRespawn = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//sv_nohealth = true; //Use health regen instead.
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 30;
+		//Alphatius settings
+		//alph_nohealthregen = false;
+		//alph_heathregendelay = 4;
+		//alph_healthregenratedelay = 1;
+	}
+}
+TEAMLMS
+{
+	removeflag DONTSPAWNMAPTHINGS
+	removeflag TEAMGAME
+	addflag DEATHMATCH
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 20;
+		//Alphatius settings
+		//alph_nohealthregen = true;
+		//alph_nopowerups = true;
+	}
+}
+LASTMANSTANDING
+{
+	removeflag DONTSPAWNMAPTHINGS
+	removeflag TEAMGAME
+	addflag DEATHMATCH
+	GameSettings
+	{
+		Sv_NoRespawnInvul = true;
+		Sv_NoMedals = true;
+		sv_nodrop = true;
+		sv_nocrouch = true;
+		sv_allowcrouch = false;
+		//Q-Zandronum Options
+		sv_disablewallfriction = true;
+		sv_quakethrust = false;
+		sv_accuratecrosshair = true;
+		sv_enableprojectilehitboxfix = true;
+		compat_predictfunctions = true;
+		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 20;
+		//Alphatius settings
+		//alph_nohealthregen = true;
+		//alph_nopowerups = true;
+	}
+}

@@ -1,0 +1,14 @@
+#library "map"
+#include "zcommon.acs"
+#import "lib.acs"
+
+Script "JumpPad" (int upforce, int latforce)
+{
+	if(ClassifyActor(0) & ACTOR_PLAYER || ClassifyActor(0) & ACTOR_MONSTER)
+	{
+		PlaySound(0, "Ambient/JumpPad", CHAN_AUTO, 1.0);
+		Thing_Stop(0);
+		ThrustThing(GetActorAngle(0), latforce, 0, 0);
+		ThrustThingZ(0, upforce, 0, true);
+	}
+}

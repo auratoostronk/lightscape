@@ -1,0 +1,241 @@
+//------------------------------------------------------------
+//Pickup class for Hadron Rail
+//------------------------------------------------------------
+Actor HRailPickup : CustomInventory 12101
+{
+	//Doom Builder things category
+	//$Category Lightscape Pickups
+	
+	//Propreties
+	Radius 24
+	Height 48
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Inventory.PickupMessage "Sniper Sphere - Charge a powerful sniper attack."
+	Inventory.PickupSound "Pickups/Sphere"
+	Inventory.RespawnTics 700 // 20 seconds
+	//Scale 0.5
+	Tag "Sniper Sphere"
+	
+	//Flags
+	+FLOATBOB
+	+BRIGHT
+	+SERVERNETID
+	+INVBAR
+	
+	//States
+	States
+	{
+	Spawn:
+		SPHP B 1
+		loop
+	Pickup:
+		TNT1 A 0 A_JumpIf(CallACS("CheckForSphere") == 0, "Success") //Only allow pickup if no other active items are held.
+		fail
+	Success:
+		TNT1 A 0 ACS_NamedExecuteAlways("HoldingSphere", 0, 1)
+		TNT1 A 0 A_GiveInventory("HRailReady", 1)
+		stop
+	}
+}
+
+//Tics of charge for Rail sphere
+Actor HRailCharge : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 40
+}
+
+//------------------------------------------------------------
+//Inventory class for Hadron Rail
+//------------------------------------------------------------
+Actor HRailReady : Inventory
+{
+	//Propreties
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	Tag "Sniper Sphere"
+	
+	//Flags
+	+SERVERNETID
+}
+
+Actor HRailInUse : Inventory
+{
+	//Propreties
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	
+	//Flags
+	+SERVERNETID
+}
+
+//------------------------------------------------------------
+//Held sphere in front of player
+//------------------------------------------------------------
+Actor HRailReadyFX : SphereReadyBase
+{
+	//States
+	States
+	{
+	Spawn:
+		SPHR B 1 nodelay A_Warp(AAPTR_TARGET, 32.0, -24.0, 20.0, 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+		loop
+	Using:
+		TNT1 A 0 A_Warp(AAPTR_TARGET, 32.0 + frandom(-4.0, 4.0), -24.0 + frandom(-4.0, 4.0), 20.0 + frandom(-4.0, 4.0), 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+		SPHR B 1 A_SetScale(scalex + 0.0125, scaley + 0.0125)
+		loop
+	Death:
+		TNT1 A 0 A_SetScale(scalex * 0.8, scaley * 0.8)
+		SPHR B 1 A_FadeOut(0.05)
+		loop
+	}
+}
+
+//------------------------------------------------------------
+//Fires the rail attack
+//------------------------------------------------------------
+Actor HRailFire : CustomInventory
+{
+
+	//Flags
+	+SERVERNETID
+	+INVENTORY.AUTOACTIVATE
+	
+	//States
+	States
+	{
+	Use:
+		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
+		TNT1 A 0 A_PlaySound("Items/HadronRail/Fire", CHAN_6)
+		TNT1 A 0 A_PlaySound("Items/HadronRail/FireFar", CHAN_7)
+		TNT1 A 0 A_RailAttack(100, -8.0, false, "none", "none", RGF_SILENT, 0.0, "HRailHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "HRailTrail", -2)
+		TNT1 A 0 A_RailAttack(0, -8.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "HRailTrail2", -2)
+		stop
+	}
+}
+
+//------------------------------------------------------------
+//Hadron Rail trail
+//------------------------------------------------------------
+Actor HRailTrail : LSParticleBase
+{
+	//Properties
+	Scale 0.4
+	
+	//States
+	States
+	{
+	Spawn:
+		RSPK A 5
+		Goto Spawn1
+	Spawn1:
+		RSPK A 1 A_FadeOut(0.01)
+		loop
+	}
+}
+
+//------------------------------------------------------------
+//Hadron Rail trail secondary rings
+//------------------------------------------------------------
+Actor HRailTrail2 : HRailTrail
+{
+	//Properties
+	Scale 0.2
+
+	//States
+	States
+	{
+	Spawn:
+		RRNG A 8
+		goto Spawn1
+	Spawn1:
+		TNT1 A 0 A_SetScale(scalex + 0.01, scaley + 0.01)
+		RRNG A 1 bright A_FadeOut(0.01)
+		loop
+	}
+}
+
+//------------------------------------------------------------
+//Railgun alt-fire hit puff
+//------------------------------------------------------------
+Actor HRailHitPuff : BulletPuff
+{
+	//Properties
+	Decal "RailgunMainDecal"
+	Scale 0.3
+	ProjectileKickBack 100
+	Obituary "%k > \cgSniper Sphere\c- > %o"
+
+	//Flags
+	+ALWAYSPUFF
+	+BRIGHT
+	+NOBLOCKMAP
+	-ALLOWPARTICLES
+	
+	//States
+	States
+	{
+	Spawn:
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEx("HRailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("HRailBlast")
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 A 0 A_Quake(4, 8, 0, 256)
+		TNT1 A 0 A_Explode(50, 192, XF_HURTSOURCE, true, 96)
+		RSPK AAAAAAAAAA 3 A_FadeOut(0.1)
+		TNT1 A 105
+		stop
+	XDeath:
+		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("HRailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("HRailBlast")
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 A 0 A_Quake(4, 8, 0, 256)
+		TNT1 A 0 A_Explode(50, 192, XF_HURTSOURCE, true, 96)
+		RSPK AAAAAAAAAA 3 A_FadeOut(0.1)
+		TNT1 A 35
+		stop
+	}
+}
+
+//------------------------------------------------------------
+// Sniper Sphere death effect (expanding ring)
+//------------------------------------------------------------
+Actor HRailBlast : LSParticleBase
+{
+	// Properties
+	Scale 1.0
+	
+	// States
+	States
+	{
+	Spawn:
+		TNT1 A 0 nodelay A_SetScale(scalex * 1.2, scaley * 1.2)
+		RRNG A 1 A_FadeOut(0.075)
+		loop
+	}
+}
+
+
+//------------------------------------------------------------
+// Sniper Sphere hit visual particle
+//------------------------------------------------------------
+Actor HRailHitFX : LSParticleBase
+{
+	// Properties
+	Scale 2.0
+	Gravity 0.5
+
+	// Flags
+	-NOGRAVITY
+	-NOINTERACTION
+
+	// States
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_FadeOut(0.025)
+		RSPK A 1 A_SetScale(scalex * 0.8, scaley * 0.8)
+		loop
+	}
+}

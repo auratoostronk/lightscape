@@ -1,0 +1,4438 @@
+Texture "BRICKS1", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS1", 0, 0
+}
+
+Flat "BRICKS1", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS1", 0, 0
+}
+
+Texture "BRICKS2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKS2", 0, 0
+}
+
+Flat "BRICKS2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKS2", 0, 0
+}
+
+Texture "BRICKS3", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS3", 0, 0
+}
+
+Flat "BRICKS3", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS3", 0, 0
+}
+
+Texture "BRICKS4", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKS4", 0, 0
+}
+
+Flat "BRICKS4", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKS4", 0, 0
+}
+
+Texture "BRICKT1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKT1", 0, 0
+}
+
+Flat "BRICKT1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKT1", 0, 0
+}
+
+Texture "BRICKT2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKT2", 0, 0
+}
+
+Flat "BRICKT2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BRICKT2", 0, 0
+}
+
+Texture "BRICKS6", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS6", 0, 0
+}
+
+Flat "BRICKS6", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS6", 0, 0
+}
+
+Texture "BRICKS7", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS7", 0, 0
+}
+
+Flat "BRICKS7", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BRICKS7", 0, 0
+}
+
+
+Texture "TILESTN1", 1024, 1024
+{
+    XScale 16
+    YScale 16
+    Patch "TILESTN1", 0, 0
+}
+
+Flat "TILESTN1", 1024, 1024
+{
+    XScale 16
+    YScale 16
+    Patch "TILESTN1", 0, 0
+}
+
+Texture "TILESTN2", 1024, 1024
+{
+    XScale 16
+    YScale 16
+    Patch "TILESTN2", 0, 0
+}
+
+Flat "TILESTN2", 1024, 1024
+{
+    XScale 16
+    YScale 16
+    Patch "TILESTN2", 0, 0
+}
+
+Texture "COMP_BL", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_BL", 0, 0
+}
+
+Flat "COMP_BL", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_BL", 0, 0
+}
+
+Texture "COMP_GR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_GR", 0, 0
+}
+
+Flat "COMP_GR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_GR", 0, 0
+}
+
+Texture "COMP_LB", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_LB", 0, 0
+}
+
+Flat "COMP_LB", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_LB", 0, 0
+}
+
+Texture "COMP_OR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_OR", 0, 0
+}
+
+Flat "COMP_OR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_OR", 0, 0
+}
+
+Texture "COMP_PR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_PR", 0, 0
+}
+
+Flat "COMP_PR", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_PR", 0, 0
+}
+
+Texture "COMP_RD", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_RD", 0, 0
+}
+
+Flat "COMP_RD", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_RD", 0, 0
+}
+
+Texture "COMP_YL", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_YL", 0, 0
+}
+
+Flat "COMP_YL", 64, 64
+{
+    XScale 2
+    YScale 2
+    Patch "COMP_YL", 0, 0
+}
+
+Texture "PCBLU1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCBLU1", 0, 0
+}
+
+Flat "PCBLU1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCBLU1", 0, 0
+}
+
+Texture "PCBLU2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCBLU2", 0, 0
+}
+
+Flat "PCBLU2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCBLU2", 0, 0
+}
+
+Texture "PCOFF", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCOFF", 0, 0
+}
+
+Flat "PCOFF", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCOFF", 0, 0
+}
+
+Texture "PCPU01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU01", 0, 0
+}
+
+Flat "PCPU01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU01", 0, 0
+}
+
+Texture "PCPU02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU02", 0, 0
+}
+
+Flat "PCPU02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU02", 0, 0
+}
+
+Texture "PCPU03", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU03", 0, 0
+}
+
+Flat "PCPU03", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU03", 0, 0
+}
+
+Texture "PCPU04", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU04", 0, 0
+}
+
+Flat "PCPU04", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU04", 0, 0
+}
+
+Texture "PCPU05", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU05", 0, 0
+}
+
+Flat "PCPU05", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU05", 0, 0
+}
+
+Texture "PCPU06", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU06", 0, 0
+}
+
+Flat "PCPU06", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU06", 0, 0
+}
+
+Texture "PCPU07", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU07", 0, 0
+}
+
+Flat "PCPU07", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCPU07", 0, 0
+}
+
+Texture "PCRED1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCRED1", 0, 0
+}
+
+Flat "PCRED1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCRED1", 0, 0
+}
+
+Texture "PCRED2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCRED2", 0, 0
+}
+
+Flat "PCRED2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PCRED2", 0, 0
+}
+
+Texture "PKPC11", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PKPC11", 0, 0
+}
+
+Flat "PKPC11", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PKPC11", 0, 0
+}
+
+Texture "ASPHCRK1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "ASPHCRK1", 0, 0
+}
+
+Flat "ASPHCRK1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "ASPHCRK1", 0, 0
+}
+
+Texture "ASPHCRK2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "ASPHCRK2", 0, 0
+}
+
+Flat "ASPHCRK2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "ASPHCRK2", 0, 0
+}
+
+Texture "CONCFL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL1", 0, 0
+}
+
+Flat "CONCFL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL1", 0, 0
+}
+
+Texture "CONCFL10", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL10", 0, 0
+}
+
+Flat "CONCFL10", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL10", 0, 0
+}
+
+Texture "CONCFL2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL2", 0, 0
+}
+
+Flat "CONCFL2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL2", 0, 0
+}
+
+Texture "CONCFL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL3", 0, 0
+}
+
+Flat "CONCFL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL3", 0, 0
+}
+
+Texture "CONCFL4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL4", 0, 0
+}
+
+Flat "CONCFL4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL4", 0, 0
+}
+
+Texture "CONCFL5", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL5", 0, 0
+}
+
+Flat "CONCFL5", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL5", 0, 0
+}
+
+Texture "CONCFL6", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL6", 0, 0
+}
+
+Flat "CONCFL6", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL6", 0, 0
+}
+
+Texture "CONCFL7", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL7", 0, 0
+}
+
+Flat "CONCFL7", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL7", 0, 0
+}
+
+Texture "CONCFL8", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL8", 0, 0
+}
+
+Flat "CONCFL8", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL8", 0, 0
+}
+
+Texture "CONCFL9", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL9", 0, 0
+}
+
+Flat "CONCFL9", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCFL9", 0, 0
+}
+
+Texture "CONCHAZ1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHAZ1", 0, 0
+}
+
+Flat "CONCHAZ1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHAZ1", 0, 0
+}
+
+Texture "CONCHEX1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX1", 0, 0
+}
+
+Flat "CONCHEX1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX1", 0, 0
+}
+
+Texture "CONCHEX2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX2", 0, 0
+}
+
+Flat "CONCHEX2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX2", 0, 0
+}
+
+Texture "CONCHEX3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX3", 0, 0
+}
+
+Flat "CONCHEX3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX3", 0, 0
+}
+
+Texture "CONCHEX4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX4", 0, 0
+}
+
+Flat "CONCHEX4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHEX4", 0, 0
+}
+
+Texture "CONCHZ08", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ08", 0, 0
+}
+
+Flat "CONCHZ08", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ08", 0, 0
+}
+
+Texture "CONCHZ16", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ16", 0, 0
+}
+
+Flat "CONCHZ16", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ16", 0, 0
+}
+
+Texture "CONCHZ32", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ32", 0, 0
+}
+
+Flat "CONCHZ32", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ32", 0, 0
+}
+
+Texture "CONCHZ64", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ64", 0, 0
+}
+
+Flat "CONCHZ64", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ64", 0, 0
+}
+
+Texture "CONCHZ96", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ96", 0, 0
+}
+
+Flat "CONCHZ96", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZ96", 0, 0
+}
+
+Texture "CONCHZBG", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZBG", 0, 0
+}
+
+Flat "CONCHZBG", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCHZBG", 0, 0
+}
+
+Texture "CONCSTP1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCSTP1", 0, 0
+}
+
+Flat "CONCSTP1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCSTP1", 0, 0
+}
+
+Texture "CONCSTP2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCSTP2", 0, 0
+}
+
+Flat "CONCSTP2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCSTP2", 0, 0
+}
+
+Texture "CONCVT08", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT08", 0, 0
+}
+
+Flat "CONCVT08", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT08", 0, 0
+}
+
+Texture "CONCVT16", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT16", 0, 0
+}
+
+Flat "CONCVT16", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT16", 0, 0
+}
+
+Texture "CONCVT32", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "CONCVT32", 0, 0
+}
+
+Flat "CONCVT32", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "CONCVT32", 0, 0
+}
+
+Texture "CONCVT64", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT64", 0, 0
+}
+
+Flat "CONCVT64", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT64", 0, 0
+}
+
+Texture "CONCVT96", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT96", 0, 0
+}
+
+Flat "CONCVT96", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVT96", 0, 0
+}
+
+Texture "CONCVTBG", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVTBG", 0, 0
+}
+
+Flat "CONCVTBG", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CONCVTBG", 0, 0
+}
+
+Texture "GRAYBL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "GRAYBL1", 0, 0
+}
+
+Flat "GRAYBL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "GRAYBL1", 0, 0
+}
+
+Texture "GRAYLT1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GRAYLT1", 0, 0
+}
+
+Flat "GRAYLT1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GRAYLT1", 0, 0
+}
+
+Texture "GRAYMED1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GRAYMED1", 0, 0
+}
+
+Flat "GRAYMED1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GRAYMED1", 0, 0
+}
+
+Texture "HAZARD1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "HAZARD1", 0, 0
+}
+
+Flat "HAZARD1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "HAZARD1", 0, 0
+}
+
+Texture "BOX1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOX1", 0, 0
+}
+
+Flat "BOX1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOX1", 0, 0
+}
+
+Texture "BOXBLU01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBLU01", 0, 0
+}
+
+Flat "BOXBLU01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBLU01", 0, 0
+}
+
+Texture "BOXBLU02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBLU02", 0, 0
+}
+
+Flat "BOXBLU02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBLU02", 0, 0
+}
+
+Texture "BOXBRN01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBRN01", 0, 0
+}
+
+Flat "BOXBRN01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBRN01", 0, 0
+}
+
+Texture "BOXBRN02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBRN02", 0, 0
+}
+
+Flat "BOXBRN02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXBRN02", 0, 0
+}
+
+Texture "BOXDRL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXDRL1", 0, 0
+}
+
+Flat "BOXDRL1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXDRL1", 0, 0
+}
+
+Texture "BOXDRL2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXDRL2", 0, 0
+}
+
+Flat "BOXDRL2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXDRL2", 0, 0
+}
+
+Texture "BOXHAZ1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXHAZ1", 0, 0
+}
+
+Flat "BOXHAZ1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXHAZ1", 0, 0
+}
+
+Texture "BOXRED01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXRED01", 0, 0
+}
+
+Flat "BOXRED01", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXRED01", 0, 0
+}
+
+Texture "BOXRED02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXRED02", 0, 0
+}
+
+Flat "BOXRED02", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BOXRED02", 0, 0
+}
+
+Texture "XCRATE1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE1", 0, 0
+}
+
+Flat "XCRATE1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE1", 0, 0
+}
+
+Texture "XCRATE2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE2", 0, 0
+}
+
+Flat "XCRATE2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE2", 0, 0
+}
+
+Texture "XCRATE3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE3", 0, 0
+}
+
+Flat "XCRATE3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE3", 0, 0
+}
+
+Texture "XCRATE4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE4", 0, 0
+}
+
+Flat "XCRATE4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE4", 0, 0
+}
+
+Texture "XCRATE5", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE5", 0, 0
+}
+
+Flat "XCRATE5", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE5", 0, 0
+}
+
+Texture "XCRATE6", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE6", 0, 0
+}
+
+Flat "XCRATE6", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "XCRATE6", 0, 0
+}
+
+Texture "SBOX1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOX1", 0, 0
+}
+
+Flat "SBOX1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOX1", 0, 0
+}
+
+Texture "SBOXBLU1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBLU1", 0, 0
+}
+
+Flat "SBOXBLU1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBLU1", 0, 0
+}
+
+Texture "SBOXBLU2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBLU2", 0, 0
+}
+
+Flat "SBOXBLU2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBLU2", 0, 0
+}
+
+Texture "SBOXBRN1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBRN1", 0, 0
+}
+
+Flat "SBOXBRN1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBRN1", 0, 0
+}
+
+Texture "SBOXBRN2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBRN2", 0, 0
+}
+
+Flat "SBOXBRN2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXBRN2", 0, 0
+}
+
+Texture "SBOXDRL1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXDRL1", 0, 0
+}
+
+Flat "SBOXDRL1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXDRL1", 0, 0
+}
+
+Texture "SBOXDRL2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXDRL2", 0, 0
+}
+
+Flat "SBOXDRL2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXDRL2", 0, 0
+}
+
+Texture "SBOXHAZ1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXHAZ1", 0, 0
+}
+
+Flat "SBOXHAZ1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXHAZ1", 0, 0
+}
+
+Texture "SBOXRED1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXRED1", 0, 0
+}
+
+Flat "SBOXRED1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXRED1", 0, 0
+}
+
+Texture "SBOXRED2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXRED2", 0, 0
+}
+
+Flat "SBOXRED2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SBOXRED2", 0, 0
+}
+
+Texture "SXCRATE1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE1", 0, 0
+}
+
+Flat "SXCRATE1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE1", 0, 0
+}
+
+Texture "SXCRATE2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE2", 0, 0
+}
+
+Flat "SXCRATE2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE2", 0, 0
+}
+
+Texture "SXCRATE3", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE3", 0, 0
+}
+
+Flat "SXCRATE3", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE3", 0, 0
+}
+
+Texture "SXCRATE4", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE4", 0, 0
+}
+
+Flat "SXCRATE4", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE4", 0, 0
+}
+
+Texture "SXCRATE5", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE5", 0, 0
+}
+
+Flat "SXCRATE5", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE5", 0, 0
+}
+
+Texture "SXCRATE6", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE6", 0, 0
+}
+
+Flat "SXCRATE6", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "SXCRATE6", 0, 0
+}
+
+Texture "GRAVEL1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "GRAVEL1", 0, 0
+}
+
+Flat "GRAVEL1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "GRAVEL1", 0, 0
+}
+
+Texture "GRAVEL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "GRAVEL2", 0, 0
+}
+
+Flat "GRAVEL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "GRAVEL2", 0, 0
+}
+
+Texture "SAND1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "SAND1", 0, 0
+}
+
+Flat "SAND1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "SAND1", 0, 0
+}
+
+Texture "DIRTBRN1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTBRN1", 0, 0
+}
+
+Flat "DIRTBRN1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTBRN1", 0, 0
+}
+
+Texture "DIRTDUS1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTDUS1", 0, 0
+}
+
+Flat "DIRTDUS1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTDUS1", 0, 0
+}
+
+Texture "DIRTLAVA", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRTLAVA", 0, 0
+}
+
+Flat "DIRTLAVA", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRTLAVA", 0, 0
+}
+
+Texture "DIRTOIL", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTOIL", 0, 0
+}
+
+Flat "DIRTOIL", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTOIL", 0, 0
+}
+
+Texture "DIRTSULF", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTSULF", 0, 0
+}
+
+Flat "DIRTSULF", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTSULF", 0, 0
+}
+
+Texture "DOOR1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR1", 0, 0
+}
+
+Flat "DOOR1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR1", 0, 0
+}
+
+Texture "DOOR2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR2", 0, 0
+}
+
+Flat "DOOR2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR2", 0, 0
+}
+
+Texture "DOOR3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR3", 0, 0
+}
+
+Flat "DOOR3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR3", 0, 0
+}
+
+Texture "DOOR4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR4", 0, 0
+}
+
+Flat "DOOR4", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "DOOR4", 0, 0
+}
+
+Texture "F_SKY1", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "F_SKY1", 0, 0
+}
+
+Flat "F_SKY1", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "F_SKY1", 0, 0
+}
+
+Texture "FAROS1", 768, 192
+{
+    XScale 1
+    YScale 1
+    Patch "FAROS1", 0, 0
+}
+
+Flat "FAROS1", 768, 192
+{
+    XScale 1
+    YScale 1
+    Patch "FAROS1", 0, 0
+}
+
+Texture "GLASS1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GLASS1", 0, 0
+}
+
+Flat "GLASS1", 128, 128
+{
+    XScale 1
+    YScale 1
+    Patch "GLASS1", 0, 0
+}
+
+Texture "GLASS2", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "GLASS2", 0, 0
+}
+
+Flat "GLASS2", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "GLASS2", 0, 0
+}
+
+Texture "BLUEFLAT", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUEFLAT", 0, 0
+}
+
+Flat "BLUEFLAT", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUEFLAT", 0, 0
+}
+
+Texture "TRIMBL1", 512, 64
+{
+    XScale 4
+    YScale 4
+    Patch "TRIMBL1", 0, 0
+}
+
+Flat "TRIMBL1", 512, 64
+{
+    XScale 4
+    YScale 4
+    Patch "TRIMBL1", 0, 0
+}
+
+Texture "TRIMRD1", 512, 64
+{
+    XScale 4
+    YScale 4
+    Patch "TRIMRD1", 0, 0
+}
+
+Flat "TRIMRD1", 512, 64
+{
+    XScale 4
+    YScale 4
+    Patch "TRIMRD1", 0, 0
+}
+
+Texture "GLOWBL1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWBL1", 0, 0
+}
+
+Flat "GLOWBL1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWBL1", 0, 0
+}
+
+Texture "GLOWGR", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWGR", 0, 0
+}
+
+Flat "GLOWGR", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWGR", 0, 0
+}
+
+Texture "GLOWGRLO", 1024, 512
+{
+    XScale 16
+    YScale 16
+    Patch "GLOWGRLO", 0, 0
+}
+
+Flat "GLOWGRLO", 1024, 512
+{
+    XScale 16
+    YScale 16
+    Patch "GLOWGRLO", 0, 0
+}
+
+Texture "GLOWOR1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWOR1", 0, 0
+}
+
+Flat "GLOWOR1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWOR1", 0, 0
+}
+
+Texture "GLOWRD1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWRD1", 0, 0
+}
+
+Flat "GLOWRD1", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "GLOWRD1", 0, 0
+}
+
+Texture "PICKUPBL", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPBL", 0, 0
+}
+
+Flat "PICKUPBL", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPBL", 0, 0
+}
+
+Texture "PICKUPGR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPGR", 0, 0
+}
+
+Flat "PICKUPGR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPGR", 0, 0
+}
+
+Texture "PICKUPLB", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPLB", 0, 0
+}
+
+Flat "PICKUPLB", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPLB", 0, 0
+}
+
+Texture "PICKUPOR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPOR", 0, 0
+}
+
+Flat "PICKUPOR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPOR", 0, 0
+}
+
+Texture "PICKUPPR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPPR", 0, 0
+}
+
+Flat "PICKUPPR", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPPR", 0, 0
+}
+
+Texture "PICKUPRD", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPRD", 0, 0
+}
+
+Flat "PICKUPRD", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPRD", 0, 0
+}
+
+Texture "PICKUPYL", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPYL", 0, 0
+}
+
+Flat "PICKUPYL", 128, 128
+{
+    XScale 2
+    YScale 2
+    Patch "PICKUPYL", 0, 0
+}
+
+Texture "PKLAMP2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "PKLAMP2", 0, 0
+}
+
+Flat "PKLAMP2", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "PKLAMP2", 0, 0
+}
+
+Texture "TRIMBL2", 512, 64
+{
+    XScale 8
+    YScale 8
+    Patch "TRIMBL2", 0, 0
+}
+
+Flat "TRIMBL2", 512, 64
+{
+    XScale 8
+    YScale 8
+    Patch "TRIMBL2", 0, 0
+}
+
+Texture "TRIMRD2", 512, 64
+{
+    XScale 8
+    YScale 8
+    Patch "TRIMRD2", 0, 0
+}
+
+Flat "TRIMRD2", 512, 64
+{
+    XScale 8
+    YScale 8
+    Patch "TRIMRD2", 0, 0
+}
+
+Texture "VLITBLU1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU1", 0, 0
+}
+
+Flat "VLITBLU1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU1", 0, 0
+}
+
+Texture "VLITBLU2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU2", 0, 0
+}
+
+Flat "VLITBLU2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU2", 0, 0
+}
+
+Texture "VLITBLU3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU3", 0, 0
+}
+
+Flat "VLITBLU3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU3", 0, 0
+}
+
+Texture "VLITBLU4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU4", 0, 0
+}
+
+Flat "VLITBLU4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITBLU4", 0, 0
+}
+
+Texture "VLITGRN1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN1", 0, 0
+}
+
+Flat "VLITGRN1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN1", 0, 0
+}
+
+Texture "VLITGRN2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN2", 0, 0
+}
+
+Flat "VLITGRN2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN2", 0, 0
+}
+
+Texture "VLITGRN3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN3", 0, 0
+}
+
+Flat "VLITGRN3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN3", 0, 0
+}
+
+Texture "VLITGRN4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN4", 0, 0
+}
+
+Flat "VLITGRN4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITGRN4", 0, 0
+}
+
+Texture "VLITRED1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED1", 0, 0
+}
+
+Flat "VLITRED1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED1", 0, 0
+}
+
+Texture "VLITRED2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED2", 0, 0
+}
+
+Flat "VLITRED2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED2", 0, 0
+}
+
+Texture "VLITRED3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED3", 0, 0
+}
+
+Flat "VLITRED3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED3", 0, 0
+}
+
+Texture "VLITRED4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED4", 0, 0
+}
+
+Flat "VLITRED4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITRED4", 0, 0
+}
+
+Texture "VLITWIT1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT1", 0, 0
+}
+
+Flat "VLITWIT1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT1", 0, 0
+}
+
+Texture "VLITWIT2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT2", 0, 0
+}
+
+Flat "VLITWIT2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT2", 0, 0
+}
+
+Texture "VLITWIT3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT3", 0, 0
+}
+
+Flat "VLITWIT3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT3", 0, 0
+}
+
+Texture "VLITWIT4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT4", 0, 0
+}
+
+Flat "VLITWIT4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITWIT4", 0, 0
+}
+
+Texture "VLITYEL1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL1", 0, 0
+}
+
+Flat "VLITYEL1", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL1", 0, 0
+}
+
+Texture "VLITYEL2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL2", 0, 0
+}
+
+Flat "VLITYEL2", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL2", 0, 0
+}
+
+Texture "VLITYEL3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL3", 0, 0
+}
+
+Flat "VLITYEL3", 128, 256
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL3", 0, 0
+}
+
+Texture "VLITYEL4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL4", 0, 0
+}
+
+Flat "VLITYEL4", 256, 128
+{
+    XScale 4
+    YScale 4
+    Patch "VLITYEL4", 0, 0
+}
+
+Texture "FIRE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "FIRE1", 0, 0
+}
+
+Flat "FIRE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "FIRE1", 0, 0
+}
+
+Texture "LAVA", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "LAVA", 0, 0
+}
+
+Flat "LAVA", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "LAVA", 0, 0
+}
+
+Texture "NUKAGE", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "NUKAGE", 0, 0
+}
+
+Flat "NUKAGE", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "NUKAGE", 0, 0
+}
+
+Texture "OIL1", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "OIL1", 0, 0
+}
+
+Flat "OIL1", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "OIL1", 0, 0
+}
+
+Texture "SLUDGE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "SLUDGE1", 0, 0
+}
+
+Flat "SLUDGE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "SLUDGE1", 0, 0
+}
+
+Texture "WATER1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "WATER1", 0, 0
+}
+
+Flat "WATER1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "WATER1", 0, 0
+}
+
+Texture "WATER2", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "WATER2", 0, 0
+}
+
+Flat "WATER2", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "WATER2", 0, 0
+}
+
+Texture "WATERF", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "WATERF", 0, 0
+}
+
+Flat "WATERF", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "WATERF", 0, 0
+}
+
+Texture "CBELT01", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CBELT01", 0, 0
+}
+
+Flat "CBELT01", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "CBELT01", 0, 0
+}
+
+Texture "COPPER3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "COPPER3", 0, 0
+}
+
+Flat "COPPER3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "COPPER3", 0, 0
+}
+
+Texture "GRATE1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "GRATE1", 0, 0
+}
+
+Flat "GRATE1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "GRATE1", 0, 0
+}
+
+Texture "HAZBAR1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "HAZBAR1", 0, 0
+}
+
+Flat "HAZBAR1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "HAZBAR1", 0, 0
+}
+
+Texture "METLBAR1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "METLBAR1", 0, 0
+}
+
+Flat "METLBAR1", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "METLBAR1", 0, 0
+}
+
+Texture "RIVWALS1", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "RIVWALS1", 0, 0
+}
+
+Flat "RIVWALS1", 256, 512
+{
+    XScale 4
+    YScale 4
+    Patch "RIVWALS1", 0, 0
+}
+
+Texture "RIVWALS2", 512, 256
+{
+    XScale 4
+    YScale 4
+    Patch "RIVWALS2", 0, 0
+}
+
+Flat "RIVWALS2", 512, 256
+{
+    XScale 4
+    YScale 4
+    Patch "RIVWALS2", 0, 0
+}
+
+Texture "ROUND", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "ROUND", 0, 0
+}
+
+Flat "ROUND", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "ROUND", 0, 0
+}
+
+Texture "SHIPOJ01", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ01", 0, 0
+}
+
+Flat "SHIPOJ01", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ01", 0, 0
+}
+
+Texture "SHIPOJ02", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ02", 0, 0
+}
+
+Flat "SHIPOJ02", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ02", 0, 0
+}
+
+Texture "SHIPOJ03", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ03", 0, 0
+}
+
+Flat "SHIPOJ03", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "SHIPOJ03", 0, 0
+}
+
+Texture "VENT", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "VENT", 0, 0
+}
+
+Flat "VENT", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "VENT", 0, 0
+}
+
+Texture "VENT3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "VENT3", 0, 0
+}
+
+Flat "VENT3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "VENT3", 0, 0
+}
+
+Texture "CBELT02", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "CBELT02", 0, 0
+}
+
+Flat "CBELT02", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "CBELT02", 0, 0
+}
+
+Texture "CBELT03", 256, 256
+{
+    XScale 8
+    YScale 8
+    Patch "CBELT02", 0, 0
+}
+
+Flat "CBELT03", 256, 256
+{
+    XScale 8
+    YScale 8
+    Patch "CBELT02", 0, 0
+}
+
+Texture "DPLATDG1", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "DPLATDG1", 0, 0
+}
+
+Flat "DPLATDG1", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "DPLATDG1", 0, 0
+}
+
+Texture "DPLATDG2", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "DPLATDG2", 0, 0
+}
+
+Flat "DPLATDG2", 256, 256
+{
+    XScale 4
+    YScale 4
+    Patch "DPLATDG2", 0, 0
+}
+
+Texture "MTILEBLU", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEBLU", 0, 0
+}
+
+Flat "MTILEBLU", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEBLU", 0, 0
+}
+
+Texture "MTILEDRK", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEDRK", 0, 0
+}
+
+Flat "MTILEDRK", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEDRK", 0, 0
+}
+
+Texture "MTILEWHT", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEWHT", 0, 0
+}
+
+Flat "MTILEWHT", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "MTILEWHT", 0, 0
+}
+
+Texture "BARK", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BARK", 0, 0
+}
+
+Flat "BARK", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "BARK", 0, 0
+}
+
+Texture "DIRT", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRT", 0, 0
+}
+
+Flat "DIRT", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRT", 0, 0
+}
+
+Texture "DIRTFORE", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTFORE", 0, 0
+}
+
+Flat "DIRTFORE", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "DIRTFORE", 0, 0
+}
+
+Texture "DIRTROC1", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRTROC1", 0, 0
+}
+
+Flat "DIRTROC1", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "DIRTROC1", 0, 0
+}
+
+Texture "GRASS1", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS1", 0, 0
+}
+
+Flat "GRASS1", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS1", 0, 0
+}
+
+Texture "GRASS2", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS2", 0, 0
+}
+
+Flat "GRASS2", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS2", 0, 0
+}
+
+Texture "GRASS3", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS3", 0, 0
+}
+
+Flat "GRASS3", 512, 512
+{
+    XScale 2
+    YScale 2
+    Patch "GRASS3", 0, 0
+}
+
+Texture "GRASSB", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSB", 0, 0
+}
+
+Flat "GRASSB", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSB", 0, 0
+}
+
+Texture "GRASSBG", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSBG", 0, 0
+}
+
+Flat "GRASSBG", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSBG", 0, 0
+}
+
+Texture "GRASSG", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSG", 0, 0
+}
+
+Flat "GRASSG", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "GRASSG", 0, 0
+}
+
+Texture "ICE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "ICE1", 0, 0
+}
+
+Flat "ICE1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "ICE1", 0, 0
+}
+
+Texture "ICE2", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "ICE2", 0, 0
+}
+
+Flat "ICE2", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "ICE2", 0, 0
+}
+
+Texture "MUD", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "MUD", 0, 0
+}
+
+Flat "MUD", 256, 256
+{
+    XScale 1
+    YScale 1
+    Patch "MUD", 0, 0
+}
+
+Texture "SNOW1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "SNOW1", 0, 0
+}
+
+Flat "SNOW1", 1024, 1024
+{
+    XScale 4
+    YScale 4
+    Patch "SNOW1", 0, 0
+}
+
+Texture "PIPE2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PIPE2", 0, 0
+}
+
+Flat "PIPE2", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "PIPE2", 0, 0
+}
+
+Texture "PIPE3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PIPE3", 0, 0
+}
+
+Flat "PIPE3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PIPE3", 0, 0
+}
+
+Texture "PKPIPESO", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESO", 0, 0
+}
+
+Flat "PKPIPESO", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESO", 0, 0
+}
+
+Texture "PKPIPESR", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESR", 0, 0
+}
+
+Flat "PKPIPESR", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESR", 0, 0
+}
+
+Texture "PKPIPESY", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESY", 0, 0
+}
+
+Flat "PKPIPESY", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "PKPIPESY", 0, 0
+}
+
+Texture "ROCKCAV1", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ROCKCAV1", 0, 0
+}
+
+Flat "ROCKCAV1", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ROCKCAV1", 0, 0
+}
+
+Texture "ROCKDUS1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKDUS1", 0, 0
+}
+
+Flat "ROCKDUS1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKDUS1", 0, 0
+}
+
+Texture "ROCKFL1", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL1", 0, 0
+}
+
+Flat "ROCKFL1", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL1", 0, 0
+}
+
+Texture "ROCKFL2", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL2", 0, 0
+}
+
+Flat "ROCKFL2", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL2", 0, 0
+}
+
+Texture "ROCKFL3", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL3", 0, 0
+}
+
+Flat "ROCKFL3", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL3", 0, 0
+}
+
+Texture "ROCKFL4", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL4", 0, 0
+}
+
+Flat "ROCKFL4", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL4", 0, 0
+}
+
+Texture "ROCKFL5", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL5", 0, 0
+}
+
+Flat "ROCKFL5", 1024, 1024
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKFL5", 0, 0
+}
+
+Texture "ROCKGRN1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKGRN1", 0, 0
+}
+
+Flat "ROCKGRN1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKGRN1", 0, 0
+}
+
+Texture "ROCKGRN2", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKGRN2", 0, 0
+}
+
+Flat "ROCKGRN2", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKGRN2", 0, 0
+}
+
+Texture "ROCKICE1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKICE1", 0, 0
+}
+
+Flat "ROCKICE1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKICE1", 0, 0
+}
+
+Texture "ROCKLAV1", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ROCKLAV1", 0, 0
+}
+
+Flat "ROCKLAV1", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ROCKLAV1", 0, 0
+}
+
+Texture "ROCKMTN1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN1", 0, 0
+}
+
+Flat "ROCKMTN1", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN1", 0, 0
+}
+
+Texture "ROCKMTN2", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN2", 0, 0
+}
+
+Flat "ROCKMTN2", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN2", 0, 0
+}
+
+Texture "ROCKMTN3", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN3", 0, 0
+}
+
+Flat "ROCKMTN3", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN3", 0, 0
+}
+
+Texture "ROCKMTN4", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN4", 0, 0
+}
+
+Flat "ROCKMTN4", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN4", 0, 0
+}
+
+Texture "ROCKMTN5", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN5", 0, 0
+}
+
+Flat "ROCKMTN5", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN5", 0, 0
+}
+
+Texture "ROCKMTN6", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN6", 0, 0
+}
+
+Flat "ROCKMTN6", 1024, 512
+{
+    XScale 2
+    YScale 2
+    Patch "ROCKMTN6", 0, 0
+}
+
+Texture "SANDBAG1", 64, 64
+{
+    XScale 1
+    YScale 1
+    Patch "SANDBAG1", 0, 0
+}
+
+Flat "SANDBAG1", 64, 64
+{
+    XScale 1
+    YScale 1
+    Patch "SANDBAG1", 0, 0
+}
+
+Texture "SANDBAG2", 64, 64
+{
+    XScale 1
+    YScale 1
+    Patch "SANDBAG2", 0, 0
+}
+
+Flat "SANDBAG2", 64, 64
+{
+    XScale 1
+    YScale 1
+    Patch "SANDBAG2", 0, 0
+}
+
+Texture "DECAYBBK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBBK", 0, 0
+}
+
+Flat "DECAYBBK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBBK", 0, 0
+}
+
+Texture "DECAYBDN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBDN", 0, 0
+}
+
+Flat "DECAYBDN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBDN", 0, 0
+}
+
+Texture "DECAYBFT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBFT", 0, 0
+}
+
+Flat "DECAYBFT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBFT", 0, 0
+}
+
+Texture "DECAYBLF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBLF", 0, 0
+}
+
+Flat "DECAYBLF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBLF", 0, 0
+}
+
+Texture "DECAYBRT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBRT", 0, 0
+}
+
+Flat "DECAYBRT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBRT", 0, 0
+}
+
+Texture "DECAYBUP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBUP", 0, 0
+}
+
+Flat "DECAYBUP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "DECAYBUP", 0, 0
+}
+
+Texture "HEAT_BK", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_BK", 0, 0
+}
+
+Flat "HEAT_BK", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_BK", 0, 0
+}
+
+Texture "HEAT_DN", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_DN", 0, 0
+}
+
+Flat "HEAT_DN", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_DN", 0, 0
+}
+
+Texture "HEAT_FT", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_FT", 0, 0
+}
+
+Flat "HEAT_FT", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_FT", 0, 0
+}
+
+Texture "HEAT_LF", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_LF", 0, 0
+}
+
+Flat "HEAT_LF", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_LF", 0, 0
+}
+
+Texture "HEAT_RT", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_RT", 0, 0
+}
+
+Flat "HEAT_RT", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_RT", 0, 0
+}
+
+Texture "HEAT_UP", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_UP", 0, 0
+}
+
+Flat "HEAT_UP", 2048, 2048
+{
+    XScale 1
+    YScale 1
+    Patch "HEAT_UP", 0, 0
+}
+
+Texture "DFIRE_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_BK", 0, 0
+}
+
+Flat "DFIRE_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_BK", 0, 0
+}
+
+Texture "DFIRE_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_DN", 0, 0
+}
+
+Flat "DFIRE_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_DN", 0, 0
+}
+
+Texture "DFIRE_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_FT", 0, 0
+}
+
+Flat "DFIRE_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_FT", 0, 0
+}
+
+Texture "DFIRE_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_LF", 0, 0
+}
+
+Flat "DFIRE_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_LF", 0, 0
+}
+
+Texture "DFIRE_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_RT", 0, 0
+}
+
+Flat "DFIRE_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_RT", 0, 0
+}
+
+Texture "DFIRE_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_UP", 0, 0
+}
+
+Flat "DFIRE_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DFIRE_UP", 0, 0
+}
+
+Texture "DUST_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_BK", 0, 0
+}
+
+Flat "DUST_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_BK", 0, 0
+}
+
+Texture "DUST_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_DN", 0, 0
+}
+
+Flat "DUST_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_DN", 0, 0
+}
+
+Texture "DUST_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_FT", 0, 0
+}
+
+Flat "DUST_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_FT", 0, 0
+}
+
+Texture "DUST_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_LF", 0, 0
+}
+
+Flat "DUST_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_LF", 0, 0
+}
+
+Texture "DUST_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_RT", 0, 0
+}
+
+Flat "DUST_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_RT", 0, 0
+}
+
+Texture "DUST_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_UP", 0, 0
+}
+
+Flat "DUST_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "DUST_UP", 0, 0
+}
+
+Texture "ESKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_BOT", 0, 0
+}
+
+Flat "ESKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_BOT", 0, 0
+}
+
+Texture "ESKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_EAS", 0, 0
+}
+
+Flat "ESKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_EAS", 0, 0
+}
+
+Texture "ESKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_NOR", 0, 0
+}
+
+Flat "ESKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_NOR", 0, 0
+}
+
+Texture "ESKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_SOU", 0, 0
+}
+
+Flat "ESKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_SOU", 0, 0
+}
+
+Texture "ESKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_TOP", 0, 0
+}
+
+Flat "ESKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_TOP", 0, 0
+}
+
+Texture "ESKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_WES", 0, 0
+}
+
+Flat "ESKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "ESKY_WES", 0, 0
+}
+
+Texture "FLOOD_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_BK", 0, 0
+}
+
+Flat "FLOOD_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_BK", 0, 0
+}
+
+Texture "FLOOD_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_DN", 0, 0
+}
+
+Flat "FLOOD_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_DN", 0, 0
+}
+
+Texture "FLOOD_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_FT", 0, 0
+}
+
+Flat "FLOOD_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_FT", 0, 0
+}
+
+Texture "FLOOD_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_LF", 0, 0
+}
+
+Flat "FLOOD_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_LF", 0, 0
+}
+
+Texture "FLOOD_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_RT", 0, 0
+}
+
+Flat "FLOOD_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_RT", 0, 0
+}
+
+Texture "FLOOD_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_UP", 0, 0
+}
+
+Flat "FLOOD_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLOOD_UP", 0, 0
+}
+
+Texture "HEART_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_BK", 0, 0
+}
+
+Flat "HEART_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_BK", 0, 0
+}
+
+Texture "HEART_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_DN", 0, 0
+}
+
+Flat "HEART_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_DN", 0, 0
+}
+
+Texture "HEART_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_FT", 0, 0
+}
+
+Flat "HEART_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_FT", 0, 0
+}
+
+Texture "HEART_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_LF", 0, 0
+}
+
+Flat "HEART_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_LF", 0, 0
+}
+
+Texture "HEART_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_RT", 0, 0
+}
+
+Flat "HEART_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_RT", 0, 0
+}
+
+Texture "HEART_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_UP", 0, 0
+}
+
+Flat "HEART_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "HEART_UP", 0, 0
+}
+
+Texture "OLOS_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_BK", 0, 0
+}
+
+Flat "OLOS_BK", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_BK", 0, 0
+}
+
+Texture "OLOS_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_DN", 0, 0
+}
+
+Flat "OLOS_DN", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_DN", 0, 0
+}
+
+Texture "OLOS_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_FT", 0, 0
+}
+
+Flat "OLOS_FT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_FT", 0, 0
+}
+
+Texture "OLOS_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_LF", 0, 0
+}
+
+Flat "OLOS_LF", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_LF", 0, 0
+}
+
+Texture "OLOS_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_RT", 0, 0
+}
+
+Flat "OLOS_RT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_RT", 0, 0
+}
+
+Texture "OLOS_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_UP", 0, 0
+}
+
+Flat "OLOS_UP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "OLOS_UP", 0, 0
+}
+
+Texture "PSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_BOT", 0, 0
+}
+
+Flat "PSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_BOT", 0, 0
+}
+
+Texture "PSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_EAS", 0, 0
+}
+
+Flat "PSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_EAS", 0, 0
+}
+
+Texture "PSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_NOR", 0, 0
+}
+
+Flat "PSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_NOR", 0, 0
+}
+
+Texture "PSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_SOU", 0, 0
+}
+
+Flat "PSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_SOU", 0, 0
+}
+
+Texture "PSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_TOP", 0, 0
+}
+
+Flat "PSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_TOP", 0, 0
+}
+
+Texture "PSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_WES", 0, 0
+}
+
+Flat "PSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "PSKY_WES", 0, 0
+}
+
+Texture "RSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_BOT", 0, 0
+}
+
+Flat "RSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_BOT", 0, 0
+}
+
+Texture "RSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_EAS", 0, 0
+}
+
+Flat "RSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_EAS", 0, 0
+}
+
+Texture "RSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_NOR", 0, 0
+}
+
+Flat "RSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_NOR", 0, 0
+}
+
+Texture "RSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_SOU", 0, 0
+}
+
+Flat "RSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_SOU", 0, 0
+}
+
+Texture "RSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_TOP", 0, 0
+}
+
+Flat "RSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_TOP", 0, 0
+}
+
+Texture "RSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_WES", 0, 0
+}
+
+Flat "RSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "RSKY_WES", 0, 0
+}
+
+Texture "SKY2_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_BOT", 0, 0
+}
+
+Flat "SKY2_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_BOT", 0, 0
+}
+
+Texture "SKY2_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_EAS", 0, 0
+}
+
+Flat "SKY2_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_EAS", 0, 0
+}
+
+Texture "SKY2_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_NOR", 0, 0
+}
+
+Flat "SKY2_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_NOR", 0, 0
+}
+
+Texture "SKY2_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_SOU", 0, 0
+}
+
+Flat "SKY2_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_SOU", 0, 0
+}
+
+Texture "SKY2_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_TOP", 0, 0
+}
+
+Flat "SKY2_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_TOP", 0, 0
+}
+
+Texture "SKY2_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_WES", 0, 0
+}
+
+Flat "SKY2_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SKY2_WES", 0, 0
+}
+
+Texture "SSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_BOT", 0, 0
+}
+
+Flat "SSKY_BOT", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_BOT", 0, 0
+}
+
+Texture "SSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_EAS", 0, 0
+}
+
+Flat "SSKY_EAS", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_EAS", 0, 0
+}
+
+Texture "SSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_NOR", 0, 0
+}
+
+Flat "SSKY_NOR", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_NOR", 0, 0
+}
+
+Texture "SSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_SOU", 0, 0
+}
+
+Flat "SSKY_SOU", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_SOU", 0, 0
+}
+
+Texture "SSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_TOP", 0, 0
+}
+
+Flat "SSKY_TOP", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_TOP", 0, 0
+}
+
+Texture "SSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_WES", 0, 0
+}
+
+Flat "SSKY_WES", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "SSKY_WES", 0, 0
+}
+
+Texture "SPAC2_BK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_BK", 0, 0
+}
+
+Flat "SPAC2_BK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_BK", 0, 0
+}
+
+Texture "SPAC2_DN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_DN", 0, 0
+}
+
+Flat "SPAC2_DN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_DN", 0, 0
+}
+
+Texture "SPAC2_FT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_FT", 0, 0
+}
+
+Flat "SPAC2_FT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_FT", 0, 0
+}
+
+Texture "SPAC2_LF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_LF", 0, 0
+}
+
+Flat "SPAC2_LF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_LF", 0, 0
+}
+
+Texture "SPAC2_RT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_RT", 0, 0
+}
+
+Flat "SPAC2_RT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_RT", 0, 0
+}
+
+Texture "SPAC2_UP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_UP", 0, 0
+}
+
+Flat "SPAC2_UP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "SPAC2_UP", 0, 0
+}
+
+Texture "STAR_BK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_BK", 0, 0
+}
+
+Flat "STAR_BK", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_BK", 0, 0
+}
+
+Texture "STAR_DN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_DN", 0, 0
+}
+
+Flat "STAR_DN", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_DN", 0, 0
+}
+
+Texture "STAR_FT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_FT", 0, 0
+}
+
+Flat "STAR_FT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_FT", 0, 0
+}
+
+Texture "STAR_LF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_LF", 0, 0
+}
+
+Flat "STAR_LF", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_LF", 0, 0
+}
+
+Texture "STAR_RT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_RT", 0, 0
+}
+
+Flat "STAR_RT", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_RT", 0, 0
+}
+
+Texture "STAR_UP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_UP", 0, 0
+}
+
+Flat "STAR_UP", 1024, 1024
+{
+    XScale 1
+    YScale 1
+    Patch "STAR_UP", 0, 0
+}
+
+Texture "RAMP1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "RAMP1", 0, 0
+}
+
+Flat "RAMP1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "RAMP1", 0, 0
+}
+
+Texture "BLKCHCK", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "BLKCHCK", 0, 0
+}
+
+Flat "BLKCHCK", 256, 256
+{
+    XScale 2
+    YScale 2
+    Patch "BLKCHCK", 0, 0
+}
+
+Texture "BLUCHECK", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUCHECK", 0, 0
+}
+
+Flat "BLUCHECK", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUCHECK", 0, 0
+}
+
+Texture "BROKETIL", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BROKETIL", 0, 0
+}
+
+Flat "BROKETIL", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BROKETIL", 0, 0
+}
+
+Texture "REDCHECK", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "REDCHECK", 0, 0
+}
+
+Flat "REDCHECK", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "REDCHECK", 0, 0
+}
+
+Texture "TILE3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "TILE3", 0, 0
+}
+
+Flat "TILE3", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "TILE3", 0, 0
+}
+
+Texture "FLATTLSQ", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLATTLSQ", 0, 0
+}
+
+Flat "FLATTLSQ", 512, 512
+{
+    XScale 1
+    YScale 1
+    Patch "FLATTLSQ", 0, 0
+}
+
+Texture "BLUWALL1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BLUWALL1", 0, 0
+}
+
+Flat "BLUWALL1", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BLUWALL1", 0, 0
+}
+
+Texture "BLUWALL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BLUWALL2", 0, 0
+}
+
+Flat "BLUWALL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "BLUWALL2", 0, 0
+}
+
+Texture "BLUWALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUWALL3", 0, 0
+}
+
+Flat "BLUWALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "BLUWALL3", 0, 0
+}
+
+Texture "REDWALL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "REDWALL2", 0, 0
+}
+
+Flat "REDWALL2", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "REDWALL2", 0, 0
+}
+
+Texture "REDWALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "REDWALL3", 0, 0
+}
+
+Flat "REDWALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "REDWALL3", 0, 0
+}
+
+Texture "REDWALL4", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "REDWALL4", 0, 0
+}
+
+Flat "REDWALL4", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "REDWALL4", 0, 0
+}
+
+Texture "WALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "WALL3", 0, 0
+}
+
+Flat "WALL3", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "WALL3", 0, 0
+}
+
+Texture "WALLWTBL", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "WALLWTBL", 0, 0
+}
+
+Flat "WALLWTBL", 1024, 1024
+{
+    XScale 8
+    YScale 8
+    Patch "WALLWTBL", 0, 0
+}
+
+Texture "FAROS1", 768, 192
+{
+    XScale 6
+    YScale 6
+    Patch "FAROS1", 0, 0
+}
+
+Flat "FAROS1", 768, 192
+{
+    XScale 6
+    YScale 6
+    Patch "FAROS1", 0, 0
+}

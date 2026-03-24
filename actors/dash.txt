@@ -1,0 +1,21 @@
+//If player has just recently dashed (and how much time they have before their dash trail expires).
+Actor OmniTrailTics : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 20
+}
+
+//Dash Trail
+Actor DashTrail : LSParticleBase
+{
+	Scale 0.125
+	States
+	{
+	Spawn:
+		RRNG AAAAAA 1 nodelay A_SetScale(scalex * 1.025, scaley * 1.025)
+	Looped:
+		TNT1 A 0 A_SetScale(scalex * 1.025, scaley * 1.025)
+		RRNG A 1 A_Fadeout(0.02)
+		loop
+	}
+}

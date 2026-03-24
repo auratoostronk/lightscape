@@ -1,0 +1,34 @@
+[IntroStrings]
+"hi im new here pls go easy :)))"
+"im used to console games, how does this game work?"
+"this is a lot different from fortnite :O"
+"finally got my pc built :DDDD time to play aura's mod!"
+
+[KilledStrings]
+"wow! unfair!"
+"how did you do that?"
+"there's an alt fire?!"
+"how do you teleport?"
+"not fair! i forgot to grab medkits!"
+"how did you spawn with that gun!"
+
+[FragStrings]
+"ayyy! i got one!"
+"yay!"
+"haha i got you!"
+"that felt good!"
+
+[RoamingStrings]
+"where is the armor?"
+"why can't i climb here?"
+"i can't find the weapon i want!"
+"look at that texture!"
+
+[RareRoamingstrings]
+"this wall looks enticing..."
+
+[EnragedStrings]
+"i give up! game is not fun!"
+"who made this game? it sucks!"
+"i'm gonna go back to fortnite! >:("
+
