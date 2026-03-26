@@ -962,29 +962,29 @@ Flat "GRAYBL1", 512, 512
 
 Texture "GRAYLT1", 128, 128
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "GRAYLT1", 0, 0
 }
 
 Flat "GRAYLT1", 128, 128
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "GRAYLT1", 0, 0
 }
 
 Texture "GRAYMED1", 128, 128
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "GRAYMED1", 0, 0
 }
 
 Flat "GRAYMED1", 128, 128
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "GRAYMED1", 0, 0
 }
 
@@ -2775,15 +2775,15 @@ Flat "DIRTFORE", 1024, 1024
 
 Texture "DIRTROC1", 256, 256
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "DIRTROC1", 0, 0
 }
 
 Flat "DIRTROC1", 256, 256
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "DIRTROC1", 0, 0
 }
 
@@ -4707,17 +4707,17 @@ Flat "TILE3", 1024, 1024
     Patch "TILE3", 0, 0
 }
 
-Texture "FLATTLSQ", 512, 512
+Texture "FLATTLSQ", 32, 32
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "FLATTLSQ", 0, 0
 }
 
-Flat "FLATTLSQ", 512, 512
+Flat "FLATTLSQ", 32, 32
 {
-    XScale 1
-    YScale 1
+    XScale 4
+    YScale 4
     Patch "FLATTLSQ", 0, 0
 }
 
