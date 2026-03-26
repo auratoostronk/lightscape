@@ -270,6 +270,19 @@ Flat "COMP_PR", 64, 64
     YScale 2
     Patch "COMP_PR", 0, 0
 }
+Texture "SCOMP_RD", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "COMP_RD", 0, 0
+}
+
+Flat "SCOMP_RD", 512, 512
+{
+    XScale 4
+    YScale 4
+    Patch "COMP_RD", 0, 0
+}
 
 Texture "COMP_RD", 512, 512
 {
@@ -877,17 +890,17 @@ Flat "CONCVT16", 512, 512
     Patch "CONCVT16", 0, 0
 }
 
-Texture "CONCVT32", 256, 256
+Texture "CONCVT32", 512, 512
 {
-    XScale 2
-    YScale 2
+    XScale 4
+    YScale 4
     Patch "CONCVT32", 0, 0
 }
 
-Flat "CONCVT32", 256, 256
+Flat "CONCVT32", 512, 512
 {
-    XScale 2
-    YScale 2
+    XScale 4
+    YScale 4
     Patch "CONCVT32", 0, 0
 }
 
@@ -4626,7 +4639,19 @@ Flat "BLUCHECK", 512, 512
     YScale 4
     Patch "BLUCHECK", 0, 0
 }
+Texture "SBLUCHEK", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "BLUCHECK", 0, 0
+}
 
+Flat "SBLUCHEK", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "BLUCHECK", 0, 0
+}
 Texture "BROKETIL", 512, 512
 {
     XScale 4
@@ -4652,6 +4677,19 @@ Flat "REDCHECK", 512, 512
 {
     XScale 4
     YScale 4
+    Patch "REDCHECK", 0, 0
+}
+Texture "SREDCHEK", 512, 512
+{
+    XScale 8
+    YScale 8
+    Patch "REDCHECK", 0, 0
+}
+
+Flat "SREDCHEK", 512, 512
+{
+    XScale 8
+    YScale 8
     Patch "REDCHECK", 0, 0
 }
 
@@ -4725,17 +4763,17 @@ Flat "BLUWALL3", 512, 512
     Patch "BLUWALL3", 0, 0
 }
 
-Texture "REDWALL2", 1024, 1024
+Texture "REDWALL2", 512, 512
 {
-    XScale 8
-    YScale 8
+    XScale 4
+    YScale 4
     Patch "REDWALL2", 0, 0
 }
 
-Flat "REDWALL2", 1024, 1024
+Flat "REDWALL2", 512, 512
 {
-    XScale 8
-    YScale 8
+    XScale 4
+    YScale 4
     Patch "REDWALL2", 0, 0
 }
 

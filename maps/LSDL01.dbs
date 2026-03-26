@@ -5,11 +5,11 @@ strictpatches = 0;
 maps
 {
 	
-	LSDM02
+	LSDL01
 	{
-		defaultwalltexture = "ROCKMTN5";
+		defaultwalltexture = "HOLO2";
 		overridemiddletexture = false;
-		defaultceiltexture = "ROCKMTN5";
+		defaultceiltexture = "CONCFL10";
 		overrideceiltexture = false;
 		custombrightness = 196;
 		scriptcompiler = "zdoom_acs.cfg";
@@ -27,8 +27,8 @@ maps
 				requiredarchives = "";
 			}
 		}
-		viewpositiony = 1914.238f;
-		viewpositionx = 768.7205f;
+		viewpositiony = 724.8503f;
+		viewpositionx = -805.0268f;
 		
 		testprecommand
 		{
@@ -52,7 +52,7 @@ maps
 			background = "";
 			backoffsety = 0;
 		}
-		viewscale = 0.2999442f;
+		viewscale = 0.493421f;
 		
 		reloadresourceprecommand
 		{
@@ -60,10 +60,10 @@ maps
 			exitcodeiserror = true;
 			stderriserror = true;
 		}
-		defaulttoptexture = "ROCKMTN5";
+		defaulttoptexture = "HOLO2";
 		overridebottomtexture = false;
-		defaultbottomtexture = "ROCKMTN5";
-		defaultfloortexture = "DIRT";
+		defaultbottomtexture = "HOLO2";
+		defaultfloortexture = "SNOW1";
 		overrideceilheight = false;
 		overridebrightness = false;
 		

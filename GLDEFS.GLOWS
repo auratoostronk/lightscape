@@ -3,10 +3,12 @@ glow
 	Flats
 	{
 		COMP_RD
+		SCOMP_RD
 		COMP_OR
 		COMP_YL
 		COMP_GR
 		COMP_LB
+		SCOMP_BL
 		COMP_BL
 		COMP_PR
 		LAVA
@@ -14,12 +16,14 @@ glow
 	}
 	Walls
 	{
+		SCOMP_RD
 		COMP_RD
 		COMP_OR
 		COMP_YL
 		COMP_GR
 		COMP_LB
 		COMP_BL
+		SCOMP_BL
 		COMP_PR
 		LAVA
 		NUKAGE
