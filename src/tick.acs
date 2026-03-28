@@ -97,9 +97,17 @@ function void tickAltCD(void)
 	for(int i = 0; i < NUM_WEAPS; i++)
 	{
 		TakeInventory(WEAP_ALTCDS[i], 1);
-	{
-		TakeMax("AltFireCDMax");
 	}
+}
+
+function void applySpeedModifiers(void)
+{
+	int speed = 1.0;
+	if(checkInv("TeslaSpeedBoostTics") > 0)
+	{
+		speed += 0.2;
+	}
+	SetActorProperty(0, APROP_SPEED, speed);
 }
 
 script "CooldownTimers" ENTER
@@ -116,6 +124,7 @@ script "CooldownTimers" ENTER
 			bandolierCheck();
 			tickActionCD();
 			tickAltCD();
+			applySpeedModifiers();
 			
 			/*if(CheckInventory("IsDashing") > 0)
 			{
