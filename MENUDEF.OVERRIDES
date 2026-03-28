@@ -371,6 +371,10 @@ OptionMenu GameplayOptionsNew
 	Slider	"Duel Win Limit",		"menu_skirmishduellimit", 0, 10, 1, 0
 	Slider	"LMS Win Limit",		"menu_skirmishwinlimit", 0, 10, 1, 0
 	StaticText " "
+	StaticText "Loadout Settings", 1
+	Option "Lock Loadouts during match",			"ls_lockloadouts", "YesNo"
+	//Option "Force carbine spawns",			"ls_forcecarbine", "NoYes"
+	StaticText " "
 	StaticText "Pickup settings", 1
 	Option "Weapons stay after pickup",		"sv_weaponstay", "YesNo"
 	Option "Spawn Weapons",					"sv_noweaponspawn", "NoYes"
