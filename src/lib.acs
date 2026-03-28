@@ -8,6 +8,7 @@
 #libdefine NUM_WEAPS 5
 #libdefine NUM_ACTIVES 4
 #libdefine NUM_DASHES 2
+#libdefine NUM_SPHERES 3
 
 #libdefine UTID_MIN 1100
 #libdefine UTID_LIMIT 10000

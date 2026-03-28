@@ -122,16 +122,24 @@ Script "OmniDash" (int predicting, int pressed, int released, int buttons)
             if (hasAfterburner || isReady)
             {
                 SetPredictableValue(0, 0, 1);
+				
 				//Play the sound and drops any held flags while spawning a smoke trail
 				DropInventory(0, "RedFlag");
 				DropInventory(0, "BlueFlag");
+				SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
 				TakeInventory("OmniTrailTics", 350);
 				GiveInventory("OmniTrailTics", 18);
+				SetNetworkReplicationFlags( 0 );
 				PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+				
                 if(hasAfterburner)
+				{
 					TakeInventory("Afterburner", 1);
+				}
 				else
+				{
 					GiveMax("OmniDashCD");
+				}
             }
 			else
 			{	

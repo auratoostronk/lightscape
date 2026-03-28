@@ -3,18 +3,10 @@
 #import "lib.acs"
 #import "hud.acs"
 
-#define SPHERE_COUNT 3
-
-str SPHERE_HELD[SPHERE_COUNT] = { "RBurstReady", "HRailReady", "BloodSphereReady" };
-str SPHERE_HELDFX[SPHERE_COUNT] = { "RBurstReadyFX", "HRailReadyFX", "BloodSphereReadyFX"};
-str SPHERE_USING[SPHERE_COUNT] = { "RBurstInUse", "HRailInUse", "BloodSphereInUse"};
-str SPHERE_SCRIPTS[SPHERE_COUNT] = { "UseRBurst", "UseHRail", "UseBloodSphere" };
-
-
 function bool checkSphere(void)
 {
 	bool ret = false; //Assume the player does not have an active item yet.
-	for(int i = 0; i < SPHERE_COUNT; i++)
+	for(int i = 0; i < NUM_SPHERES; i++)
 	{
 		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
 		{
@@ -31,7 +23,7 @@ Script "CheckForSphere" (void)
 Script "HoldingSphere" (void)
 {
 	int sphereID = -1;
-	for(int i = 0; i < SPHERE_COUNT; i++)
+	for(int i = 0; i < NUM_SPHERES; i++)
 	{
 		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
 		{
@@ -63,7 +55,7 @@ Script "CheckSphereFire" ENTER
 {
 	while(true)
 	{	
-		for(int i = 0; i < SPHERE_COUNT; i++)
+		for(int i = 0; i < NUM_SPHERES; i++)
 		{
 			if(CheckInventory(SPHERE_HELD[i]) > 0)
 			{
