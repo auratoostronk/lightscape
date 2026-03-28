@@ -227,8 +227,8 @@ OptionMenu "HUDOptionsNew"
 {
 	Title "Interface Options"
 	StaticText 	"HUD", 1
-	Option "HUD Type",					"screenblocks", "ScreenSize"
-	Option "Stretch Fullscreen HUD",	"hud_scale", "OnOff"
+	Option "HUD Type",						"screenblocks", "ScreenSize"
+	Option "Stretch Fullscreen HUD",		"hud_scale", "OnOff"
 	Option "Frag messages",					"cl_showlargefragmessages",	"YesNo" // [TP]
 	Slider "Screen blood intensity",		"blood_fade_scalar",   0, 1, 0.05, 2
 	Slider "Pickup flash intensity",		"pickup_blend_scalar", 0, 1, 0.05, 2
@@ -294,7 +294,7 @@ ListMenu "PlayerMenuNew"
 OptionValue "ScreenSize"
 {
 	10, "Type 1"
-	11, "Type 2"
+	11, "Type 2 (NYI)"
 	12, "Minimal"
 }
 
