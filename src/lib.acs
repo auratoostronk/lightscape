@@ -14,8 +14,20 @@
 
 str WEAP_ACTORS[NUM_WEAPS] = 	{"PlasmaCarbine", 	"ParticleSplitter", 	"TeslaSMG", 	"C14", 			"FluxRailgun"};//,		 	"Flamespitter", 	"BeamRifle"};
 str WEAP_AMMOS[NUM_WEAPS] = 	{"CarbineAmmo", 	"ShotgunAmmo", 			"SMGAmmo", 		"GammaAmmo",	"RailAmmo"};//,		  	"FlameAmmo", 		"BeamAmmo"};
+str WEAP_ALTCDS[NUM_WEAPS] = 	{"CarbineAltCD", 	"ShotgunAltCD", 		"SMGAltCD", 	"GammaAltCD",	"RailAltCD"};//,		  	"FlameAmmo", 		"BeamAmmo"};
+
 str DASH_SCRIPTS[NUM_DASHES] = 	{"OmniDash", 		"BlinkDash"};
 str DASH_INVENTORY[NUM_DASHES] = {"CVAR_DashOmni", 		"CVAR_DashBlink"};
+
+str ACTIVE_SCRIPTS[NUM_ACTIVES] = 	{"RegenZone", 	"FlickerShield", 	"DecoyProjection", 	"SystemOverdrive"};
+str ACTIVE_INVENTORY[NUM_ACTIVES] = {"CVAR_RZone", 	"CVAR_FShield", 	"CVAR_PDecoy", 		"CVAR_SOverdrive"};
+//Cooldowns (in seconds) of each active.
+int ACTIVE_CDS[NUM_ACTIVES] = 		{25, 			20, 				15, 				30};
+
+str SPHERE_HELD[NUM_SPHERES] = { "RBurstReady", "HRailReady", "BloodSphereReady" };
+str SPHERE_HELDFX[NUM_SPHERES] = { "RBurstReadyFX", "HRailReadyFX", "BloodSphereReadyFX"};
+str SPHERE_USING[NUM_SPHERES] = { "RBurstInUse", "HRailInUse", "BloodSphereInUse"};
+str SPHERE_SCRIPTS[NUM_SPHERES] = { "UseRBurst", "UseHRail", "UseBloodSphere" };
 
 function int abs (int x)
 {
@@ -27,19 +39,47 @@ function int sign (int i)
 {
 	return ((i > 0) - (i < 0));
 }
-function void GiveMax(str ammo)
+function int checkInv(str actor)
+{
+	return CheckInventory(actor);
+}
+function void giveMax(str ammo)
 {
 	GiveInventory(ammo, GetAmmoCapacity(ammo));
 }
-function void TakeMax(str ammo)
+function void takeMax(str ammo)
 {
 	TakeInventory(ammo, GetAmmoCapacity(ammo));
 }
-function bool IsGamemode(str gamemode)
+function bool isGamemode(str gamemode)
 {
 	if(StrICmp(GetCurrentGameMode(), gamemode) == 0)
 		return true;
 	return false;
+}
+function bool strEq(str str1, str str2)
+{
+	if(StrIcmp(str1, str2) == 0)
+		return true;
+	else
+		return false;
+}
+function str currWeapAltCDClass(void)
+{
+	str ret = "N/A";
+	for(int i = 0; i < NUM_WEAPS; i++)
+	{
+		if(strEq(WEAP_ACTORS[i], GetWeapon()) == true)
+		{
+			ret = WEAP_ALTCDS[i];
+		}
+	}
+	//log(s:ret);
+	return ret;
+}
+function int currWeapAltCDAmt(void)
+{
+	return checkInv(currWeapAltCDClass());
 }
 function void acs(str scr = "", int arg1 = 0, int arg2 = 0, int arg3 = 0)
 {

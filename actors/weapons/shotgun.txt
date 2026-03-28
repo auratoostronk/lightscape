@@ -8,6 +8,15 @@ Actor ShotgunAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// Shotgun Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor ShotgunAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 140
+}
+
+//------------------------------------------------------------
 // Particle Splitter weapon class
 //------------------------------------------------------------
 Actor ParticleSplitter : LSWeaponBase replaces Shotgun

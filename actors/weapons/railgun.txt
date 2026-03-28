@@ -8,6 +8,15 @@ Actor RailAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// Flux Railgun Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor RailAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 210
+}
+
+//------------------------------------------------------------
 // Flux Railgun weapon class
 //------------------------------------------------------------
 ACTOR FluxRailgun : LSWeaponBase replaces Chaingun

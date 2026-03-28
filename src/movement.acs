@@ -99,11 +99,8 @@ Script "BotDash" ENTER
 					int thrustAngle = getOmnidashAngle(fm, sm, currAngle);
 					ThrustThingZ(0, OMNI_VTHRUST, 0, 0);
 					ThrustThing(thrustAngle, OMNI_LATTHRUST, 1, 0);
-					for(int i = 0; i < 18; i++)
-					{
-						SpawnSpotFacingForced("DashTrail", 0, 0);
-						delay(1);
-					}
+					TakeInventory("OmniTrailTics", 350);
+					GiveInventory("OmniTrailTics", 18);
 				}
 			}
 		}

@@ -6,11 +6,11 @@
 
 #define CDRING_FRAMES 32.0 //Set to the number of frames the cooldown ring has
 
-int PLAYER_ALTCDS[MAX_PLAYERS];
+//int PLAYER_ALTCDS[MAX_PLAYERS];
 
 function void refillAmmo(void)
 {
-	for(int i = 0 ; i < NUM_WEAPS; i++)
+	for(int i = 0; i < NUM_WEAPS; i++)
 	{
 		GiveMax(WEAP_AMMOS[i]);
 	}
@@ -23,8 +23,11 @@ Script "WeaponFireStart" (void)
 		SetResultValue(false);
 		terminate;
 	}
+	
+	//Fire attempt successful
 	GiveMax("AmmoRegenCD");
 	SetResultValue(true);
+	terminate;
 }
 
 Script "WeaponFireDone" (void)
@@ -57,7 +60,13 @@ Script "WeaponAltFireStart" (int cooldown)
 		SetResultValue(0);
 		terminate;
 	}
-	else if(CheckInventory("AltFireCD") > 0)
+	else if(currWeapAltCDAmt() > 0)
+	{
+		acs("AltFireFail");
+		SetResultValue(0);
+		terminate;
+	}
+	else if(checkInv("SharedAltFireCD") > 0)
 	{
 		acs("AltFireFail");
 		SetResultValue(0);
@@ -68,12 +77,14 @@ Script "WeaponAltFireStart" (int cooldown)
 		SetResultValue(1);
 	}
 }
-Script "WeaponAltFireCD" (int cooldown)
+
+Script "WeaponAltFireCD" (void)
 {
 	GiveMax("AmmoRegenCD");
-	GiveInventory("AltFireCD", cooldown * 35);
-	GiveInventory("AltFireCDMax", cooldown * 35);
+	GiveMax("SharedAltFireCD");
+	GiveMax(currWeapAltCDClass());
 }
+
 //A hud script that is called when the user tries to Alt-Fire while it's on cooldown.
 Script "AltFireFail" (void) 
 {
@@ -110,7 +121,7 @@ Script "CheckBotAltFire" (void)
 {
 	if(ClassifyActor(0) & ACTOR_BOT)
 	{
-		if(CheckInventory("AltFireCD") == 0)
+		if(currWeapAltCDAmt() == 0)
 		{
 			if(random(0, 15) == 0)
 			{

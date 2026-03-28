@@ -49,11 +49,11 @@ function void tickHealthRegen(void)
 function void tickAmmoRegen(void)
 {
 	//Refills energy when the player has not fired a weapon in a while.
-	if(CheckInventory("AmmoRegenCD") == 1)
+	if(CheckInv("AmmoRegenCD") == 1)
 	{
-		refillAmmo();
 		//And plays this sound.
 		LocalAmbientSound("Weapon/AmmoFill", 1.0);
+		refillAmmo();
 	}
 	//How many tics before your energy begins replenishing.
 	TakeInventory("AmmoRegenCD", 1);
@@ -87,14 +87,16 @@ function void tickActionCD(void)
 	if(CheckInventory("ActiveCDTics") >= 35)
 	{
 		TakeMax("ActiveCDTics");
-		TakeInventory("ActiveCD", 1);
+		TakeInventory("ActiveCDSeconds", 1);
 	}
 }
 
 function void tickAltCD(void)
 {
-	TakeInventory("AltFireCD", 1);
-	if(CheckInventory("AltFireCD") == 0)
+	TakeInventory("SharedAltFireCD", 1);
+	for(int i = 0; i < NUM_WEAPS; i++)
+	{
+		TakeInventory(WEAP_ALTCDS[i], 1);
 	{
 		TakeMax("AltFireCDMax");
 	}

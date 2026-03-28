@@ -8,6 +8,15 @@ Actor SMGAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// SMG Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor SMGAltCD : Ammo
+{
+	+SERVERNETID
+	Inventory.MaxAmount 105
+}
+
+//------------------------------------------------------------
 //Tesla SMG weapon class
 //------------------------------------------------------------
 Actor TeslaSMG : LSWeaponBase replaces Chainsaw
