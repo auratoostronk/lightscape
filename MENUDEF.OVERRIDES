@@ -378,9 +378,10 @@ OptionMenu GameplayOptionsNew
 	StaticText "Pickup settings", 1
 	Option "Weapons stay after pickup",		"sv_weaponstay", "YesNo"
 	Option "Spawn Weapons",					"sv_noweaponspawn", "NoYes"
-	Option "Spawn Powerups",				"alph_nopowerups", "NoYes"
+	//Option "Spawn Powerups",				"alph_nopowerups", "NoYes"
 	Option "Spawn health pickups",			"sv_nohealth", "NoYes"
 	Option "Spawn armor pickups",			"sv_noarmor", "NoYes"
+	//Option "Spawn sphere pickups",		"ls_nospheres", "NoYes"
 	StaticText " "
 	StaticText "Respawn settings", 1
 	Option "Spawn far away",				"sv_spawnfarthest", "YesNo"
