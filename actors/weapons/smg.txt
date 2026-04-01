@@ -4,7 +4,7 @@
 Actor SMGAmmo : Ammo
 {
     +SERVERNETID
-    Inventory.MaxAmount 50
+    Inventory.MaxAmount 80
 }
 
 //------------------------------------------------------------
@@ -116,7 +116,7 @@ Actor SMGProjectile
 {
 	//Properties
     Projectile
-    Speed 40
+    Speed 32
     Damage (10)
     Radius 4
     Height 8

@@ -103,7 +103,7 @@ Actor PlasmaProjectile : FastProjectile
 	Height 12
 	Scale 2.0
 	Speed 160
-	Damage (12)
+	Damage (13)
 	Decal "CarbineMainDecal"
 	RenderStyle Add
 	Obituary "%k > \cvPlasma Carbine\c- > %o"
