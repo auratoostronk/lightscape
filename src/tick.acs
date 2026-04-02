@@ -108,6 +108,7 @@ function void applySpeedModifiers(void)
 		speed += 0.2;
 	}
 	SetActorProperty(0, APROP_SPEED, speed);
+	TakeInventory("TeslaSpeedBoostTics", 1);
 }
 
 script "CooldownTimers" ENTER

@@ -56,6 +56,9 @@ Actor LightscapePlayer : PlayerPawn
 		PLAY G 4 
 		PLAY G 4 A_Pain
 		Goto Spawn
+	Pain.SMGMelee:
+		TNT1 A 0 A_GiveInventory("TeslaMeleeProtection", 1)
+		Goto Pain
 	Death:
 		PLAY H 12
 		PLAY I 12 A_PlayerScream
