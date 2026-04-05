@@ -27,8 +27,8 @@ Script "CDRingEnter" ENTER CLIENTSIDE
 		{
 			if(strcmp(GetWeapon(), WEAP_ACTORS[weap]) == 0)
 			{
-				int CDMaxAmt = CheckInventory("AltFireCDMax");
-				int CDCurrentAmt = CheckInventory("AltFireCD");
+				int CDMaxAmt = GetAmmoCapacity(WEAP_ALTCDS[weap]);
+				int CDCurrentAmt = checkInv(WEAP_ALTCDS[weap]);
 				
 				fontnum = (FixedDiv(CDRING_FRAMES * CDCurrentAmt, CDMaxAmt * 1.0) >> 16) - 1;
 			}

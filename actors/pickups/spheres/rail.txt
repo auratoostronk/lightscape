@@ -43,7 +43,7 @@ Actor HRailPickup : CustomInventory 12101
 Actor HRailCharge : Ammo
 {
 	+SERVERNETID 
-	Inventory.MaxAmount 40
+	Inventory.MaxAmount 20
 }
 
 //------------------------------------------------------------

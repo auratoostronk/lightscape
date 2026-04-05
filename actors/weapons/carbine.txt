@@ -8,6 +8,15 @@ Actor CarbineAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// Carbine Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor CarbineAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 210
+}
+
+//------------------------------------------------------------
 // Carbine weapon class
 //------------------------------------------------------------
 ACTOR PlasmaCarbine : LSWeaponBase replaces Pistol
@@ -94,7 +103,7 @@ Actor PlasmaProjectile : FastProjectile
 	Height 12
 	Scale 2.0
 	Speed 160
-	Damage (12)
+	Damage (13)
 	Decal "CarbineMainDecal"
 	RenderStyle Add
 	Obituary "%k > \cvPlasma Carbine\c- > %o"

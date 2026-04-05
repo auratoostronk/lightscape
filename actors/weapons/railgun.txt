@@ -8,6 +8,15 @@ Actor RailAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// Flux Railgun Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor RailAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 210
+}
+
+//------------------------------------------------------------
 // Flux Railgun weapon class
 //------------------------------------------------------------
 ACTOR FluxRailgun : LSWeaponBase replaces Chaingun
@@ -275,7 +284,7 @@ Actor FluxOrbMissile //: UnlaggedActor
 	// Properties
 	Radius 10
 	Height 20
-	Speed 24
+	Speed 64
 	Scale 2.0
 	Damage (0)
 	Projectile
@@ -283,6 +292,9 @@ Actor FluxOrbMissile //: UnlaggedActor
 	RenderStyle add
 	Obituary "%k > \cgFlux Railgun (Alt)\c- > %o"
 	Decal "PlasmaScorchLower"
+	
+	MissileType "RailTrail2"
+	//MissileHeight 10
 	
 	// Flags
 	+BRIGHT
@@ -292,8 +304,8 @@ Actor FluxOrbMissile //: UnlaggedActor
 	States
 	{
 	Spawn:
-		SPBA ABC 2 A_SpawnItemEx("RailTrail2")
-		loop
+		SPBA AABBCCAABBCCAABBCCAABBCC 1 A_ScaleVelocity(0.9) //A_SpawnItemEx("RailTrail2")
+		Goto Death
 
 	XDeath:
 		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)

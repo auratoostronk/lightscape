@@ -2,7 +2,7 @@
 Gameinfo
 {
 	PlayerClasses = "LightscapePlayer"
-	//IntermissionMusic = "INTERMUS"
+	IntermissionMusic = "PRELUDE"
 	MenuFontColor_Title = "White"
 	MenuFontColor_Action = "Red"
 	MenuFontColor_Label =  "Red"

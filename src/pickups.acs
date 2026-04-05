@@ -3,18 +3,10 @@
 #import "lib.acs"
 #import "hud.acs"
 
-#define SPHERE_COUNT 3
-
-str SPHERE_HELD[SPHERE_COUNT] = { "RBurstReady", "HRailReady", "BloodSphereReady" };
-str SPHERE_HELDFX[SPHERE_COUNT] = { "RBurstReadyFX", "HRailReadyFX", "BloodSphereReadyFX"};
-str SPHERE_USING[SPHERE_COUNT] = { "RBurstInUse", "HRailInUse", "BloodSphereInUse"};
-str SPHERE_SCRIPTS[SPHERE_COUNT] = { "UseRBurst", "UseHRail", "UseBloodSphere" };
-
-
 function bool checkSphere(void)
 {
 	bool ret = false; //Assume the player does not have an active item yet.
-	for(int i = 0; i < SPHERE_COUNT; i++)
+	for(int i = 0; i < NUM_SPHERES; i++)
 	{
 		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
 		{
@@ -31,7 +23,7 @@ Script "CheckForSphere" (void)
 Script "HoldingSphere" (void)
 {
 	int sphereID = -1;
-	for(int i = 0; i < SPHERE_COUNT; i++)
+	for(int i = 0; i < NUM_SPHERES; i++)
 	{
 		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
 		{
@@ -63,7 +55,7 @@ Script "CheckSphereFire" ENTER
 {
 	while(true)
 	{	
-		for(int i = 0; i < SPHERE_COUNT; i++)
+		for(int i = 0; i < NUM_SPHERES; i++)
 		{
 			if(CheckInventory(SPHERE_HELD[i]) > 0)
 			{
@@ -91,21 +83,21 @@ Script "UseRBurst" (void)
 {
 	PlaySound(0, "Items/RicochetBurst/Charge", CHAN_6, 1.0, false);
 	PlaySound(0, "Items/RicochetBurst/ChargeFar", CHAN_7, 1.0, false);
-	delay(18);
+	delay(8);
 	StopSound(0, CHAN_6);
 	TakeInventory("RBurstInUse", 1);
 	for(int i = 0; i < 5; i++)
 	{
 		GiveInventory("RBurstFire", 1);
-		delay(4);
+		delay(3);
 	}
 }
 Script "UseHRail" (void)
 {
 	PlaySound(0, "Items/HadronRail/Charge", CHAN_6, 1.0, false);
 	PlaySound(0, "Items/HadronRail/ChargeFar", CHAN_7, 1.0, false);
-	GiveInventory("HRailCharge", 40);
-	for(int i = 0; i < 40; i++)
+	GiveInventory("HRailCharge", 20);
+	for(int i = 0; i < 20; i++)
 	{
 		delay(1);
 		//Make sure the rail cancels if the user dies.

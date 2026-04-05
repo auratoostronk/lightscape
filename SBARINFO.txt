@@ -71,6 +71,80 @@ statusbar normal, fullscreenoffsets
 	}
 	
 	//Ability text (overlaps the icon)
-	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCD, Interpolate(120), -120, -30, 1, white, 0, red, 3;
+	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), -120, -30, 1, white, 0, red, 3;
+	
+}
+
+statusbar fullscreen, fullscreenoffsets
+{
+	//TRAVEL ABILITY ICONS
+	InInventory "CVAR_DashOmni", 1
+	{
+		drawbar "OMNIEMPT", "OMNIFULL", ammo OmniDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		InInventory Afterburner, 1
+		{
+			drawImage "OMNIENHA", 5, -70; 
+		}
+		drawstring SMALLFONT, white, "Omni", 35, -70, 0, alignment(center)|drawshadow;
+	}
+	InInventory "CVAR_DashBlink", 1
+	{
+		drawbar "TELEEMPT", "TELEFULL", ammo WarpDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		InInventory Afterburner, 1
+		{
+			drawImage "TELEENHA", 5, -70; 
+		}
+		drawstring SMALLFONT, white, "Blink", 35, -70, 0, alignment(center)|drawshadow;
+	}
+	/*InInventory "CVAR_DashSprint", 1
+	{
+		drawbar "RUNEMPT", "RUNFULL", ammo SprintDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		InInventory Afterburner, 1
+		{
+			drawImage "RUNENHA", 5, -70; 
+		}
+		drawstring SMALLFONT, white, "Sprint", 35, -70, 0, alignment(center)|drawshadow;
+	}*/
+	
+	//HEALTH AND ARMOR
+	drawBar "ARMFULL", "ARMEMPTY", armor (75), horizontal, interpolate(120), 80, -60;
+	drawBar "HPFULL", "HPEMPTY", health, horizontal, interpolate(120), 80, -30;
+	
+	drawnumber 3, BIGFONT, white, armor,	alignment(left)|drawshadow, 90, -60;
+	drawnumber 3, BIGFONT, white, health,  alignment(left)|drawshadow, 90, -30;
+	
+	//AMMO
+	drawImage "HUDAMMO", -80, -70; 
+	InInventory "Bandolier", 1
+	{
+		drawImage "HUDBANDO", -80, -70; 
+	}
+	drawnumber 3, BIGFONT, white, ammo1, drawshadow|alignment(center), -40, -30;
+	drawstring SMALLFONT, white, "AMMO", -50, -70, 0, alignment(center)|drawshadow;
+	
+	//ABILITY
+	InInventory "CVAR_RZone", 1
+	{
+		drawImage "I_REGEN", -160, -70; 
+		drawstring SMALLFONT, white, "Regen Zone", -130, -70, 0, alignment(center)|drawshadow;
+	}
+	InInventory "CVAR_FShield", 1
+	{
+		drawImage "I_SHIELD", -160, -70; 
+		drawstring SMALLFONT, white, "Flicker Shield", -130, -70, 0, alignment(center)|drawshadow;
+	}
+	InInventory "CVAR_PDecoy", 1
+	{
+		drawImage "I_DECOY", -160, -70; 
+		drawstring SMALLFONT, white, "Decoy Projecction", -130, -70, 0, alignment(center)|drawshadow;
+	}
+	InInventory "CVAR_SOverdrive", 1
+	{
+		drawImage "I_OVERDR", -160, -70; 
+		drawstring SMALLFONT, white, "System Overdrive", -130, -70, 0, alignment(center)|drawshadow;
+	}
+	
+	//Ability text (overlaps the icon)
+	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), -120, -30, 1, white, 0, red, 3;
 	
 }

@@ -17,18 +17,11 @@ Actor AmmoRegenCD : Ammo
 	Inventory.MaxAmount 70
 }
 
-//Number of tics before the Alt-Fire is ready.
-Actor AltFireCD : Ammo
+//Number of tics before any alt-fire can be used
+Actor SharedAltFireCD : Ammo
 {
 	+SERVERNETID 
-	Inventory.MaxAmount 350
-}
-
-//Need to fix this system.
-Actor AltFireCDMax : Ammo
-{
-	+SERVERNETID 
-	Inventory.MaxAmount 350
+	Inventory.MaxAmount 35
 }
 
 //Health Regen delay (in tics)
@@ -46,7 +39,7 @@ Actor HitSoundPlayed : Ammo
 }
 
 //Active cooldown in seconds
-Actor ActiveCD : Ammo
+Actor ActiveCDSeconds : Ammo
 {
 	+SERVERNETID 
 	Inventory.MaxAmount 30

@@ -8,6 +8,15 @@ Actor GammaAmmo : Ammo
 }
 
 //------------------------------------------------------------
+// C-14 Alt-Fire cooldown class
+//------------------------------------------------------------
+Actor C14AltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 280
+}
+
+//------------------------------------------------------------
 // C-14 weapon class
 //------------------------------------------------------------
 ACTOR C14 : LSWeaponBase replaces PlasmaRifle
@@ -323,7 +332,7 @@ Actor C14GasDamage
 	Spawn:
 		TNT1 A 0 A_Explode(5, GAS_RADIUS, XF_HURTSOURCE, true, GAS_RADIUS)
 		TNT1 A 0 A_SetArg(0, args[0] + 1)
-		TNT1 A 1 A_JumpIf(args[0] > 140, "Death")
+		TNT1 A 1 A_JumpIf(args[0] > 105, "Death")
 		loop
 
 	Death:
@@ -345,7 +354,7 @@ Actor C14GasDamageIndicator : LSParticleBase
 	{
 	Spawn:
 		TNT1 A 0 nodelay A_Warp(AAPTR_DEFAULT, 0, 0, 0, 0, WARPF_TOFLOOR)
-		GSPK A 140
+		GSPK A 105
 		GSPK AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
 		goto Death
 	}
