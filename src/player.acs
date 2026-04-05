@@ -10,6 +10,8 @@ int PLAYER_ACTIVES[MAX_PLAYERS];
 int PLAYER_WEAPONS[MAX_PLAYERS];
 //Stores the player's dash type ID throughout the match.
 int PLAYER_DASHES[MAX_PLAYERS];
+//Stores the player's ability cooldown between lives.
+int PLAYER_ACTIVECDS[MAX_PLAYERS];
 
 function void setupActive(bool giveItems)
 {
@@ -112,6 +114,10 @@ Script "PlayerEnterClient" ENTER CLIENTSIDE
 	if(GetGamemodeState() == 1 || GetGamemodeState() == 0)
 		ConsoleCommand("openmenu MatchPrepWeapon");
 }
+Script "PlayerDeath" DEATH
+{
+	PLAYER_ACTIVECDS[PlayerNumber()] = CheckInventory("ActiveCDSeconds");
+}
 Script "PlayerRespawn" RESPAWN
 {
 	refillAmmo();
@@ -119,6 +125,7 @@ Script "PlayerRespawn" RESPAWN
 	GiveInventory(ACTIVE_INVENTORY[PLAYER_ACTIVES[PlayerNumber()]], 1);
 	GiveInventory(WEAP_ACTORS[PLAYER_WEAPONS[PlayerNumber()]], 1);
 	GiveInventory(DASH_INVENTORY[PLAYER_DASHES[PlayerNumber()]], 1);
+	GiveInventory("ActiveCDSeconds", PLAYER_ACTIVECDS[PlayerNumber()]);
 	ACS_NamedExecuteAlways("DashSetupServer", 0, PLAYER_DASHES[PlayerNumber()]);
 	ACS_NamedExecuteAlways("DashSetupClient", 0, PLAYER_DASHES[PlayerNumber()]);
 }
@@ -128,9 +135,10 @@ Script "PlayerDisconnect" (int pnum) DISCONNECT
 	PLAYER_ACTIVES[pnum] = -1;
 	PLAYER_WEAPONS[pnum] = -1;
 	PLAYER_DASHES[pnum] = -1;
+	PLAYER_ACTIVECDS[pnum] = 0;
 	//Do not let player disconnect, change loadout, and reconnect with same score!
-	//SetPlayerScore(pnum, SCORE_FRAGS, 0);
-	//SetPlayerScore(pnum, SCORE_DEATHS, 0);
+	SetPlayerScore(pnum, SCORE_FRAGS, 0);
+	SetPlayerScore(pnum, SCORE_DEATHS, 0);
 }
 //Close loadout menu. Resets loadout if match is not in progress (i.e. warmup)
 Script "LoadoutMenuClose" (void) NET
