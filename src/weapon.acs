@@ -10,31 +10,57 @@
 
 function void refillAmmo(void)
 {
+	refillMainAmmo();
+	refillSideAmmo();
+}
+function void refillMainAmmo(void)
+{
 	for(int i = 0; i < NUM_WEAPS; i++)
 	{
 		GiveMax(WEAP_AMMOS[i]);
 	}
 }
-
+function void refillSideAmmo(void)
+{
+	for(int i = 0; i < NUM_SIDEWEAPS; i++)
+	{
+		GiveMax(SIDEWEAP_AMMOS[i]);
+	}
+}
+/*
 Script "WeaponFireStart" (void)
 {
-	if(checkSphere() == true)
+	/*if(checkSphere() == true)
 	{
 		SetResultValue(false);
 		terminate;
 	}
 	
 	//Fire attempt successful
-	GiveMax("AmmoRegenCD");
+	if(holdingMainWeapon())
+	{
+		GiveMax("MainAmmoRegenCD");
+	}
+	if(holdingSideWeapon())
+	{
+		GiveMax("SideAmmoRegenCD");
+	}
 	SetResultValue(true);
 	terminate;
 }
 
 Script "WeaponFireDone" (void)
 {
-	GiveMax("AmmoRegenCD");
-}
-
+	if(holdingMainWeapon())
+	{
+		GiveMax("MainAmmoRegenCD");
+	}
+	if(holdingSideWeapon())
+	{
+		GiveMax("SideAmmoRegenCD");
+	}
+}*/
+/*
 Script "WeaponHit" (int intensity)
 {
 	SetActivatorToTarget(0);
@@ -51,16 +77,23 @@ Script "WeaponHit" (int intensity)
 		delay(1);
 		TakeMax("HitSoundPlayed");
 	}
-}
-
-Script "WeaponAltFireStart" (int cooldown)
+}*/
+/*
+Script "WeaponAltFireStart" (void)
 {
-	if(checkSphere())
+	/*if(checkSphere())
 	{
 		SetResultValue(0);
 		terminate;
 	}
-	else if(currWeapAltCDAmt() > 0)
+	else //
+	if(holdingMainWeapon() == true && CheckInventory("MainAltCD") > 0)
+	{
+		acs("AltFireFail");
+		SetResultValue(0);
+		terminate;
+	}
+	else if(holdingSideWeapon() == true && CheckInventory("SideAltCD") > 0)
 	{
 		acs("AltFireFail");
 		SetResultValue(0);
@@ -78,12 +111,20 @@ Script "WeaponAltFireStart" (int cooldown)
 	}
 }
 
-Script "WeaponAltFireCD" (void)
+Script "WeaponAltFireCD" (int cooldown)
 {
-	GiveMax("AmmoRegenCD");
+	if(holdingMainWeapon())
+	{
+		GiveMax("MainAmmoRegenCD");
+		GiveInventory("MainAltCD", cooldown);
+	}
+	if(holdingSideWeapon())
+	{
+		GiveMax("SideAmmoRegenCD");
+		GiveInventory("SideAltCD", cooldown);
+	}
 	GiveMax("SharedAltFireCD");
-	GiveMax(currWeapAltCDClass());
-}
+}*/
 
 //A hud script that is called when the user tries to Alt-Fire while it's on cooldown.
 Script "AltFireFail" (void) 
@@ -121,9 +162,14 @@ Script "CheckBotAltFire" (void)
 {
 	if(ClassifyActor(0) & ACTOR_BOT)
 	{
-		if(currWeapAltCDAmt() == 0)
+		if(random(0, 15) == 0)
 		{
-			if(random(0, 15) == 0)
+			if(holdingMainWeapon() == true && CheckInventory("MainAltCD") > 0)
+			{
+				SetResultValue(1);
+				terminate;
+			}
+			if(holdingSideWeapon() == true && CheckInventory("SideAltCD") > 0)
 			{
 				SetResultValue(1);
 				terminate;

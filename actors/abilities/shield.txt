@@ -11,8 +11,8 @@ Actor FShield : PowerProtection
 Actor FShieldFX
 {
 	+INVISIBLE_TO_TARGET
-	+CLIENTSIDEONLY
-	+NOINTERACTION
+	//+CLIENTSIDEONLY
+	//+NOINTERACTION
 	Alpha 0.75
 	Scale 2.0
 	+BRIGHT

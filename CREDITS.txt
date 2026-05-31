@@ -50,7 +50,10 @@ SOUNDS
 !	Flux Railgun hiss - Some Youtube video that no longer exists
 !	Particle Splitter Fire - Call of Duty Black Ops Zombies
 !	Particle Splitter Pump - Some Youtube video that no longer exists???
+!	Flamespitter - Ripped from a game called Starbound.
 	Explosion sounds - ZapSplat.
+! 	Hadron Pistol Fire - 99Sounds.
+!	Ion Rebounder - 99Sounds.
 
 	-UI Sounds-
 ! 	Energy Ready sound - Halo Infinite
@@ -103,6 +106,10 @@ SPRITES
 ! 	Player Sprites - Strife
 	Holding Sprites - auratoostronk
 ! 	Forcefield Sprite - Unknown
+! 	Item Fog - From Freedoom, modified by auratoostronk.
+! 	Flamespitter flames - Taken from Realm667 Incubus (Credit: Banjo Software (HacX), Daniel)
+!	Flamespitter Alt-Fire - Realm667. Credits listed: Marty Kirra, 3d Realms, id Software, Midway Entertainment
+!	Flamespitter Splash FX - Taken from Reds Overworld.
 
 TEXTURES
 ! 	Textures were taken from various licensed game texture libraries (Creative Commons) and modified by StormSlayer using Photoshop and Substance.

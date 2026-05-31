@@ -1,5 +1,12 @@
 alias active "pukename UseActive always"
+alias sphere "pukename UseSphere always"
+//alias usedash "pukename UseDash always"
 alias ls_closeloadout "closemenu; pukename LoadoutMenuClose always"
 
 defaultbind shift +user1
 defaultbind q active
+defaultbind f sphere
+
+addkeysection "Lightscape Binds" LSBinds
+addmenukey "Dash" +user1
+addmenukey "Active" active

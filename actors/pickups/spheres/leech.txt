@@ -1,7 +1,7 @@
 //------------------------------------------------------------
-//Pickup class for Blood Sphere
+//Pickup class for Leech Sphere
 //------------------------------------------------------------
-Actor BloodSpherePickup : CustomInventory 12102
+Actor LeechSpherePickup : CustomInventory 12102
 {
 	//Doom Builder things category
 	//$Category Lightscape Pickups
@@ -11,11 +11,11 @@ Actor BloodSpherePickup : CustomInventory 12102
 	Height 48
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
-	Inventory.PickupMessage "Blood Sphere - Fires a projectile that siphons health."
+	Inventory.PickupMessage "Leech Sphere - Fires a projectile that siphons health."
 	Inventory.PickupSound "Pickups/Sphere"
 	Inventory.RespawnTics 700 // 20 seconds
 	//Scale 0.5
-	Tag "Blood Sphere"
+	Tag "Leech Sphere"
 	
 	//Flags
 	+FLOATBOB
@@ -34,20 +34,20 @@ Actor BloodSpherePickup : CustomInventory 12102
 		fail
 	Success:
 		TNT1 A 0 ACS_NamedExecuteAlways("HoldingSphere", 0, 0)
-		TNT1 A 0 A_GiveInventory("BloodSphereReady", 1)
+		TNT1 A 0 A_GiveInventory("LeechSphereReady", 1)
 		stop
 	}
 }
 
 //------------------------------------------------------------
-//Inventory class for Blood Sphere
+//Inventory class for Leech Sphere
 //------------------------------------------------------------
-Actor BloodSphereReady : Inventory
+Actor LeechSphereReady : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
-	Tag "Disc Sphere"
+	Tag "Leech Sphere"
 	
 	//Flags
 	+SERVERNETID
@@ -56,7 +56,7 @@ Actor BloodSphereReady : Inventory
 //------------------------------------------------------------
 //Dummy actor for now
 //------------------------------------------------------------
-Actor BloodSphereInUse : Inventory
+Actor LeechSphereInUse : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
@@ -69,7 +69,7 @@ Actor BloodSphereInUse : Inventory
 //------------------------------------------------------------
 //Held sphere in front of player
 //------------------------------------------------------------
-Actor BloodSphereReadyFX : SphereReadyBase
+Actor LeechSphereReadyFX : SphereReadyBase
 {
 	//States
 	States
@@ -87,26 +87,29 @@ Actor BloodSphereReadyFX : SphereReadyBase
 //------------------------------------------------------------
 //Fires one projectile upon entering inventory
 //------------------------------------------------------------
-Actor BloodSphereFire : CustomInventory
+Actor LeechSphereFire : CustomInventory
 {
 	//Flags
-	+SERVERNETID
 	+INVENTORY.AUTOACTIVATE
+	+SERVERNETID
 	
 	//States
 	States
 	{
+	Pickup:
 	Use:
-		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
-		TNT1 A 0 A_FireCustomMissile("BloodSphereProjectile", 0, false, -8.0, -2.0)
+		TNT1 A 0 A_SpawnItemEX("GreenLightShoot", 0, 0, 0, 0, 0, 0, 0, SXF_SKIPOWNER)
+		TNT1 A 0 A_PlaySound("Items/LeechSphere/Fire", CHAN_6, 1.0, false)
+		TNT1 A 0 A_FireCustomMissile("LeechSphereProjectile", 0, false, -8.0, -2.0, FPF_SKIPOWNER)
+		TNT1 A 35
 		stop
 	}
 }
 
 //------------------------------------------------------------
-//Blood Sphere projectile
+//Leech Sphere projectile
 //------------------------------------------------------------
-ACTOR BloodSphereProjectile
+ACTOR LeechSphereProjectile
 {
 	//Properties
 	Radius 6
@@ -115,9 +118,10 @@ ACTOR BloodSphereProjectile
 	Damage (0)
 	Projectile
 	RenderStyle Add
-	Gravity 0.5
-	SeeSound "Items/BloodSphere/Fire"
-	Obituary "%k > \chBlood Sphere\c- > %o"
+	Alpha 0.8
+	Gravity 0.75
+	//SeeSound "Items/LeechSphere/Fire"
+	Obituary "%k > \cdLeech Sphere\c- > %o"
 	
 	//Flags
 	-NOGRAVITY
@@ -131,32 +135,34 @@ ACTOR BloodSphereProjectile
 	States
 	{
 	Spawn:
-		SPHR C 1 A_SpawnItemEx("BloodSphereProjectileTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		SPHR C 1 nodelay A_SpawnItemEx("LeechSphereProjectileTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		loop
 	XDeath:
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
-		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BloodSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_PlaySound("Items/LeechSphere/Hit", CHAN_7, 1.0)
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("LeechSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_Quake(2, 8, 0, 384)
-		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE)
-		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)
+		TNT1 A 0 A_Explode(30, RADIUS_OUTER, XF_HURTSOURCE)
+		TNT1 A 0 A_Explode(30, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
+		TNT1 A 0 A_GiveToTarget("HitSoundLarge", 1)
 		TNT1 AAAAAAAAAA 2 A_CustomMissile("HealingFXSeeker", frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0, CMF_TRACKOWNER, frandom(-8.0, 8.0))
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_GiveToTarget("Health", 1) //30 Health
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_GiveToTarget("Health", 2) //60 Health
 		Goto FinishDeath
 	Death:
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
-		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("BloodSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("LeechSphereImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_Quake(2, 8, 0, 384)
-		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE)
-		TNT1 A 0 A_Explode(20, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
-		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER)
+		TNT1 A 0 A_Explode(30, RADIUS_OUTER, XF_HURTSOURCE)
+		TNT1 A 0 A_Explode(30, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
+		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
 		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")
 		Goto FinishDeath
 	HitSoft:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		TNT1 A 0 A_GiveToTarget("HitSoundSmall", 1)
+		//TNT1 A 0 A_PlaySound("Items/LeechSphere/Hit", CHAN_7, 1.0)
 		TNT1 AAAAAAAAAA 2 A_CustomMissile("HealingFXSeeker", frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0, CMF_TRACKOWNER, frandom(-8.0, 8.0))
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 2 A_GiveToTarget("Health", 1) //30 Health
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 A_GiveToTarget("Health", 1) //30 Health
 		Goto FinishDeath
 	FinishDeath:
 		TNT1 A 105 //Required for unlagged
@@ -164,32 +170,38 @@ ACTOR BloodSphereProjectile
 	}
 }
 
-ACTOR BloodSphereProjectileTrail : LSParticleBase
+ACTOR LeechSphereProjectileTrail : LSParticleBase
 {
 	// Properties
 	Scale 0.25
 	States
 	{
 	Spawn:
-		RPEW A 4
+		GRNG A 4
 	Spawn1:
-		RPEW A 1 A_FadeOut(0.05)
+		GRNG A 1 A_FadeOut(0.05)
 		Loop
 	}
 }
-Actor BloodSphereImpactFX : LSBouncingParticleBase
+Actor LeechSphereImpactFX: LSBouncingParticleBase
 {
 	// Properties
-	Scale 0.5
+	Scale 0.4
 	Gravity 1.0
-	BounceFactor 0.5
+	BounceFactor 0.6
 	BounceCount 3
 	
+	// States
 	States
 	{
-		Spawn:
-		TNT1 A 0 A_SetScale(scalex - 0.05, scaley - 0.05)
-		RSPK A 1 A_FadeOut(0.05)
+	Spawn:
+		GSPK A 1
 		loop
+
+	Death:
+		GSPK A 35
+		GSPK AAAAAAAAAAAAAAAAAAAA 1 A_FadeOut(0.05)
+		TNT1 A 1
+		stop
 	}
 }

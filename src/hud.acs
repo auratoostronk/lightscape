@@ -18,14 +18,15 @@ function void hudMsgError(str text)
 	SetFont("SMALLFONT");
 	HUDMessage(s:text;HUDMSG_PLAIN|HUDMSG_NOTWITHFULLMAP, MSG_ERROR, CR_UNTRANSLATED, 320.0, 280.0, 2.0);
 }
-Script "CDRingEnter" ENTER CLIENTSIDE
+/*
+Script "CDRingEnter" ENTER
 {
 	while (ClassifyActor(0) & ACTOR_ALIVE)
 	{
 		int fontnum = 0;
 		for(int weap = 0; weap < NUM_WEAPS; weap++)
 		{
-			if(strcmp(GetWeapon(), WEAP_ACTORS[weap]) == 0)
+			if(strEq(GetWeapon(), WEAP_ACTORS[weap]))
 			{
 				int CDMaxAmt = GetAmmoCapacity(WEAP_ALTCDS[weap]);
 				int CDCurrentAmt = checkInv(WEAP_ALTCDS[weap]);
@@ -33,11 +34,21 @@ Script "CDRingEnter" ENTER CLIENTSIDE
 				fontnum = (FixedDiv(CDRING_FRAMES * CDCurrentAmt, CDMaxAmt * 1.0) >> 16) - 1;
 			}
 		}
-		showCDRing(fontnum);
+		for(weap = 0; weap < NUM_SIDEWEAPS; weap++)
+		{
+			if(strEq(GetWeapon(), SIDEWEAP_ACTORS[weap]))
+			{
+				CDMaxAmt = GetAmmoCapacity(SIDEWEAP_ALTCDS[weap]);
+				CDCurrentAmt = checkInv(SIDEWEAP_ALTCDS[weap]);
+				
+				fontnum = (FixedDiv(CDRING_FRAMES * CDCurrentAmt, CDMaxAmt * 1.0) >> 16) - 1;
+			}
+		}
+		acs("ShowCDRing", fontnum);
 		delay(1);
 	}
 }
-Script "ChargeRingEnter" ENTER CLIENTSIDE
+Script "ChargeRingEnter" ENTER
 {
 	while (ClassifyActor(0) & ACTOR_ALIVE)
 	{
@@ -46,11 +57,11 @@ Script "ChargeRingEnter" ENTER CLIENTSIDE
 		int ChargeCurrentAmt = CheckInventory("HRailCharge");
 		fontnum = (FixedDiv(CHARGERING_FRAMES * ChargeCurrentAmt, ChargeMaxAmt * 1.0) >> 16) - 1;
 		
-		showChargeRing(fontnum);
+		acs("ShowChargeRing", fontnum);
 		delay(1);
 	}
 }
-function void showCDRing(int fontnum)
+Script "ShowCDRing" (int fontnum) CLIENTSIDE
 {
 	if(fontnum > 0)
 	{
@@ -72,7 +83,7 @@ function void showCDRing(int fontnum)
 		HudMessage(s:""; HUDMSG_PLAIN, 1, CR_WHITE, 0.0, 0.0, 1.0);
 	}
 }
-function void showChargeRing(int fontnum)
+Script "ShowChargeRing" (int fontnum) CLIENTSIDE
 {
 	if(fontnum > 0)
 	{
@@ -97,7 +108,7 @@ function void showChargeRing(int fontnum)
 	{
 		HudMessage(s:""; HUDMSG_PLAIN, 1, CR_WHITE, 0.0, 0.0, 1.0);
 	}
-}
+}*/
 
 Script "PrintLowAmmoWarning" ENTER CLIENTSIDE
 {
@@ -135,6 +146,65 @@ Script "PrintLowAmmoWarning" ENTER CLIENTSIDE
 					}
 				}
 				else if(CheckInventory(WEAP_AMMOS[i]) * 1.0 / GetAmmoCapacity(WEAP_AMMOS[i]) <= 0.25)
+				{
+					SetHUDSize(640, 400, false);
+					SetFont("BIGFONT");
+					HudMessage(s:"LOW AMMO"; HUDMSG_PLAIN|HUDMSG_ALPHA, MSG_AMMOWARNINGS, CR_RED, 320.0, 320.0, ONETIC_HUDMSG, 1.0 - fadeamt);
+					if(increaseFade == false)
+					{
+						fadeamt = fadeamt - 0.05;
+						if(fadeamt <= 0.0)
+						{
+							increaseFade = true;
+						}
+					}
+					else
+					{
+						fadeamt = fadeamt + 0.05;	
+						if(fadeamt >= 0.75)
+						{
+							increaseFade = false;
+						}
+					}
+				}
+				else
+				{
+					fadeamt = 0.0;
+					increaseFade = false;
+				}
+			}
+		}
+		
+		for(i = 0; i < NUM_SIDEWEAPS; i++)
+		{
+			if(StrIcmp(GetWeapon(), SIDEWEAP_ACTORS[i]) == 0)
+			{
+				if(CheckInventory(SIDEWEAP_AMMOS[i]) == 0)
+				{
+					if(CheckInventory("Bandolier") == 0)//&& CheckInventory("PowerChronalDrive") == 0)
+					{	
+						SetHUDSize(640, 400, false);
+						SetFont("BIGFONT");
+						HudMessage(s:"NO AMMO"; HUDMSG_PLAIN|HUDMSG_ALPHA, MSG_AMMOWARNINGS, CR_RED, 320.0, 320.0, ONETIC_HUDMSG, 1.0 - fadeamt);
+						if(increaseFade == false)
+						{
+							fadeamt = fadeamt - 0.05;
+							if(fadeamt <= 0.0)
+							{
+								increaseFade = true;
+							}
+						}
+						else
+						{
+							fadeamt = fadeamt + 0.05;	
+							if(fadeamt >= 0.75)
+							{
+								increaseFade = false;
+							}
+						}
+					}
+				}
+				else if(CheckInventory(SIDEWEAP_AMMOS[i]) * 1.0 / GetAmmoCapacity(SIDEWEAP_AMMOS[i]) <= 0.25)
 				{
 					SetHUDSize(640, 400, false);
 					SetFont("BIGFONT");

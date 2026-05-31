@@ -104,11 +104,11 @@ Script "DecoyProjection" (void)
 	}*/
 }
 
-Script "SystemOverdrive" (void)
+/*Script "SystemOverdrive" (void)
 {
 	PlaySound(0, "Actives/SystemOverdrive/On", CHAN_6, 1.0, false);
 	refillAmmo();
 	GiveInventory("Afterburner", 1);
 	takeMax(currWeapAltCDClass());
 	TakeMax("SharedAltFireCD");
-}
+}*/

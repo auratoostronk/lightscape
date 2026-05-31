@@ -50,64 +50,6 @@ function int getOmnidashAngle(int fm, int sm, int angle)
 	return ret;
 }
 
-function bool tryUseDash()
-{
-	bool hasTravelPickup = (CheckInventory("Afterburner") > 0);
-	bool isReady = (CheckInventory("DashCD") == 0);
-	//If the player has a charge of the ability...
-	if(hasTravelPickup || isReady)
-	{
-		if(isReady) //No cooldown
-		{
-			GiveMax("DashCD");
-		}
-		else //Has an afterburner
-		{
-			TakeInventory("Afterburner", 1);
-		}
-		DropInventory(0, "RedFlag");
-		DropInventory(0, "BlueFlag");
-		return true;
-	}
-	else
-	{
-		LocalAmbientSound("Feedback/Error", 64);
-		return false;
-	}
-}
-
-//Clean up later
-Script "BotDash" ENTER
-{
-	while(true)
-	{
-		If(ClassifyActor(0) & ACTOR_BOT)
-		{
-			//Randomly attempts to use dash
-			if(random(0, 35) * 2 == 0)
-			{
-				if(tryUseDash() == true)
-				{
-					SpawnSpotFacingForced("DashSmokeSpawner", 0, 0);
-					PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
-					
-					DropInventory(0, "RedFlag");
-					DropInventory(0, "BlueFlag");
-					
-					int fm = random(-1, 1), sm = random(-1, 1);
-					int currAngle = GetActorAngle(0) >> 8;
-					int thrustAngle = getOmnidashAngle(fm, sm, currAngle);
-					ThrustThingZ(0, OMNI_VTHRUST, 0, 0);
-					ThrustThing(thrustAngle, OMNI_LATTHRUST, 1, 0);
-					TakeInventory("OmniTrailTics", 350);
-					GiveInventory("OmniTrailTics", 18);
-				}
-			}
-		}
-		delay(1);
-	}
-}
-
 //Omni Dash
 Script "OmniDash" (int predicting, int pressed, int released, int buttons)
 {
@@ -116,23 +58,23 @@ Script "OmniDash" (int predicting, int pressed, int released, int buttons)
     {
         if(predicting == 0)
         {
-            bool hasAfterburner = (CheckInventory("Afterburner") > 0);
-            bool isReady = (CheckInventory("OmniDashCD") == 0);
+			bool hasAfterburner = (CheckInventory("Afterburner") > 0);
+			bool isReady = (CheckInventory("OmniDashCD") == 0);
 			//If the player has a charge of the ability...
-            if (hasAfterburner || isReady)
-            {
-                SetPredictableValue(0, 0, 1);
+			if (hasAfterburner || isReady)
+			{
+				SetPredictableValue(0, 0, 1);
 				
 				//Play the sound and drops any held flags while spawning a smoke trail
 				DropInventory(0, "RedFlag");
 				DropInventory(0, "BlueFlag");
-				SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
 				TakeInventory("OmniTrailTics", 350);
 				GiveInventory("OmniTrailTics", 18);
-				SetNetworkReplicationFlags( 0 );
+				//SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
 				PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+				//SetNetworkReplicationFlags( 0 );
 				
-                if(hasAfterburner)
+				if(hasAfterburner)
 				{
 					TakeInventory("Afterburner", 1);
 				}
@@ -140,7 +82,7 @@ Script "OmniDash" (int predicting, int pressed, int released, int buttons)
 				{
 					GiveMax("OmniDashCD");
 				}
-            }
+			}
 			else
 			{	
 				LocalAmbientSound("Feedback/Error", 64);
@@ -210,7 +152,7 @@ Script "OmniDash" (int predicting, int pressed, int released, int buttons)
 					ThrustThing((GetActorAngle(0) >> 8) + 192, thrust, 1, 0);
 			}
 			ThrustThingZ(0, OMNI_VTHRUST, 0, 1);
-        }
+		}
     }
 }
 
@@ -315,4 +257,196 @@ Script "BlinkActive" (int predicting, int pressed, int released, int buttons)
             //SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
         }
     }
+}
+
+//Clean up later
+Script "BotDash" ENTER
+{
+	while(true)
+	{
+		If(ClassifyActor(0) & ACTOR_BOT)
+		{
+			//Randomly attempts to use dash
+			if(random(0, 35) * 2 == 0)
+			{
+				Acs("BotUseDash");
+			}
+		}
+		delay(1);
+	}
+}
+
+Script "BotUseDash" (void)
+{
+	for(int i = 0; i < NUM_DASHES; i++)
+	{
+		if(CheckInventory(DASH_INVENTORY[i]) > 0)
+		{
+			acs(DASH_SCRIPTS[i]);
+			terminate;
+		}
+	}
+}
+
+//Omni Dash
+Script "OmniDashBot" (void)
+{
+	//Sloppy code that works. Whatever.
+	bool hasAfterburner = (CheckInventory("Afterburner") > 0);
+	bool isReady = (CheckInventory("OmniDashCD") == 0);
+	//If the player has a charge of the ability...
+	if (hasAfterburner || isReady)
+	{
+		//SetPredictableValue(0, 0, 1);
+		
+		//Play the sound and drops any held flags while spawning a smoke trail
+		DropInventory(0, "RedFlag");
+		DropInventory(0, "BlueFlag");
+		//SetNetworkReplicationFlags( 4 ); //NETREP_SKIPOWNER
+		TakeInventory("OmniTrailTics", 350);
+		GiveInventory("OmniTrailTics", 18);
+		//SetNetworkReplicationFlags( 0 );
+		PlaySound(0, "Dash/Omni", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+		
+		if(hasAfterburner)
+		{
+			TakeInventory("Afterburner", 1);
+		}
+		else
+		{
+			GiveMax("OmniDashCD");
+		}
+	
+		/*int fm = 1;
+		int sm = 0;
+		int currAngle = GetActorAngle(0) >> 8;
+		int thrustAngle = getOmnidashAngle(fm, sm, currAngle);
+		ThrustThingZ(0, OMNI_VTHRUST, 0, 0);
+		ThrustThing(thrustAngle, OMNI_LATTHRUST, 1, 0);*/
+		TakeInventory("OmniTrailTics", 350);
+		GiveInventory("OmniTrailTics", 18);
+		
+		
+		//Slop code needs rewrite...
+		int thrust = OMNI_LATTHRUST;
+		//Controller Input
+		if(!(GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK)
+		&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD)
+		&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+		&& !(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT))
+		{
+			//No directional input
+			if(GetPlayerInput(-1, INPUT_FORWARDMOVE) == 0 
+			&& GetPlayerInput(-1, INPUT_SIDEMOVE) == 0)
+			{
+				ThrustThing(GetActorAngle(0) >> 8, thrust, 1, 0);
+			}
+			else
+			{
+				int fmove = GetPlayerInput(-1, INPUT_FORWARDMOVE);
+				int smove = GetPlayerInput(-1, INPUT_SIDEMOVE);
+				//Reduce Thrust at diagonals
+				if(fmove != 0 && smove != 0)
+					thrust = OMNI_LATTHRUST * 3 / 4;
+				
+				if(smove < 0)
+				{
+					ThrustThing((GetActorAngle(0)>>8) + 64, thrust, 1, 0);
+				}
+				if(smove > 0)
+				{
+					ThrustThing((GetActorAngle(0)>>8) + 192, thrust, 1, 0);
+				}
+				if(fmove < 0)
+				{
+					ThrustThing((GetActorAngle(0)>>8) + 128, thrust, 1, 0);
+				}
+				if(fmove > 0)
+				{
+					ThrustThing((GetActorAngle(0)>>8), thrust, 1, 0);
+				}
+			}
+		}
+		//Keyboard input
+		else
+		{
+			//Reduce thrust at diagonals.
+			if((GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+				|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
+				|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+				|| (GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD) && (GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT))
+			{
+				thrust = OMNI_LATTHRUST * 3 / 4;
+			}
+				
+			if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_BACK)
+				ThrustThing((GetActorAngle(0) >> 8) + 128, thrust, 1, 0);
+			if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_FORWARD)
+				ThrustThing(GetActorAngle(0) >> 8, thrust, 1, 0);
+			if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVELEFT)
+				ThrustThing((GetActorAngle(0) >> 8) + 64, thrust, 1, 0);
+			if(GetPlayerInput(-1, INPUT_BUTTONS) & BT_MOVERIGHT)
+				ThrustThing((GetActorAngle(0) >> 8) + 192, thrust, 1, 0);
+		}
+		ThrustThingZ(0, OMNI_VTHRUST, 0, 1);
+	}
+	else
+	{	
+		LocalAmbientSound("Feedback/Error", 64);
+	}
+}
+
+//Phase Dash
+Script "BlinkDashBot" (void)
+{
+	bool hasAfterburner = (CheckInventory("Afterburner") > 0);
+	bool isReady = (CheckInventory("WarpDashCD") == 0);
+	//If the player has a charge of the ability...
+	if (hasAfterburner || isReady)
+	{
+		//Create a tele fog, play a sound, grant the user invis + invuln.
+		SpawnSpotFacingForced("TeleportFog", 0, 0);
+		PlaySound(0, "Dash/Blink/Start", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+		SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NONE);
+		SetActorFlag(0, "SHOOTABLE", false);
+		SetActorFlag(0, "INVISIBLE", true);
+		DropInventory(0, "RedFlag");
+		DropInventory(0, "BlueFlag");
+		if(hasAfterburner)
+			TakeInventory("Afterburner", 1);
+		else
+			GiveMax("WarpDashCD");
+			
+		//Grab some information from the activator
+        int angle = GetActorAngle(0);
+        int pitch = -GetActorPitch(0); //Up is positive now
+        int upordown;
+        if(pitch > 0)
+            upordown = 0;
+        else
+            upordown = 1;
+			
+        int velx = GetActorVelX(0), vely = GetActorVelY(0), velz = GetActorVelZ(0);
+		
+		//Move the activator
+        ThrustThing(angle >> 8, (((cos(abs(pitch))) >> 8) * FixedMul(0.25, BLINK_STRENGTH)) >> 16, 1, 0);
+        ThrustThingZ(0, (((sin(abs(pitch))) >> 8) * FixedMul(1.0, BLINK_STRENGTH)) >> 16, upordown, 1);
+		
+		delay(BLINK_DURATION);
+		
+		//Stop player and restore player velocity from before teleport.
+        Thing_Stop(0);
+        SetActorVelocity(0, velx, vely, velz, false, false);
+		//Play sound, remove invis + invuln, spawn telefog.
+		PlaySound(0, "Dash/Blink/Done", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
+		SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NORMAL);
+		SetActorFlag(0, "SHOOTABLE", true);
+		SetActorFlag(0, "INVISIBLE", false);
+		SpawnSpotFacingForced("TeleportFog", 0, 0);
+		
+	}
+	else
+	{	
+		LocalAmbientSound("Feedback/Error", 64);
+	}
 }

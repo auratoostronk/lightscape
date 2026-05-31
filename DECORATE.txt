@@ -5,6 +5,9 @@
 #include "actors/weapons/railgun.txt"
 #include "actors/weapons/smg.txt"
 #include "actors/weapons/gamma.txt"
+#include "actors/weapons/hadron.txt"
+#include "actors/weapons/ion.txt"
+//#include "actors/weapons/flamespitter.txt"
 
 #include "actors/abilities/regen.txt"
 #include "actors/abilities/shield.txt"
@@ -15,14 +18,16 @@
 #include "actors/pickups/items.txt"
 #include "actors/pickups/stands.txt"
 
-#include "actors/pickups/spheres/ricochet.txt"
+#include "actors/pickups/spheres/base.txt"
+#include "actors/pickups/spheres/disc.txt"
 #include "actors/pickups/spheres/rail.txt"
-#include "actors/pickups/spheres/blood.txt"
+#include "actors/pickups/spheres/leech.txt"
 
 #include "actors/effects/healing.txt"
 #include "actors/effects/explosions.txt"
 #include "actors/effects/blood.txt"
 #include "actors/effects/lights.txt"
+#include "actors/effects/hitsounds.txt"
 
 #include "actors/decorations/crystals.txt"
 #include "actors/decorations/ship.txt"

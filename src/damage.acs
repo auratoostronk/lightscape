@@ -26,3 +26,25 @@ Script "CheckPain" ENTER
 			SpawnForced("HealingFX", GetActorX(0), GetActorY(0), GetActorZ(0) + 56.0, 0);
 	}
 }
+Script "CheckHitSounds" ENTER
+{
+	while(true)
+	{
+		if(CheckInventory("HitSoundBig") > 0)
+		{
+			LocalAmbientSound("Feedback/HitBig", 127);
+		}
+		if(CheckInventory("HitSoundMedium") > 0)
+		{
+			LocalAmbientSound("Feedback/HitMedium", 127);
+		}
+		if(CheckInventory("HitSoundSmall") > 0)
+		{
+			LocalAmbientSound("Feedback/HitSmall", 127);
+		}
+		TakeInventory("HitSoundBig", 1);
+		TakeInventory("HitSoundMedium", 1);
+		TakeInventory("HitSoundSmall", 1);
+		delay(1);
+	}
+}

@@ -41,23 +41,33 @@ PointLight HealthLightLarge
 }
 
 //SPHERES
-Object HRailPickup
+Object RailSpherePickup
 {
-	Frame SPHP { light HRailLight }
+	Frame SPHP { light RailSphereLight }
 }
-PointLight HRailLight
+PointLight RailSphereLight
 {
     color 1.0 0.0 0.0
     size 32
 	offset 0 16 0
 }
-Object RBurstPickup
+Object DiscSpherePickup
 {
-	Frame SPHP { light RBurstLight }
+	Frame SPHP { light DiscSphereLight }
 }
-PointLight RBurstLight
+PointLight DiscSphereLight
 {
     color 0.0 0.0 1.0
+    size 32
+	offset 0 16 0
+}
+Object LeechSpherePickup
+{
+	Frame SPHP { light LeechSphereLight }
+}
+PointLight LeechSphereLight
+{
+    color 0.0 1.0 0.0
     size 32
 	offset 0 16 0
 }

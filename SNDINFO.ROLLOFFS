@@ -28,6 +28,14 @@ $rolloff ParticleSplitter/FireFar 1600 3200
 $rolloff ParticleSplitter/Pump1 200 400
 $rolloff ParticleSplitter/Pump2 200 400
 
+$rolloff IonRebounder/Fire 400 1600
+$rolloff IonRebounder/FireFar 1600 3200
+
+$rolloff HadronPistol/Fire 400 1600
+$rolloff HadronPistol/FireFar 800 3200
+$rolloff HadronPistol/AltFire 800 3200 
+$rolloff HadronPistol/AltFireFar 1600 6400 
+
 //ACTIVE ITEMS
 $rolloff Items/HadronRail/Charge 400 800 
 $rolloff Items/HadronRail/ChargeFar 800 3200 
@@ -41,6 +49,9 @@ $rolloff Items/RicochetBurst/Bounce 400 800
 
 $rolloff Items/ForcePulse/Fire 400 1600
 $rolloff Items/ForcePulse/FireFar 1600 3200
+
+$rolloff Items/BloodSphere/Fire 400 1600
+$rolloff Items/BloodSphere/FireFar 1600 3200
 
 //EXPLOSIONS
 $rolloff Explosion/Far 1600 6400

@@ -26,12 +26,28 @@ function void bandolierCheck(void)
 			}
 		}
 	}
+	for(i = 0; i < NUM_SIDEWEAPS; i++)
+	{
+		//Check which weapon the player is holding.
+		if(StrCmp(GetWeapon(), SIDEWEAP_ACTORS[i]) == 0)
+		{
+			//If the player a. has a bandolier and b. is out of ammo for their equiped weapon
+			if(CheckInventory("Bandolier") > 0 && CheckInventory(SIDEWEAP_AMMOS[i]) < 1)
+			{
+				//Refill the ammo and use the bandolier
+				GiveInventory(SIDEWEAP_AMMOS[i], GetAmmoCapacity(SIDEWEAP_AMMOS[i]) * BANDOLIER_RESTORE);
+				TakeInventory("Bandolier", 1);
+				LocalAmbientSound("Weapon/AmmoFill", 1.0);
+				acs("DisplayAmmoRefilledMessage");
+			}
+		}
+	}
 }
 
 function void tickHealthRegen(void)
 {
-	int regenDelay = 5;
-	int regenRateDelay = 5;
+	int regenDelay = 6;
+	int regenRateDelay = 6;
 		
 	if(Timer() % regenDelay == 0)
 	{
@@ -46,17 +62,30 @@ function void tickHealthRegen(void)
 	}
 }
 
-function void tickAmmoRegen(void)
+function void tickMainAmmoRegen(void)
 {
 	//Refills energy when the player has not fired a weapon in a while.
-	if(CheckInv("AmmoRegenCD") == 1)
+	if(CheckInv("MainAmmoRegenCD") == 1)
 	{
 		//And plays this sound.
 		LocalAmbientSound("Weapon/AmmoFill", 1.0);
-		refillAmmo();
+		refillMainAmmo();
 	}
 	//How many tics before your energy begins replenishing.
-	TakeInventory("AmmoRegenCD", 1);
+	TakeInventory("MainAmmoRegenCD", 1);
+}
+
+function void tickSideAmmoRegen(void)
+{
+	//Refills energy when the player has not fired a weapon in a while.
+	if(CheckInv("SideAmmoRegenCD") == 1)
+	{
+		//And plays this sound.
+		LocalAmbientSound("Weapon/AmmoFill", 1.0);
+		refillSideAmmo();
+	}
+	//How many tics before your energy begins replenishing.
+	TakeInventory("SideAmmoRegenCD", 1);
 }
 
 //This whole system needs to be redone probably.
@@ -93,11 +122,19 @@ function void tickActionCD(void)
 
 function void tickAltCD(void)
 {
-	TakeInventory("SharedAltFireCD", 1);
-	for(int i = 0; i < NUM_WEAPS; i++)
+	GiveInventory("MainAltCDTics", 1);
+	if(CheckInventory("MainAltCDTics") >= 35)
 	{
-		TakeInventory(WEAP_ALTCDS[i], 1);
+		TakeMax("MainAltCDTics");
+		TakeInventory("MainAltCD", 1);
 	}
+	GiveInventory("SideAltCDTics", 1);
+	if(CheckInventory("SideAltCDTics") >= 35)
+	{
+		TakeMax("SideAltCDTics");
+		TakeInventory("SideAltCD", 1);
+	}
+	TakeInventory("SharedAltFireCD", 1);
 }
 
 function void applySpeedModifiers(void)
@@ -120,9 +157,11 @@ script "CooldownTimers" ENTER
 			TakeInventory("OmniDashCD", 1);
 			TakeInventory("WarpDashCD", 1);
 			TakeInventory("HRailCharge", 1);
-			tickAmmoRegen();
-			tickHealthRegen();
+			TakeInventory("IonRebounderEmpoweredTics", 1);
+			tickMainAmmoRegen();
+			tickSideAmmoRegen();
 			bandolierCheck();
+			tickHealthRegen();
 			tickActionCD();
 			tickAltCD();
 			applySpeedModifiers();

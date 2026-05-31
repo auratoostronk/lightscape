@@ -1,150 +1,208 @@
 resolution 640, 480;
 Base none;
 
-statusbar normal, fullscreenoffsets
+statusbar normal, forcescaled
 {
 	//TRAVEL ABILITY ICONS
 	InInventory "CVAR_DashOmni", 1
 	{
-		drawbar "OMNIEMPT", "OMNIFULL", ammo OmniDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		drawbar "OMNIEMPT", "OMNIFULL", ammo OmniDashCD, vertical, interpolate(20)|reverse, 5, 400;
 		InInventory Afterburner, 1
 		{
-			drawImage "OMNIENHA", 5, -70; 
+			drawImage "OMNIENHA", 5, 400; 
 		}
-		drawstring SMALLFONT, white, "Omni", 35, -70, 0, alignment(center)|drawshadow;
+		drawstring SMALLFONT, white, "Omni", 35, 400, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_DashBlink", 1
 	{
-		drawbar "TELEEMPT", "TELEFULL", ammo WarpDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		drawbar "TELEEMPT", "TELEFULL", ammo WarpDashCD, vertical, interpolate(20)|reverse, 5, 400;
 		InInventory Afterburner, 1
 		{
-			drawImage "TELEENHA", 5, -70; 
+			drawImage "TELEENHA", 5, 400; 
 		}
-		drawstring SMALLFONT, white, "Blink", 35, -70, 0, alignment(center)|drawshadow;
+		drawstring SMALLFONT, white, "Blink", 35, 400, 0, alignment(center)|drawshadow;
 	}
-	/*InInventory "CVAR_DashSprint", 1
-	{
-		drawbar "RUNEMPT", "RUNFULL", ammo SprintDashCD, vertical, interpolate(20)|reverse, 5, -70;
-		InInventory Afterburner, 1
-		{
-			drawImage "RUNENHA", 5, -70; 
-		}
-		drawstring SMALLFONT, white, "Sprint", 35, -70, 0, alignment(center)|drawshadow;
-	}*/
 	
 	//HEALTH AND ARMOR
-	drawBar "ARMFULL", "ARMEMPTY", armor (75), horizontal, interpolate(120), 80, -60;
-	drawBar "HPFULL", "HPEMPTY", health, horizontal, interpolate(120), 80, -30;
+	drawBar "ARMFULL", "ARMEMPTY", armor (75), horizontal, interpolate(120), 80, 400;
+	drawBar "HPFULL", "HPEMPTY", health, horizontal, interpolate(120), 80, 440;
 	
-	drawnumber 3, BIGFONT, white, armor,	alignment(left)|drawshadow, 90, -60;
-	drawnumber 3, BIGFONT, white, health,  alignment(left)|drawshadow, 90, -30;
+	drawnumber 3, BIGFONT, white, armor, alignment(left)|drawshadow, 90, 400;
+	drawnumber 3, BIGFONT, white, health, alignment(left)|drawshadow, 90, 440;
 	
 	//AMMO
-	drawImage "HUDAMMO", -80, -70; 
+	drawImage "HUDAMMO", 560, 400; 
 	InInventory "Bandolier", 1
 	{
-		drawImage "HUDBANDO", -80, -70; 
+		drawImage "HUDBANDO", 560, 400; 
 	}
-	drawnumber 3, BIGFONT, white, ammo1, drawshadow|alignment(center), -40, -30;
-	drawstring SMALLFONT, white, "AMMO", -50, -70, 0, alignment(center)|drawshadow;
+	drawnumber 3, BIGFONT, white, ammo1, drawshadow|alignment(center), 590, 400;
+	drawstring SMALLFONT, white, "Ammo", 590, 380, 0, alignment(center)|drawshadow;
 	
 	//ABILITY
 	InInventory "CVAR_RZone", 1
 	{
-		drawImage "I_REGEN", -160, -70; 
-		drawstring SMALLFONT, white, "Regen Zone", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_REGEN", 480, 400; 
+		drawstring SMALLFONT, white, "Regen Zone", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_FShield", 1
 	{
-		drawImage "I_SHIELD", -160, -70; 
-		drawstring SMALLFONT, white, "Flicker Shield", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_SHIELD", 480, 400; 
+		drawstring SMALLFONT, white, "Flicker Shield", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_PDecoy", 1
 	{
-		drawImage "I_DECOY", -160, -70; 
-		drawstring SMALLFONT, white, "Decoy Projecction", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_DECOY", 480, 400; 
+		drawstring SMALLFONT, white, "Decoy Projecction", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_SOverdrive", 1
 	{
-		drawImage "I_OVERDR", -160, -70; 
-		drawstring SMALLFONT, white, "System Overdrive", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_OVERDR", 480, 400; 
+		drawstring SMALLFONT, white, "System Overdrive", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	
 	//Ability text (overlaps the icon)
-	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), -120, -30, 1, white, 0, red, 3;
+	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), 520, 400, 1, white, 0, red, 3;
+	
+	//ALT FIRES
+	IsSelected "PlasmaCarbine"
+	{
+		drawImage "ALT_CARB", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "C14"
+	{
+		drawImage "ALT_C14", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "ParticleSplitter"
+	{
+		drawImage "ALT_PSG", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "TeslaSMG"
+	{
+		drawImage "ALT_SMG", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "FluxRailgun"
+	{
+		drawImage "ALT_RAIL", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "IonRebounder"
+	{
+		drawImage "ALT_ION", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo SideAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "HadronPistol"
+	{
+		drawImage "ALT_HAD", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo SideAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	drawstring SMALLFONT, white, "Alt Fire", 420, 380, 0, alignment(center)|drawshadow;
 	
 }
 
-statusbar fullscreen, fullscreenoffsets
+statusbar fullscreen, forcescaled
 {
 	//TRAVEL ABILITY ICONS
 	InInventory "CVAR_DashOmni", 1
 	{
-		drawbar "OMNIEMPT", "OMNIFULL", ammo OmniDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		drawbar "OMNIEMPT", "OMNIFULL", ammo OmniDashCD, vertical, interpolate(20)|reverse, 5, 400;
 		InInventory Afterburner, 1
 		{
-			drawImage "OMNIENHA", 5, -70; 
+			drawImage "OMNIENHA", 5, 400; 
 		}
-		drawstring SMALLFONT, white, "Omni", 35, -70, 0, alignment(center)|drawshadow;
+		drawstring SMALLFONT, white, "Omni", 35, 400, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_DashBlink", 1
 	{
-		drawbar "TELEEMPT", "TELEFULL", ammo WarpDashCD, vertical, interpolate(20)|reverse, 5, -70;
+		drawbar "TELEEMPT", "TELEFULL", ammo WarpDashCD, vertical, interpolate(20)|reverse, 5, 400;
 		InInventory Afterburner, 1
 		{
-			drawImage "TELEENHA", 5, -70; 
+			drawImage "TELEENHA", 5, 400; 
 		}
-		drawstring SMALLFONT, white, "Blink", 35, -70, 0, alignment(center)|drawshadow;
+		drawstring SMALLFONT, white, "Blink", 35, 400, 0, alignment(center)|drawshadow;
 	}
-	/*InInventory "CVAR_DashSprint", 1
-	{
-		drawbar "RUNEMPT", "RUNFULL", ammo SprintDashCD, vertical, interpolate(20)|reverse, 5, -70;
-		InInventory Afterburner, 1
-		{
-			drawImage "RUNENHA", 5, -70; 
-		}
-		drawstring SMALLFONT, white, "Sprint", 35, -70, 0, alignment(center)|drawshadow;
-	}*/
 	
 	//HEALTH AND ARMOR
-	drawBar "ARMFULL", "ARMEMPTY", armor (75), horizontal, interpolate(120), 80, -60;
-	drawBar "HPFULL", "HPEMPTY", health, horizontal, interpolate(120), 80, -30;
+	drawBar "ARMFULL", "ARMEMPTY", armor (75), horizontal, interpolate(120), 80, 400;
+	drawBar "HPFULL", "HPEMPTY", health, horizontal, interpolate(120), 80, 440;
 	
-	drawnumber 3, BIGFONT, white, armor,	alignment(left)|drawshadow, 90, -60;
-	drawnumber 3, BIGFONT, white, health,  alignment(left)|drawshadow, 90, -30;
+	drawnumber 3, BIGFONT, white, armor, alignment(left)|drawshadow, 90, 400;
+	drawnumber 3, BIGFONT, white, health, alignment(left)|drawshadow, 90, 440;
 	
 	//AMMO
-	drawImage "HUDAMMO", -80, -70; 
+	drawImage "HUDAMMO", 560, 400; 
 	InInventory "Bandolier", 1
 	{
-		drawImage "HUDBANDO", -80, -70; 
+		drawImage "HUDBANDO", 560, 400; 
 	}
-	drawnumber 3, BIGFONT, white, ammo1, drawshadow|alignment(center), -40, -30;
-	drawstring SMALLFONT, white, "AMMO", -50, -70, 0, alignment(center)|drawshadow;
+	drawnumber 3, BIGFONT, white, ammo1, drawshadow|alignment(center), 590, 400;
+	drawstring SMALLFONT, white, "Ammo", 590, 380, 0, alignment(center)|drawshadow;
 	
 	//ABILITY
 	InInventory "CVAR_RZone", 1
 	{
-		drawImage "I_REGEN", -160, -70; 
-		drawstring SMALLFONT, white, "Regen Zone", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_REGEN", 480, 400; 
+		drawstring SMALLFONT, white, "Regen Zone", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_FShield", 1
 	{
-		drawImage "I_SHIELD", -160, -70; 
-		drawstring SMALLFONT, white, "Flicker Shield", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_SHIELD", 480, 400; 
+		drawstring SMALLFONT, white, "Flicker Shield", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_PDecoy", 1
 	{
-		drawImage "I_DECOY", -160, -70; 
-		drawstring SMALLFONT, white, "Decoy Projecction", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_DECOY", 480, 400; 
+		drawstring SMALLFONT, white, "Decoy Projecction", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	InInventory "CVAR_SOverdrive", 1
 	{
-		drawImage "I_OVERDR", -160, -70; 
-		drawstring SMALLFONT, white, "System Overdrive", -130, -70, 0, alignment(center)|drawshadow;
+		drawImage "I_OVERDR", 480, 400; 
+		drawstring SMALLFONT, white, "System Overdrive", 510, 380, 0, alignment(center)|drawshadow;
 	}
 	
 	//Ability text (overlaps the icon)
-	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), -120, -30, 1, white, 0, red, 3;
+	DrawNumber 3, "BIGFONT", yellow, Ammo ActiveCDSeconds, Interpolate(120), 520, 400, 1, white, 0, red, 3;
+	
+	//ALT FIRES
+	IsSelected "PlasmaCarbine"
+	{
+		drawImage "ALT_CARB", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "C14"
+	{
+		drawImage "ALT_C14", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "ParticleSplitter"
+	{
+		drawImage "ALT_PSG", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "TeslaSMG"
+	{
+		drawImage "ALT_SMG", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "FluxRailgun"
+	{
+		drawImage "ALT_RAIL", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "IonRebounder"
+	{
+		drawImage "ALT_ION", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo SideAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "HadronPistol"
+	{
+		drawImage "ALT_HAD", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo SideAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	drawstring SMALLFONT, white, "Alt Fire", 420, 380, 0, alignment(center)|drawshadow;
 	
 }

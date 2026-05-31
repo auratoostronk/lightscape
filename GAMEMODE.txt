@@ -39,8 +39,8 @@ DUEL
 		sv_accuratecrosshair = true;
 		sv_enableprojectilehitboxfix = true;
 		compat_predictfunctions = true;
-		sv_deathmatchcountdowntime = 30;
 		sv_ringouttics = 105;
+		sv_deathmatchcountdowntime = 30;
 		//Alphatius settings
 		//alph_nohealthregen = true;
 		//alph_nopowerups = true;
@@ -144,7 +144,7 @@ TEAMLMS
 		sv_enableprojectilehitboxfix = true;
 		compat_predictfunctions = true;
 		sv_ringouttics = 105;
-		sv_deathmatchcountdowntime = 20;
+		sv_deathmatchcountdowntime = 30;
 		//Alphatius settings
 		//alph_nohealthregen = true;
 		//alph_nopowerups = true;
@@ -169,7 +169,7 @@ LASTMANSTANDING
 		sv_enableprojectilehitboxfix = true;
 		compat_predictfunctions = true;
 		sv_ringouttics = 105;
-		sv_deathmatchcountdowntime = 20;
+		sv_deathmatchcountdowntime = 30;
 		//Alphatius settings
 		//alph_nohealthregen = true;
 		//alph_nopowerups = true;

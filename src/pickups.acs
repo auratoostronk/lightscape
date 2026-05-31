@@ -3,6 +3,8 @@
 #import "lib.acs"
 #import "hud.acs"
 
+#define SPHERE_USED_DELAY 7
+
 function bool checkSphere(void)
 {
 	bool ret = false; //Assume the player does not have an active item yet.
@@ -11,7 +13,13 @@ function bool checkSphere(void)
 		if(CheckInventory(SPHERE_HELD[i]) > 0 || CheckInventory(SPHERE_USING[i]) > 0)
 		{
 			ret = true;
+			//log(s:"found sphere held");
 		}
+	}
+	//If a sphere was just fired, count that as true.
+	if(CheckInventory("SphereJustUsed") > 0)
+	{
+		ret = true;
 	}
 	return ret;
 }
@@ -51,52 +59,62 @@ Script "HoldingSphere" (void)
 	}
 	SetActorState(utid, "Death", true);
 }
-Script "CheckSphereFire" ENTER
+Script "UseSphere" (void) NET
+{
+	for(int i = 0; i < NUM_SPHERES; i++)
+	{
+		if(CheckInventory(SPHERE_HELD[i]) > 0)
+		{
+			GiveInventory(SPHERE_USING[i], 1);
+			TakeInventory(SPHERE_HELD[i], 1);
+			acs(SPHERE_SCRIPTS[i], 0);
+		}
+	}
+}
+Script "BotSphereCheck" ENTER
 {
 	while(true)
-	{	
-		for(int i = 0; i < NUM_SPHERES; i++)
+	{
+		if(ClassifyActor(0) & ACTOR_BOT)
 		{
-			if(CheckInventory(SPHERE_HELD[i]) > 0)
+			if(playerSpotted() == true)
 			{
-				if(GetPlayerInput(-1, INPUT_BUTTONS) & (BT_ATTACK|BT_ALTATTACK))
+				for(int i = 0; i < NUM_SPHERES; i++)
 				{
-					GiveInventory(SPHERE_USING[i], 1);
-					TakeInventory(SPHERE_HELD[i], 1);
-					acs(SPHERE_SCRIPTS[i], 0);
-				}
-				else if(ClassifyActor(0) & ACTOR_BOT)
-				{
-					if(playerSpotted() == true)
+					if(CheckInventory(SPHERE_HELD[i]) > 0)
 					{
 						GiveInventory(SPHERE_USING[i], 1);
 						TakeInventory(SPHERE_HELD[i], 1);
-						acs(SPHERE_SCRIPTS[i], 0);		
+						acs(SPHERE_SCRIPTS[i], 0);
 					}
-				}
+				}	
 			}
 		}
 		delay(1);
 	}
 }
-Script "UseRBurst" (void)
+Script "UseDiscSphere" (void)
 {
-	PlaySound(0, "Items/RicochetBurst/Charge", CHAN_6, 1.0, false);
-	PlaySound(0, "Items/RicochetBurst/ChargeFar", CHAN_7, 1.0, false);
+	PlaySound(0, "Items/DiscSphere/Charge", CHAN_6, 1.0, false);
+	PlaySound(0, "Items/DiscSphere/ChargeFar", CHAN_7, 1.0, false);
 	delay(8);
 	StopSound(0, CHAN_6);
-	TakeInventory("RBurstInUse", 1);
+	GiveInventory("SphereJustUsed", 1);
+	TakeInventory("DiscSphereInUse", 1);
 	for(int i = 0; i < 5; i++)
 	{
-		GiveInventory("RBurstFire", 1);
+		GiveInventory("DiscSphereFire", 1);
 		delay(3);
 	}
+	
+	delay(SPHERE_USED_DELAY);
+	TakeInventory("SphereJustUsed", 1);
 }
-Script "UseHRail" (void)
+Script "UseRailSphere" (void)
 {
-	PlaySound(0, "Items/HadronRail/Charge", CHAN_6, 1.0, false);
-	PlaySound(0, "Items/HadronRail/ChargeFar", CHAN_7, 1.0, false);
-	GiveInventory("HRailCharge", 20);
+	PlaySound(0, "Items/RailSphere/Charge", CHAN_6, 1.0, false);
+	PlaySound(0, "Items/RailSphere/ChargeFar", CHAN_7, 1.0, false);
+	GiveInventory("RailSphereCharge", 20);
 	for(int i = 0; i < 20; i++)
 	{
 		delay(1);
@@ -106,11 +124,17 @@ Script "UseHRail" (void)
 	}
 	StopSound(0, CHAN_6);
 	StopSound(0, CHAN_7);
-	GiveInventory("HRailFire", 1);
-	TakeInventory("HRailInUse", 1);
+	GiveInventory("RailSphereFire", 1);
+	GiveInventory("SphereJustUsed", 1);
+	TakeInventory("RailSphereInUse", 1);
+	delay(SPHERE_USED_DELAY);
+	TakeInventory("SphereJustUsed", 1);
 }
-Script "UseBloodSphere" (void)
+Script "UseLeechSphere" (void)
 {
-	GiveInventory("BloodSphereFire", 1);
-	TakeInventory("BloodSphereInUse", 1);
+	TakeInventory("LeechSphereInUse", 1);
+	GiveInventory("LeechSphereFire", 1);
+	GiveInventory("SphereJustUsed", 1);
+	delay(SPHERE_USED_DELAY);
+	TakeInventory("SphereJustUsed", 1);
 }
