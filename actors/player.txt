@@ -9,12 +9,17 @@ Actor LightscapePlayer : PlayerPawn
 	GibHealth 50
 	Player.MaxHealth 100
 	Player.MugshotMaxHealth -1
+	Player.ViewHeight 48.0
 	
 	//Doom-Like Movement
-	//Player.ForwardMove 1.6, 0.8
-	//Player.SideMove 2.0, 1.0
-	Player.ForwardMove 1.5, 0.75
-	Player.SideMove 1.6, 0.8
+	Player.ForwardMove 1.6, 0.8
+	Player.SideMove 2.0, 1.0
+	//Player.ForwardMove 1.5, 0.75
+	//Player.SideMove 1.8, 0.9
+	//Player.ForwardMove 1.4, 0.7
+	//Player.SideMove 1.6, 0.8
+	//Player.ForwardMove 1.2, 0.6
+	//Player.SideMove 1.4, 0.7
 	Player.JumpZ 8.0
 	
 	//Modern Movement
@@ -33,7 +38,7 @@ Actor LightscapePlayer : PlayerPawn
 	Player.StartItem "C14RespawnProtection"
 	//Player.ActionScript "user1" "PlayerDash"
 	Player.ActionScript "zoom" "PlayerZoom"
-	BloodType "LSBlood"
+	//BloodType "LSBlood"
 	Species "PlayerRelated"
 	+TELESTOMP
 	+BRIGHT

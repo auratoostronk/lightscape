@@ -1,7 +1,7 @@
 //------------------------------------------------------------
 //Pickup class for Ricochet Burst
 //------------------------------------------------------------
-Actor RBurstPickup : CustomInventory 12100
+Actor DiscSpherePickup : CustomInventory 12100
 {
 	//Doom Builder things category
 	//$Category Lightscape Pickups
@@ -34,7 +34,7 @@ Actor RBurstPickup : CustomInventory 12100
 		fail
 	Success:
 		TNT1 A 0 ACS_NamedExecuteAlways("HoldingSphere", 0, 0)
-		TNT1 A 0 A_GiveInventory("RBurstReady", 1)
+		TNT1 A 0 A_GiveInventory("DiscSphereReady", 1)
 		stop
 	}
 }
@@ -42,7 +42,7 @@ Actor RBurstPickup : CustomInventory 12100
 //------------------------------------------------------------
 //Inventory class for Ricochet Burst
 //------------------------------------------------------------
-Actor RBurstReady : Inventory
+Actor DiscSphereReady : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
@@ -54,7 +54,7 @@ Actor RBurstReady : Inventory
 }
 
 
-Actor RBurstInUse : Inventory
+Actor DiscSphereInUse : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
@@ -67,7 +67,7 @@ Actor RBurstInUse : Inventory
 //------------------------------------------------------------
 //Held sphere in front of player
 //------------------------------------------------------------
-Actor RBurstReadyFX : SphereReadyBase
+Actor DiscSphereReadyFX : SphereReadyBase
 {
 	//States
 	States
@@ -76,7 +76,7 @@ Actor RBurstReadyFX : SphereReadyBase
 		SPHR A 1 nodelay A_Warp(AAPTR_TARGET, 32.0, -24.0, 20.0, 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
 		loop
 	Using:
-		TNT1 A 0 A_Warp(AAPTR_TARGET, 32.0 + frandom(-4.0, 4.0), -24.0 + frandom(-4.0, 4.0), 20.0 + frandom(-4.0, 4.0), 0, WARPF_NOCHECKPOSITION|WARPF_INTERPOLATE)
+		TNT1 A 0 A_Warp(AAPTR_TARGET, 32.0 + frandom(-4.0, 4.0), -24.0 + frandom(-4.0, 4.0), 20.0 + frandom(-4.0, 4.0), 0, WARPF_NOCHECKPOSITION)
 		SPHR A 1 A_SetScale(scalex + 0.05, scaley + 0.05)
 		loop
 	Death:
@@ -89,18 +89,20 @@ Actor RBurstReadyFX : SphereReadyBase
 //------------------------------------------------------------
 //Fires one richochet burst upon entering inventory
 //------------------------------------------------------------
-Actor RBurstFire : CustomInventory
+Actor DiscSphereFire : CustomInventory
 {
 	//Flags
-	+SERVERNETID
 	+INVENTORY.AUTOACTIVATE
+	+SERVERNETID
 	
 	//States
 	States
 	{
+	Pickup:
 	Use:
-		TNT1 A 0 A_SpawnItemEX("BlueLightShoot")
-		TNT1 A 0 A_FireCustomMissile("RBurstProjectile", 0.0, false, -8.0, -2.0)
+		TNT1 A 0 A_SpawnItemEX("BlueLightShoot", 0, 0, 0, 0, 0, 0, 0, SXF_SKIPOWNER)
+		TNT1 A 0 A_FireCustomMissile("DiscSphereProjectile", 0.0, false, -8.0, -2.0, FPF_SKIPOWNER)
+		TNT1 A 35
 		stop
 	}
 }
@@ -108,7 +110,7 @@ Actor RBurstFire : CustomInventory
 //------------------------------------------------------------
 //Ricochet Burst projectile
 //------------------------------------------------------------
-ACTOR RBurstProjectile
+ACTOR DiscSphereProjectile
 {
 	//Properties
 	Radius 12
@@ -121,8 +123,8 @@ ACTOR RBurstProjectile
 	BounceCount 2
 	RenderStyle Add
 	BounceType Hexen
-	SeeSound "Items/RicochetBurst/Fire"
-	BounceSound "Items/RicochetBurst/Bounce"
+	SeeSound "Items/DiscSphere/Fire"
+	BounceSound "Items/DiscSphere/Bounce"
 	Obituary "%k > \chDisc Sphere\c- > %o"
 	
 	//Flags
@@ -139,31 +141,31 @@ ACTOR RBurstProjectile
 	States
 	{
 	Spawn:
-		BGRN A 1 A_SpawnItemEx("RBurstProjectileTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		BGRN A 1 A_SpawnItemEx("DiscSphereProjectileTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		loop
 	Bounce:
-		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RBurstProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("DiscSphereProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		Goto Spawn
 	XDeath:
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
-		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RBurstProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("DiscSphereProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_Quake(2, 8, 0, 384)
 		TNT1 A 0 A_Explode(10, RADIUS_OUTER, XF_HURTSOURCE)
 		TNT1 A 0 A_Explode(8, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)
+		TNT1 A 0 A_GiveToTarget("HitSoundLarge", 1)
 		Goto FinishDeath
 	Death:
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
-		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RBurstProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
+		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("DiscSphereProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_Quake(2, 8, 0, 384)
 		TNT1 A 0 A_Explode(10, RADIUS_OUTER, XF_HURTSOURCE)
 		TNT1 A 0 A_Explode(8, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
-		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER)
+		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
 		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")
 		Goto FinishDeath
 	HitSoft:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		TNT1 A 0 A_GiveToTarget("HitSoundSmall", 1)
 		Goto FinishDeath
 	FinishDeath:
 		TNT1 A 105 //Required for unlagged
@@ -171,7 +173,7 @@ ACTOR RBurstProjectile
 	}
 }
 
-ACTOR RBurstProjectileTrail : LSParticleBase
+ACTOR DiscSphereProjectileTrail : LSParticleBase
 {
 	XScale 0.3
 	YScale 0.05
@@ -184,7 +186,7 @@ ACTOR RBurstProjectileTrail : LSParticleBase
 		Loop
 	}
 }
-Actor RBurstProjectileImpactFX : LSParticleBase
+Actor DiscSphereProjectileImpactFX : LSParticleBase
 {
 	States
 	{

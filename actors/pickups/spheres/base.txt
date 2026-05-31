@@ -1,0 +1,33 @@
+//------------------------------------------------------------
+// If a sphere was fired recently, uses this to block players 
+// from firing again.
+//------------------------------------------------------------
+Actor SphereJustUsed : Inventory
+{
+	//Propreties
+	Inventory.Amount 1
+	Inventory.MaxAmount 1
+	
+	//Flags
+	+SERVERNETID
+}
+
+//------------------------------------------------------------
+// Held Sphere base class
+//------------------------------------------------------------
+Actor SphereReadyBase
+{
+	//Properties
+	Renderstyle Add
+	Radius 2
+	Height 2
+	Alpha 0.8
+	
+	//Flags
+	+NOINTERACTION
+	-SOLID
+	+NOCLIP
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+BRIGHT
+}

@@ -8,6 +8,8 @@
 int PLAYER_ACTIVES[MAX_PLAYERS];
 //Stores the player's starting weapon ID throughout the match.
 int PLAYER_WEAPONS[MAX_PLAYERS];
+//Stores the player's sidearm weapon ID throughout the match.
+int PLAYER_SIDEWEAPONS[MAX_PLAYERS];
 //Stores the player's dash type ID throughout the match.
 int PLAYER_DASHES[MAX_PLAYERS];
 //Stores the player's ability cooldown between lives.
@@ -39,6 +41,19 @@ function void setupWeapon(bool giveItems)
 		GiveInventory(WEAP_ACTORS[weap], 1);
 	}
 }
+function void setupSidearm(bool giveItems)
+{
+	int weap = GetCVAR("ls_sideweap");
+	if(ClassifyActor(0) & ACTOR_BOT)
+		weap = random(0, NUM_SIDEWEAPS - 1);
+	if(weap < 0 || weap >= NUM_SIDEWEAPS)
+		weap = 0;
+	PLAYER_SIDEWEAPONS[PlayerNumber()] = weap;
+	if(giveItems)
+	{
+		GiveInventory(SIDEWEAP_ACTORS[weap], 1);
+	}
+}
 function void setupDash(bool giveItems)
 {
 	int dash = GetCVAR("ls_dash");
@@ -59,12 +74,14 @@ function void resetLoadout()
 	ClearInventory();
 	refillAmmo();
 	setupWeapon(true);
+	setupSidearm(true);
 	setupActive(true);
 	setupDash(true);
 }
 function void prepLoadoutForRespawn()
 {
 	setupWeapon(false);
+	setupSidearm(false);
 	setupActive(false);
 	setupDash(false);
 }
@@ -124,6 +141,7 @@ Script "PlayerRespawn" RESPAWN
 	Thing_ChangeTID(0, PLAYER_TIDOFFSET + PlayerNumber());
 	GiveInventory(ACTIVE_INVENTORY[PLAYER_ACTIVES[PlayerNumber()]], 1);
 	GiveInventory(WEAP_ACTORS[PLAYER_WEAPONS[PlayerNumber()]], 1);
+	GiveInventory(SIDEWEAP_ACTORS[PLAYER_SIDEWEAPONS[PlayerNumber()]], 1);
 	GiveInventory(DASH_INVENTORY[PLAYER_DASHES[PlayerNumber()]], 1);
 	GiveInventory("ActiveCDSeconds", PLAYER_ACTIVECDS[PlayerNumber()]);
 	ACS_NamedExecuteAlways("DashSetupServer", 0, PLAYER_DASHES[PlayerNumber()]);
@@ -132,13 +150,14 @@ Script "PlayerRespawn" RESPAWN
 //Player disconnects or spectates
 Script "PlayerDisconnect" (int pnum) DISCONNECT
 {
-	PLAYER_ACTIVES[pnum] = -1;
-	PLAYER_WEAPONS[pnum] = -1;
-	PLAYER_DASHES[pnum] = -1;
-	PLAYER_ACTIVECDS[pnum] = 0;
+	//PLAYER_ACTIVES[pnum] = -1;
+	//PLAYER_WEAPONS[pnum] = -1;
+	//PLAYER_SIDEWEAPONS[pnum] = -1;
+	//PLAYER_DASHES[pnum] = -1;
+	//PLAYER_ACTIVECDS[pnum] = 0;
 	//Do not let player disconnect, change loadout, and reconnect with same score!
-	SetPlayerScore(pnum, SCORE_FRAGS, 0);
-	SetPlayerScore(pnum, SCORE_DEATHS, 0);
+	//SetPlayerScore(pnum, SCORE_FRAGS, 0);
+	//SetPlayerScore(pnum, SCORE_DEATHS, 0);
 }
 //Close loadout menu. Resets loadout if match is not in progress (i.e. warmup)
 Script "LoadoutMenuClose" (void) NET

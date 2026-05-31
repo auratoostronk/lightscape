@@ -93,3 +93,89 @@ Graphic "I_OVERDR", 128, 128
 	YScale 2.000
 	Patch "I_OVERDR", 0, 0
 }
+
+//Alt Fires
+Graphic "ALT_CARB", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_CARB", 0, 0
+}
+Graphic "ACD_CARB", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_CARB", 0, 0
+}
+Graphic "ALT_C14", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_C14", 0, 0
+}
+Graphic "ACD_C14", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_C14", 0, 0
+}
+Graphic "ALT_PSG", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_PSG", 0, 0
+}
+Graphic "ACD_PSG", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_PSG", 0, 0
+}
+Graphic "ALT_SMG", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_SMG", 0, 0
+}
+Graphic "ACD_SMG", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_SMG", 0, 0
+}
+Graphic "ALT_RAIL", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_RAIL", 0, 0
+}
+Graphic "ACD_RAIL", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_RAIL", 0, 0
+}
+Graphic "ALT_ION", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_ION", 0, 0
+}
+Graphic "ACD_ION", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_ION", 0, 0
+}
+Graphic "ALT_HAD", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ALT_HAD", 0, 0
+}
+Graphic "ACD_HAD", 512, 512
+{
+	XScale 8.000
+	YScale 8.000
+	Patch "ACD_HAD", 0, 0
+}

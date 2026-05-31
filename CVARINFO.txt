@@ -1,4 +1,5 @@
 user int ls_startweap = 0;
+user int ls_sideweap = 0;
 user int ls_dash = 0;	//Dash type
 user int ls_active = 0; //Active
 

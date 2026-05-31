@@ -27,3 +27,11 @@ brightmap texture "models/weapons/smg/teslasmg.png"
 {
 	map "models/weapons/smg/teslabm.png"
 }
+brightmap texture "models/weapons/ion/ion.png"
+{
+	map "models/weapons/ion/ionbm.png"
+}
+brightmap texture "models/weapons/hadron/hadron.png"
+{
+	map "models/weapons/hadron/hadronbm.png"
+}

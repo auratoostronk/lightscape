@@ -1,7 +1,7 @@
 //------------------------------------------------------------
 //Pickup class for Hadron Rail
 //------------------------------------------------------------
-Actor HRailPickup : CustomInventory 12101
+Actor RailSpherePickup : CustomInventory 12101
 {
 	//Doom Builder things category
 	//$Category Lightscape Pickups
@@ -11,11 +11,11 @@ Actor HRailPickup : CustomInventory 12101
 	Height 48
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
-	Inventory.PickupMessage "Sniper Sphere - Charge a powerful sniper attack."
+	Inventory.PickupMessage "Rail Sphere - Charge a powerful sniper attack."
 	Inventory.PickupSound "Pickups/Sphere"
 	Inventory.RespawnTics 700 // 20 seconds
 	//Scale 0.5
-	Tag "Sniper Sphere"
+	Tag "Rail Sphere"
 	
 	//Flags
 	+FLOATBOB
@@ -34,13 +34,13 @@ Actor HRailPickup : CustomInventory 12101
 		fail
 	Success:
 		TNT1 A 0 ACS_NamedExecuteAlways("HoldingSphere", 0, 1)
-		TNT1 A 0 A_GiveInventory("HRailReady", 1)
+		TNT1 A 0 A_GiveInventory("RailSphereReady", 1)
 		stop
 	}
 }
 
 //Tics of charge for Rail sphere
-Actor HRailCharge : Ammo
+Actor RailSphereCharge : Ammo
 {
 	+SERVERNETID 
 	Inventory.MaxAmount 20
@@ -49,18 +49,18 @@ Actor HRailCharge : Ammo
 //------------------------------------------------------------
 //Inventory class for Hadron Rail
 //------------------------------------------------------------
-Actor HRailReady : Inventory
+Actor RailSphereReady : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
 	Inventory.MaxAmount 1
-	Tag "Sniper Sphere"
+	Tag "Rail Sphere"
 	
 	//Flags
 	+SERVERNETID
 }
 
-Actor HRailInUse : Inventory
+Actor RailSphereInUse : Inventory
 {
 	//Propreties
 	Inventory.Amount 1
@@ -73,7 +73,7 @@ Actor HRailInUse : Inventory
 //------------------------------------------------------------
 //Held sphere in front of player
 //------------------------------------------------------------
-Actor HRailReadyFX : SphereReadyBase
+Actor RailSphereReadyFX : SphereReadyBase
 {
 	//States
 	States
@@ -95,7 +95,7 @@ Actor HRailReadyFX : SphereReadyBase
 //------------------------------------------------------------
 //Fires the rail attack
 //------------------------------------------------------------
-Actor HRailFire : CustomInventory
+Actor RailSphereFire : CustomInventory
 {
 
 	//Flags
@@ -105,12 +105,14 @@ Actor HRailFire : CustomInventory
 	//States
 	States
 	{
+	Pickup:
 	Use:
-		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
-		TNT1 A 0 A_PlaySound("Items/HadronRail/Fire", CHAN_6)
-		TNT1 A 0 A_PlaySound("Items/HadronRail/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(100, -8.0, false, "none", "none", RGF_SILENT, 0.0, "HRailHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "HRailTrail", -2)
-		TNT1 A 0 A_RailAttack(0, -8.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "HRailTrail2", -2)
+		TNT1 A 0 A_SpawnItemEX("RedLightShoot", 0, 0, 0, 0, 0, 0, 0, SXF_SKIPOWNER)
+		TNT1 A 0 A_PlaySound("Items/RailSphere/Fire", CHAN_6)
+		TNT1 A 0 A_PlaySound("Items/RailSphere/FireFar", CHAN_7)
+		TNT1 A 0 A_RailAttack(100, -8.0, false, "none", "none", RGF_SILENT, 0.0, "RailSphereHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "RailSphereTrail", -2)
+		TNT1 A 0 A_RailAttack(0, -8.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "RailSphereTrail2", -2)
+		TNT1 A 35
 		stop
 	}
 }
@@ -118,7 +120,7 @@ Actor HRailFire : CustomInventory
 //------------------------------------------------------------
 //Hadron Rail trail
 //------------------------------------------------------------
-Actor HRailTrail : LSParticleBase
+Actor RailSphereTrail : LSParticleBase
 {
 	//Properties
 	Scale 0.4
@@ -138,7 +140,7 @@ Actor HRailTrail : LSParticleBase
 //------------------------------------------------------------
 //Hadron Rail trail secondary rings
 //------------------------------------------------------------
-Actor HRailTrail2 : HRailTrail
+Actor RailSphereTrail2 : RailSphereTrail
 {
 	//Properties
 	Scale 0.2
@@ -159,13 +161,13 @@ Actor HRailTrail2 : HRailTrail
 //------------------------------------------------------------
 //Railgun alt-fire hit puff
 //------------------------------------------------------------
-Actor HRailHitPuff : BulletPuff
+Actor RailSphereHitPuff : BulletPuff
 {
 	//Properties
 	Decal "RailgunMainDecal"
 	Scale 0.3
 	ProjectileKickBack 100
-	Obituary "%k > \cgSniper Sphere\c- > %o"
+	Obituary "%k > \cgRail Sphere\c- > %o"
 
 	//Flags
 	+ALWAYSPUFF
@@ -177,8 +179,8 @@ Actor HRailHitPuff : BulletPuff
 	States
 	{
 	Spawn:
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEx("HRailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
-		TNT1 A 0 A_SpawnItemEx("HRailBlast")
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEx("RailSphereHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("RailSphereBlast")
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
 		TNT1 A 0 A_Quake(4, 8, 0, 256)
 		TNT1 A 0 A_Explode(50, 192, XF_HURTSOURCE, true, 96)
@@ -186,9 +188,9 @@ Actor HRailHitPuff : BulletPuff
 		TNT1 A 105
 		stop
 	XDeath:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 2)
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("HRailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
-		TNT1 A 0 A_SpawnItemEx("HRailBlast")
+		TNT1 A 0 A_GiveToTarget("HitSoundLarge", 1)
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RailSphereHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("RailSphereBlast")
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
 		TNT1 A 0 A_Quake(4, 8, 0, 256)
 		TNT1 A 0 A_Explode(50, 192, XF_HURTSOURCE, true, 96)
@@ -201,7 +203,7 @@ Actor HRailHitPuff : BulletPuff
 //------------------------------------------------------------
 // Sniper Sphere death effect (expanding ring)
 //------------------------------------------------------------
-Actor HRailBlast : LSParticleBase
+Actor RailSphereBlast : LSParticleBase
 {
 	// Properties
 	Scale 1.0
@@ -220,7 +222,7 @@ Actor HRailBlast : LSParticleBase
 //------------------------------------------------------------
 // Sniper Sphere hit visual particle
 //------------------------------------------------------------
-Actor HRailHitFX : LSParticleBase
+Actor RailSphereHitFX : LSParticleBase
 {
 	// Properties
 	Scale 2.0

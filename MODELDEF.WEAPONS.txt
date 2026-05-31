@@ -338,76 +338,250 @@ Model C14
 	FrameIndex C14F E 0 5
 	FrameIndex C14F F 0 6
 }
-/*//3 STATIC SHOCKBLADE
+/*
+//5 FLAMESPITTER
 //Pickup
-Model TeslaSMG
+Model Flamespitter
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAPIC.md3"
+	Path "models/weapons/flamespitter"
+	Skin 0 "FLAMESPT.png"
+	Model 0 "FLAMEPIC.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex FLMP A 0 0
+}
+//Ready
+Model Flamespitter
+{
+	Path "models/weapons/flamespitter"
+	Skin 0 "FLAMESPT.png"
+	Model 0 "FLAMESPT.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex FLMR A 0 0
+	FrameIndex FLMR B 0 0
+	FrameIndex FLMR C 0 0
+	FrameIndex FLMR D 0 0
+}
+//Fire / Cooloff
+Model Flamespitter
+{
+	Path "models/weapons/flamespitter"
+	Skin 0 "FLAMESPT.png"
+	Model 0 "FLAMESPT.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex FLMF A 0 0
+	FrameIndex FLMF B 0 0
+	FrameIndex FLMF C 0 0
+	//Cooloff
+	FrameIndex FLMF D 0 1
+}
+//Cooloff
+Model Flamespitter
+{
+	Path "models/weapons/flamespitter"
+	Skin 0 "FLAMESPT.png"
+	Model 0 "FLAMESPT.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex FLMF E 0 2
+	FrameIndex FLMF F 0 3
+	FrameIndex FLMF G 0 4
+	FrameIndex FLMF H 0 5
+}
+//Cooloff
+Model Flamespitter
+{
+	Path "models/weapons/flamespitter"
+	Skin 0 "FLAMESPT.png"
+	Model 0 "FLAMESPT.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex FLMF I 0 6
+	FrameIndex FLMF J 0 7
+	FrameIndex FLMF K 0 8
+	FrameIndex FLMF L 0 9
+}
+
+//7 Beam Rifle
+//Pickup
+Model BeamRifle
+{
+	Path "models/weapons/beam"
+	Skin 0 "BEAMRIFL.png"
+	Model 0 "BEAMPICK.md3"
 	Scale 16.0 16.0 16.0
 	AngleOffset 90
 	//Model hovers in the air on spawn
 	Offset 0.0 0.0 16.0
-	FrameIndex SMGP A 0 0
+	FrameIndex BRFP A 0 0
+}
+//Ready / Fire / Alt-Fire
+Model BeamRifle
+{
+	Path "models/weapons/beam"
+	Skin 0 "BEAMRIFL.png"
+	Model 0 "BEAMRIFL.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex BRFR A 0 0
+	FrameIndex BRFF A 0 0
+	FrameIndex BRFF B 0 0
+	//Alt fire
+	FrameIndex BRFF C 0 1
+}
+//Alt-Fire
+Model BeamRifle
+{
+	Path "models/weapons/beam"
+	Skin 0 "BEAMRIFL.png"
+	Model 0 "BEAMRIFL.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex BRFF D 0 2
+	FrameIndex BRFF E 0 3
+	FrameIndex BRFF F 0 4
+	FrameIndex BRFF G 0 5
+}
+
+//8 Rocket Tube
+//Pickup
+Model RocketTube
+{
+	Path "models/weapons/rocket"
+	Skin 0 "ROCKTTUB.png"
+	Model 0 "ROCKPICK.md3"
+	Scale 16.0 16.0 16.0
+	AngleOffset 90
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex CRCP A 0 0
+}
+//Ready / Fire / Alt-Fire
+Model RocketTube
+{
+	Path "models/weapons/rocket"
+	Skin 0 "ROCKTTUB.png"
+	Model 0 "ROCKTTUB.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex CRCR A 0 0
+	FrameIndex CRCF A 0 0
+	FrameIndex CRCF B 0 0
+	//Alt fire
+	FrameIndex CRCF C 0 1
+}
+//Alt-Fire
+Model RocketTube
+{
+	Path "models/weapons/rocket"
+	Skin 0 "ROCKTTUB.png"
+	Model 0 "ROCKTTUB.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex CRCF D 0 2
+	FrameIndex CRCF E 0 3
+	FrameIndex CRCF F 0 4
+	FrameIndex CRCF G 0 5
+}
+*/
+//2 - 1 Hadron Pistol
+//Pickup
+Model HadronPistol
+{
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HADPPICK.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex HPSP A 0 0
 }
 //Ready / Fire
-Model TeslaSMG
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TeslaSMG.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISHELD.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGR A 0 0
-	//FrameIndex SMGF A 0 1
-	//FrameIndex SMGF B 0 2
-	//FrameIndex SMGF C 0 3
+	FrameIndex HPSR A 0 0
+	FrameIndex HPSF F 0 1
+	FrameIndex HPSF G 0 2
+	FrameIndex HPSF H 0 3
 }
-//Melee
-//This one contains the animation before the melee kicks in
-Model TeslaSMG
+//Charge 1
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAML1.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISCHG1.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGM A 0 0
-	FrameIndex SMGM B 0 1
-	FrameIndex SMGM C 0 2
-	FrameIndex SMGM D 0 3
+	FrameIndex HPSF A 0 0
 }
-//This one contains the animation before the melee kicks in (the last frame of it, because zandro only allows 4 frames per modeldef entry.
-Model TeslaSMG
+//Charge 2
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAML1.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISCHG2.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGM E 0 4
+	FrameIndex HPSF B 0 0
 }
-//These are the tasing animations. They use seperate models (although if I knew blender well enough, 
-//I could probably put them all together under one md3), which is why they are split apart.
-Model TeslaSMG
+//Charge 3
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAML2.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISCHG3.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGM F 0 0
+	FrameIndex HPSF C 0 0
 }
-Model TeslaSMG
+//Charge 4
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAML3.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISCHG4.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGM G 0 0
+	FrameIndex HPSF D 0 0
 }
-Model TeslaSMG
+//Charge 5
+Model HadronPistol
 {
-	Path "models/weapons/melee"
-	Skin 0 "TeslaSMG.png"
-	Model 0 "TESLAML4.md3"
+	Path "models/weapons/hadron"
+	Skin 0 "hadron.png"
+	Model 0 "HPISCHG5.md3"
 	Scale 16.0 16.0 16.0
-	FrameIndex SMGM H 0 0
-}*/
+	FrameIndex HPSF E 0 0
+}
+
+
+//2 - 2 Ion Rebounder
+//Pickup
+Model IonRebounder
+{
+	Path "models/weapons/ion"
+	Skin 0 "ion.png"
+	Model 0 "IONPICK.md3"
+	Scale 16.0 16.0 16.0
+	//Model hovers in the air on spawn
+	Offset 0.0 0.0 16.0
+	FrameIndex IONP A 0 0
+}
+//Ready / Fire
+Model IonRebounder
+{
+	Path "models/weapons/ion"
+	Skin 0 "ion.png"
+	Model 0 "IONHELD.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex IONR A 0 0
+	FrameIndex IONF A 0 1
+	FrameIndex IONF B 0 2
+	FrameIndex IONF C 0 3
+}
+//Fire 2
+Model IonRebounder
+{
+	Path "models/weapons/ion"
+	Skin 0 "ion.png"
+	Model 0 "IONHELD.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex IONF D 0 1
+	FrameIndex IONF E 0 2
+	FrameIndex IONF F 0 3
+}

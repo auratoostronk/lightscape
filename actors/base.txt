@@ -61,21 +61,3 @@ ACTOR LSSpawnerBase
 	+CLIENTSIDEONLY
 	+NONETID
 }
-
-Actor SphereReadyBase
-{
-	//Properties
-	Renderstyle Add
-	Radius 2
-	Height 2
-	Alpha 0.8
-	
-	//Flags
-	+SERVERNETID
-	+NOINTERACTION
-	-SOLID
-	+NOCLIP
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+BRIGHT
-}

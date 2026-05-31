@@ -4,7 +4,7 @@
 Actor ShotgunAmmo : Ammo
 {
 	+SERVERNETID
-	Inventory.MaxAmount 6
+	Inventory.MaxAmount 4
 }
 
 //------------------------------------------------------------
@@ -19,7 +19,7 @@ Actor ShotgunAltCD : Ammo
 //------------------------------------------------------------
 // Particle Splitter weapon class
 //------------------------------------------------------------
-Actor ParticleSplitter : LSWeaponBase replaces Shotgun
+Actor ParticleSplitter : LSWeaponBase
 {
 	// Shotgun pellet spread multipliers / variables
 	const float SPREAD = 1.0;
@@ -31,12 +31,12 @@ Actor ParticleSplitter : LSWeaponBase replaces Shotgun
 	args 0  // Variable used in spread calculations
 	
 	// Properties
-	Tag "Particle Splitter (Slot 3)"
+	Tag "Particle Splitter"
 	Weapon.AmmoType1 "ShotgunAmmo"
 	Weapon.AmmoType2 "ShotgunAmmo"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoUse2 1
-	Weapon.SlotNumber 3
+	Weapon.SlotNumber 1
 	Inventory.Icon "PSGPA0"
 
 	// States
@@ -62,27 +62,25 @@ Actor ParticleSplitter : LSWeaponBase replaces Shotgun
 		loop
 		
 	Fire:
-		TNT1 A 0 A_JumpIf(CallACS("CheckBotAltFire", 0) == 1, "AltFire")
-		TNT1 A 0 A_JumpIf(CallACS("WeaponFireStart", 0) == 1, "FireSuccess")
-		PSGR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
-		Goto Ready
-		
-	FireSuccess:
+		TNT1 A 0 A_GiveInventory("MainAmmoRegenCD", 999)
 		TNT1 A 0 A_FireCustomMissile("PurpleLightShoot", 0, false)
 		TNT1 A 0 A_SetArg(0, 0)
 		TNT1 A 0 A_FireCustomMissile("None", 0.0, true, 3.0, -1.0, 0, 0.0)
 		goto FireNormal1
 
 	FireNormal1:
-		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 1.0 * cos(args[0] * 360 / RING_COUNT_INNER), false, 3.0, -1.0, 0, SPREAD * 1.0 * sin(args[0] * 360 / RING_COUNT_INNER))
+		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 1.0 * cos(args[0] * 360 / RING_COUNT_INNER), false, 3.0, 6.0, 0, SPREAD * 1.0 * sin(args[0] * 360 / RING_COUNT_INNER))
+		//TNT1 A 0 A_FireBullets(SPREAD * 1.0 * cos(args[0]* 360 / RING_COUNT_INNER), SPREAD * 1.0 * sin(args[0] * 360 / RING_COUNT_INNER), -1, 4, "PSGPuff", !FBF_USEAMMO|FBF_EXPLICITANGLE, 16384)
 		TNT1 A 0 A_SetArg(0, args[0] + 1)
 		TNT1 A 0 A_JumpIf(args[0] < RING_COUNT_INNER, "FireNormal1")
 		TNT1 A 0 A_SetArg(0, 0)
 		goto FireNormal2
 
 	FireNormal2:
-		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 2.0 * cos(args[0] * 360 / RING_COUNT_OUTER), false, 3.0, -1.0, 0, SPREAD * 2.0 * sin(args[0] * 360 / RING_COUNT_OUTER))
-		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 3.0 * cos(args[0] * 360 / RING_COUNT_OUTER), false, 3.0, -1.0, 0, SPREAD * 3.0 * sin(args[0] * 360 / RING_COUNT_OUTER))
+		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 2.0 * cos(args[0] * 360 / RING_COUNT_OUTER), false, 3.0, 6.0, 0, SPREAD * 2.0 * sin(args[0] * 360 / RING_COUNT_OUTER))
+		TNT1 A 0 A_FireCustomMissile("SGPellet", SPREAD * 3.0 * cos(args[0] * 360 / RING_COUNT_OUTER), false, 3.0, 6.0, 0, SPREAD * 3.0 * sin(args[0] * 360 / RING_COUNT_OUTER))
+		//TNT1 A 0 A_FireBullets(SPREAD * 2.0 * cos(args[0]* 360 / RING_COUNT_OUTER), SPREAD * 2.0 * sin(args[0] * 360 / RING_COUNT_OUTER), -1, 4, "PSGPuff", !FBF_USEAMMO|FBF_EXPLICITANGLE, 16384)
+		//TNT1 A 0 A_FireBullets(SPREAD * 3.0 * cos(args[0]* 360 / RING_COUNT_OUTER), SPREAD * 3.0 * sin(args[0] * 360 / RING_COUNT_OUTER), -1, 4, "PSGPuff", !FBF_USEAMMO|FBF_EXPLICITANGLE, 16384)
 		TNT1 A 0 A_SetArg(0, args[0] + 1)
 		TNT1 A 0 A_JumpIf(args[0] < RING_COUNT_OUTER, "FireNormal2")
 		TNT1 A 0 A_SetArg(0, 0)
@@ -91,40 +89,44 @@ Actor ParticleSplitter : LSWeaponBase replaces Shotgun
 	FireAnimNormal:
 		TNT1 A 0 A_PlaySound("ParticleSplitter/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("ParticleSplitter/FireFar", CHAN_6)
-		TNT1 A 0 A_Recoil(4.0)
 		PSGF ABC 4
-		PSGR A 4
+		PSGF C 2
 		TNT1 A 0 A_PlaySound("ParticleSplitter/Pump1", CHAN_7)
 		PSGF DEFGHIJKL 1
 		PSGF MMMMMM 1 A_SpawnItemEX("RailgunExhaustSpawner", 8.0, 0.0, 32.0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0))
 		TNT1 A 0 A_PlaySound("ParticleSplitter/Pump2", CHAN_7)
 		PSGF NOPQRSTUV 1
-		PSGR A 4
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFireDone", 0)
+		PSGR A 2
 		goto Ready
 
+		
 	AltFire:
-		TNT1 A 0 A_JumpIf(CallACS("WeaponAltFireStart", 0) == true, "AltFireSuccess")
+		TNT1 A 0 A_JumpIfInventory("MainAltCD", 1, "AltFireFail")
+		Goto AltFireSuccess
+	
+	AltFireFail:
+		TNT1 A 0 ACS_NamedExecuteAlways("AltFireFail")
 		PSGR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
 		Goto Ready
-		
+
 	AltFireSuccess:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponAltFireCD", 0, 4)
+		TNT1 A 0 A_GiveInventory("MainAmmoRegenCD", 999)
+		TNT1 A 0 A_GiveInventory("MainAltCD", 4)
 		TNT1 A 0 A_SpawnItemEX("PurpleLightShoot", 0, 0, 0)
 		TNT1 A 0 A_SetArg(0, 0)
 		TNT1 A 0 A_FireCustomMissile("None", 0.0, true, 3.0, -1.0, 0, 0.0)
 		goto FireAlt1
 
 	FireAlt1:
-		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 1.0 * cos(args[0] * 360 / ALT_RING_COUNT_INNER), false, 3.0, -1.0, 0, ALT_SPREAD * 1.0 * sin(args[0] * 360 / ALT_RING_COUNT_INNER))
+		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 1.0 * cos(args[0] * 360 / ALT_RING_COUNT_INNER), false, 3.0, 6.0, 0, ALT_SPREAD * 1.0 * sin(args[0] * 360 / ALT_RING_COUNT_INNER))
 		TNT1 A 0 A_SetArg(0, args[0] + 1)
 		TNT1 A 0 A_JumpIf(args[0] < ALT_RING_COUNT_INNER, "FireAlt1")
 		TNT1 A 0 A_SetArg(0, 0)
 		goto FireAlt2
 
 	FireAlt2:
-		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 2.0 * cos(args[0] * 360 / ALT_RING_COUNT_OUTER), false, 3.0, -1.0, 0, ALT_SPREAD * 2.0 * sin(args[0] * 360 / ALT_RING_COUNT_OUTER))
-		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 3.0 * cos(args[0] * 360 / ALT_RING_COUNT_OUTER), false, 3.0, -1.0, 0, ALT_SPREAD * 3.0 * sin(args[0] * 360 / ALT_RING_COUNT_OUTER))
+		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 2.0 * cos(args[0] * 360 / ALT_RING_COUNT_OUTER), false, 3.0, 6.0, 0, ALT_SPREAD * 2.0 * sin(args[0] * 360 / ALT_RING_COUNT_OUTER))
+		TNT1 A 0 A_FireCustomMissile("SGAltPellet", ALT_SPREAD * 3.0 * cos(args[0] * 360 / ALT_RING_COUNT_OUTER), false, 3.0, 6.0, 0, ALT_SPREAD * 3.0 * sin(args[0] * 360 / ALT_RING_COUNT_OUTER))
 		TNT1 A 0 A_SetArg(0, args[0] + 1)
 		TNT1 A 0 A_JumpIf(args[0] < ALT_RING_COUNT_OUTER, "FireAlt2")
 		TNT1 A 0 A_SetArg(0, 0)
@@ -136,6 +138,30 @@ Actor ParticleSplitter : LSWeaponBase replaces Shotgun
 		goto Ready
 	}
 }
+
+/*Actor PSGPuff : BulletPuff
+{
+	// Properties
+	Renderstyle Add
+	Alpha 0.8
+	Vspeed 0
+	Mass 0
+	
+	// Flags
+	-ALLOWPARTICLES
+	-RANDOMIZE
+	+BRIGHT
+	
+	// States
+	States
+	{
+	Spawn:
+		PSPK AA 4
+	Melee:
+		PSPK A 1 A_FadeOut(0.1)
+		loop
+	}
+}*/
 
 //------------------------------------------------------------
 // Single shotgun pellet / projectile
@@ -161,7 +187,7 @@ Actor SGPellet
 	States
 	{
 	Spawn:
-		PSPK A 2
+		PSPK A 5
 		goto Despawn
 
 	Despawn:
@@ -169,11 +195,11 @@ Actor SGPellet
 		Goto Death
 
 	XDeath:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponHit", 0, 0)
+		TNT1 A 0 A_GiveToTarget("HitSoundMedium", 1)
 		Goto Death
 
 	Death:
-		TNT1 AA 0 A_SpawnItemEx("SGPelletFX", 0.0, 0.0, 0.0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0))
+		TNT1 AA 0 A_SpawnItemEx("SGPelletFX", 0.0, 0.0, 0.0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(-4.0, 4.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
 		stop
 	}
 }
@@ -190,8 +216,7 @@ Actor SGPelletFX : LSParticleBase
 	States
 	{
 	Spawn:
-		PSPK A 4
-
+		PSPK A 3
 	Spawn1:
 		PSPK A 1 A_FadeOut(0.1)
 		loop
@@ -208,7 +233,7 @@ Actor SGAltPellet : SGPellet
 	States
 	{
 	Spawn:
-		PSPK A 4
+		PSPK A 6
 		goto Despawn
 	}
 }

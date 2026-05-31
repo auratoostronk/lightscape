@@ -1,0 +1,16 @@
+//Hit sounds
+Actor HitSoundSmall : Inventory
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 1
+}
+Actor HitSoundMedium : Inventory
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 1
+}
+Actor HitSoundLarge : Inventory
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 1
+}

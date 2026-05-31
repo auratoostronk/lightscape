@@ -1,0 +1,38 @@
+/*OptionMenu "MatchPrepWeapon"
+{
+	Position 64
+	Option "Weapon", "ls_startweap", "StartWeapons"
+	Option "Sidearm", "ls_sideweap", "Sidearms"
+	Option "Travel Ability", "ls_dash", "Dashes"
+	Option "Action Ability", "ls_active", "Actives"
+	Command "Ready up!", "ls_closeloadout"
+}
+
+OptionString "StartWeapons"
+{
+	0, 			"Plasma Carbine"
+	1, 			"Particle Splitter"
+	2,			"Tesla SMG"
+	3, 			"C-14 Energy Blaster"
+	4, 			"Flux Railgun"
+}
+
+OptionString "Sidearms"
+{
+	0, 			"Hadron Pistol"
+	1, 			"Ion Rebounder"
+}
+
+OptionString "Dashes"
+{
+	0, 			"Omni"
+	1, 			"Blink"
+}
+
+OptionString "Actives"
+{
+	0, 			"Regen Zone"
+	1, 			"Flicker Shield"
+	2, 			"Decoy Projection"
+	//3, 			"System Overdrive"
+}*/

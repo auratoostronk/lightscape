@@ -11,14 +11,48 @@ Actor WarpDashCD : Ammo
 }
 
 //Time before ammo refills
-Actor AmmoRegenCD : Ammo
+Actor MainAmmoRegenCD : Ammo
 {
 	+SERVERNETID 
-	Inventory.MaxAmount 70
+	Inventory.MaxAmount 105
+}
+//Time before ammo refills
+Actor SideAmmoRegenCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 105
 }
 
 //Number of tics before any alt-fire can be used
 Actor SharedAltFireCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 35
+}
+
+//Number of seconds before main weapon alt-fire can be used
+Actor MainAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 10
+}
+
+//Number of seconds before sidearm alt-fire can be used
+Actor SideAltCD : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 10
+}
+
+//Number of tics until MainAltCD tics up
+Actor MainAltCDTics : Ammo
+{
+	+SERVERNETID 
+	Inventory.MaxAmount 35
+}
+
+//Number of tics until SideAltCD tics up
+Actor SideAltCDTics : Ammo
 {
 	+SERVERNETID 
 	Inventory.MaxAmount 35
