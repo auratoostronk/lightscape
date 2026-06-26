@@ -10,11 +10,11 @@ Actor SMGAmmo : Ammo
 //------------------------------------------------------------
 // SMG Alt-Fire cooldown class
 //------------------------------------------------------------
-Actor SMGAltCD : Ammo
+/*Actor SMGAltCD : Ammo
 {
 	+SERVERNETID
 	Inventory.MaxAmount 105
-}
+}*/
 
 //------------------------------------------------------------
 //Tesla SMG weapon class
@@ -64,7 +64,6 @@ Actor TeslaSMG : LSWeaponBase
 		SMGF A 1 A_FireCustomMissile("SMGProjectile", 0, true, 4.0, 6.0, 0, 0)
 		SMGF B 1
 		SMGF C 1
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFireDone", 0)
 		goto Ready
 		
 	
@@ -127,7 +126,7 @@ Actor SMGProjectile
 	//Properties
     Projectile
     Speed 48
-    Damage (12)
+    Damage (10)
     Radius 6
     Height 12
     Decal "SMGMainDecal"

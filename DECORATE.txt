@@ -5,9 +5,10 @@
 #include "actors/weapons/railgun.txt"
 #include "actors/weapons/smg.txt"
 #include "actors/weapons/gamma.txt"
+#include "actors/weapons/beam.txt"
+#include "actors/weapons/flamespitter.txt"
 #include "actors/weapons/hadron.txt"
 #include "actors/weapons/ion.txt"
-//#include "actors/weapons/flamespitter.txt"
 
 #include "actors/abilities/regen.txt"
 #include "actors/abilities/shield.txt"
@@ -31,6 +32,8 @@
 
 #include "actors/decorations/crystals.txt"
 #include "actors/decorations/ship.txt"
+#include "actors/decorations/barrels.txt"
+#include "actors/decorations/pc.txt"
 
 #include "actors/player.txt"
 #include "actors/cooldowns.txt"

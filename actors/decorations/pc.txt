@@ -1,0 +1,71 @@
+//------------------------------------------------------------
+// Computer monitor prop class
+//------------------------------------------------------------
+ACTOR PCMonitor 13007
+{
+	//Doom Builder things category
+	//$Category Lightscape Decorations
+	
+	//Properties
+	Health 1
+	Radius 12
+	Height 16
+	Mass 10
+	
+	//Flags
+	+SHOOTABLE
+	+NOGRAVITY
+	+SERVERNETID
+	+BRIGHT
+	
+	//States
+	States
+	{
+	Spawn:
+		3DOB A 1
+		loop
+	Death:
+		TNT1 A 0 A_PlaySound("Props/PC/Break", CHAN_6)
+		Goto DeathCont
+	DeathCont:
+		3DOB AAAAAAAAAAAAAAAA 1 A_SpawnItemEx("PCSparksSpawner", 0, 0, 0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0))
+		3DOB A 35
+		3DOB AAAAAAAAAA 1 A_FadeOut(0.1)
+		stop
+		
+	}
+}
+ACTOR PCSparksSpawner : LSSpawnerBase
+{
+	//Properties
+    Gravity 0.5
+	
+	//Flags
+	-NOGRAVITY
+	
+	//States
+    States
+    {
+	Spawn:
+		TNT1 A 0
+		TNT1 AAAA random(1, 2) A_CustomMissile("PCSparks", 0, 0, random(0, 360), 2, random(0, 360))
+		goto Death
+    }
+}
+ACTOR PCSparks : LSParticleBase
+{
+	//Properties
+    Scale 0.05
+    Gravity 0.5
+	
+	//Flags
+	-NOGRAVITY
+	
+	//States
+    States
+    {
+	Spawn:
+		ZAP7 ABCDE 1 A_FadeOut(0.1)
+		loop
+    }
+}

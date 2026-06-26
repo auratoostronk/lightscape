@@ -178,3 +178,18 @@ Script "CheckBotAltFire" (void)
 	}
 	SetResultValue(0);
 }
+
+//For the Flamespitter's alt-fire.
+Script "PlayerDeathByCanister" (void)
+{
+	int victim = ActivatorTID();
+	SetActivatorToTarget(0); //Set Activator to the killer.
+	int killer = ActivatorTID();
+	int projid = UniqueTID();
+	//SetNetworkReplicationFlags(NETREP_UNLAGDEATH);
+	SpawnProjectile(victim, "CanisterChainReact", 0, 0, 0, 0, projid);
+	//SetNetworkReplicationFlags(0);
+	SetActivator(projid);
+	SetPointer(AAPTR_TARGET, killer);
+	Warp(projid, 0, 0, 32.0, 0, WARPF_NOCHECKPOSITION);
+}

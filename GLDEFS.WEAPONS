@@ -22,11 +22,11 @@ Object PlasmaCarbine
 /*Object Flamespitter
 {
 	Frame FLMP { light OrangeLight }
-}
+}*/
 Object BeamRifle
 {
 	Frame BRFP { light LightBlueLight }
-}*/
+}
 
 //PROJECTILES
 
@@ -215,6 +215,51 @@ pointlight RailOrbFXLight
     size 4
 }
 
+//Beam Rifle
+//Objects
+Object BeamRailTrail
+{
+	Frame LSPK { light BeamRayLight }
+}
+Object BeamAltRailTrail
+{
+	Frame LSPK { light BeamRayLight }
+}
+Object BeamHitPuff
+{
+	Frame ZAP6 { light BeamHitLight }
+}
+Object BeamAltHitPuff
+{
+	Frame ZAP6 { light BeamAltHitLight }
+}
+Object BeamHitSparks
+{
+	Frame ZAP6 { light BeamSparks }
+}
+//Lights
+pulselight BeamHitLight
+{
+    color 0.5 0.5 1.0
+    size 32
+	secondarysize 16
+	interval 0.6
+	offset 0 0 -4
+}
+pulselight BeamAltHitLight
+{
+    color 0.5 0.5 1.0
+    size 64
+	secondarysize 16
+	interval 0.6
+	offset 0 0 -4
+}
+pointlight BeamSparks
+{
+    color 0.5 0.5 1.0
+    size 4
+}
+
 //COLOR LIGHTS 
 pointlight RedLight
 {
@@ -255,4 +300,104 @@ pointlight GreyLight
 {
     color 0.8 0.8 0.8
     size 16
+}
+
+//Weapon flashes
+object RedLightShoot
+{
+	frame TNT1 { light RedLightShoot }
+}
+object GreenLightShoot
+{
+	frame TNT1 { light GreenLightShoot }
+}
+object BlueLightShoot
+{
+	frame TNT1 { light BlueLightShoot }
+}
+object YellowLightShoot
+{
+	frame TNT1 { light YellowLightShoot }
+}
+object PurpleLightShoot
+{
+	frame TNT1 { light PurpleLightShoot }
+}
+object OrangeLightShoot
+{
+	frame TNT1 { light OrangeLightShoot }
+}
+object LightBlueLightShoot
+{
+	frame TNT1 { light LightBlueLightShoot }
+}
+object GrayLightShoot
+{
+	frame TNT1 { light GrayLightShoot }
+}
+
+//Weapon flashes
+pulselight RedLightShoot
+{
+    color 1.0 0.0 0.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+} 
+pulselight GreenLightShoot
+{
+    color 0.0 1.0 0.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+} 
+pulselight BlueLightShoot
+{
+    color 0.0 0.0 1.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+} 
+pulselight YellowLightShoot
+{
+    color 1.0 1.0 0.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+} 
+pulselight PurpleLightShoot
+{
+    color 0.2 0.0 0.8
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+}
+pulselight OrangeLightShoot
+{
+    color 1.0 0.5 0.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+}
+pulselight LightBlueLightShoot
+{
+    color 0.5 0.5 1.0
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
+}
+pulselight GrayLightShoot
+{
+    color 0.5 0.5 0.5
+    size 64
+	//secondarysize 96
+	interval 0.12
+    offset 0 48 0
 }

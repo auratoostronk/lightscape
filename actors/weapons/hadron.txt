@@ -58,15 +58,15 @@ ACTOR HadronPistol : LSWeaponBase
 		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(10, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "HadronRailTrail", 5.0)
+		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(10, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "HadronRailTrail", 5.0)
+		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(10, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 8.0, 0, "HadronRailTrail", 5.0)
+		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		HPSR A 12
 		goto Ready
@@ -90,7 +90,7 @@ ACTOR HadronPistol : LSWeaponBase
 		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
 		TNT1 A 0 A_PlaySound("Items/RailSphere/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("Items/RailSphere/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(80, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronAltHitPuff", 0, 0, 16384.0, 1, 2.0, 0, "RailTrail", 5.0)
+		TNT1 A 0 A_RailAttack(60, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronAltHitPuff", 0, 0, 16384.0, 1, 2.0, 0, "RailTrail", 5.0)
 		HPSF E 2 A_RailAttack(0, 5.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "RailTrail2", 5.0)
 		TNT1 AAAA 0 A_SpawnItemEX("RailgunExhaustSpawner", 8.0, 0.0, 32.0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0))
 		HPSF FGH 2

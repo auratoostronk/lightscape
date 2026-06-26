@@ -7,3 +7,4 @@ player
 map
 active
 damage
+loadout

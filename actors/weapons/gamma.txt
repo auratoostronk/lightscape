@@ -10,11 +10,11 @@ Actor GammaAmmo : Ammo
 //------------------------------------------------------------
 // C-14 Alt-Fire cooldown class
 //------------------------------------------------------------
-Actor C14AltCD : Ammo
+/*Actor C14AltCD : Ammo
 {
 	+SERVERNETID 
 	Inventory.MaxAmount 280
-}
+}*/
 
 //------------------------------------------------------------
 // C-14 weapon class

@@ -34,7 +34,7 @@ FreeformMenu "MatchPrepWeapon"
 	Command
 	{
 		VisibilityCVar ls_startweap, 0, 0
-		Command "set ls_startweap 4"
+		Command "set ls_startweap 5"
 		Pos -96, 48
 		Size 32, 32
 		Background "ARROWLF"
@@ -108,7 +108,7 @@ FreeformMenu "MatchPrepWeapon"
 	Command
 	{
 		VisibilityCVar ls_startweap, 4, 4
-		Command "set ls_startweap 0"
+		Command "set ls_startweap 5"
 		Pos 96, 48
 		Size 32, 32
 		Background "ARROWRT"
@@ -118,7 +118,49 @@ FreeformMenu "MatchPrepWeapon"
 	Command
 	{
 		VisibilityCVar ls_startweap, 4, 4
-		Command "set ls_startweap 3"
+		Command "set ls_startweap 0"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Beam Rifle Arrows
+	//Next
+	Command
+	{
+		VisibilityCVar ls_startweap, 5, 5
+		Command "set ls_startweap 6"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	//Back
+	Command
+	{
+		VisibilityCVar ls_startweap, 5, 5
+		Command "set ls_startweap 4"
+		Pos -96, 48
+		Size 32, 32
+		Background "ARROWLF"
+		SelectedBackground "ARROWLF2"
+	}
+	//Flamespitter Arrows
+	//Next
+	Command
+	{
+		VisibilityCVar ls_startweap, 6, 6
+		Command "set ls_startweap 0"
+		Pos 96, 48
+		Size 32, 32
+		Background "ARROWRT"
+		SelectedBackground "ARROWRT2"
+	}
+	//Back
+	Command
+	{
+		VisibilityCVar ls_startweap, 6, 6
+		Command "set ls_startweap 5"
 		Pos -96, 48
 		Size 32, 32
 		Background "ARROWLF"
@@ -212,6 +254,36 @@ FreeformMenu "MatchPrepWeapon"
 		Text "Fires a powerful railgun attack with a slow rate of fire. Alt-fire blasts an orb that knocks enemies away."
 	}
 	
+	//Beam Rifle
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 5, 5
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Fires a mid-ranged continuous beam attack. Alt-fire fires long range hitscan attacks at a moderate rate of fire."
+	}
+	
+	//Flamespitter
+	Label
+	{
+		Background "BG_WEAP"
+		VisibilityCVar ls_startweap, 6, 6
+		Pos -128, 128
+		Size 256, 64
+		MaxTextWidth 224
+		Anchor left, top
+		Padding 12, 12
+		Font SMALLFNT
+		FontColor Red
+		Text "Continuously spews fourth flames with limitted range. Alt-Fire lobs an oil canister that makes the target explode when dying to fire damage."
+	}
+	
 	//Previous menu
 	Command
 	{
@@ -250,6 +322,8 @@ OptionString "StartWeapons"
 	2,			"Tesla SMG"
 	3, 			"C-14 Energy Blaster"
 	4, 			"Flux Railgun"
+	5, 			"Beam Rifle"
+	6, 			"Flamespitter"
 }
 
 OptionString "BGStartWeapons"
@@ -259,6 +333,8 @@ OptionString "BGStartWeapons"
 	2, 			"SMGMENU"
 	3,			"C14MENU"
 	4, 			"RAILMENU"
+	5, 			"BRFMENU"
+	6, 			"FLMMENU"
 }
 
 FreeformMenu "MatchPrepWeapon2"
@@ -337,7 +413,7 @@ FreeformMenu "MatchPrepWeapon2"
 		Text "> DESCRIPTION"
 	}
 	
-	//Pulse Rebounder
+	//Hadron Pistol
 	Label
 	{
 		Background "BG_WEAP"
@@ -349,9 +425,10 @@ FreeformMenu "MatchPrepWeapon2"
 		Padding 12, 12
 		Font SMALLFNT
 		FontColor Red
-		Text "Fires moderate-speed plasma orbs at a fast rate of fire. Alt-Fire increases fire rate and makes projectiles bounce back to the user."
+		Text "Shoots a burst of micro rail attacks in quick succession. Alt-Fire charges a more powerful rail attack after a short delay."
 	}
-	//Hadron Pistol
+	
+	//Ion Rebounder
 	Label
 	{
 		Background "BG_WEAP"
@@ -363,7 +440,7 @@ FreeformMenu "MatchPrepWeapon2"
 		Padding 12, 12
 		Font SMALLFNT
 		FontColor Red
-		Text "Shoots a burst of micro rail attacks in quick succession. Alt-Fire charges a more powerful rail attack after a short delay."
+		Text "Fires moderate-speed plasma orbs at a fast rate of fire. Alt-Fire increases fire rate and makes projectiles bounce back to the user."
 	}
 	
 	//Previous menu

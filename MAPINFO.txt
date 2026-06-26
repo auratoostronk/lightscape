@@ -124,8 +124,17 @@ map LSDM10 lookup "Excavation"
 	levelnum = 10
 	sky1 = "DFIRESKY", 0
 	music = "SABOTAGE"
-	next = "LSDM01"
+	next = "LSDM11"
 	PreviewPic = "PPICDM10"
+	AllowRespawn
+}
+map LSDM11 lookup "Harbor"
+{
+	levelnum = 11
+	sky1 = "OLOSSKY", 0
+	music = "THRYASIS"
+	next = "LSDM01"
+	PreviewPic = "PPICDM11"
 	AllowRespawn
 }
 
@@ -138,4 +147,13 @@ map LSDL01 lookup "Desolation"
 	next = "LSDL01"
 	PreviewPic = "PPICDL01"
 	AllowRespawn
+}
+
+// Duel maps
+map LSSP01 lookup "Abandonment"
+{
+	levelnum = 201
+	sky1 = "SNOWSKY", 0
+	music = "ONSLAUGH"
+	PreviewPic = "PPICSP01"
 }

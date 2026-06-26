@@ -10,6 +10,7 @@ Actor LightscapePlayer : PlayerPawn
 	Player.MaxHealth 100
 	Player.MugshotMaxHealth -1
 	Player.ViewHeight 48.0
+	MaxStepHeight 20
 	
 	//Doom-Like Movement
 	Player.ForwardMove 1.6, 0.8
@@ -27,8 +28,8 @@ Actor LightscapePlayer : PlayerPawn
 	Player.AirAcceleration 0.2
 	Player.GroundAcceleration 12.0
 	Player.GroundFriction 6.0
-	Player.ForwardMove 1.8, 0.9
-	Player.SideMove 1.8, 0.9
+	Player.ForwardMove 1.2, 0.6
+	Player.SideMove 1.4, 0.7
 	Player.JumpZ 8.0*/
 	
 	
@@ -64,6 +65,9 @@ Actor LightscapePlayer : PlayerPawn
 	Pain.SMGMelee:
 		TNT1 A 0 A_GiveInventory("TeslaMeleeProtection", 1)
 		Goto Pain
+	Pain.FlamespitterAlt:
+		TNT1 A 0 A_GiveInventory("CanisterDebuffTics", 105)
+		Goto Pain
 	Death:
 		PLAY H 12
 		PLAY I 12 A_PlayerScream
@@ -78,6 +82,17 @@ Actor LightscapePlayer : PlayerPawn
 		PLAY QRST 5
 		PLAY U -1
 		stop
-
+	Death.FlamespitterAlt:
+		TNT1 A 0 ACS_NamedExecuteAlways("PlayerDeathByCanister")
+		Goto Death
+	XDeath.FlamespitterAlt:
+		TNT1 A 0 ACS_NamedExecuteAlways("PlayerDeathByCanister")
+		Goto XDeath
+	Death.FlamespitterFlames:
+		TNT1 A 0 A_JumpIfInventory("CanisterDebuffTics", 1, "Death.FlamespitterAlt")
+		Goto Death
+	XDeath.FlamespitterFlames:
+		TNT1 A 0 A_JumpIfInventory("CanisterDebuffTics", 1, "XDeath.FlamespitterAlt")
+		Goto XDeath
 	}
 }

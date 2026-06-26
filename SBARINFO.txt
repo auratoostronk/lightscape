@@ -90,6 +90,16 @@ statusbar normal, forcescaled
 		drawImage "ALT_RAIL", 400, 400;
 		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
 	}
+	IsSelected "BeamRifle"
+	{
+		drawImage "ALT_BEAM", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "Flamespitter"
+	{
+		drawImage "ALT_FLM", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
 	IsSelected "IonRebounder"
 	{
 		drawImage "ALT_ION", 400, 400;
@@ -191,6 +201,16 @@ statusbar fullscreen, forcescaled
 	IsSelected "FluxRailgun"
 	{
 		drawImage "ALT_RAIL", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "BeamRifle"
+	{
+		drawImage "ALT_BEAM", 400, 400;
+		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
+	}
+	IsSelected "Flamespitter"
+	{
+		drawImage "ALT_FLM", 400, 400;
 		DrawNumber 3, "BIGFONT", yellow, ammo MainAltCD, Interpolate(120), 440, 400, 1, white, 0, red, 35;
 	}
 	IsSelected "IonRebounder"

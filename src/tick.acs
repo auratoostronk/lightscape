@@ -148,6 +148,12 @@ function void applySpeedModifiers(void)
 	TakeInventory("TeslaSpeedBoostTics", 1);
 }
 
+function void spawnCanisterFX(void)
+{
+	int latspread = 12.0;
+	SpawnForced("CanisterFX", GetActorX(0) + Random(-latspread, latspread), GetActorY(0) + Random(-latspread, latspread), GetActorZ(0) + 24.0, 0, 0);
+}
+
 script "CooldownTimers" ENTER
 {
 	while(true)
@@ -164,6 +170,13 @@ script "CooldownTimers" ENTER
 			tickHealthRegen();
 			tickActionCD();
 			tickAltCD();
+			
+			if(CheckInventory("CanisterDebuffTics") > 0)
+			{
+				spawnCanisterFX();
+			}
+			TakeInventory("CanisterDebuffTics", 1);
+			
 			applySpeedModifiers();
 			
 			/*if(CheckInventory("IsDashing") > 0)

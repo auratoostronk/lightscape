@@ -97,7 +97,7 @@ Script "UseDiscSphere" (void)
 {
 	PlaySound(0, "Items/DiscSphere/Charge", CHAN_6, 1.0, false);
 	PlaySound(0, "Items/DiscSphere/ChargeFar", CHAN_7, 1.0, false);
-	delay(8);
+	delay(12);
 	StopSound(0, CHAN_6);
 	GiveInventory("SphereJustUsed", 1);
 	TakeInventory("DiscSphereInUse", 1);
@@ -114,8 +114,8 @@ Script "UseRailSphere" (void)
 {
 	PlaySound(0, "Items/RailSphere/Charge", CHAN_6, 1.0, false);
 	PlaySound(0, "Items/RailSphere/ChargeFar", CHAN_7, 1.0, false);
-	GiveInventory("RailSphereCharge", 20);
-	for(int i = 0; i < 20; i++)
+	GiveInventory("RailSphereCharge", 40);
+	for(int i = 0; i < 40; i++)
 	{
 		delay(1);
 		//Make sure the rail cancels if the user dies.

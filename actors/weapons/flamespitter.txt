@@ -10,11 +10,11 @@ Actor FlameAmmo : Ammo
 //------------------------------------------------------------
 // Flamespitter Alt-Fire cooldown class
 //------------------------------------------------------------
-Actor FlameAltCD : Ammo
+/*Actor FlameAltCD : Ammo
 {
 	+SERVERNETID 
 	Inventory.MaxAmount 210
-}
+}*/
 
 //------------------------------------------------------------
 // Flamespitter weapon class
@@ -59,55 +59,68 @@ ACTOR Flamespitter : LSWeaponBase
 		Loop
 		
 	Fire:
-		TNT1 A 0 A_JumpIf(CallACS("CheckBotAltFire", 0) == 1, "AltFire")
-		TNT1 A 0 A_JumpIf(CallACS("WeaponFireStart", 0) == 1, "FireSuccess")
-		FLMR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
-		Goto Ready
-		
-	FireSuccess:
 		FLMR A 6 A_PlayWeaponSound("Flamespitter/FlameStart")
 		TNT1 A 0 A_PlaySound("Flamespitter/FlameLoop", CHAN_WEAPON, 1.0, true)
-		FLMF A 2
-		Goto FireFlames
-		
-	FireFlames:
-		TNT1 A 0 ACS_NamedExecuteAlways("OnWeaponFired", 0)
-		FLMF BB 1 A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, -0.5, 0, afrandom(-2.0, 2.0))
-		FLMF CC 1 A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, -0.5, 0, afrandom(-2.0, 2.0))
-		TNT1 A 0 A_Refire("FireFlames")
-		FLMF D 2 A_StopSound(CHAN_WEAPON)
-		TNT1 A 0 A_PlayWeaponSound("Flamespitter/FlameStop")
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFinishFiring", 0)
+		goto HoldNormal
+	HoldNormal:
+		TNT1 A 0 A_GiveInventory("MainAmmoRegenCD", 999)
+		TNT1 A 0 A_Jump(256, "HoldNormalLeft", "HoldNormalUp", "HoldNormalRight", "HoldNormalDown")
+	HoldNormalLeft:
+		FLMF B 1 offset(0, 24) A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, 5.0, 0, afrandom(-2.0, 2.0))
+		TNT1 A 0 A_ReFire("HoldNormal")
+		Goto FireStop
+	HoldNormalUp:
+		FLMF B 1 offset(8, 16) A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, 5.0, 0, afrandom(-2.0, 2.0))
+		TNT1 A 0 A_ReFire("HoldNormal")
+		Goto FireStop
+	HoldNormalRight:
+		FLMF B 1 offset(16, 24) A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, 5.0, 0, afrandom(-2.0, 2.0))
+		TNT1 A 0 A_ReFire("HoldNormal")
+		Goto FireStop
+	HoldNormalDown:
+		FLMF B 1 offset(8, 32) A_FireCustomMissile("FlamespitterProjectile", afrandom(-2.0, 2.0), true, 3.0, 5.0, 0, afrandom(-2.0, 2.0))
+		TNT1 A 0 A_ReFire("HoldNormal")
+		Goto FireStop
+	FireStop:
+		FLMF C 2 A_GiveInventory("MainAmmoRegenCD", 999)
+		TNT1 A 0 A_StopSound(CHAN_WEAPON)
+		FLMF D 2 A_PlayWeaponSound("Flamespitter/FlameStop")
+		FLMF EFGHIJKLLKJIHGFE 1
 		Goto Ready
 		
 	AltFire:
-		TNT1 A 0 A_JumpIf(CallACS("WeaponAltFireStart", 0) == true, "AltFireSuccess")
-		CARR A 1 A_WeaponReady(WRF_NOPRIMARY|WRF_NOSECONDARY)
-		Goto Ready
-
-	AltFireSuccess:
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponAltFireCD", 0, 8)
-		TNT1 A 0 A_SpawnItemEX("OrangeLightShoot", 0, 0, 0)
-		TNT1 A 0 A_PlaySound("GrenadeLaunch", CHAN_WEAPON)
+		TNT1 A 0 A_JumpIfInventory("MainAltCD", 1, "AltFireFail")
+		TNT1 A 0 A_GiveInventory("MainAmmoRegenCD", 999)
+		TNT1 A 0 A_GiveInventory("MainAltCD", 8)
+		TNT1 A 0 A_SpawnItemEX("OrangeLightShoot")
+		TNT1 A 0 A_PlaySound("C14/AltFire", CHAN_WEAPON)
+		//TNT1 A 0 A_PlaySound("Flamespitter/AltFireFar", CHAN_6)
 		TNT1 A 0 A_Recoil(4)
-		TNT1 A 0 Bright A_FireCustomMissile("FlamespitterCanister", 0.0, true, 2.0, -1.0)
+		TNT1 A 0 Bright A_FireCustomMissile("FlamespitterCanister", 0.0, true, 2.0, 5.0)
 		FLMF EFGHIJKLLKJIHGFE 1
-		TNT1 A 0 ACS_NamedExecuteAlways("WeaponFinishFiring", 0)
 		Goto Ready
 		
-	AltFail:
+	AltFireFail:
 		TNT1 A 0 ACS_NamedExecuteAlways("AltFireFail")
 		FLMR A 1 A_WeaponReady(WRF_NOSECONDARY)
 		Goto Ready
+		
+	}
 }
 
-const float flame_slowscale = 0.7;
+Actor CanisterDebuffTics : Inventory
+{
+	+SERVERNETID
+	Inventory.MaxAmount 105
+}
+
 Actor FlamespitterProjectile
 {
+	// Properties
 	Projectile
 	Speed 40
-	Radius 12
-	Height 24
+	Radius 8
+	Height 12
 	Damage (3)
 	Scale 0.25
 	Renderstyle Add
@@ -115,12 +128,19 @@ Actor FlamespitterProjectile
 	DamageType "FlamespitterFlames"
 	Obituary "%k > \ciFlamespitter\c- > %o"
 	Decal "Scorch"
+	
+	// Flags
 	+BRIGHT
 	+DONTSPLASH
 	+RIPPER
+	
+	// Flame projectile velocity slow amount.
+	const float flame_slowscale = 0.7;
+	
+	// States
 	States
 	{
-		Spawn:
+	Spawn:
 		OFLM A 4 nodelay A_SetScale(scalex + frandom(-0.05, 0.05), scaley + frandom(-0.05, 0.05))
 		TNT1 A 0 A_SetScale(scalex + 0.1, scaley + 0.1)
 		OFLM B 4 A_ChangeVelocity(velx * flame_slowscale, vely * flame_slowscale, velz * flame_slowscale, CVF_REPLACE)
@@ -135,44 +155,43 @@ Actor FlamespitterProjectile
 		TNT1 A 0 A_SetScale(scalex + 0.1, scaley + 0.1)
 		OFLM G 4 A_ChangeVelocity(velx * flame_slowscale, vely * flame_slowscale, velz * flame_slowscale, CVF_REPLACE)
 		Goto Death
-		Death:
+	Death:
 		TNT1 A 1
 		stop
 	}
 }
-
-const int canister_range = 256;
+// Canister blast radii
+const int CANISTER_RANGE_OUTER = 192;
+const int CANISTER_RANGE_INNER = 64;
 
 Actor FlamespitterCanister
 {
 	Projectile
 	Speed 48
 	Radius 8
-	Height 16
+	Height 12
 	Damage (0)  
 	Scale 0.8
 	Obituary "%k > \ciFlamespitter\c- > %o"
 	+BRIGHT
 	-NOGRAVITY
 	Gravity 1.0
-	DamageType "FlamespitterCanister"
+	DamageType "FlamespitterAlt"
 	ProjectileKickBack 20
 	Decal "PlasmaScorchLower"
+	
+	
+	// States
 	States
 	{
 	Spawn:
 		FCAN A 16
 		Goto Death
 	Death:
-		TNT1 A 0 A_Stop
-		TNT1 A 0 A_SpawnItemEx("ExplodeHitFlash",0,0,0,0,0,0,0,SXF_TRANSFERPOINTERS)
-		TNT1 A 0 A_SpawnItemEx("ExplodeHitFlash2",0,0,0,0,0,0,0,SXF_TRANSFERPOINTERS)
-		TNT1 A 0 A_SpawnItem("ExplodeSmokeRing")
-		TNT1 AAAAA 0 A_SpawnItemEx("ExplodeSmoke",0,0,0,frandom(-2,2),frandom(-2,2),frandom(-2,2))
-		TNT1 AAAA 0 A_CustomMissile("ExplodeSmokeSpawner",0,0,random(0,360),2,random(0,360))
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
 		TNT1 A 0 A_SpawnItemEX("GasolineSplash")
 		TNT1 A 0 A_Quake(1, 6, 0, 256)
-		TNT1 A 0 A_Explode(50, 192, 0, true, 64)
+		TNT1 A 0 A_Explode(50, CANISTER_RANGE_OUTER, 0, true, CANISTER_RANGE_INNER)
 		TNT1 A 105 //Make sure this is here for unlagged to work
 		stop
 		
@@ -180,7 +199,7 @@ Actor FlamespitterCanister
 }
 Actor GasolineSplash
 {
-	Scale 0.6
+	Scale 0.4
 	+NONETID
 	+NOINTERACTION
 	+CLIENTSIDEONLY
@@ -190,7 +209,7 @@ Actor GasolineSplash
 	{
 	Spawn:
 		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEX("GasolineDroplet", frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0))
-		GSPL AABBCCDDAABBCCDD 1 A_SetScale(scalex + 0.025, scaley + 0.025)
+		GSPL AABBCCDDAABBCCDD 1 A_SetScale(scalex + 0.0125, scaley + 0.0125)
 		GSPL AABBCCDD 1 A_FadeOut(0.1)
 		stop
 	}
@@ -233,10 +252,10 @@ Actor CanisterChainReact
 	Height 24
 	Damage (0)  
 	Scale 1.6
-	Obituary "%k > \ciFlamespitter (Combustible Canister)\c- > %o"
+	Obituary "%k > \ciFlamespitter (Alt)\c- > %o"
 	+DONTSPLASH
 	+BRIGHT
-	DamageType "FlamespitterCanister"
+	DamageType "FlamespitterAlt"
 	ProjectileKickBack 20
 	Decal PlasmaScorchLower
 	States
@@ -246,58 +265,54 @@ Actor CanisterChainReact
 		Goto Death
 	Death:
 		DMFX DEFG 3
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -canister_range, 0.0, 32.0, 0.0, 0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, canister_range, 32.0, 0, 0.0, 0)
-		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -canister_range, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", -CANISTER_RANGE_OUTER, 0.0, 32.0, 0.0, 0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
+		TNT1 A 0 A_SpawnItemEX("CanisterChainReactFX", 0.0, -CANISTER_RANGE_OUTER, 32.0, 0, 0.0, 0)
 		TNT1 A 0 A_SetAngle(angle + 10)
-		TNT1 A 0 A_SpawnItemEx("ExplodeHitFlash",0,0,0,0,0,0,0,SXF_TRANSFERPOINTERS)
-		TNT1 A 0 A_SpawnItemEx("ExplodeHitFlash2",0,0,0,0,0,0,0,SXF_TRANSFERPOINTERS)
-		TNT1 A 0 A_SpawnItem("ExplodeSmokeRing")
-		TNT1 AAAAA 0 A_SpawnItemEx("ExplodeSmoke",0,0,0,frandom(-2,2),frandom(-2,2),frandom(-2,2))
-		TNT1 AAAA 0 A_CustomMissile("ExplodeSmokeSpawner",0,0,random(0,360),2,random(0,360))
-		TNT1 A 0 A_Quake(2, 8, 0, canister_range)
-		TNT1 A 0 A_Explode(50, canister_range, 0, false, canister_range)
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 A 0 A_Quake(2, 8, 0, CANISTER_RANGE_OUTER)
+		TNT1 A 0 A_Explode(50, CANISTER_RANGE_OUTER, 0, false, CANISTER_RANGE_OUTER)
 		DMFX H 2
 		TNT1 A 105 //Make sure this is here for unlagged to work
 		stop
@@ -318,11 +333,6 @@ Actor CanisterChainReactFX
 		stop
 		
 	}
-}
-Actor CanisterDebuff : Inventory
-{
-	+SERVERNETID
-	Inventory.MaxAmount 105
 }
 Actor CanisterFX
 {

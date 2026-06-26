@@ -10,3 +10,4 @@ defaultbind f sphere
 addkeysection "Lightscape Binds" LSBinds
 addmenukey "Dash" +user1
 addmenukey "Active" active
+addmenukey "Throw Sphere" sphere

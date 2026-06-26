@@ -16,11 +16,10 @@ DefaultListMenu
 ListMenu "MainMenu"
 {
 	StaticPatch 0, 24, "LSTITLE"
-	TextItem "Singleplayer", "p", "ZA_SkirmishMenuNew"
-	TextItem "Multiplayer", "s", "ZA_Browser"
+	TextItem "Play Offline", "p", "ZA_SkirmishMenuNew"
+	//TextItem "Multiplayer", "s", "ZA_Browser"
 	TextItem "Loadout", "m", "MatchPrepWeapon"
 	TextItem "Options", "o", "OptionsMenuNew"
-	TextItem "Legacy Options", "l", "OptionsMenu"//"OptionsMenuNew"
 	TextItem "Quit", "q", "QuitMenu"
 }
 OptionMenu ZA_SkirmishMenuNew
@@ -31,7 +30,7 @@ OptionMenu ZA_SkirmishMenuNew
 	Option		"Gamemode",				"menu_skirmishgamemode",		"ZA_Gamemode"
 	StaticText 	" "
 	Option		"Bot Skill",			"menu_skirmishbotskill",	ZA_Skill
-	SubMenu		"Bot Setup",			"ZA_BotSetup"
+	SubMenu		"Bot List",				"ZA_BotSetup"
 	StaticText ""
 	Submenu 	"Game Settings",		"GameplayOptionsNew"
 	StaticText ""
