@@ -41,6 +41,18 @@ Model PlasmaCarbine
 	FrameIndex CARF C 0 3
 	FrameIndex CARF D 0 4
 }
+//Alt-Fire
+Model PlasmaCarbine
+{
+	Path "models/weapons/carbine"
+	Skin 0 "Carbine.png"
+	Model 0 "CARBALT.md3"
+	Scale 16.0 16.0 16.0
+	FrameIndex CARF E 0 1
+	FrameIndex CARF F 0 2
+	FrameIndex CARF G 0 3
+	FrameIndex CARF H 0 4
+}
 //2 PARTICLE SPLITTER
 //Pickup
 Model ParticleSplitter
@@ -338,12 +350,11 @@ Model C14
 	FrameIndex C14F E 0 5
 	FrameIndex C14F F 0 6
 }
-/*
-//5 FLAMESPITTER
+// FLAMESPITTER
 //Pickup
 Model Flamespitter
 {
-	Path "models/weapons/flamespitter"
+	Path "models/weapons/flamethrower"
 	Skin 0 "FLAMESPT.png"
 	Model 0 "FLAMEPIC.md3"
 	Scale 16.0 16.0 16.0
@@ -354,7 +365,7 @@ Model Flamespitter
 //Ready
 Model Flamespitter
 {
-	Path "models/weapons/flamespitter"
+	Path "models/weapons/flamethrower"
 	Skin 0 "FLAMESPT.png"
 	Model 0 "FLAMESPT.md3"
 	Scale 16.0 16.0 16.0
@@ -366,7 +377,7 @@ Model Flamespitter
 //Fire / Cooloff
 Model Flamespitter
 {
-	Path "models/weapons/flamespitter"
+	Path "models/weapons/flamethrower"
 	Skin 0 "FLAMESPT.png"
 	Model 0 "FLAMESPT.md3"
 	Scale 16.0 16.0 16.0
@@ -379,7 +390,7 @@ Model Flamespitter
 //Cooloff
 Model Flamespitter
 {
-	Path "models/weapons/flamespitter"
+	Path "models/weapons/flamethrower"
 	Skin 0 "FLAMESPT.png"
 	Model 0 "FLAMESPT.md3"
 	Scale 16.0 16.0 16.0
@@ -391,7 +402,7 @@ Model Flamespitter
 //Cooloff
 Model Flamespitter
 {
-	Path "models/weapons/flamespitter"
+	Path "models/weapons/flamethrower"
 	Skin 0 "FLAMESPT.png"
 	Model 0 "FLAMESPT.md3"
 	Scale 16.0 16.0 16.0
@@ -439,7 +450,7 @@ Model BeamRifle
 	FrameIndex BRFF F 0 4
 	FrameIndex BRFF G 0 5
 }
-
+/*
 //8 Rocket Tube
 //Pickup
 Model RocketTube
@@ -477,8 +488,7 @@ Model RocketTube
 	FrameIndex CRCF E 0 3
 	FrameIndex CRCF F 0 4
 	FrameIndex CRCF G 0 5
-}
-*/
+}*/
 //2 - 1 Hadron Pistol
 //Pickup
 Model HadronPistol

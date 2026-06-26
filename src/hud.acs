@@ -18,6 +18,7 @@ function void hudMsgError(str text)
 	SetFont("SMALLFONT");
 	HUDMessage(s:text;HUDMSG_PLAIN|HUDMSG_NOTWITHFULLMAP, MSG_ERROR, CR_UNTRANSLATED, 320.0, 280.0, 2.0);
 }
+
 /*
 Script "CDRingEnter" ENTER
 {
@@ -110,6 +111,7 @@ Script "ShowChargeRing" (int fontnum) CLIENTSIDE
 	}
 }*/
 
+//Prints a helpful message when the user is running low on / out of ammo
 Script "PrintLowAmmoWarning" ENTER CLIENTSIDE
 {
 	int fadeamt = 0.75;
@@ -236,6 +238,26 @@ Script "PrintLowAmmoWarning" ENTER CLIENTSIDE
 		delay(1);
 	}
 }
+
+//Prints a helpful message when the user is holding a sphere.
+Script "PrintSphereHelpMessage" ENTER CLIENTSIDE
+{
+	while(true)
+	{
+		for(int i = 0; i < NUM_SPHERES; i++)
+		{
+			if(CheckInventory(SPHERE_HELD[i]) > 0)
+			{
+				SetHUDSize(640, 400, false);
+				SetFont("BIGFONT");
+				HudMessage(s:"PRESS ", k:"sphere", s:" TO THROW"; HUDMSG_PLAIN|HUDMSG_ALPHA, MSG_AMMOWARNINGS, CR_WHITE, 320.0, 300.0, ONETIC_HUDMSG, 1.0);
+			}
+		}
+		delay(1);
+	}
+}
+
+//Prints a helpful message when a bandolier has been consumed.
 Script "DisplayAmmoRefilledMessage" (void) CLIENTSIDE
 {
 	SetHUDSize(640, 400, false);

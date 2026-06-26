@@ -1,4 +1,33 @@
 //------------------------------------------------------------
+//Crashed spaceship decoration
+//------------------------------------------------------------
+actor SpaceShipCrashed 13008
+{
+	//Doom Builder things category
+	//$Category Lightscape Decorations
+	
+	//Properties
+	Radius 64
+	Height 32
+	Mass 0x7ffffd
+	Renderstyle Normal
+	
+	//Flags
+	+SOLID
+	+NOGRAVITY
+	+SERVERNETID
+	
+	//States
+    States
+    {
+    Spawn:
+		TNT1 A 0 nodelay A_SpawnItemEX("SpaceshipCrashFlames", 0, 0, 16.0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-8.0, 8.0))
+        3DOB A 1 A_SpawnItemEX("SpaceshipCrashFlames", 0, 0, 16.0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-8.0, 8.0))
+        Loop
+    }
+}
+
+//------------------------------------------------------------
 //Flying spaceship decoration
 //------------------------------------------------------------
 actor SpaceShipFlying
@@ -60,17 +89,39 @@ Actor SpaceshipTrail : LSParticleBase
 Actor SpaceshipDeathFlames : LSParticleBase
 {
 	//Properties
-	Projectile
-	Speed 4
 	Scale 0.25
 	Alpha 0.3
+	Vspeed 4
 	
 	//States
 	States
 	{
 	Spawn:
-		SMOK A 1 A_FadeOut(0.05)
-		loop
+		OFLM ABCDEFG 2 nodelay A_FadeOut(0.05)
+		Goto Death
+		
+	Death:
+		TNT1 A 1
+		stop
+	}
+	
+}
+//------------------------------------------------------------
+//Spaceship crash flames
+//------------------------------------------------------------
+Actor SpaceshipCrashFlames : LSParticleBase
+{
+	//Properties
+	Scale 1.5
+	Alpha 0.5
+	Vspeed 4
+	
+	//States
+	States
+	{
+	Spawn:
+		OFLM ABCDEFG 4 nodelay A_FadeOut(0.05)
+		Goto Death
 		
 	Death:
 		TNT1 A 1

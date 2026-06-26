@@ -34,14 +34,14 @@ Actor SharedAltFireCD : Ammo
 Actor MainAltCD : Ammo
 {
 	+SERVERNETID 
-	Inventory.MaxAmount 10
+	Inventory.MaxAmount 12
 }
 
 //Number of seconds before sidearm alt-fire can be used
 Actor SideAltCD : Ammo
 {
 	+SERVERNETID 
-	Inventory.MaxAmount 10
+	Inventory.MaxAmount 12
 }
 
 //Number of tics until MainAltCD tics up

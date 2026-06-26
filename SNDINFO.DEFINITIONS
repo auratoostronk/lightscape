@@ -1,4 +1,5 @@
 //WEAPONS
+//Plasma Carbine
 PlasmaCarbine/Fire 			CARBFIRE
 PlasmaCarbine/FireFar		CARBFIRF
 PlasmaCarbine/AltFire 		CARBALTF
@@ -8,6 +9,7 @@ CARBHIT2 CARBHIT2
 CARBHIT3 CARBHIT3
 $random PlasmaCarbine/Hit { CARBHIT1 CARBHIT2 CARBHIT3 }
 
+//Particle Splitter
 PSGFIRE1 PSGFIRE1
 PSGFIRE2 PSGFIRE2
 PSGFIRE3 PSGFIRE3
@@ -23,6 +25,7 @@ $random ParticleSplitter/AltFireFar	{ PSGFIRF1 PSGFIRF2 PSGFIRF3 PSGFIRF4 }
 ParticleSplitter/Pump1		PSGPUMP1
 ParticleSplitter/Pump2		PSGPUMP2
 
+//Tesla SMG
 TeslaSMG/Fire				SMGFIRE
 TeslaSMG/FireFar			SMGFIREF
 TeslaSMG/AltCharge			SMGALTC
@@ -33,12 +36,14 @@ TeslaSMG/AltFinish			SMGALTF
 TeslaSMG/AltFinishFar		SMGALTFF
 TeslaSMG/AltFireHit			SMGHIT
 
+//Flux Railgun
 FluxRailgun/Fire			RAILFIRE
 FluxRailgun/FireFar			RAILFIRF
 FluxRailgun/AltFire			RAILALT
 FluxRailgun/AltFireFar		RAILALTF
 FluxRailgun/Hiss			RAILHISS
 
+//C14
 C14/Fire					C14FIRE
 C14/FireFar					C14FIREF
 C14/AltFire					C14ALTF
@@ -51,10 +56,19 @@ C14HIT2 C14HIT2
 C14HIT3 C14HIT3
 $random C14/Hit { C14HIT1 C14HIT2 C14HIT3 } 
 
+//Beam Rifle
+BeamRifle/Fire			BEAMFIRE
+BeamRifle/FireFar		BEAMFFAR
+BeamRifle/AltFire		BEAMALTF
+BeamRifle/AltFireFar	BEAMAFAR
+
+//Flamespitter
 Flamespitter/FlameStart SGFLAME1
 Flamespitter/FlameLoop 	SGFLAME2
 Flamespitter/FlameStop	SGFLAME3
 
+//SIDEARMS
+//Hadron Pistol
 HADFIRE1 HADFIRE1
 HADFIRE2 HADFIRE2
 HADFIRE3 HADFIRE3
@@ -68,6 +82,7 @@ HADFIRF5 HADFIRF5
 $random HadronPistol/Fire			{ HADFIRE1 HADFIRE2 HADFIRE3 HADFIRE4 HADFIRE5 }
 $random HadronPistol/FireFar		{ HADFIRF1 HADFIRF2 HADFIRF3 HADFIRF4 HADFIRF5 }
 
+//Ion Rebounder
 IONFIRE1 IONFIRE1
 IONFIRE2 IONFIRE2
 IONFIRE3 IONFIRE3

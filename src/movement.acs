@@ -179,7 +179,8 @@ Script "BlinkDash" (int predicting, int pressed, int released, int buttons)
 				//Create a tele fog, play a sound, grant the user invis + invuln.
                 SpawnSpotFacingForced("TeleportFog", 0, 0);
                 PlaySound(0, "Dash/Blink/Start", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
-				SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NONE);
+				SetActorProperty(0, APROP_RENDERSTYLE, STYLE_ADD);
+				SetActorProperty(0, APROP_ALPHA, 0.0);
                 SetActorFlag(0, "SHOOTABLE", false);
                 SetActorFlag(0, "INVISIBLE", true);
 				DropInventory(0, "RedFlag");
@@ -243,6 +244,7 @@ Script "BlinkActive" (int predicting, int pressed, int released, int buttons)
 		//Play sound, remove invis + invuln, spawn telefog.
 		PlaySound(0, "Dash/Blink/Done", CHAN_AUTO, 1.0, false, ATTN_NORM, false);
 		SetActorProperty(0, APROP_RENDERSTYLE, STYLE_NORMAL);
+		SetActorProperty(0, APROP_ALPHA, 1.0);
 		SetActorFlag(0, "SHOOTABLE", true);
 		SetActorFlag(0, "INVISIBLE", false);
 		SpawnSpotFacingForced("TeleportFog", 0, 0);

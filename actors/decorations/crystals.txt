@@ -4,7 +4,7 @@
 ACTOR CrystalBase
 {
 	//Doom Builder things category
-	//$Category Lightscape Decorations
+	//$Category Lightscape Decorations (Crystals)
 	
 	//Properties
 	Radius 16

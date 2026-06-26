@@ -5,7 +5,7 @@
 
 #libdefine PLAYER_TIDOFFSET 1000
 #libdefine MAX_PLAYERS 64
-#libdefine NUM_WEAPS 5
+#libdefine NUM_WEAPS 7
 #libdefine NUM_SIDEWEAPS 2
 #libdefine NUM_ACTIVES 3
 #libdefine NUM_DASHES 2
@@ -14,9 +14,9 @@
 #libdefine UTID_MIN 1100
 #libdefine UTID_LIMIT 10000
 
-str WEAP_ACTORS[NUM_WEAPS] = 	{"PlasmaCarbine", 	"ParticleSplitter", 	"TeslaSMG", 	"C14", 			"FluxRailgun"};//,		 	"Flamespitter", 	"BeamRifle"};
-str WEAP_AMMOS[NUM_WEAPS] = 	{"CarbineAmmo", 	"ShotgunAmmo", 			"SMGAmmo", 		"GammaAmmo",	"RailAmmo"};//,		  	"FlameAmmo", 		"BeamAmmo"};
-//str WEAP_ALTCDS[NUM_WEAPS] = 	{"CarbineAltCD", 	"ShotgunAltCD", 		"SMGAltCD", 	"GammaAltCD",	"RailAltCD"};//,		  	"FlameAmmo", 		"BeamAmmo"};
+str WEAP_ACTORS[NUM_WEAPS] = 	{"PlasmaCarbine", 	"ParticleSplitter", 	"TeslaSMG", 	"C14", 			"FluxRailgun", 		"BeamRifle",		 	"Flamespitter"};
+str WEAP_AMMOS[NUM_WEAPS] = 	{"CarbineAmmo", 	"ShotgunAmmo", 			"SMGAmmo", 		"GammaAmmo",	"RailAmmo", 		"BeamAmmo",		  		"FlameAmmo"};
+//str WEAP_ALTCDS[NUM_WEAPS] = 	{"CarbineAltCD", 	"ShotgunAltCD", 		"SMGAltCD", 	"GammaAltCD",	"RailAltCD"};//,		  	"FlameAmmo"};
 //int WEAP_ALTCDS_AMT[NUM_WEAPS] = {6,				4, 						3,				10,				8};
 
 str SIDEWEAP_ACTORS[NUM_SIDEWEAPS] = 	{"HadronPistol", 	"IonRebounder"};

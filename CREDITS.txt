@@ -52,8 +52,11 @@ SOUNDS
 !	Particle Splitter Pump - Some Youtube video that no longer exists???
 !	Flamespitter - Ripped from a game called Starbound.
 	Explosion sounds - ZapSplat.
-! 	Hadron Pistol Fire - 99Sounds.
-!	Ion Rebounder - 99Sounds.
+ 	Hadron Pistol Fire - 99Sounds.
+	Ion Rebounder - 99Sounds.
+	Beam Rifle Fire - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
+	Beam Rifle Alt-Fire - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
+	Beam Rifle Alt-Fire (Charge) - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
 
 	-UI Sounds-
 ! 	Energy Ready sound - Halo Infinite
@@ -72,7 +75,7 @@ SOUNDS
 	Snow ambience - auratoostronk.
 	Teleport - BOOM sound library.
 ! 	Jump Pad - from Diabotical
-!	Spaceship Flyby - Zapsplat
+	Spaceship Flyby - Zapsplat
 !	Spaceship Fire - From a doom mod called DULA.
 	
 	-Sphere sounds-
@@ -103,13 +106,25 @@ SPRITES
 	Power Cell - auratoostronk
 	Afterburner - auratoostronk
 	Weapon Upgrade - auratoostronk
-! 	Player Sprites - Strife
+! 	Player Sprites - Strife, modifications by auratoostronk
 	Holding Sprites - auratoostronk
 ! 	Forcefield Sprite - Unknown
 ! 	Item Fog - From Freedoom, modified by auratoostronk.
+
+	All weapon held/pickup sprites made by auratoostronk.
 ! 	Flamespitter flames - Taken from Realm667 Incubus (Credit: Banjo Software (HacX), Daniel)
 !	Flamespitter Alt-Fire - Realm667. Credits listed: Marty Kirra, 3d Realms, id Software, Midway Entertainment
 !	Flamespitter Splash FX - Taken from Reds Overworld.
+!	C14 Fire Projectile - Taken from Project MSX by MagSigmaX https://forum.zdoom.org/viewtopic.php?t=25836
+!	C14 Grenade - Taken from Ben2k9's Cyberbaron from Realm667.com . Credits go to him and id software.
+! 	C14 Gas Sprites - Made by StormSlayer.
+!	Tesla SMG Projectiles - Taken from Strife. Recolored by auratoostronk.
+!	Spark Cannon Puff - Taken from Strife. Recolored by auratoostronk.
+!	Spark Cannon Alt-Fire Projectiles - Taken from Hexen and recolored by auratoostronk.
+!	Beam Rifle Puff - Taken from Strife. Recolored by auratoostronk.
+!	Flamespitter Flames - Taken from Realm667 Incubus (Credit: Banjo Software (HacX), Daniel)
+!	Flamespitter Fire Barrage - Taken from Hexen (Credit: Raven Software)
+!	Flamespitter Alt-Fire - Realm667. Credits listed: Marty Kirra, 3d Realms, id Software, Midway Entertainment
 
 TEXTURES
 ! 	Textures were taken from various licensed game texture libraries (Creative Commons) and modified by StormSlayer using Photoshop and Substance.

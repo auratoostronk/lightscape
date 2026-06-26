@@ -159,7 +159,7 @@ ACTOR DiscSphereProjectile
 		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("DiscSphereProjectileImpactFX", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0, SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_Quake(2, 8, 0, 384)
 		TNT1 A 0 A_Explode(10, RADIUS_OUTER, XF_HURTSOURCE)
-		TNT1 A 0 A_Explode(8, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
+		TNT1 A 0 A_Explode(5, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
 		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
 		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")

@@ -38,6 +38,7 @@ ACTOR GreenLightShoot : LSLightBase {}
 ACTOR PurpleLightShoot : LSLightBase {}
 ACTOR YellowLightShoot : LSLightBase {}
 ACTOR OrangeLightShoot : LSLightBase {}
+ACTOR LightBlueLightShoot : LSLightBase {}
 ACTOR GrayLightShoot : LSLightBase{}
 
 ACTOR RedGlowSpawner : LSLightBase {}
