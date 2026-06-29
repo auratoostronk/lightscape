@@ -58,14 +58,16 @@ ACTOR FluxRailgun : LSWeaponBase
 		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
 		TNT1 A 0 A_PlaySound("FluxRailgun/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("FluxRailgun/FireFar", CHAN_7)
-		TNT1 A 0 A_RailAttack(80, 2.0, true, "none", "none", RGF_SILENT, 0.0, "RailHitPuff", 0, 0, 16384.0, 1, 2.0, 0, "RailTrail", 6.0)
-		SPKF D 2 A_RailAttack(0, 2.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "RailTrail2", 6.0)
+		TNT1 A 0 A_RailAttack(60, 2.0, true, "none", "none", RGF_SILENT, 0.0, "RailHitPuff", 0, 0, 16384.0, 1, 2.0, 0, "RailTrail", 6.0)
+		SPKF D 4 A_RailAttack(0, 2.0, false, "none", "none", RGF_SILENT, 0.0, "None", 0, 0, 16384.0, 1, 256.0, 0, "RailTrail2", 6.0)
 		SPKF E 4
 		SPKF FGHIJKLMNOPQ 1
-		SPKF Q 4
-		SPKF Q 4 A_PlaySound("FluxRailgun/Hiss", CHAN_6)
+		SPKF Q 8
+		TNT1 A 0 A_PlaySound("FluxRailgun/Rechamber", CHAN_5)
+		TNT1 A 0 A_SpawnItemEX("RedBulletCasing", 8.0, 0.0, 32.0, frandom(0.0, 2.0), frandom(2.0, 8.0), frandom(4.0, 8.0))
 		TNT1 AAAA 0 A_SpawnItemEX("RailgunExhaustSpawner", 8.0, 0.0, 32.0, frandom(-1.0, 1.0), frandom(-1.0, 1.0), frandom(-1.0, 1.0))
-		SPKF Q 4
+		SPKF Q 12 A_PlaySound("FluxRailgun/Hiss", CHAN_6)
+		SPKF Q 8
 		SPKF QPONMLKJIHGF 1
 		goto Ready
 		
@@ -103,7 +105,7 @@ ACTOR RailgunExhaustSpawner : LSSpawnerBase
 	{
 	Spawn:
 		TNT1 A 0
-		TNT1 AAAA 0 A_SpawnItemEx("RailgunExhaust", 0, 0, 0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-2.0, 2.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
+		TNT1 AAAAAA 0 A_SpawnItemEx("RailgunExhaust", 0, 0, 0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-2.0, 2.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
 		stop
 	}
 }
@@ -187,20 +189,26 @@ Actor RailHitPuff : BulletPuff
 	// States
 	States
 	{
+	
 	Spawn:
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEx("RailHitFX", 0, 0, 0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
-		TNT1 A 1 A_SpawnItemEX("RailHitSmokeSpawner")
-		stop
-
 	Crash:
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RailHitFX", 0, 0, 0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
-		TNT1 A 1 A_SpawnItemEX("RailHitSmokeSpawner")
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 nodelay A_SpawnItemEx("RailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("RailSphereBlast")
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 A 0 A_Quake(5.0, 12, 0, 256)
+		TNT1 A 0 A_Explode(20, 96, XF_HURTSOURCE, true, 64)
+		RSPK AAAAAAAAAA 3 A_FadeOut(0.1)
+		TNT1 A 105
 		stop
-
 	XDeath:
 		TNT1 A 0 A_GiveToTarget("HitSoundLarge", 1)
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RailHitFX", 0, 0, 0, frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(-8.0, 8.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
-		TNT1 A 1 A_SpawnItemEX("RailHitSmokeSpawner")
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx("RailHitFX", 0, 0, 0, frandom(-16, 16), frandom(-16, 16), frandom(-16, 16))
+		TNT1 A 0 A_SpawnItemEx("RailSphereBlast")
+		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
+		TNT1 A 0 A_Quake(5.0, 12, 0, 256)
+		TNT1 A 0 A_Explode(20, 96, XF_HURTSOURCE, true, 64)
+		RSPK AAAAAAAAAA 3 A_FadeOut(0.1)
+		TNT1 A 35
 		stop
 	}
 }

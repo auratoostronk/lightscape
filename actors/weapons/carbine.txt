@@ -23,7 +23,7 @@ ACTOR PlasmaCarbine : LSWeaponBase
 {
 	// Vertical recoil constant.
 	// Recoil resets before the next shot is fired, thus this is visual-only
-	const float CARBINE_RECOIL = 0.4;
+	const float CARBINE_RECOIL = 0.8;
 
 	// Properties
 	Tag "Plasma Carbine"
@@ -61,6 +61,7 @@ ACTOR PlasmaCarbine : LSWeaponBase
 		TNT1 A 0 A_SpawnItemEX("BlueLightShoot")
 		TNT1 A 0 A_PlaySound("PlasmaCarbine/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("PlasmaCarbine/FireFar", CHAN_6)
+		//TNT1 A 0 A_SpawnItemEX("BlueBulletCasing", 8.0, 0.0, 32.0, frandom(0.0, 2.0), frandom(2.0, 8.0), frandom(4.0, 8.0))
 		TNT1 A 0 A_FireCustomMissile("PlasmaProjectile", 0.0, true, 4.0, 6.0, 0, 0.0)
 		CARF A 1 A_SetPitch(pitch - CARBINE_RECOIL)
 		CARF B 1 A_SetPitch(pitch + CARBINE_RECOIL * 0.5)
@@ -215,7 +216,7 @@ Actor PlasmaGrenade
 		TNT1 A 0 A_SpawnItemEx("PlasmaGrenadeDeathFX")
 		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("PlasmaGrenadeDeathDot", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0)
 		TNT1 AAAAAAAAAAAAAAAA 0 A_SpawnItemEx("PlasmaGrenadeDeathSpark", 0, 0, 0, frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(-16.0, 16.0), 0)
-		TNT1 A 0 A_Quake(2, 8, 0, 384)
+		TNT1 A 0 A_Quake(4.0, 8, 0, RADIUS_OUTER * 4)
 		TNT1 A 0 A_Explode(50, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_INNER)
 		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)

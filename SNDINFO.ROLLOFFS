@@ -36,6 +36,9 @@ $rolloff HadronPistol/FireFar 800 3200
 $rolloff HadronPistol/AltFire 800 3200 
 $rolloff HadronPistol/AltFireFar 1600 6400 
 
+$volume Weapon/Casing 0.1
+$rolloff Weapon/Casing 0 100
+
 //ACTIVE ITEMS
 $rolloff Items/HadronRail/Charge 400 800 
 $rolloff Items/HadronRail/ChargeFar 800 3200 

@@ -190,7 +190,7 @@ Actor FlamespitterCanister
 	Death:
 		TNT1 A 0 A_SpawnItemEx("ExplosionSpawner")
 		TNT1 A 0 A_SpawnItemEX("GasolineSplash")
-		TNT1 A 0 A_Quake(1, 6, 0, 256)
+		TNT1 A 0 A_Quake(2.0, 6, 0, CANISTER_RANGE_OUTER * 2.0)
 		TNT1 A 0 A_Explode(50, CANISTER_RANGE_OUTER, 0, true, CANISTER_RANGE_INNER)
 		TNT1 A 105 //Make sure this is here for unlagged to work
 		stop

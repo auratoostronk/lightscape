@@ -57,6 +57,8 @@ SOUNDS
 	Beam Rifle Fire - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
 	Beam Rifle Alt-Fire - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
 	Beam Rifle Alt-Fire (Charge) - BOOM Library Cyber Weapon FX. https://www.boomlibrary.com/sound-effects/cyber-weapons/ 
+	Weapon Casing - made by auratoostronk.
+	Gun Handling sounds - made by auratoostronk.
 
 	-UI Sounds-
 ! 	Energy Ready sound - Halo Infinite
@@ -67,6 +69,9 @@ SOUNDS
 	Error - Zapsplat
 	Weapon Hit - Zapsplat
 	Kill enemy - auratoostronk
+	
+	-Player Sounds-
+	Made by auratoostronk.
 	
 	-In Game sounds-
 	Armor pickup sounds - auratoostronk.
@@ -110,6 +115,7 @@ SPRITES
 	Holding Sprites - auratoostronk
 ! 	Forcefield Sprite - Unknown
 ! 	Item Fog - From Freedoom, modified by auratoostronk.
+	Weapon Casing - made by auratoostronk.
 
 	All weapon held/pickup sprites made by auratoostronk.
 ! 	Flamespitter flames - Taken from Realm667 Incubus (Credit: Banjo Software (HacX), Daniel)

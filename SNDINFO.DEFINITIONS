@@ -39,6 +39,7 @@ TeslaSMG/AltFireHit			SMGHIT
 //Flux Railgun
 FluxRailgun/Fire			RAILFIRE
 FluxRailgun/FireFar			RAILFIRF
+FluxRailgun/Rechamber		GNHNDL3
 FluxRailgun/AltFire			RAILALT
 FluxRailgun/AltFireFar		RAILALTF
 FluxRailgun/Hiss			RAILHISS
@@ -100,6 +101,13 @@ $random IonRebounder/FireEmpowered			{ IONFIRE1 IONFIRE2 IONFIRE3 IONFIRE4 IONFI
 $random IonRebounder/FireEmpoweredFar		{ IONFIRF1 IONFIRF2 IONFIRF3 IONFIRF4 IONFIRF5 }
 IonRebounder/AltFire				RAILALT
 IonRebounder/AltFireFar				RAILALTF
+
+//SHELLS
+CASING1 CASING1
+CASING2 CASING2
+CASING3 CASING3
+CASING4 CASING4
+$random Weapon/Casing { CASING1 CASING2 CASING3 CASING4 }
 
 //EXPLOSIONS
 EXPLOSC1 EXPLOSC1

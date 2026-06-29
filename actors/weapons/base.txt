@@ -21,3 +21,52 @@ ACTOR LSWeaponBase : Weapon
 	+SERVERNETID
 	
 }
+
+
+//------------------------------------------------------------
+// Weapon casing
+//------------------------------------------------------------
+ACTOR RedBulletCasing : LSBouncingParticleBase
+{
+	// Properties
+	Renderstyle Normal
+	Scale 0.6
+	Gravity 1.0
+	BounceFactor 0.6
+	BounceCount 7
+	BounceSound "Weapon/Casing"
+	
+	// States
+	States
+	{
+	Spawn:
+		CASE ABCD 2
+		loop
+	Death:
+		TNT1 A 0 A_Jump(64, "Death1", "Death2", "Death3", "Death4")
+		Goto Death1
+	Death1:
+		CASL A 10
+		CASL AAAAAAAAAA 1 A_FadeOut(0.1)
+		stop
+	Death2:
+		CASL B 10
+		CASL BBBBBBBBBB 1 A_FadeOut(0.1)
+		stop
+	Death3:
+		CASL C 10
+		CASL CCCCCCCCCC 1 A_FadeOut(0.1)
+		stop
+	Death4:
+		CASL D 10
+		CASL DDDDDDDDDD 1 A_FadeOut(0.1)
+		stop
+	}
+}
+//------------------------------------------------------------
+// Weapon casing
+//------------------------------------------------------------
+ACTOR BlueBulletCasing : RedBulletCasing
+{
+	Translation "168:191=192:207"
+}

@@ -58,14 +58,17 @@ ACTOR HadronPistol : LSWeaponBase
 		TNT1 A 0 A_SpawnItemEX("RedLightShoot")
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
+		//TNT1 A 0 A_SpawnItemEX("RedBulletCasing", 8.0, 0.0, 32.0, frandom(0.0, 2.0), frandom(2.0, 8.0), frandom(4.0, 8.0))
 		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
+		//TNT1 A 0 A_SpawnItemEX("RedBulletCasing", 8.0, 0.0, 32.0, frandom(0.0, 2.0), frandom(2.0, 8.0), frandom(4.0, 8.0))
 		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		TNT1 A 0 A_PlaySound("HadronPistol/Fire", CHAN_WEAPON)
 		TNT1 A 0 A_PlaySound("HadronPistol/FireFar", CHAN_7)
+		//TNT1 A 0 A_SpawnItemEX("RedBulletCasing", 8.0, 0.0, 32.0, frandom(0.0, 2.0), frandom(2.0, 8.0), frandom(4.0, 8.0))
 		TNT1 A 0 A_RailAttack(15, 5.0, true, "none", "none", RGF_SILENT, 0.0, "HadronHitPuff", 0, 0, 16384.0, 1, 4.0, 0, "HadronRailTrail", 5.0)
 		HPSF FGH 1
 		HPSR A 12

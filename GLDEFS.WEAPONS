@@ -341,7 +341,7 @@ pulselight RedLightShoot
 {
     color 1.0 0.0 0.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 } 
@@ -349,7 +349,7 @@ pulselight GreenLightShoot
 {
     color 0.0 1.0 0.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 } 
@@ -357,7 +357,7 @@ pulselight BlueLightShoot
 {
     color 0.0 0.0 1.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 } 
@@ -365,7 +365,7 @@ pulselight YellowLightShoot
 {
     color 1.0 1.0 0.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 } 
@@ -373,7 +373,7 @@ pulselight PurpleLightShoot
 {
     color 0.2 0.0 0.8
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 }
@@ -381,7 +381,7 @@ pulselight OrangeLightShoot
 {
     color 1.0 0.5 0.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 }
@@ -389,7 +389,7 @@ pulselight LightBlueLightShoot
 {
     color 0.5 0.5 1.0
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 }
@@ -397,7 +397,7 @@ pulselight GrayLightShoot
 {
     color 0.5 0.5 0.5
     size 64
-	//secondarysize 96
+	secondarysize 96
 	interval 0.12
     offset 0 48 0
 }

@@ -6,7 +6,7 @@ Actor LightscapePlayer : PlayerPawn
 	Height 56
 	Mass 100
 	PainChance 255
-	GibHealth 50
+	GibHealth 25
 	Player.MaxHealth 100
 	Player.MugshotMaxHealth -1
 	Player.ViewHeight 48.0
