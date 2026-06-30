@@ -24,13 +24,13 @@ ACTOR LSWeaponBase : Weapon
 
 
 //------------------------------------------------------------
-// Weapon casing
+// Weapon casings
 //------------------------------------------------------------
 ACTOR RedBulletCasing : LSBouncingParticleBase
 {
 	// Properties
 	Renderstyle Normal
-	Scale 0.6
+	Scale 0.8
 	Gravity 1.0
 	BounceFactor 0.6
 	BounceCount 7
@@ -63,10 +63,12 @@ ACTOR RedBulletCasing : LSBouncingParticleBase
 		stop
 	}
 }
-//------------------------------------------------------------
-// Weapon casing
-//------------------------------------------------------------
 ACTOR BlueBulletCasing : RedBulletCasing
 {
+	Scale 0.6
 	Translation "168:191=192:207"
+}
+ACTOR PurpleBulletCasing : RedBulletCasing
+{
+	Translation "168:191=250:254"
 }
