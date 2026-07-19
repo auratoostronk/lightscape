@@ -82,6 +82,30 @@ Decal ShotgunMainDecal
 	lowerdecal RailScorchLower
 	animator GoAway
 }
+Decal BeamMainDecal
+{
+	pic LSPKB0
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal RailScorchLower
+	animator GoAway
+}
+Decal BeamAltDecal
+{
+	pic LSPKB0
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+	add 1.0
+	fullbright
+	lowerdecal BigScorch
+	animator GoAway
+}
 Decal CrackDecal 1
 {
 	pic BSPKB0

@@ -1,12 +1,12 @@
 Actor PDecoy
 {
-	// Properties
+	//Properties
 	Speed 28
 	Radius 16
 	Height 56
 	Monster
 	
-	// Flags
+	//Flags
 	-SOLID
 	+NODAMAGE
 	+CANPASS
@@ -16,10 +16,10 @@ Actor PDecoy
 	-NOGRAVITY
 	+BRIGHT
 	
-	// Lifespan
+	//Lifespan
 	args 0
 	
-	// States
+	//States
 	States
 	{
 	Spawn:

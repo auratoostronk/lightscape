@@ -13,7 +13,7 @@ Actor RailSpherePickup : CustomInventory 12101
 	Inventory.MaxAmount 1
 	Inventory.PickupMessage "Rail Sphere - Charge a powerful sniper attack."
 	Inventory.PickupSound "Pickups/Sphere"
-	Inventory.RespawnTics 700 // 20 seconds
+	Inventory.RespawnTics 700 //20 seconds
 	//Scale 0.5
 	Tag "Rail Sphere"
 	
@@ -97,7 +97,9 @@ Actor RailSphereReadyFX : SphereReadyBase
 //------------------------------------------------------------
 Actor RailSphereFire : CustomInventory
 {
-
+	//Properties
+	DamageType "Sphere"
+	
 	//Flags
 	+SERVERNETID
 	+INVENTORY.AUTOACTIVATE
@@ -168,6 +170,7 @@ Actor RailSphereHitPuff : BulletPuff
 	Scale 0.3
 	ProjectileKickBack 100
 	Obituary "%k > \cgRail Sphere\c- > %o"
+	DamageType "Sphere"
 
 	//Flags
 	+ALWAYSPUFF
@@ -201,14 +204,14 @@ Actor RailSphereHitPuff : BulletPuff
 }
 
 //------------------------------------------------------------
-// Sniper Sphere death effect (expanding ring)
+//Sniper Sphere death effect (expanding ring)
 //------------------------------------------------------------
 Actor RailSphereBlast : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 1.0
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -220,19 +223,19 @@ Actor RailSphereBlast : LSParticleBase
 
 
 //------------------------------------------------------------
-// Sniper Sphere hit visual particle
+//Sniper Sphere hit visual particle
 //------------------------------------------------------------
 Actor RailSphereHitFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 2.0
 	Gravity 0.5
 
-	// Flags
+	//Flags
 	-NOGRAVITY
 	-NOINTERACTION
 
-	// States
+	//States
 	States
 	{
 	Spawn:

@@ -1,6 +1,6 @@
 //------------------------------------------------------------
-// If a sphere was fired recently, uses this to block players 
-// from firing again.
+//If a sphere was fired recently, uses this to block players 
+//from picking up a new sphere
 //------------------------------------------------------------
 Actor SphereJustUsed : Inventory
 {
@@ -13,7 +13,7 @@ Actor SphereJustUsed : Inventory
 }
 
 //------------------------------------------------------------
-// Held Sphere base class
+//Held Sphere base class
 //------------------------------------------------------------
 Actor SphereReadyBase
 {

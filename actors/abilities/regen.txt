@@ -1,17 +1,17 @@
-// ------------------------------------------------------------
-// Regen Zone logic actor
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Regen Zone logic actor
+//------------------------------------------------------------
 Actor RZoneSpawner
 {
-	// Properties
+	//Properties
 	args 0
 
-	// Flags
+	//Flags
 	-SOLID
 	+NOGRAVITY
 	+BRIGHT
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -42,15 +42,15 @@ Actor RZoneSpawner
 	}
 }
 
-// ------------------------------------------------------------
-// Regen Zone radius visual
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Regen Zone radius visual
+//------------------------------------------------------------
 Actor RZoneRadiusFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.5
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -62,16 +62,16 @@ Actor RZoneRadiusFX : LSParticleBase
 	}
 }
 
-// ------------------------------------------------------------
-// Regen Zone particle visual
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Regen Zone particle visual
+//------------------------------------------------------------
 Actor RZoneFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Alpha 0.0
 	Scale 0.5
 
-	// States
+	//States
 	States
 	{
 	Spawn:

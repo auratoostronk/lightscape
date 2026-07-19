@@ -24,11 +24,11 @@ ACTOR LSWeaponBase : Weapon
 
 
 //------------------------------------------------------------
-// Weapon casings
+//Weapon casings
 //------------------------------------------------------------
 ACTOR RedBulletCasing : LSBouncingParticleBase
 {
-	// Properties
+	//Properties
 	Renderstyle Normal
 	Scale 0.8
 	Gravity 1.0
@@ -36,7 +36,7 @@ ACTOR RedBulletCasing : LSBouncingParticleBase
 	BounceCount 7
 	BounceSound "Weapon/Casing"
 	
-	// States
+	//States
 	States
 	{
 	Spawn:

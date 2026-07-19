@@ -1,12 +1,12 @@
-// ------------------------------------------------------------
-// Explosion spawner
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosion spawner
+//------------------------------------------------------------
 ACTOR ExplosionSpawner : LSSpawnerBase
 {
-	// Flags
+	//Flags
 	+NOGRAVITY
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -18,12 +18,12 @@ ACTOR ExplosionSpawner : LSSpawnerBase
 	}
 }
 
-// ------------------------------------------------------------
-// Explosion smoke spawner
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosion smoke spawner
+//------------------------------------------------------------
 ACTOR ExplosionSmokeSpawner : LSSpawnerBase
 {
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -33,22 +33,22 @@ ACTOR ExplosionSmokeSpawner : LSSpawnerBase
 	}
 }
 
-// ------------------------------------------------------------
-// Explosion smoke particle
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosion smoke particle
+//------------------------------------------------------------
 ACTOR ExplosionSmoke : LSParticleBase
 {
-	// Properties
+	//Properties
 	Alpha 0.0
 	Scale 0.2
 	Speed 2
 	VSpeed 7
 
-	// Flags
+	//Flags
 	+NOGRAVITY
 	+FORCEXYBILLBOARD
 
-	// States
+	//States
 	States
 	{
 	Spawn:

@@ -1,5 +1,5 @@
 //------------------------------------------------------------
-// Shotgun ammo class
+//Shotgun ammo class
 //------------------------------------------------------------
 Actor ShotgunAmmo : Ammo
 {
@@ -8,7 +8,7 @@ Actor ShotgunAmmo : Ammo
 }
 
 //------------------------------------------------------------
-// Shotgun Alt-Fire cooldown class
+//Shotgun Alt-Fire cooldown class
 //------------------------------------------------------------
 /*Actor ShotgunAltCD : Ammo
 {
@@ -17,20 +17,20 @@ Actor ShotgunAmmo : Ammo
 }*/
 
 //------------------------------------------------------------
-// Particle Splitter weapon class
+//Particle Splitter weapon class
 //------------------------------------------------------------
 Actor ParticleSplitter : LSWeaponBase
 {
-	// Shotgun pellet spread multipliers / variables
+	//Shotgun pellet spread multipliers / variables
 	const float SPREAD = 1.0;
 	const float ALT_SPREAD = 0.6;
-	const int RING_COUNT_INNER = 5;       // Inner ring
-	const int RING_COUNT_OUTER = 10;      // Both outer rings
-	const int ALT_RING_COUNT_INNER = 6;   // Inner ring (alt fire)
-	const int ALT_RING_COUNT_OUTER = 12;  // Both outer rings (alt fire)
-	args 0  // Variable used in spread calculations
+	const int RING_COUNT_INNER = 5;       //Inner ring
+	const int RING_COUNT_OUTER = 10;      //Both outer rings
+	const int ALT_RING_COUNT_INNER = 6;   //Inner ring (alt fire)
+	const int ALT_RING_COUNT_OUTER = 12;  //Both outer rings (alt fire)
+	args 0  //Variable used in spread calculations
 	
-	// Properties
+	//Properties
 	Tag "Particle Splitter"
 	Weapon.AmmoType1 "ShotgunAmmo"
 	Weapon.AmmoType2 "ShotgunAmmo"
@@ -39,7 +39,7 @@ Actor ParticleSplitter : LSWeaponBase
 	Weapon.SlotNumber 1
 	Inventory.Icon "PSGPA0"
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -142,18 +142,18 @@ Actor ParticleSplitter : LSWeaponBase
 
 /*Actor PSGPuff : BulletPuff
 {
-	// Properties
+	//Properties
 	Renderstyle Add
 	Alpha 0.8
 	Vspeed 0
 	Mass 0
 	
-	// Flags
+	//Flags
 	-ALLOWPARTICLES
 	-RANDOMIZE
 	+BRIGHT
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -165,11 +165,11 @@ Actor ParticleSplitter : LSWeaponBase
 }*/
 
 //------------------------------------------------------------
-// Single shotgun pellet / projectile
+//Single shotgun pellet / projectile
 //------------------------------------------------------------
 Actor SGPellet
 {
-	// Properties
+	//Properties
 	Projectile
 	Radius 2
 	Height 2
@@ -180,11 +180,11 @@ Actor SGPellet
 	Decal "ShotgunMainDecal"
 	Obituary "%k > \ctParticle Splitter\c- > %o"
 
-	// Flags
+	//Flags
 	+DONTSPLASH
 	+BRIGHT
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -206,14 +206,14 @@ Actor SGPellet
 }
 
 //------------------------------------------------------------
-// Death effects for shotgun pellets
+//Death effects for shotgun pellets
 //------------------------------------------------------------
 Actor SGPelletFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.1
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -225,12 +225,12 @@ Actor SGPelletFX : LSParticleBase
 }
 
 //------------------------------------------------------------
-// Single alt-fire pellet / projectile
+//Single alt-fire pellet / projectile
 //------------------------------------------------------------
 Actor SGAltPellet : SGPellet
 {
 	Obituary "%k > \ctParticle Splitter (Alt)\c- > %o"
-	// States
+	//States
 	States
 	{
 	Spawn:

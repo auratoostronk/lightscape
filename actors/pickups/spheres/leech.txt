@@ -13,7 +13,7 @@ Actor LeechSpherePickup : CustomInventory 12102
 	Inventory.MaxAmount 1
 	Inventory.PickupMessage "Leech Sphere - Fires a projectile that siphons health."
 	Inventory.PickupSound "Pickups/Sphere"
-	Inventory.RespawnTics 700 // 20 seconds
+	Inventory.RespawnTics 700 //20 seconds
 	//Scale 0.5
 	Tag "Leech Sphere"
 	
@@ -122,6 +122,7 @@ ACTOR LeechSphereProjectile
 	Gravity 0.75
 	//SeeSound "Items/LeechSphere/Fire"
 	Obituary "%k > \cdLeech Sphere\c- > %o"
+	DamageType "Sphere"
 	
 	//Flags
 	-NOGRAVITY
@@ -172,7 +173,7 @@ ACTOR LeechSphereProjectile
 
 ACTOR LeechSphereProjectileTrail : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.25
 	States
 	{
@@ -185,13 +186,13 @@ ACTOR LeechSphereProjectileTrail : LSParticleBase
 }
 Actor LeechSphereImpactFX: LSBouncingParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.4
 	Gravity 1.0
 	BounceFactor 0.6
 	BounceCount 3
 	
-	// States
+	//States
 	States
 	{
 	Spawn:

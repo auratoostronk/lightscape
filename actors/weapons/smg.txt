@@ -8,7 +8,7 @@ Actor SMGAmmo : Ammo
 }
 
 //------------------------------------------------------------
-// SMG Alt-Fire cooldown class
+//SMG Alt-Fire cooldown class
 //------------------------------------------------------------
 /*Actor SMGAltCD : Ammo
 {
@@ -109,7 +109,7 @@ Actor TeslaSpeedBoostTics : Ammo
 }
 
 //------------------------------------------------------------
-// Protection when hit by SMG Melee attack so damage is consistent
+//Protection when hit by SMG Melee attack so damage is consistent
 //------------------------------------------------------------
 Actor TeslaMeleeProtection : PowerProtection
 {

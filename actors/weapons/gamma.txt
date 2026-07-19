@@ -1,5 +1,5 @@
 //------------------------------------------------------------
-// C-14 ammo class
+//C-14 ammo class
 //------------------------------------------------------------
 Actor GammaAmmo : Ammo
 {
@@ -8,7 +8,7 @@ Actor GammaAmmo : Ammo
 }
 
 //------------------------------------------------------------
-// C-14 Alt-Fire cooldown class
+//C-14 Alt-Fire cooldown class
 //------------------------------------------------------------
 /*Actor C14AltCD : Ammo
 {
@@ -17,15 +17,15 @@ Actor GammaAmmo : Ammo
 }*/
 
 //------------------------------------------------------------
-// C-14 weapon class
+//C-14 weapon class
 //------------------------------------------------------------
 ACTOR C14 : LSWeaponBase
 {
-	// Vertical recoil constant.
-	// Recoil resets before the next shot is fired, thus this is visual-only
+	//Vertical recoil constant.
+	//Recoil resets before the next shot is fired, thus this is visual-only
 	const float C14_RECOIL = 1.6;
 
-	// Properties
+	//Properties
 	Tag "C-14 Gamma Rifle"
 	Weapon.AmmoType1 "GammaAmmo"
 	Weapon.AmmoType2 "GammaAmmo"
@@ -34,7 +34,7 @@ ACTOR C14 : LSWeaponBase
 	Weapon.SlotNumber 1
 	Inventory.Icon "C14PA0"
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -91,11 +91,11 @@ ACTOR C14 : LSWeaponBase
 }
 
 //------------------------------------------------------------
-// C-14 main-fire projectile
+//C-14 main-fire projectile
 //------------------------------------------------------------
 Actor C14Projectile
 {
-	// Properties
+	//Properties
 	Projectile
 	Radius 4
 	Height 8
@@ -107,16 +107,16 @@ Actor C14Projectile
 	Obituary "%k > \cdC14 Gamma Rifle\c- > %o"
 	ProjectileKickBack 10
 	
-	// Flags
+	//Flags
 	+BRIGHT
 	-NOGRAVITY
-	+SEEKERMISSILE  // For hit sounds
+	+SEEKERMISSILE  //For hit sounds
 	
-	// Constants
+	//Constants
 	const int RADIUS_OUTER = 96;
 	const int RADIUS_INNER = 32;
 	
-	// States
+	//States
 	States 
 	{
 	Spawn:
@@ -150,21 +150,21 @@ Actor C14Projectile
 	FinishDeath:
 		TNT1 A 0 A_Stop
 		GGRN AAAAAAAAAA 1 A_FadeOut(0.1)
-		TNT1 A 70  // Make sure this is here for unlagged to work
+		TNT1 A 70  //Make sure this is here for unlagged to work
 		stop
 	}
 }
 
 //------------------------------------------------------------
-// C-14 main-fire projectile trail
+//C-14 main-fire projectile trail
 //------------------------------------------------------------
 Actor C14ProjectileTrail : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.1
 	Alpha 0.9
 	
-	// States
+	//States
 	States 
 	{
 	Spawn:
@@ -175,14 +175,14 @@ Actor C14ProjectileTrail : LSParticleBase
 }
 
 //------------------------------------------------------------
-// C-14 main-fire projectile death effect (expanding ring)
+//C-14 main-fire projectile death effect (expanding ring)
 //------------------------------------------------------------
 Actor C14DeathFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.6
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -193,17 +193,17 @@ Actor C14DeathFX : LSParticleBase
 }
 
 //------------------------------------------------------------
-// C-14 main-fire projectile death particles
+//C-14 main-fire projectile death particles
 //------------------------------------------------------------
 Actor C14DeathDots : LSBouncingParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.5
 	Gravity 1.5
 	BounceFactor 0.5
 	BounceCount 2
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -216,18 +216,18 @@ Actor C14DeathDots : LSBouncingParticleBase
 	}
 }
 
-// Gas damage radius
+//Gas damage radius
 const int GAS_RADIUS = 128;
 
 //------------------------------------------------------------
-// C-14 alt-fire projectile
+//C-14 alt-fire projectile
 //------------------------------------------------------------
 Actor C14GasGrenade
 {
-	// Counter for gas damage indicator spawn logic
+	//Counter for gas damage indicator spawn logic
 	args 0 
 	
-	// Properties
+	//Properties
 	Height 8
 	Radius 8
 	Speed 48
@@ -235,12 +235,12 @@ Actor C14GasGrenade
 	Projectile
 	Obituary "%k > \cdC14 (Alt Impact)\c- > %o"
 	
-	// Flags
+	//Flags
 	-NOGRAVITY
 	+NOBLOOD
 	+DONTSPLASH
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -269,11 +269,11 @@ Actor C14GasGrenade
 }
 
 //------------------------------------------------------------
-// C-14 alt-fire gas particle spawner
+//C-14 alt-fire gas particle spawner
 //------------------------------------------------------------
 Actor C14GasCloudSpawner : LSSpawnerBase
 {
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -284,16 +284,16 @@ Actor C14GasCloudSpawner : LSSpawnerBase
 }
 
 //------------------------------------------------------------
-// C-14 alt-fire gas particle
+//C-14 alt-fire gas particle
 //------------------------------------------------------------
 Actor C14GasCloud : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.6
 	Alpha 0.2
 	RenderStyle Translucent
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -308,23 +308,23 @@ Actor C14GasCloud : LSParticleBase
 }
 
 //------------------------------------------------------------
-// C-14 alt-fire gas damage actor
+//C-14 alt-fire gas damage actor
 //------------------------------------------------------------
 Actor C14GasDamage
 {
-	// Properties
+	//Properties
 	DamageType "C14Gas"
 	Obituary "%k > \cdC14 (Alt)\c- > %o"
 	args 0
 	
-	// Flags
+	//Flags
 	+THRUACTORS
 	+NOGRAVITY
 	+NODAMAGETHRUST
 	+DONTSPLASH
 	+SERVERNETID
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -340,14 +340,14 @@ Actor C14GasDamage
 }
 
 //------------------------------------------------------------
-// C-14 alt-fire gas damage indicator
+//C-14 alt-fire gas damage indicator
 //------------------------------------------------------------
 Actor C14GasDamageIndicator : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.1
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -359,7 +359,7 @@ Actor C14GasDamageIndicator : LSParticleBase
 }
 
 //------------------------------------------------------------
-// C-14 alt-fire respawn protection
+//C-14 alt-fire respawn protection
 //------------------------------------------------------------
 Actor C14RespawnProtection : PowerProtection
 {

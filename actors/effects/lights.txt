@@ -1,11 +1,11 @@
-// Actors that utilize GLDefs to make colored lights. See GLDEFS for more.
+//Actors that utilize GLDefs to make colored lights. See GLDEFS for more.
 
 ACTOR LSLightBase
 {
-	// Properties
+	//Properties
 	RenderStyle None
 	
-	// Flags
+	//Flags
 	+NOGRAVITY
 	+DONTSPLASH
 	+NOINTERACTION
@@ -13,7 +13,7 @@ ACTOR LSLightBase
 	+NONETID
 	+BRIGHT
 	
-	// States
+	//States
 	States
 	{
 	Spawn:

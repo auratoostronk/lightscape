@@ -1,5 +1,5 @@
 //------------------------------------------------------------
-// Ion ammo class
+//Ion ammo class
 //------------------------------------------------------------
 Actor IonAmmo : Ammo
 {
@@ -8,7 +8,7 @@ Actor IonAmmo : Ammo
 }
 
 //------------------------------------------------------------
-// Ion Alt-Fire cooldown class
+//Ion Alt-Fire cooldown class
 //------------------------------------------------------------
 /*Actor IonAltCD : Ammo
 {
@@ -17,14 +17,14 @@ Actor IonAmmo : Ammo
 }*/
 
 //------------------------------------------------------------
-// Ion Rebounder weapon class
+//Ion Rebounder weapon class
 //------------------------------------------------------------
 ACTOR IonRebounder : LSWeaponBase
 {
-	// Vertical recoil constant.
+	//Vertical recoil constant.
 	const float ION_RECOIL = 0.5;
 
-	// Properties
+	//Properties
 	Tag "Ion Rebounder"
 	Weapon.AmmoType1 "IonAmmo"
 	Weapon.AmmoType2 "IonAmmo"
@@ -33,7 +33,7 @@ ACTOR IonRebounder : LSWeaponBase
 	Weapon.SlotNumber 2
 	Inventory.Icon "IONPA0"
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -114,7 +114,7 @@ ACTOR IonRebounder : LSWeaponBase
 }
 
 //------------------------------------------------------------
-// Alt fire duration
+//Alt fire duration
 //------------------------------------------------------------
 Actor IonRebounderEmpoweredTics : Inventory
 {
@@ -123,11 +123,11 @@ Actor IonRebounderEmpoweredTics : Inventory
 }
 
 //------------------------------------------------------------
-// Ion projectile
+//Ion projectile
 //------------------------------------------------------------
 Actor IonProjectile
 {
-	// Properties
+	//Properties
 	Projectile
 	Radius 8
 	Height 8
@@ -138,10 +138,10 @@ Actor IonProjectile
 	RenderStyle Add
 	Obituary "%k > \cvIon Rebounder\c- > %o"
 	
-	// Flags
+	//Flags
 	+BRIGHT
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -167,7 +167,7 @@ Actor IonProjectileEmpowered : IonProjectile
 	Damage (8)
 	Decal "SparkMainDecal"
 	Obituary "%k > \cvIon Rebounder (Bounce)\c- > %o"
-	// States
+	//States
 	
 	States
 	{
@@ -191,7 +191,7 @@ Actor IonProjectileEmpowered : IonProjectile
 }
 Actor IonProjectileEmpowered2 : IonProjectileEmpowered
 {
-	// States
+	//States
 	States
 	{
 	Death:
@@ -205,18 +205,18 @@ Actor IonProjectileEmpowered2 : IonProjectileEmpowered
 }
 
 //------------------------------------------------------------
-// Ion projectile visual effects
+//Ion projectile visual effects
 //------------------------------------------------------------
 Actor IonDeathFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.8
 	
-	// Flags
+	//Flags
 	-NOGRAVITY
 	-NOINTERACTION
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -227,18 +227,18 @@ Actor IonDeathFX : LSParticleBase
 }
 
 //------------------------------------------------------------
-// Ion empowered projectile visual effects
+//Ion empowered projectile visual effects
 //------------------------------------------------------------
 Actor IonEmpoweredDeathFX : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.8
 	
-	// Flags
+	//Flags
 	-NOGRAVITY
 	-NOINTERACTION
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -249,15 +249,15 @@ Actor IonEmpoweredDeathFX : LSParticleBase
 }
 
 //------------------------------------------------------------
-// Projectile trail
+//Projectile trail
 //------------------------------------------------------------
 Actor IonProjectileTrail : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.8
 	Alpha 0.75
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -269,15 +269,15 @@ Actor IonProjectileTrail : LSParticleBase
 
 
 //------------------------------------------------------------
-// Empowered projectile trail
+//Empowered projectile trail
 //------------------------------------------------------------
 Actor IonEmpoweredProjectileTrail : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.8
 	Alpha 0.75
 
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -289,11 +289,11 @@ Actor IonEmpoweredProjectileTrail : LSParticleBase
 
 
 //------------------------------------------------------------
-// Ion Alt projectile
+//Ion Alt projectile
 //------------------------------------------------------------
 Actor IonAltProjectile
 {
-	// Properties
+	//Properties
 	Projectile
 	Radius 8
 	Height 6
@@ -304,15 +304,15 @@ Actor IonAltProjectile
 	RenderStyle Add
 	Obituary "%k > \cvIon Rebounder (Alt)\c- > %o"
 	
-	// Flags
+	//Flags
 	+BRIGHT
-	+SEEKERMISSILE  // For hit sounds
+	+SEEKERMISSILE  //For hit sounds
 	
-	// Constants
+	//Constants
 	const int RADIUS_OUTER = 160;
 	const int RADIUS_INNER = 32;
 	
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -352,23 +352,23 @@ Actor IonAltProjectile
 		goto FinishDeath
 
 	FinishDeath:
-		TNT1 A 105  // Required for unlagged
+		TNT1 A 105  //Required for unlagged
 		stop
 	}
 }
 
 //------------------------------------------------------------
-// Ion Alt projectile returning
+//Ion Alt projectile returning
 //------------------------------------------------------------
 Actor IonAltProjectile2 : IonAltProjectile
 {
 	Obituary "%k > \cvIon Rebounder (Alt Bounce)\c- > %o"
 	ProjectileKickBack 200
 	
-	// Flags
+	//Flags
 	+BRIGHT
 	
-	// States
+	//States
 	States
 	{
 	
@@ -398,21 +398,21 @@ Actor IonAltProjectile2 : IonAltProjectile
 		goto FinishDeath
 
 	FinishDeath:
-		TNT1 A 105  // Required for unlagged
+		TNT1 A 105  //Required for unlagged
 		stop
 	}
 }
 
 
 //------------------------------------------------------------
-// Projectile trail
+//Projectile trail
 //------------------------------------------------------------
 Actor IonAltProjectileTrail : LSParticleBase
 {
-	// Properties
+	//Properties
 	Scale 0.2
 
-	// States
+	//States
 	States
 	{
 	Spawn:

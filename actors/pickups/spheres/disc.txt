@@ -13,7 +13,7 @@ Actor DiscSpherePickup : CustomInventory 12100
 	Inventory.MaxAmount 1
 	Inventory.PickupMessage "Disc Sphere - Fires a barrage of bouncing projectiles"
 	Inventory.PickupSound "Pickups/Sphere"
-	Inventory.RespawnTics 700 // 20 seconds
+	Inventory.RespawnTics 700 //20 seconds
 	//Scale 0.5
 	Tag "Disc Sphere"
 	
@@ -126,6 +126,7 @@ ACTOR DiscSphereProjectile
 	SeeSound "Items/DiscSphere/Fire"
 	BounceSound "Items/DiscSphere/Bounce"
 	Obituary "%k > \chDisc Sphere\c- > %o"
+	DamageType "Sphere"
 	
 	//Flags
 	+BOUNCEONFLOORS
@@ -162,7 +163,7 @@ ACTOR DiscSphereProjectile
 		TNT1 A 0 A_Explode(5, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
 		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
-		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")
+		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER + radius, "HitSoft")
 		Goto FinishDeath
 	HitSoft:
 		TNT1 A 0 A_GiveToTarget("HitSoundSmall", 1)

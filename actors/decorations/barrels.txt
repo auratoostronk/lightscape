@@ -1,6 +1,6 @@
-// ------------------------------------------------------------
-// Decorative Barrel class
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Decorative Barrel class
+//------------------------------------------------------------
 ACTOR LSBarrel 13009
 {
 	//Doom Builder things category
@@ -16,9 +16,9 @@ ACTOR LSBarrel 13009
 		stop
 	}
 }
-// ------------------------------------------------------------
-// Explosive Barrel class
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosive Barrel class
+//------------------------------------------------------------
 ACTOR LSBarrelExplosive : ExplosiveBarrel replaces ExplosiveBarrel
 {
 	//Doom Builder things category
@@ -60,9 +60,9 @@ ACTOR LSBarrelExplosive : ExplosiveBarrel replaces ExplosiveBarrel
 	}
 }
 
-// ------------------------------------------------------------
-// Explosive Barrel Debris
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosive Barrel Debris
+//------------------------------------------------------------
 ACTOR LSBarrelExplosiveDebris1 : LSBouncingParticleBase
 {
 	RenderStyle Normal
@@ -85,12 +85,12 @@ ACTOR LSBarrelExplosiveDebris1 : LSBouncingParticleBase
 	}
 }
 
-// ------------------------------------------------------------
-// Explosion smoke spawner
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosion smoke spawner
+//------------------------------------------------------------
 ACTOR LSBarrelExplosiveFlamesSpawner : LSSpawnerBase
 {
-	// States
+	//States
 	States
 	{
 	Spawn:
@@ -100,22 +100,22 @@ ACTOR LSBarrelExplosiveFlamesSpawner : LSSpawnerBase
 	}
 }
 
-// ------------------------------------------------------------
-// Explosion smoke particle
-// ------------------------------------------------------------
+//------------------------------------------------------------
+//Explosion smoke particle
+//------------------------------------------------------------
 ACTOR LSBarrelExplosiveFlames : LSParticleBase
 {
-	// Properties
+	//Properties
 	Alpha 0.3
 	Scale 0.8
 	Speed 2
 	VSpeed 7
 
-	// Flags
+	//Flags
 	+NOGRAVITY
 	+FORCEXYBILLBOARD
 
-	// States
+	//States
 	States
 	{
 	Spawn:
