@@ -13,9 +13,9 @@
 Model PlasmaCarbine
 {
 	Path "models/weapons/carbine"
-	Skin 0 "Carbine.png"
+	Skin 0 "carbmap.png"
 	Model 0 "CARBPICK.md3"
-	Scale 16.0 16.0 16.0
+	//Scale 16.0 16.0 16.0
 	//Model hovers in the air on spawn
 	Offset 0.0 0.0 16.0
 	FrameIndex CARP A 0 0
@@ -24,22 +24,24 @@ Model PlasmaCarbine
 Model PlasmaCarbine
 {
 	Path "models/weapons/carbine"
-	Skin 0 "Carbine.png"
+	Skin 0 "carbmap.png"
 	Model 0 "CARBINE.md3"
-	Scale 16.0 16.0 16.0
-	FrameIndex CARR A 0 0
+	AngleOffset 180
+	//Scale 16.0 16.0 16.0
+	FrameIndex CARR A 0 1
 }
 //Fire
 Model PlasmaCarbine
 {
 	Path "models/weapons/carbine"
-	Skin 0 "Carbine.png"
+	Skin 0 "carbmap.png"
 	Model 0 "CARBINE.md3"
-	Scale 16.0 16.0 16.0
-	FrameIndex CARF A 0 1
-	FrameIndex CARF B 0 2
-	FrameIndex CARF C 0 3
-	FrameIndex CARF D 0 4
+	AngleOffset 180
+	//Scale 16.0 16.0 16.0
+	FrameIndex CARF A 0 2
+	FrameIndex CARF B 0 3
+	FrameIndex CARF C 0 4
+	FrameIndex CARF D 0 5
 }
 //Alt-Fire
 Model PlasmaCarbine
@@ -47,7 +49,8 @@ Model PlasmaCarbine
 	Path "models/weapons/carbine"
 	Skin 0 "Carbine.png"
 	Model 0 "CARBALT.md3"
-	Scale 16.0 16.0 16.0
+	AngleOffset 180
+	//Scale 16.0 16.0 16.0
 	FrameIndex CARF E 0 1
 	FrameIndex CARF F 0 2
 	FrameIndex CARF G 0 3
