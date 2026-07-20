@@ -8,6 +8,17 @@ Actor GammaAmmo : Ammo
 }
 
 //------------------------------------------------------------
+//C14 screen flash occurs when weapon is shot
+//------------------------------------------------------------
+Actor C14ScreenFlash : Powerup
+{
+	+SERVERNETID
+	//+INVENTORY.NOSCREENBLINK
+	Powerup.Color "00 ff 08", 0.05
+	Powerup.Duration -20
+}
+
+//------------------------------------------------------------
 //C-14 Alt-Fire cooldown class
 //------------------------------------------------------------
 /*Actor C14AltCD : Ammo
@@ -62,7 +73,9 @@ ACTOR C14 : LSWeaponBase
 		TNT1 A 0 A_PlaySound("C14/FireFar", CHAN_7)
 		TNT1 A 0 A_SpawnItemEX("GreenLightShoot", 0.0, 0.0, 8.0)
 		TNT1 A 0 A_FireCustomMissile("C14Projectile", 0.0, true, 3.0, 6.0, 0, 0.0)
+		TNT1 A 0 A_GiveInventory("C14ScreenFlash", 1)
 		C14F A 2 A_SetPitch(pitch - C14_RECOIL)
+		TNT1 A 0 A_TakeInventory("C14ScreenFlash", 1)
 		C14F BCDE 1 A_SetPitch(pitch + C14_RECOIL * 0.25)
 		C14R A 4
 		goto Ready
@@ -129,14 +142,15 @@ Actor C14Projectile
 
 	Death:
 		TNT1 A 0 A_SpawnItemEx("C14DeathFX", 0, 0, 0, 0, 0, 0, 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
-		TNT1 AAAAAA 0 A_SpawnItemEx("C14DeathDots", 0, 0, 0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(2.0, 8.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
+		TNT1 AA 0 A_SpawnItemEx("C14SmokeSpawner", 0, 0, 0, frandom(-2.0, 2.0), frandom(-2.0, 2.0), frandom(-2.0, 2.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
+		TNT1 AAAAAAAA 0 A_SpawnItemEx("C14DeathDots", 0, 0, 0, frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(2.0, 8.0), 0)//, SXF_NOUNLAGGED|SXF_SKIPOWNER)
 		TNT1 A 0 A_PlaySound("C14/Hit", CHAN_AUTO)
 		TNT1 A 0 A_Explode(18, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_INNER)
 		TNT1 A 0 A_Explode(8, RADIUS_OUTER, XF_HURTSOURCE, true, RADIUS_OUTER)
 		TNT1 A 0 A_SeekerMissile(360, 360, SMF_LOOK, 256, RADIUS_OUTER / 128)
 		TNT1 A 0 A_RearrangePointers(AAPTR_DEFAULT, AAPTR_TRACER)
-		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_INNER - radius, "HitMedium")
-		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER - radius, "HitSoft")
+		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_INNER + radius, "HitMedium")
+		TNT1 A 0 A_JumpIfMasterCloser(RADIUS_OUTER + radius, "HitSoft")
 		Goto FinishDeath
 
 	HitMedium:
@@ -180,13 +194,13 @@ Actor C14ProjectileTrail : LSParticleBase
 Actor C14DeathFX : LSParticleBase
 {
 	//Properties
-	Scale 0.6
+	Scale 0.25
 	
 	//States
 	States
 	{
 	Spawn:
-		TNT1 A 0 nodelay A_SetScale(scalex * 1.1, scaley * 1.1)
+		TNT1 A 0 nodelay A_SetScale(scalex * 1.2, scaley * 1.2)
 		GRNG A 1 A_FadeOut(0.1)
 		loop
 	}
@@ -198,7 +212,8 @@ Actor C14DeathFX : LSParticleBase
 Actor C14DeathDots : LSBouncingParticleBase
 {
 	//Properties
-	Scale 0.5
+	Scale 0.4
+	Alpha 0.8
 	Gravity 1.5
 	BounceFactor 0.5
 	BounceCount 2

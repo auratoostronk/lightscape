@@ -36,6 +36,15 @@ $rolloff HadronPistol/FireFar 800 3200
 $rolloff HadronPistol/AltFire 800 3200 
 $rolloff HadronPistol/AltFireFar 1600 6400 
 
+$rolloff BeamRifle/Fire 400 800
+$rolloff BeamRifle/FireFar 800 3200
+$rolloff BeamRifle/AltFire 400 1600
+$rolloff BeamRifle/AltFireFar 1600 6400
+
+$rolloff Flamespitter/FlameStart 200 800
+$rolloff Flamespitter/FlameLoop 400 1600
+$rolloff Flamespitter/FlameStop 200 800
+
 $volume Weapon/Casing 0.1
 $rolloff Weapon/Casing 0 100
 

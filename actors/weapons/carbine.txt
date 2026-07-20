@@ -6,6 +6,10 @@ Actor CarbineAmmo : Ammo
 	+SERVERNETID
 	Inventory.MaxAmount 60
 }
+
+//------------------------------------------------------------
+//Carbine screen flash occurs when weapon is shot
+//------------------------------------------------------------
 Actor CarbineScreenFlash : Powerup
 {
 	+SERVERNETID

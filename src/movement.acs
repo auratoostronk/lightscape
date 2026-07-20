@@ -3,8 +3,8 @@
 #import "lib.acs"
 #import "hud.acs"
 
-#define OMNI_LATTHRUST 12
-#define OMNI_VTHRUST 4
+#define OMNI_LATTHRUST 16
+#define OMNI_VTHRUST 8
 
 #define BLINK_STRENGTH 1.0
 #define BLINK_DURATION 6

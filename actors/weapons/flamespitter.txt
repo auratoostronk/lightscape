@@ -46,7 +46,7 @@ ACTOR Flamespitter : LSWeaponBase
 		Loop
 		
 	Fire:
-		FLMR A 6 A_PlayWeaponSound("Flamespitter/FlameStart")
+		FLMR A 6 A_PlaySound("Flamespitter/FlameStart", CHAN_WEAPON, 1.0)
 		TNT1 A 0 A_PlaySound("Flamespitter/FlameLoop", CHAN_WEAPON, 1.0, true)
 		goto HoldNormal
 		
